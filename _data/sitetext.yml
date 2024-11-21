@@ -43,7 +43,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
 
       - name: "Lightweight Room Layout Estimation using a Single Panoramic Image, International Conference on Control Automation and Systems, 2022"
         role: "Dayoung Kil, Seong-heum Kim"
-        image:  assets/img/papers/survey_2022.PNG
+        image:  assets/img/papers/room_2022_iccas.PNG
         social:
           - url: https://twitter.com
             icon: assets/link.png
@@ -54,7 +54,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
 
       - name: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image, Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022"
         role: "Dayoung Kil, Seong-heum Kim"
-        image:  assets/img/papers/survey_2022.PNG
+        image:  assets/img/papers/room_2022.PNG
         social:
           - url: https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719
             icon: assets/link.png
