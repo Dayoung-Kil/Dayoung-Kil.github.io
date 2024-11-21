@@ -59,6 +59,10 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     text: "Explore the work I’ve been involved in."
     section: projects
     closebutton: "Close Project"
+    caption:
+      - title: "Project Title 1"
+        subtitle: "Subtitle for Project 1"
+        thumbnail: "/path/to/thumbnail1.jpg"
 
   timeline:
     title: "Timeline"
