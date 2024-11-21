@@ -15,10 +15,10 @@ en: &DEFAULT_EN
       section: aboutme
     - title: "Publications"
       section: publications
+    - title: "Projects"
+      section: projects
     - title: "Timeline"
       section: timeline
-    - title: "Team"
-      section: team
     - title: "Contact"
       section: contact
     - title: "Theme Source"
