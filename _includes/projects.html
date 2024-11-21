@@ -16,10 +16,10 @@
                 <i class="{{ site.data.style.projects-icon | default: "fas fa-plus fa-3x" }}"></i>
               </div>
             </div>
-            <img class="img-fluid" src="{{ project.thumbnail }}" alt="">
+            <img class="img-fluid" src="{{ projects.items.thumbnail }}" alt="">
           </a>
           <div class="projects-caption">
-            <h4>{{ project.title }}</h4>
+            <h4>{{ projects.items.title }}</h4>
             <p class="text-muted">{{ project.subtitle }}</p>
           </div>
         </div>
@@ -45,11 +45,11 @@
                 <i class="{{ site.data.style.projects-icon | default: "fas fa-plus fa-3x" }}"></i>
               </div>
             </div>
-            <img class="img-fluid" src="{{ project.thumbnail }}" alt="">
+            <img class="img-fluid" src="{{ projects.items.thumbnail }}" alt="">
           </a>
           <div class="projects-caption">
             <h4>{{ project.title }}</h4>
-            <p class="text-muted">{{ project.subtitle }}</p>
+            <p class="text-muted">{{ projects.items.subtitle }}</p>
           </div>
         </div>
       {% endfor %}
