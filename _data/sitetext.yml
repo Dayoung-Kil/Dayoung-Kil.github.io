@@ -39,10 +39,10 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         desc: "Your description here, full **Markdown** support"
         icon: fab fa-markdown
 
-  portfolio:
-    title: "Portfolio"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    section: portfolio
+  projects:
+    title: "Projects"
+    text: "Explore the work I’ve been involved in."
+    section: Projects
     closebutton: "Close Project"
 
   timeline:
