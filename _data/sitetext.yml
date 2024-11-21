@@ -39,7 +39,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         role: "International Conference on Control Automation and Systems, 2022 / Dayoung Kil, Seong-heum Kim"
         image:  assets/img/papers/room_2022_iccas.png
         social:
-          - url: https://twitter.com
+          - url: https://ieeexplore.ieee.org/document/10003901
             icon: assets/link.png
       - name: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
         role: "Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022 / Dayoung Kil, Seong-heum Kim"
@@ -54,24 +54,6 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           - url: https://www.mdpi.com/2079-9292/11/6/945
             icon: assets/link.png
       
-      
-
-  # Publications:
-  #   title: "Publications"
-  #   text: "Here are my research papers."
-  #   section: publications
-  #   list:
-  #     - title: "A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration, Electronics (SCIE) 2022"
-  #       desc: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
-  #       icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-  #       url: https://www.mdpi.com/2079-9292/11/6/945
-  #     - title: "Responsive Design"
-  #       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-  #       icon: fas fa-laptop
-  #     - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-  #       desc: "Your description here, full **Markdown** support"
-  #       icon: fab fa-markdown
-
   projects:
     title: "Projects"
     text: "Explore the work I’ve been involved in."
