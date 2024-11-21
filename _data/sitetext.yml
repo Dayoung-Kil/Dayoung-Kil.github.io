@@ -57,7 +57,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
   projects:
     title: "Projects"
     text: "Explore the work I’ve been involved in."
-    section: Projects
+    section: projects
     closebutton: "Close Project"
 
   timeline:
