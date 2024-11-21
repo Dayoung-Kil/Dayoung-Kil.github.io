@@ -62,7 +62,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     caption:
       - title: "Project Title 1"
         subtitle: "Subtitle for Project 1"
-        thumbnail: "/path/to/thumbnail1.jpg"
+        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
 
   timeline:
     title: "Timeline"
