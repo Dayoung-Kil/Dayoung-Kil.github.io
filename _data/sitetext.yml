@@ -29,7 +29,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: publications
     people:
-       name: "A Study of Structure Pruning for Hybrid Neural Networks, International Conference on Control Automation and Systems, 2024"
+      - name: "A Study of Structure Pruning for Hybrid Neural Networks, International Conference on Control Automation and Systems, 2024"
         role: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
         image: assets/img/papers/survey_2022.PNG
         social:
