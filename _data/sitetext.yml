@@ -66,6 +66,18 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
         alt: "Project 1 description" # 이미지 대체 텍스트
         content: "This is a detailed description of Project 1."
+      - title: "Project Title 2"
+        subtitle: "Subtitle for Project 1"
+        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
+        image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
+        alt: "Project 1 description" # 이미지 대체 텍스트
+        content: "This is a detailed description of Project 1."
+      - title: "Project Title 3"
+        subtitle: "Subtitle for Project 1"
+        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
+        image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
+        alt: "Project 1 description" # 이미지 대체 텍스트
+        content: "This is a detailed description of Project 1."
 
   timeline:
     title: "Timeline"
