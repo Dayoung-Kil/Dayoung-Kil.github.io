@@ -23,14 +23,15 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     section: aboutme
 
 
-  services:
-    title: "Services"
+  Publications:
+    title: "Publications"
     text: "Lorem ipsum"
-    section: services
+    section: publications
     list:
-      - title: "E-Commerce"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+      - title: "A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration, Electronics (SCIE) 2022"
+        desc: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
         icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
+        url: https://www.mdpi.com/2079-9292/11/6/945
       - title: "Responsive Design"
         desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
         icon: fas fa-laptop
