@@ -14,7 +14,7 @@ en: &DEFAULT_EN
     title: Welcome to our Portfolio!
     text: So Glad to Meet You.
     button: Take a Tour of my Work
-    buttonlink: "#services"
+    buttonlink: "#publications"
   
   aboutme:
     title: "About Me"
