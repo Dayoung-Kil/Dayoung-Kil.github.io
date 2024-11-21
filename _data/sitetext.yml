@@ -23,7 +23,6 @@ en: &DEFAULT_EN
 Image Classification, Object Detection. Recently, I have focused on hybrid CNN-Transformer architecture, Pruning and Efficient Deep Learning."
     section: aboutme
 
-
   publications:
     title: "Publications"
     text: "Here are my research papers."
@@ -36,44 +35,24 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         social:
           - url: https://ieeexplore.ieee.org/document/10003901
             icon: assets/link.png
-          # - url: https://facebook.com
-          #   icon: fab fa-facebook-f
-          # - url: https://linkedin.com
-          #   icon: fab fa-linkedin-in
-
       - name: "Lightweight Room Layout Estimation using a Single Panoramic Image, International Conference on Control Automation and Systems, 2022"
         role: "Dayoung Kil, Seong-heum Kim"
         image:  assets/img/papers/room_2022_iccas.PNG
         social:
           - url: https://twitter.com
             icon: assets/link.png
-          # - url: https://facebook.com
-          #   icon: fab fa-facebook-f
-          # - url: https://linkedin.com
-          #   icon: fab fa-linkedin-in
-
       - name: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image, Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022"
         role: "Dayoung Kil, Seong-heum Kim"
         image:  assets/img/papers/room_2022.PNG
         social:
           - url: https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719
             icon: assets/link.png
-          # - url: https://facebook.com
-          #   icon: fab fa-facebook-f
-          # - url: https://linkedin.com
-          #   icon: fab fa-linkedin-in
-
-          
       - name: "A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration, Electronics (SCIE) 2022"
         role: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
         image: assets/img/papers/survey_2022.PNG
         social:
           - url: https://www.mdpi.com/2079-9292/11/6/945
             icon: assets/link.png
-          # - url: https://facebook.com
-          #   icon: fab fa-facebook-f
-          # - url: https://linkedin.com
-          #   icon: fab fa-linkedin-in
       
       
 
