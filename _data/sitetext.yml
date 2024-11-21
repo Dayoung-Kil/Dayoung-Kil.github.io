@@ -11,10 +11,17 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
+    title: Welcome to our Portfolio!
     text: It's Nice To Meet You
-    button: Tell Me More
+    button: Take a Tour of my Work
     buttonlink: "#services"
+  
+  aboutme:
+    title: "About Me"
+    text: "I’m Dayoung, Ph.D. student in Graduate school at Soongsil, where I’m advised by Prof. Seong Heum Kim in the Visual Intelligence and Platform (VIP) lab. My research interest is in hardware-friendly neural network structures, including Efficient Deep Learning, Pruning, Vision Transformer, Hybrid Architecture, 
+Image Classification, Object Detection. Recently, I have focused on hybrid CNN-Transformer architecture, Pruning and Efficient Deep Learning."
+    section: aboutme
+
 
   services:
     title: "Services"
