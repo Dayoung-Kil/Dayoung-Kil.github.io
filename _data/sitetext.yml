@@ -26,7 +26,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
   publications:
     title: "Publications"
     text: "Here are my research papers."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
+    # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: publications
     people:
        name: "A Study of Structure Pruning for Hybrid Neural Networks, International Conference on Control Automation and Systems, 2024"
