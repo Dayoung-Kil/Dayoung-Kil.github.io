@@ -63,6 +63,12 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
       - title: "Project Title 1"
         subtitle: "Subtitle for Project 1"
         thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
+      - title: "Project Title 2"
+        subtitle: "Subtitle for Project 1"
+        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
+      - title: "Project Title 3"
+        subtitle: "Subtitle for Project 1"
+        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
 
   timeline:
     title: "Timeline"
