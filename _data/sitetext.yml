@@ -243,8 +243,8 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         icon: "fab fa-linkedin-in"
       - url: https://github.com/Dayoung-Kil
         icon: "fab fa-github"
-      - url: dayoungkil@soongsil.ac.kr
-        icon: "fas fa-square-envelope"
+      - url: https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko
+        icon: "fab fa-google-scholar"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
