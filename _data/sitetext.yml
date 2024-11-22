@@ -181,7 +181,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         alt:
         # you can enforce the alignment
         align: left
-    end: "And this is <br> just <br> the beginning."
+    end: "And <br> this is just <br> the beginning."
 
   # about:
   #   title: "About Us"
