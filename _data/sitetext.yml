@@ -108,25 +108,26 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           촬영된 영상에서 특정 인물 이외의 인물들을 모자이크 가능.
           유튜버와 같은 크리에이터들이 많이 생겨나면서 미처 모자이크 처리되지 못한 사람들의 초상권 보호.<br><br>
           [기대효과]<br>
-          모자이크 처리 제외 사진 1장만 넣어도 자동으로 모자이크 처리.
-          어플을 따로 다운받지 않아도 웹에서 서비스를 이용 가능.
-          홈페이지에 모자이크한 사진 또는 영상을 보관 가능.
-          사람 얼굴이라는 특정부분만을 모자이크 처리 가능.
-          모자이크를 하고자 하는 사람이 다수일 경우, 한번의 클릭으로 빠르게 사람 얼굴을 모자이크 가능.
+          모자이크 처리 제외 사진 1장만 넣어도 자동으로 모자이크 처리.<br>
+          어플을 따로 다운받지 않아도 웹에서 서비스를 이용 가능.<br>
+          홈페이지에 모자이크한 사진 또는 영상을 보관 가능.<br>
+          사람 얼굴이라는 특정부분만을 모자이크 처리 가능.<br>
+          모자이크를 하고자 하는 사람이 다수일 경우, 한번의 클릭으로 빠르게 사람 얼굴을 모자이크 가능.<br>
 
       - title: "3D Room Reconstruction Using HorizonNet"
         subtitle: "2021.05 - 2021.06"
-        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
-        image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
+        thumbnail: "assets/img/projects/room1.png"
+        image: "assets/img/projects/room2.jpg" # 모달용 큰 이미지
         alt: "Project 1 description" # 이미지 대체 텍스트
-        content: "HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원"
-      - title: "3D Room Reconstruction Using HorizonNet"
-        subtitle: "2021.05 - 2021.06"
-        thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
-        image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
-        content: "HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원"
-
+        content: |
+          HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원.<br>
+          2021-1 SSU Computer Vision 수업에서 진행. <br>
+          HorizonNet은 Manhattan World 가정을 기반으로 하여 짧은 시간에 방의 구조를 추측하는 방법으로 HorizonNet을 통해 기존 SFM 방법에서의 다양한 문제점(조명에 영향 받음, 많은 시간 소요, 무수히 많은 이미지 필요, 유리 인식 불가 등)들을 해결할 수 있을 거라 판단함.<br>
+          [기대효과]<br>
+          기존 3D room 복원은 왜곡이 심한 부분이 많고 방 크기나 비율이 실제와 달라 보이는 경우가 많은데, 이러한 문제점을 개선하여 건축가 및 인테리어 디자이너, 혹은 이사를 위해 집 구조를 알아보는 사람들에게 도움이 될 수 있음. <br>
+          일반적인 RGB 카메라로 촬영된 파노라마 사진 한장으로 쉽게 3D Room을 구현할 수 있어 많은 분야에 있어 용이할 것임. <br>
+          만약 구현된 3D 모델에서 가구와 같은 디테일한 요소들을 보완할 수 있다면, 온라인 박람회나 온라인 집들이 등 가상현실의 배경을 구축하는 것에 도움이 될 것임. <br>
+                    
   timeline:
     title: "Timeline"
     text: "Lorem ipsum timeline"
