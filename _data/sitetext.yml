@@ -146,7 +146,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         year: "Nov.12 2021"
         desc: |
           졸업논문발표회, SoongSil University School of AI Convergence <br>
-          Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image
+          단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 (Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
         image: assets/img/timeline/2.jpg
         alt:
       - title: "장려상"
