@@ -183,16 +183,16 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         align: left
     end: "And <br> this is just <br> the beginning!"
 
- services:
-    title: "Copyright"
-    text: "Lorem ipsum"
-    section: services
-    list:
-      - title: "C-2022-036602 (소프트웨어등록)"
-        desc: |
-          단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 <br>
-          2022 / 길다영, 김성흠
-        icon: fas fa-copyright #find more at https://fontawesome.com/icons
+ # services:
+ #    title: "Copyright"
+ #    text: "Lorem ipsum"
+ #    section: services
+ #    list:
+ #      - title: "C-2022-036602 (소프트웨어등록)"
+ #        desc: |
+ #          단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 <br>
+ #          2022 / 길다영, 김성흠
+ #        icon: fas fa-copyright #find more at https://fontawesome.com/icons
       
   
   # about:
