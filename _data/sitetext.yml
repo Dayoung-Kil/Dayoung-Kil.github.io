@@ -129,30 +129,35 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           만약 구현된 3D 모델에서 가구와 같은 디테일한 요소들을 보완할 수 있다면, 온라인 박람회나 온라인 집들이 등 가상현실의 배경을 구축하는 것에 도움이 될 것임. <br>
                     
   timeline:
-    title: "Timeline"
+    title: "Awards"
     text: "Lorem ipsum timeline"
     section: timeline
     # left is the default
     #start_align: "left"
     events:
-      - title: "Our Humble Beginnings"
-        year: "2009-2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      - title: "최우수상 (ITTP 원장상)"
+        year: "Nov.19 2024 / 제 1회 자율주행 인공지능 챌린지"
+        desc: "차량용 객체복합 상태 인식 - 주행환경의 차량/버스의 분류(Agent), 의미론적 위치(Location), 후미등 상태(State)를 인식하는 동시에 Instance Segmentation을 진행. / 주관: 과학기술정보통신부, 주최: ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼"
         image: assets/img/timeline/1.jpg
         alt:
-      - title: "An Agency is Born"
-        year: "March 2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      - title: "우수논문상"
+        year: "Nov.12 2021 / 졸업논문발표회, SoongSil University School of AI Convergence"
+        desc: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
         image: assets/img/timeline/2.jpg
         alt:
-      - title: "Jekyll Theme is created"
-        year: "2019"
-        desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
+      - title: "장려상"
+        year: "Nov.12 2021 / AI융합 경진대회, SoongSil University School of AI Convergence"
+        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
         image: assets/img/timeline/3.jpg
         alt: image alt text
-      - title: "Title"
-        year: "2009-2011"
-        desc: "Your description here, **Markdown** is fully supported."
+      - title: "장려상"
+        year: "Sep.28 2021 / 제 11회 숭실 캡스톤디자인 경진대회, SoongSil University"
+        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
+        image: assets/img/timeline/4.jpg
+        alt:
+      - title: "우수상"
+        year: "Feb.8 2021 / 숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University"
+        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
         image: assets/img/timeline/4.jpg
         alt:
         # you can enforce the alignment
