@@ -203,15 +203,17 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         desc: |
           Soongsil University, Seoul, South Korea <br>
           Mar.2018 - Feb.2022
+        icon: fas fa-graduation-cap
       - title: "Master of Intelligent Systems"
         desc: |
           Soongsil University, Seoul, South Korea <br>
           Mar.2022 - Feb.2024
+        icon: fas fa-graduation-cap
       - title: "Doctor of Intelligent Semiconductors"
         desc: |
           Soongsil University, Seoul, South Korea <br>
           Mar.2024 &mdash; Now
-        # icon: fas fa-copyright #find more at https://fontawesome.com/icons
+        icon: fas fa-pen-nib
       
   
   # about:
