@@ -194,10 +194,10 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           2022 / 길다영, 김성흠
         icon: fas fa-copyright #find more at https://fontawesome.com/icons
 
-  copyright:
+  education:
     title: "Education"
     text: "My academic history includes the following:"
-    section: copyright
+    section: education
     list:
       - title: "Bachelor of AI Convergence"
         desc: |
