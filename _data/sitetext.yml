@@ -83,7 +83,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
         image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
         alt: "Project 1 description" # 이미지 대체 텍스트
-        content: "Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스 제작 / Web Front-End & Back-End & Face Recognition Model Request
+        content: "Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스 제작 / Web Front-End & Back-End & Face Recognition Model Request"
       - title: "3D Room Reconstruction Using HorizonNet"
         subtitle: "2021.05 - 2021.06"
         thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
