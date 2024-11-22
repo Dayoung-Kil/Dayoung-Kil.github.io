@@ -183,10 +183,10 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         align: left
     end: "And <br> this is just <br> the beginning!"
 
-  services:
+  copyright:
     title: "Copyright"
     text: "Copyright registration for my work is complete."
-    section: services
+    section: copyright
     list:
       - title: "C-2022-036602"
         desc: |
