@@ -63,7 +63,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
       - title: "Zero-Shot Fall Detection: Leveraging Text Prompt in Vision-Language Models"
         subtitle: |
           2023.08 - 2023.11 <br>
-           <a href="https://ieeexplore.ieee.org/document/10003901" target="_blank"><i class="fas fa-link"></i> Read More</a>
+          <a href="https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/fall1.png"
         image: "assets/img/projects/fall2.png" # 모달용 큰 이미지
         alt: "Zero-Shot Fall Detection FrameWork" # 이미지 대체 텍스트
@@ -77,7 +77,9 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           스마트 팩토리 자동화 및 최적화: Zero-shot 감지를 통해 학습되지 않은 불량을 검출하여 제조 자동화 및 최적화에 기여.<br>
 
       - title: "V Fit : Multi-modal AI-based Firtual Fitting APP Service"
-        subtitle: "2023.06 - 2023.09"
+        subtitle: |
+          2023.06 - 2023.09 <br>
+          <a href="https://github.com/VIP-Projects/V-Fit" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/vfit1.png"
         image: "assets/img/projects/vfit2.png" # 모달용 큰 이미지
         alt: "Multi-modal AI-based Firtual Fitting APP Service FrameWork" # 이미지 대체 텍스트
@@ -91,7 +93,9 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           자신에게 어울리는 의상 및 헤어 스타일을 잘 알지 못하는 20-30대 연령층이 새로운 고객이 될 수 있으며, 본인의 스타일이 확립된 40-50대 연령층에게 스타일 변경에 대한 흥미를 유발할 수 있음.<br>
 
       - title: "Food Calorie Estimation"
-        subtitle: "2022.04 - 2022.06"
+        subtitle: |
+          2022.04 - 2022.06 <br>
+          <a href="https://github.com/Dayoung-Kil/Food_Calorie_Estimation" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/food1.png"
         image: "assets/img/projects/food2.png" # 모달용 큰 이미지
         alt: "Food Calorie Estimation FrameWork" # 이미지 대체 텍스트
@@ -101,7 +105,9 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           일일이 음식의 종류와 양을 기입하는 불편함 없이, 사진 한장으로 칼로리 계산 가능. <br>
           부피를 계산하여 칼로리를 계산하기 때문에 보다 정확함.<br>
       - title: "Face Out : A Website that Mosaic People's Faces through Face Recognition"
-        subtitle: "2021.03 - 2021.11"
+        subtitle: |
+          2021.03 - 2021.11 <br>
+          <a href="https://github.com/2021-1-SSU-CapstoneDesign/Face-Out" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/face1.png"
         image: "assets/img/projects/face2.png" # 모달용 큰 이미지
         alt: "A Website that Mosaic People's Faces through Face Recognition FrameWork" # 이미지 대체 텍스트
@@ -117,7 +123,9 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           모자이크를 하고자 하는 사람이 다수일 경우, 한번의 클릭으로 빠르게 사람 얼굴을 모자이크 가능.<br>
 
       - title: "3D Room Reconstruction Using HorizonNet"
-        subtitle: "2021.05 - 2021.06"
+        subtitle: |
+          2021.05 - 2021.06 <br>
+          <a href="https://github.com/2021-1-SSU-Computer-Vision/3D_Room_Reconstruction" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/room1.png"
         image: "assets/img/projects/room2.jpg" # 모달용 큰 이미지
         alt: "3D Room Reconstruction Using HorizonNet FrameWork" # 이미지 대체 텍스트
