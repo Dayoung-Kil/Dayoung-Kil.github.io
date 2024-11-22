@@ -18,7 +18,7 @@ en: &DEFAULT_EN
     - title: "Projects"
       section: projects
     - title: "Awards"
-      section: timeline
+      section: awards
     # - title: "Contact"
     #   section: contact
     # - title: "Theme Source"
