@@ -34,7 +34,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         image: assets/img/papers/survey_2022.png
         social:
           - url: https://ieeexplore.ieee.org/document/10003901
-            icon: assets/link.png
+            icon: "fa-solid fa-link"
       - name: "Lightweight Room Layout Estimation using a Single Panoramic Image"
         role: "International Conference on Control Automation and Systems, 2022 / Dayoung Kil, Seong-heum Kim"
         image:  assets/img/papers/room_2022_iccas.png
