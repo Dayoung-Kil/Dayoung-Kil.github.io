@@ -244,7 +244,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
       - url: https://github.com/Dayoung-Kil
         icon: "fab fa-github"
       - url: https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko
-        icon: fab fa-google-scholar
+        icon: "fas fa-scroll"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
