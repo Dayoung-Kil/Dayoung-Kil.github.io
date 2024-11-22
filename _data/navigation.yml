@@ -21,8 +21,8 @@ en: &DEFAULT_EN
       section: awards
     - title: "Copyright"
       section: copyright
-    # - title: "Theme Source"
-    #   url: https://github.com/raviriley/agency-jekyll-theme/
+    - title: "Education"
+      section: education
 en-US:
   <<: *DEFAULT_EN
 en-CA:
