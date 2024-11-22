@@ -30,10 +30,10 @@ We do not collect any data about you or use any cookies.
 
 {% endif %}
 
-**CHANGES**
+**How We Use Your Information**
 
-We may update this privacy policy from time to time for personal, operational, legal, or regulatory reasons.
+Your information is used to respond to your inquiries.
 
-**CONTACT US**
+**CONTACT ME**
 
-For more information about our privacy practices or if you have questions, please contact us by email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+If you have any questions about this Privacy Policy, please contact us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
