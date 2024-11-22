@@ -196,20 +196,20 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
 
   copyright:
     title: "Education"
-    text: "Copyright registration for my work is complete."
+    text: "My academic history includes the following:"
     section: copyright
     list:
       - title: "Bachelor of AI Convergence"
         desc: |
-          Soongsil University, Seoul <br>
+          Soongsil University, Seoul, South Korea <br>
           Mar.2018 - Feb.2022
       - title: "Master of Intelligent Systems"
         desc: |
-          Soongsil University, Seoul <br>
+          Soongsil University, Seoul, South Korea <br>
           Mar.2022 - Feb.2024
        - title: "Doctor of Intelligent Semiconductors"
         desc: |
-          Soongsil University, Seoul <br>
+          Soongsil University, Seoul, South Korea <br>
           Mar.2024 &mdash; Now
         # icon: fas fa-copyright #find more at https://fontawesome.com/icons
       
