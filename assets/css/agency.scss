@@ -35,10 +35,9 @@ $contact-image: "{{ site.data.style.contact-image }}";
 
 // Layout
 @import "layout/masthead.scss";
-@import "layout/copyright.scss";
-@import "layout/education.scss";
+@import "layout/publications.scss";
 @import "layout/projects.scss";
 @import "layout/awards.scss";
-@import "layout/publications.scss";
-@import "layout/contact.scss";
+@import "layout/copyright.scss";
+@import "layout/education.scss";
 @import "layout/footer.scss";
