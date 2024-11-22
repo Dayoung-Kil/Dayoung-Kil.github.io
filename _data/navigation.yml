@@ -20,7 +20,7 @@ en: &DEFAULT_EN
     - title: "Awards"
       section: awards
     - title: "Copyright"
-      section: services
+      section: copyright
     # - title: "Theme Source"
     #   url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
