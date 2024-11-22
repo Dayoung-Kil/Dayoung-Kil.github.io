@@ -5,7 +5,7 @@ background: grey  # 또는 gray
 
 <!-- Publications -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="page-section" id="{{ site.data.sitetext[site.locale].publications.section | default: "publications" }}">
+<section class="page-section {{ page.background }}" id="{{ site.data.sitetext[site.locale].publications.section | default: "publications" }}">
 <div class="container">
   <div class="row">
 	<div class="col-lg-12 text-center">
