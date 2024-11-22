@@ -1,6 +1,6 @@
 <!-- education -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="page-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
+  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
     <div class="container">
 	
       <div class="row">
@@ -28,7 +28,7 @@
     </div>
   </section>
 {% else %}
-<section class="page-section" id="{{ site.data.sitetext.education.section | default: "education" }}">
+<section class="bg-light page-section" id="{{ site.data.sitetext.education.section | default: "education" }}">
   <div class="container">
 
     <div class="row">
