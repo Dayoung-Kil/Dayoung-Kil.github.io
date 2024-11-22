@@ -136,28 +136,38 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     #start_align: "left"
     events:
       - title: "최우수상 (ITTP 원장상)"
-        year: "Nov.19 2024 / 제 1회 자율주행 인공지능 챌린지"
-        desc: "차량용 객체복합 상태 인식 - 주행환경의 차량/버스의 분류(Agent), 의미론적 위치(Location), 후미등 상태(State)를 인식하는 동시에 Instance Segmentation을 진행. / 주관: 과학기술정보통신부, 주최: ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼"
+        year: "Nov.19 2024"
+        desc: |
+          제 1회 자율주행 인공지능 챌린지 / 주관: 과학기술정보통신부, 주최: ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼 <br>
+          차량용 객체복합 상태 인식 - 주행환경의 차량/버스의 분류(Agent), 의미론적 위치(Location), 후미등 상태(State)를 인식하는 동시에 Instance Segmentation을 진행. 
         image: assets/img/timeline/1.jpg
         alt:
       - title: "우수논문상"
-        year: "Nov.12 2021 / 졸업논문발표회, SoongSil University School of AI Convergence"
-        desc: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
+        year: "Nov.12 2021"
+        desc: |
+          졸업논문발표회, SoongSil University School of AI Convergence <br>
+          Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image
         image: assets/img/timeline/2.jpg
         alt:
       - title: "장려상"
-        year: "Nov.12 2021 / AI융합 경진대회, SoongSil University School of AI Convergence"
-        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
+        year: "Nov.12 2021"
+        desc: |
+          AI융합 경진대회, SoongSil University School of AI Convergence <br>
+          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/timeline/3.jpg
         alt: image alt text
       - title: "장려상"
-        year: "Sep.28 2021 / 제 11회 숭실 캡스톤디자인 경진대회, SoongSil University"
-        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
+        year: "Sep.28 2021"
+        desc: |
+          제 11회 숭실 캡스톤디자인 경진대회, SoongSil University <br>
+          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/timeline/4.jpg
         alt:
       - title: "우수상"
-        year: "Feb.8 2021 / 숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University"
-        desc: "Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스"
+        year: "Feb.8 2021"
+        desc: |
+          숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University <br>
+          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/timeline/4.jpg
         alt:
         # you can enforce the alignment
@@ -170,40 +180,40 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
   #   body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
   #   section: about
 
-  clients:
-    section: clients
-    max-height: 100px
-    horizontal-scrolling: "" #"yes/no"
-    list:
-      - title: "envato"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/envato.jpg
-      - title: "designmodo"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/designmodo.jpg
-      - title: "themeforest"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/themeforest.jpg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/creative-market.jpg
+  # clients:
+  #   section: clients
+  #   max-height: 100px
+  #   horizontal-scrolling: "" #"yes/no"
+  #   list:
+  #     - title: "envato"
+  #       url: https://github.com/raviriley/agency-jekyll-theme
+  #       logo: assets/img/clients/envato.jpg
+  #     - title: "designmodo"
+  #       url: https://github.com/raviriley/agency-jekyll-theme
+  #       logo: assets/img/clients/designmodo.jpg
+  #     - title: "themeforest"
+  #       url: https://github.com/raviriley/agency-jekyll-theme
+  #       logo: assets/img/clients/themeforest.jpg
+  #     - title: "Creative Market"
+  #       url: https://github.com/raviriley/agency-jekyll-theme
+  #       logo: assets/img/clients/creative-market.jpg
 
   
 
-  contact:
-    title: "Contact Us"
-    text: "Lorem ipsum or call 123456789"
-    section: contact
-    name: "Name*"
-    name-validation: "Please enter your name."
-    email: "Email*"
-    email-validation: "Please enter your email address."
-    phone: "Phone Number"
-    phone-validation: "Please enter your phone number."
-    message: "Message*"
-    message-validation: "Please enter a message."
-    subject: "Contact Form Submission"
-    submit: "Send Message"
+  # contact:
+  #   title: "Contact Us"
+  #   text: "Lorem ipsum or call 123456789"
+  #   section: contact
+  #   name: "Name*"
+  #   name-validation: "Please enter your name."
+  #   email: "Email*"
+  #   email-validation: "Please enter your email address."
+  #   phone: "Phone Number"
+  #   phone-validation: "Please enter your phone number."
+  #   message: "Message*"
+  #   message-validation: "Please enter a message."
+  #   subject: "Contact Form Submission"
+  #   submit: "Send Message"
 
   footer:
     legal: "Privacy Policy"
