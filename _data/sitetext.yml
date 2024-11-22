@@ -167,11 +167,10 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         year: "Feb.8 2021"
         desc: |
           숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University <br>
-          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/timeline/4.jpg
         alt:
         # you can enforce the alignment
-        align: right
+        align: left
     end: "Be Part <br> of Our <br> Story!"
 
   # about:
