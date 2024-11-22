@@ -64,7 +64,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         subtitle: "2023.08 - 2023.11"
         thumbnail: "assets/img/projects/fall1.png"
         image: "assets/img/projects/fall2.png" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
+        alt: "Zero-Shot Fall Detection FrameWork" # 이미지 대체 텍스트
         content: |
           시각-언어 모델을 이용하여 데이터셋을 훈련없이 Abnormal Detection이라는 일반적인 프레임워크 생성.
           빠른 신고와 조치가 필요한 다양한 상황에서 정교화된 Prompt 기술로 학습 없이 즉각적인 대응이 가능한 시스템 구축,
@@ -78,7 +78,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         subtitle: "2023.06 - 2023.09"
         thumbnail: "assets/img/projects/vfit1.png"
         image: "assets/img/projects/vfit2.png" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
+        alt: "Multi-modal AI-based Firtual Fitting APP Service FrameWork" # 이미지 대체 텍스트
         content: |
           사용자가 의상 구매 및 헤어 서비스를 결정하기 전에 자신의 스타일을 확인하여, 결정에 소요되는 시간 및 비용을 절약하고 만족도를 높일 수 있는 의상 및 헤어 가상 피팅 앱 서비스를 제공.
           ACGPN(Advanced Clothing and Garment Personalization Network) 기반의 가상 의상 피팅 및 옷 추천 서비스를 제공. StyleCLIP 기반의 가상 헤어 피팅 서비스 제공. <br><br>
@@ -92,7 +92,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         subtitle: "2022.04 - 2022.06"
         thumbnail: "assets/img/projects/food1.png"
         image: "assets/img/projects/food2.png" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
+        alt: "Food Calorie Estimation FrameWork" # 이미지 대체 텍스트
         content: |
           Food Detection 및 Volume Estimation을 통해, 이미지 내 음식 인식 후 칼로리 계산. 음식 종류와 g수에 따른 칼로리, 영양성분 표시.<br><br>
           [기대효과]<br>
@@ -102,7 +102,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         subtitle: "2021.03 - 2021.11"
         thumbnail: "assets/img/projects/face1.png"
         image: "assets/img/projects/face2.png" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
+        alt: "A Website that Mosaic People's Faces through Face Recognition FrameWork" # 이미지 대체 텍스트
         content: |
           Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스 제작. 
           촬영된 영상에서 특정 인물 이외의 인물들을 모자이크 가능.
@@ -118,11 +118,11 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         subtitle: "2021.05 - 2021.06"
         thumbnail: "assets/img/projects/room1.png"
         image: "assets/img/projects/room2.jpg" # 모달용 큰 이미지
-        alt: "Project 1 description" # 이미지 대체 텍스트
+        alt: "3D Room Reconstruction Using HorizonNet FrameWork" # 이미지 대체 텍스트
         content: |
           HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원.
           한 장의 파노라마 이미지만을 사용해서 방을 3D로 복원 가능.
-          HorizonNet은 Manhattan World 가정을 기반으로 하여 짧은 시간에 방의 구조를 추측하는 방법으로 HorizonNet을 통해 기존 SFM(Structure From Motion) 방법에서의 다양한 문제점(조명에 영향 받음, 많은 시간 소요, 무수히 많은 이미지 필요, 유리 인식 불가 등)들을 해결할 수 있을 거라 판단함.<br>
+          HorizonNet은 Manhattan World 가정을 기반으로 하여 짧은 시간에 방의 구조를 추측하는 방법으로 HorizonNet을 통해 기존 SFM(Structure From Motion) 방법에서의 다양한 문제점(조명에 영향 받음, 많은 시간 소요, 무수히 많은 이미지 필요, 유리 인식 불가 등)들을 해결할 수 있을 거라 판단함.<br><br>
           [기대효과]<br>
           기존 3D room 복원은 왜곡이 심한 부분이 많고 방 크기나 비율이 실제와 달라 보이는 경우가 많은데, 이러한 문제점을 개선하여 건축가 및 인테리어 디자이너, 혹은 이사를 위해 집 구조를 알아보는 사람들에게 도움이 될 수 있음. <br>
           일반적인 RGB 카메라로 촬영된 파노라마 사진 한장으로 쉽게 3D Room을 구현할 수 있어 많은 분야에 있어 용이할 것임. <br>
