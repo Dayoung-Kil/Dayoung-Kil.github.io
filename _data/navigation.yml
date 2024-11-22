@@ -17,10 +17,10 @@ en: &DEFAULT_EN
       section: publications
     - title: "Projects"
       section: projects
-    - title: "Timeline"
+    - title: "Awards"
       section: timeline
-    - title: "Contact"
-      section: contact
+    # - title: "Contact"
+    #   section: contact
     - title: "Theme Source"
       url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
