@@ -19,8 +19,8 @@ en: &DEFAULT_EN
       section: projects
     - title: "Awards"
       section: awards
-    # - title: "Contact"
-    #   section: contact
+    - title: "Copyright"
+      section: services
     # - title: "Theme Source"
     #   url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
