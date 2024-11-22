@@ -72,7 +72,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
         image: "assets/img/portfolio/04-thumbnail.jpg" # 모달용 큰 이미지
         alt: "Project 1 description" # 이미지 대체 텍스트
-        content: "사용자가 비용을 지불하기 전에 스타일을 확인하여 소요 시간과 비용을 절약하고 만족도를 높일 수 있는 의상 및 헤어 가상 피팅 서비스 / Virtual Hair Fitting Model & APP UI"
+        content: "사용자가 의상 구매 및 헤어 서비스를 결정하기 전에 자신의 스타일을 확인하여, 결정에 소요되는 시간 및 비용을 절약하고 만족도를 높일 수 있는 의상(ACGPN(Advanced Clothing and Garment Personalization Network) 기반)  및 헤어(StyleCLIP 기반) 가상 피팅 앱 서비스를 제공. / Virtual Hair Fitting Model & APP UI"
       - title: "Food Calorie Estimation"
         subtitle: "2022.04 - 2022.06"
         thumbnail: "assets/img/portfolio/04-thumbnail.jpg"
