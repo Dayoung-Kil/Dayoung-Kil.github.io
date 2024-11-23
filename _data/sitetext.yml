@@ -41,12 +41,16 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         social:
           - url: https://ieeexplore.ieee.org/document/10003901
             icon: fas fa-link
+          - url: https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image
+            icon: fab fa-github
       - name: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
         role: "Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022 / Dayoung Kil, Seong-heum Kim"
         image:  assets/img/papers/room_2022.png
         social:
           - url: https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719
             icon: fas fa-link
+          - url: https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image
+            icon: fab fa-github
       - name: "A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration"
         role: "Electronics (SCIE) 2022 / Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
         image: assets/img/papers/survey_2022.png
