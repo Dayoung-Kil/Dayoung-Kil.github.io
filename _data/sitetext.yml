@@ -131,7 +131,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           2021.05 - 2021.06 <br>
           <a href="https://github.com/2021-1-SSU-Computer-Vision/3D_Room_Reconstruction" target="_blank"><i class="fab fa-github"></i>View code</a>
         thumbnail: "assets/img/projects/room1.png"
-        image: "assets/img/projects/room2.jpg" # 모달용 큰 이미지
+        image: "assets/img/projects/room2.png" # 모달용 큰 이미지
         alt: "3D Room Reconstruction Using HorizonNet FrameWork" # 이미지 대체 텍스트
         content: |
           HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원.
