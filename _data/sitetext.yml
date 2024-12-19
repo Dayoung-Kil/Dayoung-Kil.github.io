@@ -33,7 +33,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         role: |
           International Conference on Control Automation and Systems, 2024 <br>
           Deepak Ghimire, Dayoung Kil and Seong-heum Kim
-        image: assets/img/papers/pruning2024.png
+        image: assets/img/papers/pruning2024.PNG
         social:
           - url: https://ieeexplore.ieee.org/document/10773379
             icon: fas fa-link
