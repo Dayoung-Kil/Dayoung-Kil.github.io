@@ -35,7 +35,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           Deepak Ghimire, Dayoung Kil and Seong-heum Kim
         image: assets/img/papers/survey_2022.png
         social:
-          - url: https://ieeexplore.ieee.org/document/10003901
+          - url: https://ieeexplore.ieee.org/document/10773379
             icon: fas fa-link
       - name: "Lightweight Room Layout Estimation using a Single Panoramic Image"
         role: |
