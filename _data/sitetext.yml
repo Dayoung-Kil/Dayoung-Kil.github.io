@@ -29,6 +29,14 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: publications
     people:
+      - name: "One-cycle Structured Pruning with Stability Driven Structure Search"
+          role: |
+            arXiv, 2024 <br>
+            Deepak Ghimire, Dayoung Kil, Seonghwan Jeong, Jaesik Park, Seong-heum Kim
+          image: assets/img/papers/pruning2024.PNG
+          social:
+            - url: https://arxiv.org/abs/2501.13439v1
+              icon: fas fa-link
       - name: "A Study of Structure Pruning for Hybrid Neural Networks"
         role: |
           International Conference on Control Automation and Systems, 2024 <br>
