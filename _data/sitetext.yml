@@ -33,7 +33,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
           role: |
             arXiv, 2024 <br>
             Deepak Ghimire, Dayoung Kil, Seonghwan Jeong, Jaesik Park, Seong-heum Kim
-          image: assets/img/papers/pruning2024.PNG
+          image: assets/img/papers/ocspruner2024.PNG
           social:
             - url: https://arxiv.org/abs/2501.13439v1
               icon: fas fa-link
