@@ -24,49 +24,62 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
     section: aboutme
 
   publications:
-    title: "Publications"
-    text: "Our research publications"
-    # subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
-    section: publications
-    list:
+  title: "Publications"
+  text: "Our research publications"
+  section: publications
+  
+  # 이미지를 포함한 최종 출판물 리스트 구조
+  list:
     - title: "One-cycle Structured Pruning with Stability Driven Structure Search"
       authors: "Deepak Ghimire, Dayoung Kil, Seonghwan Jeong, Jaesik Park, Seong-heum Kim"
       venue: "arXiv, 2024"
+      image: assets/img/papers/ocspruner2024.PNG
       links:
         - name: "paper"
           url: "https://arxiv.org/abs/2501.13439v1"
+          icon: "fas fa-link"
     
     - title: "A Study of Structure Pruning for Hybrid Neural Networks"
       authors: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
       venue: "International Conference on Control Automation and Systems, 2024"
+      image: assets/img/papers/pruning2024.PNG
       links:
         - name: "paper"
           url: "https://ieeexplore.ieee.org/document/10773379"
+          icon: "fas fa-link"
     
     - title: "Lightweight Room Layout Estimation using a Single Panoramic Image"
       authors: "Dayoung Kil, Seong-heum Kim"
       venue: "International Conference on Control Automation and Systems, 2022"
+      image: assets/img/papers/room_2022_iccas.png
       links:
         - name: "paper"
           url: "https://ieeexplore.ieee.org/document/10003901"
+          icon: "fas fa-link"
         - name: "github"
           url: "https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image"
+          icon: "fab fa-github"
           
     - title: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
       authors: "Dayoung Kil, Seong-heum Kim"
       venue: "Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022"
+      image: assets/img/papers/room_2022.png
       links:
         - name: "paper"
           url: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719"
+          icon: "fas fa-link"
         - name: "github"
           url: "https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image"
+          icon: "fab fa-github"
           
     - title: "A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration"
       authors: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
       venue: "Electronics (SCIE) 2022"
+      image: assets/img/papers/survey_2022.png
       links:
         - name: "paper"
           url: "https://www.mdpi.com/2079-9292/11/6/945"
+          icon: "fas fa-link"
       
   projects:
     title: "Projects"
