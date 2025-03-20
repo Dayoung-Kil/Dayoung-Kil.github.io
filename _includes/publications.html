@@ -8,26 +8,29 @@
 	  <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].publications.text }}</h3>
 	</div>
   </div>
-  <div class="row d-flex justify-content-center">
-  {% for person in site.data.sitetext[site.locale].publications.people %}
-	<div class="col-sm-4">
-	  <div class="publications-member">
-		<img class="mx-auto rounded-circle" src="{{ person.image }}" alt="">
-		<h4>{{ person.name }}</h4>
-		<p class="text-muted">{{ person.role }}</p>
-		<ul class="list-inline social-buttons">
-		{% for network in person.social %}
-		  <li class="list-inline-item">
-			<a href="{{ network.url }}">
-			  <i class="{{ network.icon }}"></i>
-			</a>
-		  </li>
-		{% endfor %}
-		</ul>
-	  </div>
-	</div>
-  {% endfor %}
+  
+  <!-- 수정된 출판물 리스트 형식 -->
+  <div class="row">
+    <div class="col-lg-12">
+      {% for publication in site.data.sitetext[site.locale].publications.list %}
+        <div class="publication-item mb-5">
+          <h4 class="publication-title">{{ publication.title }}</h4>
+          <p class="authors"><strong>Authors</strong>: {{ publication.authors }}</p>
+          <p class="venue"><strong>Publication</strong>: {{ publication.venue }}</p>
+          {% if publication.conference %}
+          <p class="conference"><strong>Presented at</strong>: {{ publication.conference }}</p>
+          {% endif %}
+          <p class="links">
+            {% for link in publication.links %}
+              <a href="{{ link.url }}" class="mr-3">[{{ link.name }}]</a>
+            {% endfor %}
+          </p>
+        </div>
+        <hr>
+      {% endfor %}
+    </div>
   </div>
+
   <div class="row">
 	<div class="col-lg-8 mx-auto text-center">
 	  <div class="large text-muted">{{ site.data.sitetext[site.locale].publications.subtext | markdownify }}</div>
@@ -44,26 +47,29 @@
 		  <h3 class="section-subheading text-muted">{{ site.data.sitetext.publications.text }}</h3>
 		</div>
 	  </div>
-	  <div class="row d-flex justify-content-center">
-	  {% for person in site.data.sitetext.publications.people %}
-		<div class="col-sm-4">
-		  <div class="publications-member">
-			<img class="mx-auto rounded-circle" src="{{ person.image }}" alt="">
-			<h4>{{ person.name }}</h4>
-			<p class="text-muted">{{ person.role }}</p>
-			<ul class="list-inline social-buttons">
-			{% for network in person.social %}
-			  <li class="list-inline-item">
-				<a href="{{ network.url }}">
-				  <i class="{{ network.icon }}"></i>
-				</a>
-			  </li>
-			{% endfor %}
-			</ul>
-		  </div>
-		</div>
-	  {% endfor %}
-	  </div>
+	  
+	  <!-- 수정된 출판물 리스트 형식 -->
+    <div class="row">
+      <div class="col-lg-12">
+        {% for publication in site.data.sitetext.publications.list %}
+          <div class="publication-item mb-5">
+            <h4 class="publication-title">{{ publication.title }}</h4>
+            <p class="authors"><strong>Authors</strong>: {{ publication.authors }}</p>
+            <p class="venue"><strong>Publication</strong>: {{ publication.venue }}</p>
+            {% if publication.conference %}
+            <p class="conference"><strong>Presented at</strong>: {{ publication.conference }}</p>
+            {% endif %}
+            <p class="links">
+              {% for link in publication.links %}
+                <a href="{{ link.url }}" class="mr-3">[{{ link.name }}]</a>
+              {% endfor %}
+            </p>
+          </div>
+          <hr>
+        {% endfor %}
+      </div>
+    </div>
+
 	  <div class="row">
 		<div class="col-lg-8 mx-auto text-center">
 		  <div class="large text-muted">{{ site.data.sitetext.publications.subtext | markdownify }}</div>
@@ -72,4 +78,4 @@
 	</div>
 </section>
 {% endif %}
-<!-- End Team -->
+<!-- End Publications -->
