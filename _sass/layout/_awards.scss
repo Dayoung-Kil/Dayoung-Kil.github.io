@@ -1,7 +1,7 @@
 /* 향상된 수상 경력 섹션 스타일링 */
 #awards {
   padding: 80px 0;
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 
 .section-heading {
@@ -32,7 +32,7 @@
   
   > li {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     
     &:after,
     &:before {
@@ -51,20 +51,33 @@
       width: 42%;
       padding: 25px;
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
       
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      
+      /* 화살표 추가 */
+      &:after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        transform: rotate(45deg);
+        box-shadow: 5px -5px 10px rgba(0,0,0,0.05);
       }
     }
     
-    /* 수상 이미지/아이콘 스타일링 */
+    /* 수상 이미지 스타일링 */
     .awards-image {
       position: absolute;
-      z-index: 100;
+      z-index: 10;
       left: 50%;
       width: 80px;
       height: 80px;
@@ -73,7 +86,7 @@
       overflow: hidden;
       border-radius: 50%;
       border: 4px solid #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
       
       img {
         width: 100%;
@@ -86,6 +99,13 @@
     &.awards-inverted {
       > .awards-panel {
         float: right;
+        
+        /* 화살표 위치 변경 */
+        &:after {
+          left: -10px;
+          right: auto;
+          box-shadow: -5px -5px 10px rgba(0,0,0,0.05);
+        }
       }
     }
     
@@ -97,20 +117,25 @@
   /* 수상 내용 스타일링 */
   .award-title {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 22px;
     color: #333;
   }
   
+  /* 주최기관 스타일링 */
   .award-host {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
     font-weight: 500;
+    font-size: 16px;
     color: #555;
+    line-height: 1.5;
   }
   
+  /* 수상 설명 스타일링 */
   .award-description {
     margin-top: 10px;
     font-size: 15px;
@@ -125,21 +150,22 @@
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    padding: 5px 15px;
+    padding: 6px 15px;
     background-color: #FFC107;
     color: #333;
     font-weight: 600;
     font-size: 14px;
     border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 10;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    z-index: 20;
+    white-space: nowrap;
   }
 }
 
 /* 마지막 아이템 스타일링 */
 .awards-end {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   
   h4 {
     display: inline-block;
@@ -160,14 +186,17 @@
     }
     
     > li {
-      margin-bottom: 50px;
+      margin-bottom: 70px;
       
       .awards-panel {
         float: right;
-        width: calc(100% - 80px);
-        padding: 20px;
+        width: calc(100% - 90px);
         margin-left: 0;
         text-align: left;
+        
+        &:after {
+          display: none;
+        }
       }
       
       .awards-image {
@@ -178,8 +207,9 @@
       }
       
       .year-badge {
-        left: 40px;
-        transform: translateX(-40%);
+        left: 80px;
+        transform: translateX(0);
+        top: -10px;
       }
       
       &.awards-inverted > .awards-panel {
@@ -187,5 +217,10 @@
         text-align: left;
       }
     }
+  }
+  
+  .awards-end {
+    margin-left: 40px;
+    text-align: left;
   }
 }
