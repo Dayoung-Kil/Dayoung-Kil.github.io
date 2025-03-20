@@ -1,6 +1,6 @@
 <!-- Awards -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
+  <section class="page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -30,10 +30,10 @@
                   <li>
                 {% endif %}
               {%- endif -%}
+                <div class="year-badge">{{ event.year | markdownify }}</div>
                 <div class="awards-image">
                   <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
                 </div>
-                <div class="year-badge">{{ event.year | markdownify }}</div>
                 <div class="awards-panel">
                   <h3 class="award-title">{{ event.title }}</h3>
                   
@@ -46,7 +46,7 @@
                       {% endfor %}
                     </div>
                   {% else %}
-                    <div class="award-description">{{ event.desc | markdownify }}</div>
+                    <div class="award-host">{{ event.desc | markdownify }}</div>
                   {% endif %}
                 </div>
               </li>
@@ -93,10 +93,10 @@
                 <li>
               {% endif %}
             {%- endif -%}
+              <div class="year-badge">{{ event.year | markdownify }}</div>
               <div class="awards-image">
                 <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
               </div>
-              <div class="year-badge">{{ event.year | markdownify }}</div>
               <div class="awards-panel">
                 <h3 class="award-title">{{ event.title }}</h3>
                 
@@ -109,7 +109,7 @@
                     {% endfor %}
                   </div>
                 {% else %}
-                  <div class="award-description">{{ event.desc | markdownify }}</div>
+                  <div class="award-host">{{ event.desc | markdownify }}</div>
                 {% endif %}
               </div>
             </li>
