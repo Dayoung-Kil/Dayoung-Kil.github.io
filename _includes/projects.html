@@ -1,60 +1,123 @@
 {% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="page-section" id="{{ site.data.sitetext.projects.section | default: "projects" }}">
+<section class="page-section" id="{{ site.data.sitetext[site.locale].projects.section | default: 'projects' }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].projects.title | markdownify | default: "projects" }}</h2>
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].projects.title | markdownify | default: "Projects" }}</h2>
         <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].projects.text | markdownify }}</h3>
       </div>
     </div>
     <div class="row">
       {% for project in site.data.sitetext[site.locale].projects.items %}
-        <div class="col-md-4 col-sm-6 projects-item">
-          <a class="projects-link" data-toggle="modal" href="#p{{ forloop.index }}">
-            <div class="projects-hover">
-              <div class="projects-hover-content">
-                <i class="{{ site.data.style.projects-icon | default: "fas fa-plus fa-3x" }}"></i>
-              </div>
+        <div class="col-md-6 col-lg-4 projects-item mb-4">
+          <div class="card h-100 shadow">
+            <div class="image-container" style="height: 220px; overflow: hidden;">
+              <img class="card-img-top" src="{{ project.thumbnail }}" alt="{{ project.alt }}" style="object-fit: cover; width: 100%; height: 100%;">
             </div>
-            <img class="img-fluid" src="{{ project.thumbnail }}" alt="">
-          </a>
-          <div class="projects-caption">
-            <h4>{{ project.title }}</h4>
-            <p class="text-muted">{{ project.subtitle }}</p>
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text text-muted">{{ project.subtitle }}</p>
+              <a href="#p{{ forloop.index }}" class="btn btn-primary" data-toggle="modal">자세히 보기</a>
+            </div>
           </div>
         </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
+<!-- 프로젝트 모달 -->
+{% for project in site.data.sitetext[site.locale].projects.items %}
+<div class="portfolio-modal modal fade" id="p{{ forloop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="modal-body">
+              <!-- Project Details -->
+              <h2 class="text-uppercase">{{ project.title }}</h2>
+              <p class="item-intro text-muted">{{ project.subtitle }}</p>
+              <img class="img-fluid d-block mx-auto mb-4" src="{{ project.image }}" alt="{{ project.alt }}">
+              <div class="project-description">
+                {{ project.content | markdownify }}
+              </div>
+              <button class="btn btn-danger" data-dismiss="modal" type="button">
+                <i class="fas fa-times"></i>
+                {{ site.data.sitetext[site.locale].projects.closebutton | default: "Close Project" }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% else %}
-<section class="page-section" id="{{ site.data.sitetext.projects.section | default: "projects" }}">
+<section class="page-section" id="{{ site.data.sitetext.projects.section | default: 'projects' }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].projects.title | markdownify | default: "projects" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].projects.text | markdownify }}</h3>
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.projects.title | markdownify | default: "Projects" }}</h2>
+        <h3 class="section-subheading text-muted">{{ site.data.sitetext.projects.text | markdownify }}</h3>
       </div>
     </div>
     <div class="row">
-      {% for project in site.data.sitetext[site.locale].projects.items %}
-        <div class="col-md-4 col-sm-6 projects-item">
-          <a class="projects-link" data-toggle="modal" href="#p{{ forloop.index }}">
-            <div class="projects-hover">
-              <div class="projects-hover-content">
-                <i class="{{ site.data.style.projects-icon | default: "fas fa-plus fa-3x" }}"></i>
-              </div>
+      {% for project in site.data.sitetext.projects.items %}
+        <div class="col-md-6 col-lg-4 projects-item mb-4">
+          <div class="card h-100 shadow">
+            <div class="image-container" style="height: 220px; overflow: hidden;">
+              <img class="card-img-top" src="{{ project.thumbnail }}" alt="{{ project.alt }}" style="object-fit: cover; width: 100%; height: 100%;">
             </div>
-            <img class="img-fluid" src="{{ project.thumbnail }}" alt="">
-          </a>
-          <div class="projects-caption">
-            <h4>{{ project.title }}</h4>
-            <p class="text-muted">{{ project.subtitle }}</p>
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text text-muted">{{ project.subtitle }}</p>
+              <a href="#p{{ forloop.index }}" class="btn btn-primary" data-toggle="modal">자세히 보기</a>
+            </div>
           </div>
         </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
+<!-- 프로젝트 모달 -->
+{% for project in site.data.sitetext.projects.items %}
+<div class="portfolio-modal modal fade" id="p{{ forloop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="modal-body">
+              <!-- Project Details -->
+              <h2 class="text-uppercase">{{ project.title }}</h2>
+              <p class="item-intro text-muted">{{ project.subtitle }}</p>
+              <img class="img-fluid d-block mx-auto mb-4" src="{{ project.image }}" alt="{{ project.alt }}">
+              <div class="project-description">
+                {{ project.content | markdownify }}
+              </div>
+              <button class="btn btn-danger" data-dismiss="modal" type="button">
+                <i class="fas fa-times"></i>
+                {{ site.data.sitetext.projects.closebutton | default: "Close Project" }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% endif %}
-{% include modals.html %}
