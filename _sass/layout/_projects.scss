@@ -74,7 +74,6 @@
       
       /* Button positioning */
       .btn {
-        align-self: flex-start;
         padding: 8px 15px;
         font-size: 14px;
         font-weight: 500;
@@ -83,6 +82,17 @@
         
         &:hover {
           transform: translateY(-2px);
+        }
+      }
+      
+      /* GitHub button */
+      .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+        
+        &:hover {
+          color: white;
+          background-color: #6c757d;
         }
       }
     }
@@ -128,9 +138,20 @@
         line-height: 1.6;
       }
       
-      button {
-        margin-top: 20px;
+      .text-center {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      button, .btn {
+        margin: 5px;
         padding: 10px 20px;
+      }
+      
+      .project-links {
+        margin-bottom: 20px;
       }
     }
   }
