@@ -1,6 +1,6 @@
 <!-- Awards -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
+  <section class="page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -33,14 +33,21 @@
                 <div class="awards-image">
                   <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
                 </div>
+                <div class="year-badge">{{ event.year | markdownify }}</div>
                 <div class="awards-panel">
-                  <div class="awards-heading">
-                    <span class="year-badge">{{ event.year | markdownify }}</span>
-                    <h4 class="subheading">{{ event.title }}</h4>
-                  </div>
-                  <div class="awards-body">
-                    <div class="text-muted">{{ event.desc | markdownify }}</div>
-                  </div>
+                  <h3 class="award-title">{{ event.title }}</h3>
+                  
+                  {% assign desc_parts = event.desc | split: "<br>" %}
+                  {% if desc_parts.size > 1 %}
+                    <div class="award-host">{{ desc_parts.first }}</div>
+                    <div class="award-description">
+                      {% for part in desc_parts offset:1 %}
+                        {{ part | markdownify }}
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                    <div class="award-description">{{ event.desc | markdownify }}</div>
+                  {% endif %}
                 </div>
               </li>
             {% endfor %}	
@@ -56,7 +63,7 @@
     </div>
   </section>
 {% else %}
-<section class="bg-light page-section" id="{{ site.data.sitetext.awards.section | default: "awards" }}">
+<section class="page-section" id="{{ site.data.sitetext.awards.section | default: "awards" }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -89,14 +96,21 @@
               <div class="awards-image">
                 <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
               </div>
+              <div class="year-badge">{{ event.year | markdownify }}</div>
               <div class="awards-panel">
-                <div class="awards-heading">
-                  <span class="year-badge">{{ event.year | markdownify }}</span>
-                  <h4 class="subheading">{{ event.title }}</h4>
-                </div>
-                <div class="awards-body">
-                  <div class="text-muted">{{ event.desc | markdownify }}</div>
-                </div>
+                <h3 class="award-title">{{ event.title }}</h3>
+                
+                {% assign desc_parts = event.desc | split: "<br>" %}
+                {% if desc_parts.size > 1 %}
+                  <div class="award-host">{{ desc_parts.first }}</div>
+                  <div class="award-description">
+                    {% for part in desc_parts offset:1 %}
+                      {{ part | markdownify }}
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <div class="award-description">{{ event.desc | markdownify }}</div>
+                {% endif %}
               </div>
             </li>
           {% endfor %}	
