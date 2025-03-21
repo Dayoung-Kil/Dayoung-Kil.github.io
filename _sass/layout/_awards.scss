@@ -1,4 +1,4 @@
-// Enhanced Awards Section Styling
+// Enhanced Awards Section Styling with Improved Date Positioning
 .timeline {
   position: relative;
   padding: 0;
@@ -9,7 +9,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 40px;
+    left: 50%;
     width: 3px;
     margin-left: -1.5px;
     content: "";
@@ -21,7 +21,7 @@
   > li {
     position: relative;
     min-height: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 60px; // 간격 줄임
     
     &:after,
     &:before {
@@ -33,22 +33,27 @@
       clear: both;
     }
     
-    // Beautiful date badge
+    // Beautiful date badge - 재배치
     .timeline-date {
       position: absolute;
-      top: -15px;
-      left: 0;
+      left: 50%;
       z-index: 101;
       padding: 8px 16px;
-      background: linear-gradient(135deg, $primary, darken($primary, 10%));
-      color: $white;
+      background: linear-gradient(135deg, #FFC107, #FF9800);
+      color: #fff;
       font-size: 14px;
       font-weight: 600;
       border-radius: 30px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.15);
       letter-spacing: 0.5px;
       border: 2px solid rgba(255,255,255,0.9);
-      transform: translateY(-50%);
+      transform: translateX(-50%);
+      top: 70px; // 이미지 아래로 위치 조정
+      text-align: center;
+      min-width: 120px; // 날짜 배지 최소 너비 설정
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     // White card design
@@ -104,10 +109,10 @@
     .timeline-image {
       position: absolute;
       z-index: 100;
-      left: 0;
+      left: 50%;
       width: 80px;
       height: 80px;
-      margin-left: 0;
+      margin-left: -40px;
       text-align: center;
       color: $white;
       border: 5px solid $white;
@@ -216,19 +221,16 @@
 // Tablet and larger screens
 @media (min-width: 768px) {
   .timeline {
-    &:before {
-      left: 50%;
-    }
-    
     > li {
       min-height: 100px;
-      margin-bottom: 100px;
+      margin-bottom: 80px; // 간격 조정
       
       .timeline-panel {
         float: left;
-        width: 41%;
+        width: 42%;
         padding: 30px;
         text-align: right;
+        margin-top: 20px; // 상단 여백 추가
         
         &:before {
           left: auto;
@@ -263,11 +265,9 @@
         }
       }
       
+      // 날짜 위치 조정 - 중앙
       .timeline-date {
-        right: 59%;
-        left: auto;
-        transform: translateY(-50%);
-        top: 50%;
+        top: 110px; // 이미지 아래로 더 조정
       }
       
       // Override for inverted items
@@ -292,12 +292,6 @@
             border-right-color: $white;
           }
         }
-        
-        .timeline-date {
-          right: auto;
-          left: 59%;
-          text-align: left;
-        }
       }
     }
   }
@@ -311,12 +305,13 @@
       
       .timeline-panel {
         padding: 35px 40px;
+        width: 44%;
       }
       
       .timeline-image {
-        width: 150px;
-        height: 150px;
-        margin-left: -75px;
+        width: 140px;
+        height: 140px;
+        margin-left: -70px;
         
         h4 {
           font-size: 18px;
@@ -329,13 +324,9 @@
       }
       
       .timeline-date {
+        top: 150px; // 이미지 아래로 더 조정
         padding: 10px 20px;
         font-size: 16px;
-        right: 60%;
-      }
-      
-      &.timeline-inverted .timeline-date {
-        left: 60%;
       }
     }
   }
@@ -349,12 +340,13 @@
       
       .timeline-panel {
         padding: 40px 45px;
+        width: 45%;
       }
       
       .timeline-image {
-        width: 170px;
-        height: 170px;
-        margin-left: -85px;
+        width: 160px;
+        height: 160px;
+        margin-left: -80px;
         
         h4 {
           font-size: 22px;
@@ -367,13 +359,9 @@
       }
       
       .timeline-date {
+        top: 170px; // 이미지 아래로 더 조정
         font-size: 18px;
         padding: 12px 25px;
-        right: 61%;
-      }
-      
-      &.timeline-inverted .timeline-date {
-        left: 61%;
       }
     }
   }
