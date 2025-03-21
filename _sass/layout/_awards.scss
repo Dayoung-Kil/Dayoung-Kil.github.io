@@ -1,4 +1,4 @@
-// Improved Styling for the awards section
+// Enhanced and beautiful alternating awards section
 .timeline {
   position: relative;
   padding: 0;
@@ -12,8 +12,9 @@
     left: 40px;
     width: 3px;
     content: "";
-    background: linear-gradient(to bottom, rgba(33, 150, 243, 0.3), rgba(156, 39, 176, 0.3));
+    background: linear-gradient(to bottom, rgba(33, 150, 243, 0.4), rgba(156, 39, 176, 0.4));
     border-radius: 1.5px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
   }
   
   > li {
@@ -39,14 +40,15 @@
       padding: 25px 25px 25px 100px;
       text-align: left;
       background-color: $white;
-      border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.03);
       
       // Hover effect
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
       }
       
       // Arrow pointer
@@ -89,7 +91,7 @@
       margin-left: 0;
       text-align: center;
       color: $white;
-      border: 6px solid $white;
+      border: 5px solid $white;
       border-radius: 100%;
       background-color: $primary;
       overflow: hidden;
@@ -104,6 +106,7 @@
       // Hover effect
       &:hover {
         transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       }
       
       h4 {
@@ -118,22 +121,33 @@
         height: 100%;
         object-fit: cover;
       }
+      
+      // Special styling for the end image
+      &.end-image {
+        background: linear-gradient(135deg, #FFC107, #FF9800);
+        h4 {
+          font-size: 13px;
+          font-weight: 600;
+        }
+      }
     }
     
-    // Date badge
+    // Beautiful date badge
     .timeline-date {
       position: absolute;
-      top: -10px;
+      top: -15px;
       left: 0;
       z-index: 101;
-      padding: 5px 15px;
-      background-color: $primary;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, $primary, darken($primary, 10%));
       color: $white;
       font-size: 14px;
       font-weight: 600;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
       letter-spacing: 0.5px;
+      border: 2px solid rgba(255,255,255,0.9);
+      transform: translateY(-50%);
     }
     
     // Inverted timeline items
@@ -166,21 +180,12 @@
   .timeline-heading {
     margin-bottom: 15px;
     
-    h4 {
-      color: $gray-600;
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 0 0 5px 0;
-    }
-    
     .subheading {
-      color: $primary;
-      font-size: 20px;
+      color: darken($primary, 5%);
+      font-size: 22px;
       font-weight: 700;
-      margin-bottom: 5px;
-      text-transform: none;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.5px;
     }
   }
   
@@ -193,7 +198,7 @@
         color: $gray-600;
         font-weight: 500;
         font-size: 16px;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
         padding-bottom: 12px;
         border-bottom: 1px solid $gray-200;
       }
@@ -215,7 +220,7 @@
     
     > li {
       min-height: 100px;
-      margin-bottom: 100px;
+      margin-bottom: 80px;
       
       .timeline-panel {
         float: left;
@@ -250,34 +255,45 @@
           font-size: 13px;
           line-height: 18px;
         }
+        
+        &.end-image h4 {
+          font-size: 16px;
+        }
       }
       
       .timeline-date {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -15px;
+        right: 59%;
+        left: auto;
+        transform: translateY(-50%);
+        top: 50%;
       }
       
-      &.timeline-inverted > .timeline-panel {
-        float: right;
-        padding: 30px;
-        text-align: left;
-        
-        &:before {
-          right: auto;
-          left: -15px;
-          border-right-width: 15px;
-          border-left-width: 0;
-          border-right-color: $white;
+      &.timeline-inverted {
+        .timeline-panel {
+          float: right;
+          text-align: left;
+          
+          &:before {
+            right: auto;
+            left: -15px;
+            border-right-width: 15px;
+            border-left-width: 0;
+            border-right-color: $white;
+          }
+          
+          &:after {
+            right: auto;
+            left: -14px;
+            border-right-width: 14px;
+            border-left-width: 0;
+            border-right-color: $white;
+          }
         }
         
-        &:after {
+        .timeline-date {
           right: auto;
-          left: -14px;
-          border-right-width: 14px;
-          border-left-width: 0;
-          border-right-color: $white;
+          left: 59%;
+          text-align: left;
         }
       }
     }
@@ -289,9 +305,10 @@
   .timeline {
     > li {
       min-height: 150px;
+      margin-bottom: 100px;
       
       .timeline-panel {
-        padding: 30px 35px;
+        padding: 35px 40px;
       }
       
       .timeline-image {
@@ -303,10 +320,20 @@
           font-size: 18px;
           line-height: 26px;
         }
+        
+        &.end-image h4 {
+          font-size: 20px;
+        }
       }
       
-      &.timeline-inverted > .timeline-panel {
-        padding: 30px 35px;
+      .timeline-date {
+        padding: 10px 20px;
+        font-size: 16px;
+        right: 60%;
+      }
+      
+      &.timeline-inverted .timeline-date {
+        left: 60%;
       }
     }
   }
@@ -319,7 +346,7 @@
       min-height: 170px;
       
       .timeline-panel {
-        padding: 35px 40px;
+        padding: 40px 45px;
       }
       
       .timeline-image {
@@ -331,10 +358,20 @@
           font-size: 22px;
           line-height: 30px;
         }
+        
+        &.end-image h4 {
+          font-size: 24px;
+        }
       }
       
-      &.timeline-inverted > .timeline-panel {
-        padding: 35px 40px;
+      .timeline-date {
+        font-size: 18px;
+        padding: 12px 25px;
+        right: 61%;
+      }
+      
+      &.timeline-inverted .timeline-date {
+        left: 61%;
       }
     }
   }
