@@ -1,64 +1,61 @@
-// Enhanced styling for the timeline section
+// Enhanced Styling for the timeline/awards section
 .timeline {
   position: relative;
   padding: 0;
   list-style: none;
-  
-  // Timeline vertical line
   &:before {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 40px;
-    width: 3px;
+    width: 2px;
     margin-left: -1.5px;
     content: "";
     background-color: $gray-200;
   }
-  
   > li {
     position: relative;
     min-height: 50px;
-    margin-bottom: 60px;
-    transition: all 0.3s ease;
-    
+    margin-bottom: 50px;
     &:after,
     &:before {
       display: table;
       content: " ";
     }
-    
     &:after {
       clear: both;
     }
-    
-    // Timeline panel (content container)
     .timeline-panel {
       position: relative;
       float: right;
       width: 100%;
       padding: 0 20px 0 100px;
       text-align: left;
-      transition: all 0.3s ease-out;
-      
-      // Add some depth with subtle shadow
+      // Add subtle shadow for depth
       box-shadow: 0 3px 10px rgba(0,0,0,0.05);
       border-radius: 4px;
       padding-top: 20px;
       padding-bottom: 20px;
+      transition: all 0.3s ease;
       
-      // Arrow pointer
+      // Hover effect
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      }
+      
       &:before {
         right: auto;
         left: -15px;
         border-right-width: 15px;
         border-left-width: 0;
-        border-right-color: $white;
+        // Add arrow pointer
         position: absolute;
         top: 26px;
         display: inline-block;
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
+        border-right-color: $white;
         content: " ";
       }
       
@@ -67,23 +64,16 @@
         left: -14px;
         border-right-width: 14px;
         border-left-width: 0;
-        border-right-color: $white;
+        // Add arrow pointer
         position: absolute;
         top: 27px;
         display: inline-block;
         border-top: 14px solid transparent;
         border-bottom: 14px solid transparent;
+        border-right-color: $white;
         content: " ";
       }
-      
-      // Hover effect
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
     }
-    
-    // Timeline image/badge
     .timeline-image {
       position: absolute;
       z-index: 100;
@@ -96,14 +86,19 @@
       border: 7px solid $gray-200;
       border-radius: 100%;
       background-color: $primary;
-      overflow: hidden;
+      overflow: hidden; // For images
       transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       
-      // Center content inside circle
+      // Hover effect
+      &:hover {
+        transform: scale(1.05);
+        border-color: darken($gray-200, 5%);
+      }
+      
+      // Center content
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       
       h4 {
         font-size: 10px;
@@ -117,42 +112,17 @@
         height: 100%;
         object-fit: cover;
       }
-      
-      // Hover effect
-      &:hover {
-        transform: scale(1.05);
-        border-color: lighten($primary, 10%);
-      }
     }
-    
-    // Year badge
-    .timeline-badge {
-      position: absolute;
-      top: -10px;
-      left: 0px;
-      z-index: 101;
-      padding: 4px 12px;
-      background-color: $primary;
-      color: $white;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 14px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    }
-    
-    // Inverted timeline items
     &.timeline-inverted > .timeline-panel {
       float: right;
       padding: 0 20px 0 100px;
       text-align: left;
-      
       &:before {
         right: auto;
         left: -15px;
         border-right-width: 15px;
         border-left-width: 0;
       }
-      
       &:after {
         right: auto;
         left: -14px;
@@ -160,70 +130,48 @@
         border-left-width: 0;
       }
     }
-    
     &:last-child {
       margin-bottom: 0;
     }
   }
-  
-  // Heading styling
   .timeline-heading {
     h4 {
       margin-top: 0;
-      margin-bottom: 10px;
       color: inherit;
+      margin-bottom: 5px;
       font-weight: 600;
       
       &.subheading {
         text-transform: none;
-        color: $gray-600;
-        font-weight: 500;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: $primary;
       }
     }
-    
-    // Award host styling
-    .award-host {
-      margin-top: 5px;
-      margin-bottom: 15px;
-      color: $gray-600;
-      font-size: 0.95em;
-      padding-bottom: 10px;
-      border-bottom: 1px solid $gray-200;
-    }
   }
-  
-  // Body content styling
   .timeline-body {
     > ul,
     > p {
       margin-bottom: 0;
-      color: $gray-700;
-      line-height: 1.6;
     }
     
-    // Award description
-    .award-description {
-      margin-bottom: 5px;
-      font-size: 0.95em;
+    .text-muted {
+      line-height: 1.6;
     }
   }
 }
-
-// Tablet and larger screens
 @media (min-width: 768px) {
   .timeline {
     &:before {
       left: 50%;
     }
-    
     > li {
       min-height: 100px;
       margin-bottom: 100px;
-      
       .timeline-panel {
         float: left;
         width: 41%;
-        padding: 20px 20px 20px 30px;
+        padding: 20px 30px;
         text-align: right;
         
         &:before {
@@ -231,6 +179,7 @@
           right: -15px;
           border-left-width: 15px;
           border-right-width: 0;
+          border-left-color: $white;
         }
         
         &:after {
@@ -238,30 +187,22 @@
           right: -14px;
           border-left-width: 14px;
           border-right-width: 0;
+          border-left-color: $white;
         }
       }
-      
       .timeline-image {
         left: 50%;
         width: 100px;
         height: 100px;
         margin-left: -50px;
-        
         h4 {
           font-size: 13px;
           line-height: 18px;
         }
       }
-      
-      .timeline-badge {
-        left: 50%;
-        transform: translateX(-50%);
-        top: -15px;
-      }
-      
       &.timeline-inverted > .timeline-panel {
         float: right;
-        padding: 20px 30px 20px 20px;
+        padding: 20px 30px;
         text-align: left;
         
         &:before {
@@ -269,6 +210,7 @@
           left: -15px;
           border-right-width: 15px;
           border-left-width: 0;
+          border-right-color: $white;
         }
         
         &:after {
@@ -276,62 +218,50 @@
           left: -14px;
           border-right-width: 14px;
           border-left-width: 0;
+          border-right-color: $white;
         }
       }
     }
   }
 }
-
-// Desktop screens
 @media (min-width: 992px) {
   .timeline {
     > li {
       min-height: 150px;
-      
       .timeline-panel {
         padding: 20px 30px;
       }
-      
       .timeline-image {
         width: 150px;
         height: 150px;
         margin-left: -75px;
-        
         h4 {
           font-size: 18px;
           line-height: 26px;
-          margin-top: 0;
         }
       }
-      
       &.timeline-inverted > .timeline-panel {
         padding: 20px 30px;
       }
     }
   }
 }
-
-// Large desktop screens
 @media (min-width: 1200px) {
   .timeline {
     > li {
       min-height: 170px;
-      
       .timeline-panel {
         padding: 30px 40px 30px 80px;
       }
-      
       .timeline-image {
         width: 170px;
         height: 170px;
         margin-left: -85px;
-        
         h4 {
           font-size: 22px;
           line-height: 30px;
         }
       }
-      
       &.timeline-inverted > .timeline-panel {
         padding: 30px 80px 30px 40px;
       }
