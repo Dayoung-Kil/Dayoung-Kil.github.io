@@ -1,82 +1,158 @@
-/* Awards section styling */
+// Awards section styling
 .awards {
   position: relative;
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-.awards:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  width: 2px;
-  margin-left: -1.5px;
-  content: "";
-  background-color: #e9ecef;
-}
-
-@media (min-width: 768px) {
-  .awards:before {
-    left: 50%;
+  
+  &:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 2px;
+    margin-left: -1.5px;
+    content: "";
+    background-color: #e9ecef;
   }
-}
-
-.awards > li {
-  position: relative;
-  min-height: 170px;
-  margin-bottom: 50px;
-}
-
-.awards > li:after,
-.awards > li:before {
-  display: table;
-  content: " ";
-}
-
-.awards > li:after {
-  clear: both;
-}
-
-.awards > li .awards-panel {
-  position: relative;
-  float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-
-.awards > li .awards-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-
-.awards > li .awards-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-
-.awards > li .awards-image {
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
-  text-align: center;
-  color: white;
-  border: 7px solid #e9ecef;
-  border-radius: 100%;
-  background-color: #fed136;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  
+  @media (min-width: 768px) {
+    &:before {
+      left: 50%;
+    }
+  }
+  
+  > li {
+    position: relative;
+    min-height: 170px;
+    margin-bottom: 50px;
+    
+    &:after,
+    &:before {
+      display: table;
+      content: " ";
+    }
+    
+    &:after {
+      clear: both;
+    }
+    
+    .awards-panel {
+      position: relative;
+      float: right;
+      width: 100%;
+      padding: 0 20px 0 100px;
+      text-align: left;
+      
+      &:before {
+        right: auto;
+        left: -15px;
+        border-right-width: 15px;
+        border-left-width: 0;
+      }
+      
+      &:after {
+        right: auto;
+        left: -14px;
+        border-right-width: 14px;
+        border-left-width: 0;
+      }
+    }
+    
+    .awards-image {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      margin-left: 0;
+      text-align: center;
+      color: white;
+      border: 7px solid #e9ecef;
+      border-radius: 100%;
+      background-color: #fed136;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .year-badge {
+      position: absolute;
+      z-index: 20;
+      width: auto;
+      padding: 5px 10px;
+      left: 80px;
+      top: -10px;
+      text-align: center;
+      color: white;
+      border-radius: 4px;
+      background-color: #fed136;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    &.awards-inverted {
+      > .awards-panel {
+        float: left;
+        padding: 0 100px 0 20px;
+        text-align: right;
+        
+        &:before {
+          right: -15px;
+          left: auto;
+          border-right-width: 0;
+          border-left-width: 15px;
+        }
+        
+        &:after {
+          right: -14px;
+          left: auto;
+          border-right-width: 0;
+          border-left-width: 14px;
+        }
+      }
+    }
+    
+    @media (min-width: 768px) {
+      min-height: 150px;
+      
+      .awards-panel {
+        float: left;
+        width: 41%;
+        padding: 0 20px 20px 30px;
+        text-align: right;
+      }
+      
+      .awards-image {
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+      }
+      
+      .year-badge {
+        left: 50%;
+        margin-left: 60px;
+        top: 25px;
+      }
+      
+      &.awards-inverted {
+        > .year-badge {
+          left: auto;
+          right: 50%;
+          margin-left: 0;
+          margin-right: 60px;
+        }
+        
+        > .awards-panel {
+          float: right;
+          padding: 0 30px 20px 20px;
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 
 .awards-image img {
@@ -85,79 +161,7 @@
   object-fit: cover;
 }
 
-.awards > li .year-badge {
-  position: absolute;
-  z-index: 20;
-  width: auto;
-  padding: 5px 10px;
-  left: 80px;
-  top: -10px;
-  text-align: center;
-  color: white;
-  border-radius: 4px;
-  background-color: #fed136;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.awards > li.awards-inverted > .awards-panel {
-  float: left;
-  padding: 0 100px 0 20px;
-  text-align: right;
-}
-
-.awards > li.awards-inverted > .awards-panel:before {
-  right: -15px;
-  left: auto;
-  border-right-width: 0;
-  border-left-width: 15px;
-}
-
-.awards > li.awards-inverted > .awards-panel:after {
-  right: -14px;
-  left: auto;
-  border-right-width: 0;
-  border-left-width: 14px;
-}
-
-@media (min-width: 768px) {
-  .awards > li {
-    min-height: 150px;
-  }
-  .awards > li .awards-panel {
-    float: left;
-    width: 41%;
-    padding: 0 20px 20px 30px;
-    text-align: right;
-  }
-  .awards > li .awards-image {
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-  }
-  
-  .awards > li .year-badge {
-    left: 50%;
-    margin-left: 60px;
-    top: 25px;
-  }
-  
-  .awards > li.awards-inverted > .year-badge {
-    left: auto;
-    right: 50%;
-    margin-left: 0;
-    margin-right: 60px;
-  }
-  
-  .awards > li.awards-inverted > .awards-panel {
-    float: right;
-    padding: 0 30px 20px 20px;
-    text-align: left;
-  }
-}
-
-/* Award details popup */
+// Award details popup
 .award-panel {
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -166,11 +170,11 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   display: none;
   position: relative;
-}
-
-.award-panel.active {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
+  
+  &.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
 }
 
 .award-host {
@@ -187,17 +191,17 @@
   cursor: pointer;
   position: relative;
   display: inline-block;
-}
-
-.award-title:after {
-  content: '▼';
-  font-size: 0.7em;
-  margin-left: 5px;
-  transition: transform 0.3s;
-}
-
-.award-title.active:after {
-  transform: rotate(180deg);
+  
+  &:after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 5px;
+    transition: transform 0.3s;
+  }
+  
+  &.active:after {
+    transform: rotate(180deg);
+  }
 }
 
 .close-panel {
@@ -207,10 +211,10 @@
   cursor: pointer;
   font-size: 1.5rem;
   color: #6c757d;
-}
-
-.close-panel:hover {
-  color: #343a40;
+  
+  &:hover {
+    color: #343a40;
+  }
 }
 
 @keyframes fadeIn {
@@ -224,9 +228,9 @@
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
-}
-
-.awards-end h4 {
-  margin: 0;
-  color: #495057;
+  
+  h4 {
+    margin: 0;
+    color: #495057;
+  }
 }
