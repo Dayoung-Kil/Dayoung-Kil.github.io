@@ -1,3 +1,30 @@
+/* 어워드 섹션 제목 스타일링 */
+#awards .section-heading {
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#awards .section-heading:after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 20px auto 0;
+  background: linear-gradient(to right, #fed136, #ffe693);
+  border-radius: 2px;
+}
+
+#awards .section-subheading {
+  margin-bottom: 50px;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .timeline {
   position: relative;
   padding: 0;
