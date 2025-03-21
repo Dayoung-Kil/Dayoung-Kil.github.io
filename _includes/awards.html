@@ -1,64 +1,4 @@
 <!-- Awards -->
-{% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].awards.title | markdownify | default: "Awards" }}</h2>
-          <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].awards.text | default: "Recognitions received"}}</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="timeline">
-      {%- assign align = site.data.sitetext[site.locale].awards.start_align | default: "left" -%}
-      {%- for event in site.data.sitetext[site.locale].awards.events -%}
-            {%- if event.align -%}
-              {%- assign align = event.align -%}
-            {%- else -%}
-              {%- assign align = align | replace: "left", "right" | replace: "right", "left" -%}
-            {%- endif -%}
-            
-            <li class="{% if align == "right" %}timeline-inverted{% endif %}">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
-              </div>
-              <div class="timeline-date">{{ event.year | markdownify }}</div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="subheading">{{ event.title }}</h4>
-                </div>
-                <div class="timeline-body">
-                  {% assign desc_parts = event.desc | split: "<br>" %}
-                  <div class="text-muted">
-                    {% if desc_parts.size > 1 %}
-                      <div class="award-host">{{ desc_parts.first }}</div>
-                      {% for part in desc_parts offset:1 %}
-                        <div class="award-description">{{ part | markdownify }}</div>
-                      {% endfor %}
-                    {% else %}
-                      <div class="award-description">{{ event.desc | markdownify }}</div>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </li>
-		  {% endfor %}	
-            
-		  {% if site.data.sitetext[site.locale].awards.end %}	
-			<li class="timeline-inverted">
-              <div class="timeline-image end-image">
-                <h4>{{ site.data.sitetext[site.locale].awards.end }}</h4>
-              </div>
-            </li>
-		  {% endif %}
-
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-{% else %}
 <section class="bg-light page-section" id="{{ site.data.sitetext.awards.section | default: "awards" }}">
   <div class="container">
     <div class="row">
@@ -70,15 +10,9 @@
     <div class="row">
       <div class="col-lg-12">
         <ul class="timeline">
-    {%- assign align = site.data.sitetext.awards.start_align | default: "left" -%}
-    {%- for event in site.data.sitetext.awards.events -%}
-          {%- if event.align -%}
-            {%- assign align = event.align -%}
-          {%- else -%}
-            {%- assign align = align | replace: "left", "right" | replace: "right", "left" -%}
-          {%- endif -%}
-          
-          <li class="{% if align == "right" %}timeline-inverted{% endif %}">
+        {%- for event in site.data.sitetext.awards.events -%}
+          <!-- 짝수/홀수 항목에 따라 클래스 적용 -->
+          <li class="{% cycle '', 'timeline-inverted' %}">
             <div class="timeline-image">
               <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
             </div>
@@ -102,20 +36,18 @@
               </div>
             </div>
           </li>
-    {% endfor %}	
+        {% endfor %}
           
-    {% if site.data.sitetext.awards.end %}	
-    <li class="timeline-inverted">
+        {% if site.data.sitetext.awards.end %}
+          <li class="timeline-inverted">
             <div class="timeline-image end-image">
               <h4>{{ site.data.sitetext.awards.end }}</h4>
             </div>
           </li>
-    {% endif %}
-
+        {% endif %}
         </ul>
       </div>
     </div>
   </div>
 </section>
-{% endif %}
 <!-- End Awards -->
