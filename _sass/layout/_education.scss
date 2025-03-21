@@ -1,359 +1,109 @@
-/* Education Section Styles */
-.education-section {
-  padding: 90px 0;
-  background-color: #ffffff;
-  position: relative;
-  overflow: hidden;
-  
-  /* 배경 장식 요소 추가 */
-  &:before {
-    content: "";
-    position: absolute;
-    top: -150px;
-    right: -150px;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.03), rgba(var(--primary-rgb), 0.06));
-    border-radius: 50%;
-    z-index: 0;
-  }
-  
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -100px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.04), rgba(var(--primary-rgb), 0.02));
-    border-radius: 50%;
-    z-index: 0;
-  }
-  
-  .container {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .section-heading {
-    margin-bottom: 20px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    position: relative;
-    
-    &:after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 25px auto 0;
-      background: linear-gradient(to right, var(--primary), var(--primary-light));
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(var(--primary-rgb), 0.2);
-    }
-  }
-  
-  .section-subheading {
-    margin-bottom: 60px;
-    font-size: 19px;
-    font-weight: 400;
-    font-style: italic;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--gray-600);
-  }
-  
-  .education-item {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 35px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 5px 15px rgba(0, 0, 0, 0.03);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    position: relative;
-    overflow: hidden;
-    
-    /* 장식적 요소 추가 */
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--primary-light));
-      opacity: 0.9;
-    }
-    
-    /* 소프트한 배경 패턴 추가 */
-    &:after {
-      content: "";
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      width: 120px;
-      height: 120px;
-      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='var(--primary)' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-      background-size: 120px 120px;
-      opacity: 0.2;
-      z-index: 0;
-    }
-    
-    &:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.04);
-      
-      .education-icon {
-        transform: scale(1.08) rotate(5deg);
-        background-color: rgba(var(--primary-rgb), 0.15);
-        box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.2);
-        
-        i {
-          color: var(--primary-dark);
-        }
-      }
-      
-      .education-heading {
-        color: var(--primary-dark);
-        
-        &:after {
-          width: 80px;
-          background-color: rgba(var(--primary-rgb), 0.4);
-        }
-      }
-    }
-  }
-  
-  .education-icon {
-    flex: 0 0 auto;
-    width: 70px;
-    height: 70px;
-    background-color: rgba(var(--primary-rgb), 0.08);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 25px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    z-index: 1;
-    
-    /* 아이콘 주위에 원형 효과 추가 */
-    &:before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
-      z-index: -1;
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-    
-    &:hover:before {
-      opacity: 1;
-      top: -8px;
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
-    }
-    
-    i {
-      font-size: 30px;
-      color: var(--primary);
-      transition: all 0.3s ease;
-    }
-  }
-  
-  .education-content {
-    flex: 1;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .education-heading {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--gray-800);
-    margin-bottom: 8px;
-    position: relative;
-    transition: all 0.3s ease;
-    
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background-color: rgba(var(--primary-rgb), 0.3);
-      transition: all 0.3s ease;
-    }
-  }
-  
-  /* 새로 추가된 학교명 스타일 */
-  .education-school {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 5px;
-    margin-top: 15px;
-  }
-  
-  /* 새로 추가된 기간 스타일 */
-  .education-dates {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--gray-500);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    
-    &:before {
-      content: "\f017"; /* Font Awesome clock icon */
-      font-family: "Font Awesome 5 Free";
-      margin-right: 8px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  }
-  
-  .education-desc {
-    color: var(--gray-600);
-    font-size: 16px;
-    line-height: 1.8;
-    margin-top: 15px;
-    position: relative;
-    
-    p {
-      margin-bottom: 10px;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    
-    /* 강조 스타일 */
-    strong {
-      color: var(--gray-700);
-      font-weight: 600;
-    }
-    
-    /* 장식적인 불릿 포인트 */
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 10px;
-      
-      li {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 8px;
-        
-        &:before {
-          content: "•";
-          color: var(--primary);
-          position: absolute;
-          left: 0;
-          top: 0;
-          font-weight: bold;
-        }
-      }
-    }
-  }
-  
-  /* 태블릿과 모바일 반응형 */
-  @media (max-width: 991px) {
-    .education-section {
-      padding: 70px 0;
-      
-      &:before, &:after {
-        opacity: 0.5;
-        transform: scale(0.8);
-      }
-      
-      .education-item {
-        padding: 30px;
-      }
-      
-      .education-icon {
-        width: 60px;
-        height: 60px;
-        
-        i {
-          font-size: 26px;
-        }
-      }
-      
-      .education-heading {
-        font-size: 20px;
-      }
-      
-      .education-school {
-        font-size: 16px;
-      }
-      
-      .education-desc {
-        font-size: 15px;
-      }
-    }
-  }
-
-  @media (max-width: 767px) {
-    .education-section {
-      padding: 60px 0;
-      
-      .education-item {
-        margin-bottom: 25px;
-        padding: 25px;
-      }
-      
-      .section-heading:after {
-        width: 60px;
-      }
-      
-      .education-icon {
-        width: 55px;
-        height: 55px;
-        margin-right: 20px;
-        
-        i {
-          font-size: 24px;
-        }
-      }
-      
-      .education-heading {
-        font-size: 18px;
-        
-        &:after {
-          width: 40px;
-        }
-      }
-      
-      .education-school {
-        font-size: 15px;
-      }
-    }
-  }
-}
-
-/* CSS 변수를 사용하기 위한 루트 설정 */
-:root {
-  --primary: #fed136;
-  --primary-rgb: 254, 209, 54;
-  --primary-light: #fee48c;
-  --primary-dark: #e9b800;
-  --gray-800: #343a40;
-  --gray-700: #495057;
-  --gray-600: #6c757d;
-  --gray-500: #adb5bd;
-  --gray-300: #dee2e6;
-}
+<!-- Education Timeline -->
+{% if site.locale and site.locale != "" and site.locale != nil %}
+  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].education.title | default: "Education" }}</h2>
+          {% if site.data.sitetext[site.locale].education.text %}
+            <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].education.text }}</h3>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline education-timeline">
+            {% assign align = "left" %}
+            {% for education in site.data.sitetext[site.locale].education.list %}
+              {% if align == "right" %}
+                {% assign align = "left" %}
+                <li class="timeline-inverted">
+              {% else %}
+                {% assign align = "right" %}
+                <li>
+              {% endif %}
+                <div class="timeline-image">
+                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <div class="education-date">{{ education.dates }}</div>
+                    <h4 class="subheading">{{ education.title }}</h4>
+                    {% if education.school %}
+                      <div class="education-school">{{ education.school }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="timeline-body">
+                    <div class="text-muted">
+                      <div class="education-description">{{ education.desc | markdownify }}</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            
+            <li class="timeline-inverted last-item">
+              <div class="timeline-image end-image">
+                <h4>More To Come!</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% else %}
+  <section class="bg-light page-section" id="{{ site.data.sitetext.education.section | default: "education" }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">{{ site.data.sitetext.education.title | default: "Education" }}</h2>
+          {% if site.data.sitetext.education.text %}
+            <h3 class="section-subheading text-muted">{{ site.data.sitetext.education.text }}</h3>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline education-timeline">
+            {% assign align = "left" %}
+            {% for education in site.data.sitetext.education.list %}
+              {% if align == "right" %}
+                {% assign align = "left" %}
+                <li class="timeline-inverted">
+              {% else %}
+                {% assign align = "right" %}
+                <li>
+              {% endif %}
+                <div class="timeline-image">
+                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <div class="education-date">{{ education.dates }}</div>
+                    <h4 class="subheading">{{ education.title }}</h4>
+                    {% if education.school %}
+                      <div class="education-school">{{ education.school }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="timeline-body">
+                    <div class="text-muted">
+                      <div class="education-description">{{ education.desc | markdownify }}</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            
+            <li class="timeline-inverted last-item">
+              <div class="timeline-image end-image">
+                <h4>More To Come!</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+<!-- End Education Timeline -->
