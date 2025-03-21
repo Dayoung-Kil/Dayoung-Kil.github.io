@@ -18,14 +18,14 @@
               {%- assign align = align | replace: "left", "right" | replace: "right", "left" -%}
             {%- endif -%}
             
-            <li class="timeline-item {% if align == "right" %}timeline-inverted{% endif %}">
+            <li class="{% if align == "right" %}timeline-inverted{% endif %}">
               <div class="timeline-image">
                 <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: "" }}">
               </div>
               <div class="timeline-badge">{{ event.year }}</div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="award-title">{{ event.title }}</h4>
+                  <h4>{{ event.title }}</h4>
                   
                   {% assign desc_parts = event.desc | split: "<br>" %}
                   {% if desc_parts.size > 1 %}
@@ -46,7 +46,7 @@
           {% endfor %}
           
           {% if site.data.sitetext.awards.end %}
-            <li class="timeline-end">
+            <li>
               <div class="timeline-image">
                 <h4>{{ site.data.sitetext.awards.end }}</h4>
               </div>
