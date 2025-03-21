@@ -1,7 +1,7 @@
 // 저작권 섹션을 위한 고급스러운 스타일링
 .copyright-section {
   padding: 80px 0;
-  background-color: #ffffff; // 명시적인 하얀색 배경 추가
+  background-color: #ffffff !important; // 명시적인 하얀색 배경 추가, 중요성 표시
 
   
   .section-heading {
