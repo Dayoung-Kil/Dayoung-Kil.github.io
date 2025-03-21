@@ -1,4 +1,4 @@
-<!-- Horizontal Education Timeline -->
+<!-- Step Style Education Section -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
   <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
     <div class="container">
@@ -11,27 +11,21 @@
         </div>
       </div>
       
-      <div class="education-horizontal">
-        <!-- 가로 타임라인 선 -->
-        <div class="education-line"></div>
-        
-        <div class="education-entries">
-          {% for education in site.data.sitetext[site.locale].education.list %}
-            <div class="education-entry">
-              <div class="education-dot">
-                <div class="education-icon">
-                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
-                </div>
-              </div>
-              <div class="education-content">
-                <div class="education-date">{{ education.dates }}</div>
-                <h4 class="education-title">{{ education.title }}</h4>
-                <div class="education-school">{{ education.school }}</div>
-                <div class="education-desc">{{ education.desc | markdownify }}</div>
-              </div>
+      <div class="education-steps">
+        {% for education in site.data.sitetext[site.locale].education.list %}
+          <div class="education-step">
+            <div class="step-number">{{ forloop.index }}</div>
+            <div class="step-content">
+              <div class="step-date">{{ education.dates }}</div>
+              <h4 class="step-title">{{ education.title }}</h4>
+              <div class="step-school">{{ education.school }}</div>
+              <div class="step-desc">{{ education.desc | markdownify }}</div>
             </div>
-          {% endfor %}
-        </div>
+            <div class="step-icon">
+              <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -47,29 +41,23 @@
         </div>
       </div>
       
-      <div class="education-horizontal">
-        <!-- 가로 타임라인 선 -->
-        <div class="education-line"></div>
-        
-        <div class="education-entries">
-          {% for education in site.data.sitetext.education.list %}
-            <div class="education-entry">
-              <div class="education-dot">
-                <div class="education-icon">
-                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
-                </div>
-              </div>
-              <div class="education-content">
-                <div class="education-date">{{ education.dates }}</div>
-                <h4 class="education-title">{{ education.title }}</h4>
-                <div class="education-school">{{ education.school }}</div>
-                <div class="education-desc">{{ education.desc | markdownify }}</div>
-              </div>
+      <div class="education-steps">
+        {% for education in site.data.sitetext.education.list %}
+          <div class="education-step">
+            <div class="step-number">{{ forloop.index }}</div>
+            <div class="step-content">
+              <div class="step-date">{{ education.dates }}</div>
+              <h4 class="step-title">{{ education.title }}</h4>
+              <div class="step-school">{{ education.school }}</div>
+              <div class="step-desc">{{ education.desc | markdownify }}</div>
             </div>
-          {% endfor %}
-        </div>
+            <div class="step-icon">
+              <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </section>
 {% endif %}
-<!-- End Horizontal Education Timeline -->
+<!-- End Step Style Education Section -->
