@@ -1,70 +1,5 @@
-
 <!-- Awards -->
-{% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].awards.section | default: "awards" }}">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].awards.title | markdownify | default: "Awards" }}</h2>
-          <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].awards.text | default: "Recognitions received"}}</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="awards">
-            {%- assign align = site.data.sitetext[site.locale].awards.start_align -%}
-            {%- for event in site.data.sitetext[site.locale].awards.events -%}
-              {%- if align == "right" -%}
-                {%- if event.align and event.align == "left" -%}
-                  {%- assign align = "right" -%}
-                  <li>
-                {%- else -%}
-                  {%- assign align = "left" %}
-                  <li class="awards-inverted">
-                {% endif %}
-              {% else %}
-                {%- if event.align and event.align == "right" -%}
-                  {%- assign align = "left" -%}
-                  <li class="awards-inverted">
-                {%- else -%}
-                  {%- assign align = "right" %}
-                  <li>
-                {% endif %}
-              {%- endif -%}
-                <div class="awards-image">
-                  <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
-                </div>
-                <div class="year-badge">{{ event.year | markdownify }}</div>
-                <div class="awards-panel">
-                  <h3 class="award-title">{{ event.title }}</h3>
-
-                  {% assign desc_parts = event.desc | split: "<br>" %}
-                  {% if desc_parts.size > 1 %}
-                    <div class="award-host">{{ desc_parts.first }}</div>
-                    <div class="award-description">
-                      {% for part in desc_parts offset:1 %}
-                        {{ part | markdownify }}
-                      {% endfor %}
-                    </div>
-                  {% else %}
-                    <div class="award-description">{{ event.desc | markdownify }}</div>
-                  {% endif %}
-                </div>
-              </li>
-            {% endfor %}	
-          </ul>
-
-          {% if site.data.sitetext[site.locale].awards.end %}
-            <div class="awards-end">
-              <h4>{{ site.data.sitetext[site.locale].awards.end }}</h4>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </section>
-{% else %}
-<section class="page-section" id="{{ site.data.sitetext.awards.section | default: "awards" }}">
+<section class="bg-light page-section" id="{{ site.data.sitetext.awards.section | default: "awards" }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -74,57 +9,52 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <ul class="awards">
-          {%- assign align = site.data.sitetext.awards.start_align -%}
+        <ul class="timeline">
+          {%- assign align = site.data.sitetext.awards.start_align | default: "left" -%}
           {%- for event in site.data.sitetext.awards.events -%}
-            {%- if align == "right" -%}
-              {%- if event.align and event.align == "left" -%}
-                {%- assign align = "right" -%}
-                <li>
-              {%- else -%}
-                {%- assign align = "left" %}
-                <li class="awards-inverted">
-              {% endif %}
-            {% else %}
-              {%- if event.align and event.align == "right" -%}
-                {%- assign align = "left" -%}
-                <li class="awards-inverted">
-              {%- else -%}
-                {%- assign align = "right" %}
-                <li>
-              {% endif %}
+            {%- if event.align -%}
+              {%- assign align = event.align -%}
+            {%- else -%}
+              {%- assign align = align | replace: "left", "right" | replace: "right", "left" -%}
             {%- endif -%}
-              <div class="awards-image">
-                <img class="img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
+            
+            <li class="timeline-item {% if align == "right" %}timeline-inverted{% endif %}">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: "" }}">
               </div>
-              <div class="year-badge">{{ event.year | markdownify }}</div>
-              <div class="awards-panel">
-                <h3 class="award-title">{{ event.title }}</h3>
-
-                {% assign desc_parts = event.desc | split: "<br>" %}
-                {% if desc_parts.size > 1 %}
-                  <div class="award-host">{{ desc_parts.first }}</div>
-                  <div class="award-description">
+              <div class="timeline-badge">{{ event.year }}</div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="award-title">{{ event.title }}</h4>
+                  
+                  {% assign desc_parts = event.desc | split: "<br>" %}
+                  {% if desc_parts.size > 1 %}
+                    <div class="award-host">{{ desc_parts.first }}</div>
+                  {% endif %}
+                </div>
+                <div class="timeline-body">
+                  {% if desc_parts.size > 1 %}
                     {% for part in desc_parts offset:1 %}
-                      {{ part | markdownify }}
+                      <p class="award-description">{{ part | markdownify }}</p>
                     {% endfor %}
-                  </div>
-                {% else %}
-                  <div class="award-description">{{ event.desc | markdownify }}</div>
-                {% endif %}
+                  {% else %}
+                    <p class="award-description">{{ event.desc | markdownify }}</p>
+                  {% endif %}
+                </div>
               </div>
             </li>
-          {% endfor %}	
+          {% endfor %}
+          
+          {% if site.data.sitetext.awards.end %}
+            <li class="timeline-end">
+              <div class="timeline-image">
+                <h4>{{ site.data.sitetext.awards.end }}</h4>
+              </div>
+            </li>
+          {% endif %}
         </ul>
-
-        {% if site.data.sitetext.awards.end %}
-          <div class="awards-end">
-            <h4>{{ site.data.sitetext.awards.end }}</h4>
-          </div>
-        {% endif %}
       </div>
     </div>
   </div>
 </section>
-{% endif %}
 <!-- End Awards -->
