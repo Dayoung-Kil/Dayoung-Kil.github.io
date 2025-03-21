@@ -1,228 +1,232 @@
-/* 심플한 수상 경력 섹션 스타일링 */
-#awards {
-  padding: 80px 0;
-  background-color: #f8f9fa;
-}
-
-.section-heading {
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.section-subheading {
-  margin-bottom: 60px;
-  font-style: italic;
-}
-
+/* Awards section styling */
 .awards {
   position: relative;
   padding: 0;
+  margin: 0;
   list-style: none;
-  
-  /* 타임라인 중앙선 */
-  &:before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    content: "";
-    background-color: #e0e0e0;
-  }
-  
-  > li {
-    position: relative;
-    margin-bottom: 70px;
-    
-    &:after,
-    &:before {
-      display: table;
-      content: " ";
-    }
-    
-    &:after {
-      clear: both;
-    }
-    
-    /* 수상 패널 스타일링 - 간소화 */
-    .awards-panel {
-      position: relative;
-      float: left;
-      width: 42%;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-      }
-    }
-    
-    /* 수상 이미지 스타일링 */
-    .awards-image {
-      position: absolute;
-      z-index: 10;
-      left: 50%;
-      top: 30px; /* 이미지 위치 조정 - 날짜와 겹치지 않게 */
-      width: 80px;
-      height: 80px;
-      margin-left: -40px;
-      text-align: center;
-      overflow: hidden;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    
-    /* 오른쪽 패널 (역순) */
-    &.awards-inverted {
-      > .awards-panel {
-        float: right;
-      }
-    }
-    
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  
-  /* 수상 내용 스타일링 - 간소화 */
-  .award-title {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 700;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  /* 주최기관 스타일링 */
-  .award-host {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-  }
-  
-  /* 수상 설명 스타일링 - 간단한 텍스트만 표시 */
-  .award-description {
-    display: none; /* 기본적으로 숨김 */
-  }
-  
-  /* 연도 배지 */
-  .year-badge {
-    position: absolute;
-    top: -12px; /* 위치 상향 조정 */
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    padding: 5px 15px;
-    background-color: #FFC107;
-    color: #333;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 20px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    z-index: 20; /* 최상단에 표시 */
-    white-space: nowrap;
-  }
 }
 
-/* 마지막 아이템 스타일링 */
-.awards-end {
-  text-align: center;
-  margin-top: 60px;
-  
-  h4 {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #FFC107;
-    color: #333;
-    font-weight: 600;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-}
-
-/* 모달 스타일링 (필요시 활성화) */
-.award-modal {
-  display: none;
-  position: fixed;
+.awards:before {
+  position: absolute;
   top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 2px;
+  margin-left: -1.5px;
+  content: "";
+  background-color: #e9ecef;
+}
+
+@media (min-width: 768px) {
+  .awards:before {
+    left: 50%;
+  }
+}
+
+.awards > li {
+  position: relative;
+  min-height: 170px;
+  margin-bottom: 50px;
+}
+
+.awards > li:after,
+.awards > li:before {
+  display: table;
+  content: " ";
+}
+
+.awards > li:after {
+  clear: both;
+}
+
+.awards > li .awards-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+
+.awards > li .awards-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.awards > li .awards-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+
+.awards > li .awards-image {
+  position: absolute;
+  z-index: 10;
   left: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: 0;
+  text-align: center;
+  color: white;
+  border: 7px solid #e9ecef;
+  border-radius: 100%;
+  background-color: #fed136;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.awards-image img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1000;
+  object-fit: cover;
+}
+
+.awards > li .year-badge {
+  position: absolute;
+  z-index: 20;
+  width: auto;
+  padding: 5px 10px;
+  left: 80px;
+  top: -10px;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  background-color: #fed136;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.awards > li.awards-inverted > .awards-panel {
+  float: left;
+  padding: 0 100px 0 20px;
+  text-align: right;
+}
+
+.awards > li.awards-inverted > .awards-panel:before {
+  right: -15px;
+  left: auto;
+  border-right-width: 0;
+  border-left-width: 15px;
+}
+
+.awards > li.awards-inverted > .awards-panel:after {
+  right: -14px;
+  left: auto;
+  border-right-width: 0;
+  border-left-width: 14px;
+}
+
+@media (min-width: 768px) {
+  .awards > li {
+    min-height: 150px;
+  }
+  .awards > li .awards-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+  }
+  .awards > li .awards-image {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+  }
   
-  .award-modal-content {
-    position: relative;
-    background-color: #fff;
-    max-width: 600px;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 24px;
-      cursor: pointer;
-    }
+  .awards > li .year-badge {
+    left: 50%;
+    margin-left: 60px;
+    top: 25px;
+  }
+  
+  .awards > li.awards-inverted > .year-badge {
+    left: auto;
+    right: 50%;
+    margin-left: 0;
+    margin-right: 60px;
+  }
+  
+  .awards > li.awards-inverted > .awards-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
   }
 }
 
-/* 반응형 조정 */
-@media (max-width: 767px) {
-  .awards {
-    &:before {
-      left: 40px;
-    }
-    
-    > li {
-      margin-bottom: 70px;
-      
-      .awards-panel {
-        float: right;
-        width: calc(100% - 90px);
-        margin-left: 0;
-        text-align: left;
-      }
-      
-      .awards-image {
-        left: 40px;
-        width: 60px;
-        height: 60px;
-        margin-left: -30px;
-        top: 20px; /* 모바일에서도 날짜와 겹치지 않게 조정 */
-      }
-      
-      .year-badge {
-        left: 70px; /* 모바일에서 위치 조정 */
-        transform: translateX(0);
-        top: -12px;
-      }
-      
-      &.awards-inverted > .awards-panel {
-        float: right;
-        text-align: left;
-      }
-    }
-  }
-  
-  .awards-end {
-    margin-left: 40px;
-    text-align: left;
-  }
+/* Award details popup */
+.award-panel {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: none;
+  position: relative;
+}
+
+.award-panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.award-host {
+  font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.award-description {
+  margin-top: 10px;
+}
+
+.award-title {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.award-title:after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.award-title.active:after {
+  transform: rotate(180deg);
+}
+
+.close-panel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #6c757d;
+}
+
+.close-panel:hover {
+  color: #343a40;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.awards-end {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.awards-end h4 {
+  margin: 0;
+  color: #495057;
 }
