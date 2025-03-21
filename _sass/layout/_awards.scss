@@ -1,5 +1,5 @@
-// Awards section styling
-.awards {
+// Timeline styling
+.timeline {
   position: relative;
   padding: 0;
   margin: 0;
@@ -10,14 +10,12 @@
     top: 0;
     bottom: 0;
     left: 40px;
-    width: 2px;
+    width: 3px;
     margin-left: -1.5px;
     content: "";
     background-color: #e9ecef;
-  }
-  
-  @media (min-width: 768px) {
-    &:before {
+    
+    @media (min-width: 768px) {
       left: 50%;
     }
   }
@@ -37,29 +35,38 @@
       clear: both;
     }
     
-    .awards-panel {
+    .timeline-panel {
       position: relative;
       float: right;
       width: 100%;
       padding: 0 20px 0 100px;
       text-align: left;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       
-      &:before {
-        right: auto;
-        left: -15px;
-        border-right-width: 15px;
-        border-left-width: 0;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       }
       
-      &:after {
-        right: auto;
-        left: -14px;
-        border-right-width: 14px;
-        border-left-width: 0;
+      .timeline-heading {
+        padding: 20px 20px 10px;
+      }
+      
+      .timeline-body {
+        padding: 0 20px 20px;
+      }
+      
+      @media (min-width: 768px) {
+        float: left;
+        width: 42%;
+        padding: 0;
       }
     }
     
-    .awards-image {
+    .timeline-image {
       position: absolute;
       z-index: 10;
       left: 0;
@@ -70,14 +77,21 @@
       color: white;
       border: 7px solid #e9ecef;
       border-radius: 100%;
-      background-color: #fed136;
+      background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      
+      @media (min-width: 768px) {
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+      }
     }
     
-    .year-badge {
+    .timeline-badge {
       position: absolute;
       z-index: 20;
       width: auto;
@@ -90,147 +104,93 @@
       background-color: #fed136;
       font-weight: bold;
       font-size: 0.9rem;
-    }
-    
-    &.awards-inverted {
-      > .awards-panel {
-        float: left;
-        padding: 0 100px 0 20px;
-        text-align: right;
-        
-        &:before {
-          right: -15px;
-          left: auto;
-          border-right-width: 0;
-          border-left-width: 15px;
-        }
-        
-        &:after {
-          right: -14px;
-          left: auto;
-          border-right-width: 0;
-          border-left-width: 14px;
-        }
-      }
-    }
-    
-    @media (min-width: 768px) {
-      min-height: 150px;
       
-      .awards-panel {
-        float: left;
-        width: 41%;
-        padding: 0 20px 20px 30px;
-        text-align: right;
-      }
-      
-      .awards-image {
-        left: 50%;
-        width: 100px;
-        height: 100px;
-        margin-left: -50px;
-      }
-      
-      .year-badge {
+      @media (min-width: 768px) {
         left: 50%;
         margin-left: 60px;
         top: 25px;
       }
+    }
+    
+    &.timeline-inverted {
+      > .timeline-panel {
+        float: right;
+        text-align: left;
+        
+        @media (min-width: 768px) {
+          float: right;
+        }
+      }
       
-      &.awards-inverted {
-        > .year-badge {
+      > .timeline-badge {
+        @media (min-width: 768px) {
           left: auto;
           right: 50%;
           margin-left: 0;
           margin-right: 60px;
         }
-        
-        > .awards-panel {
-          float: right;
-          padding: 0 30px 20px 20px;
-          text-align: left;
-        }
       }
     }
   }
 }
 
-.awards-image img {
+.timeline-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-// Award details popup
-.award-panel {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  display: none;
-  position: relative;
-  
-  &.active {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-  }
+.award-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #343a40;
 }
 
 .award-host {
+  font-size: 0.95rem;
   font-weight: 500;
   color: #6c757d;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.timeline-body p {
   margin-bottom: 10px;
+  color: #495057;
+  line-height: 1.6;
 }
 
-.award-description {
-  margin-top: 10px;
-}
-
-.award-title {
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  
-  &:after {
-    content: '▼';
-    font-size: 0.7em;
-    margin-left: 5px;
-    transition: transform 0.3s;
-  }
-  
-  &.active:after {
-    transform: rotate(180deg);
-  }
-}
-
-.close-panel {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #6c757d;
-  
-  &:hover {
-    color: #343a40;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.awards-end {
-  text-align: center;
+.timeline-end {
   margin-top: 50px;
-  padding: 20px;
+  padding: 25px;
   background-color: #f8f9fa;
   border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   
   h4 {
     margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: #495057;
+    line-height: 1.6;
   }
+}
+
+// Page section general styling
+.page-section {
+  padding: 70px 0;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-subheading {
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 60px;
 }
