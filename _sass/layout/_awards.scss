@@ -20,7 +20,7 @@
   > li {
     position: relative;
     min-height: 50px;
-    margin-bottom: 40px; // 세로 간격 줄임
+    margin-bottom: 40px;
     
     &:after,
     &:before {
@@ -32,27 +32,17 @@
       clear: both;
     }
     
-    // Date badge integrated with timeline - 중앙 정렬 수정
+    // 날짜 스타일 변경 - 하얀 패널에 표시
     .timeline-date {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 102;
-      padding: 8px 16px;
-      background: linear-gradient(135deg, #FFC107, #FF9800);
-      color: #fff;
+      position: relative;
+      display: inline-block;
       font-size: 14px;
       font-weight: 600;
-      border-radius: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      color: #666;
+      margin-bottom: 10px;
       letter-spacing: 0.5px;
-      border: 2px solid rgba(255,255,255,0.9);
-      text-align: center;
-      min-width: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 50%; // 세로 중앙 정렬
+      border-bottom: 2px solid rgba(255, 193, 7, 0.5); // 부드러운 노란색 밑줄
+      padding-bottom: 3px;
     }
     
     // White card design
@@ -67,7 +57,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
       border: 1px solid rgba(0,0,0,0.03);
-      margin-left: 50px; // 카드와 타임라인 사이 간격 확대
+      margin-left: 50px;
       
       // Hover effect
       &:hover {
@@ -148,7 +138,7 @@
       
       // Special styling for the end image
       &.end-image {
-        background: linear-gradient(135deg, #FFC107, #FF9800);
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.8), rgba(255, 152, 0, 0.8)); // 더 부드러운 노란색 그라데이션
         
         h4 {
           font-size: 13px;
@@ -162,8 +152,8 @@
       float: right;
       padding: 25px 25px 25px 100px;
       text-align: left;
-      margin-left: 0; // 왼쪽 마진 제거
-      margin-right: 50px; // 오른쪽 마진 확대
+      margin-left: 0;
+      margin-right: 50px;
       
       &:before {
         right: auto;
@@ -225,16 +215,20 @@
   .timeline {
     > li {
       min-height: 100px;
-      margin-bottom: 50px; // 세로 간격 줄임
+      margin-bottom: 50px;
       
       .timeline-panel {
         float: left;
-        width: 40%; // 너비 약간 줄임
+        width: 40%;
         padding: 30px;
         text-align: right;
         margin-top: 20px;
-        margin-left: 0; // 왼쪽 마진 제거
-        margin-right: 50px; // 오른쪽 마진 확대
+        margin-left: 0;
+        margin-right: 50px;
+        
+        .timeline-date {
+          text-align: right;
+        }
         
         &:before {
           left: auto;
@@ -269,18 +263,17 @@
         }
       }
       
-      // Updated date position for tablet - 중앙 정렬
-      .timeline-date {
-        top: 50%; // 세로 중앙 정렬
-      }
-      
       // Override for inverted items
       &.timeline-inverted {
         .timeline-panel {
           float: right;
           text-align: left;
-          margin-right: 0; // 오른쪽 마진 제거
-          margin-left: 50px; // 왼쪽 마진 확대
+          margin-right: 0;
+          margin-left: 50px;
+          
+          .timeline-date {
+            text-align: left;
+          }
           
           &:before {
             right: auto;
@@ -308,19 +301,19 @@
   .timeline {
     > li {
       min-height: 150px;
-      margin-bottom: 60px; // 데스크탑 화면에서 세로 간격 조정
+      margin-bottom: 60px;
       
       .timeline-panel {
         padding: 35px 40px;
-        width: 42%; // 너비 조정
-        margin-right: 60px; // 오른쪽 패널 마진 더 확대
+        width: 42%;
+        margin-right: 60px;
         
         &:before {
-          top: 30px; // 화살표 위치 조정
+          top: 30px;
         }
         
         &:after {
-          top: 31px; // 화살표 위치 조정
+          top: 31px;
         }
       }
       
@@ -339,19 +332,20 @@
         }
       }
       
-      // Updated date position for desktop - 중앙 정렬
+      // Updated date style for desktop
       .timeline-date {
-        top: 50%; // 세로 중앙 정렬
         font-size: 16px;
       }
       
       &.timeline-inverted .timeline-panel {
+        margin-left: 60px;
+        
         &:before {
-          top: 30px; // 화살표 위치 조정
+          top: 30px;
         }
         
         &:after {
-          top: 31px; // 화살표 위치 조정
+          top: 31px;
         }
       }
     }
@@ -363,12 +357,12 @@
   .timeline {
     > li {
       min-height: 170px;
-      margin-bottom: 70px; // 대형 화면에서 세로 간격 조정
+      margin-bottom: 70px;
       
       .timeline-panel {
         padding: 40px 45px;
-        width: 40%; // 너비 조정
-        margin-right: 70px; // 큰 화면에서 마진 더 확대
+        width: 40%;
+        margin-right: 70px;
       }
       
       .timeline-image {
@@ -386,11 +380,13 @@
         }
       }
       
-      // Updated date position for large desktop - 중앙 정렬
+      // Updated date style for large desktop
       .timeline-date {
-        top: 50%; // 세로 중앙 정렬
         font-size: 18px;
-        padding: 12px 25px;
+      }
+      
+      &.timeline-inverted .timeline-panel {
+        margin-left: 70px;
       }
     }
   }
