@@ -203,7 +203,7 @@ en: &DEFAULT_EN
       - title: "우수상"
         year: "Feb 8, 2021"
         desc: |
-          숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University
+          숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University <br>
         image: assets/img/awards/ssu.jpg
         alt:
         # you can enforce the alignment
