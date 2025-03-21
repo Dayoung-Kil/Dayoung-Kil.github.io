@@ -1,4 +1,4 @@
-/* 스텝 스타일 교육 섹션을 위한 CSS */
+/* 스텝 스타일 교육 섹션을 위한 CSS - 노란색 테마 */
 .education-steps {
   max-width: 900px;
   margin: 60px auto 0;
@@ -32,7 +32,7 @@
   width: 60px;
   min-width: 60px;
   height: 100%;
-  background-color: #2196F3;
+  background-color: #fed136; /* 기본 노란색 */
   color: #fff;
   font-size: 24px;
   font-weight: 700;
@@ -45,7 +45,7 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  width: a30px;
+  width: 30px;
   height: 30px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
@@ -60,8 +60,8 @@
 .step-date {
   display: inline-block;
   padding: 4px 10px;
-  background-color: rgba(33, 150, 243, 0.08);
-  color: #2196F3;
+  background-color: rgba(254, 209, 54, 0.1); /* 연한 노란색 배경 */
+  color: #e6b800; /* 조금 더 어두운 노란색 글씨 */
   font-size: 14px;
   font-weight: 600;
   border-radius: 4px;
@@ -71,19 +71,19 @@
 .step-title {
   font-size: 22px;
   font-weight: 700;
-  color: #333;
+  color: #333; /* 검은색에 가까운 색상 */
   margin-bottom: 5px;
 }
 
 .step-school {
   font-size: 17px;
-  color: #555;
+  color: #555; /* 짙은 회색 */
   font-weight: 500;
   margin-bottom: 15px;
 }
 
 .step-desc {
-  color: #666;
+  color: #666; /* 중간 회색 */
   font-size: 15px;
   line-height: 1.6;
 }
@@ -102,7 +102,7 @@
 
 .step-desc ul li:before {
   content: "•";
-  color: #2196F3;
+  color: #fed136; /* 노란색 불릿 */
   position: absolute;
   left: 0;
   top: 0;
@@ -115,65 +115,65 @@
   top: 25px;
   width: 40px;
   height: 40px;
-  background-color: rgba(33, 150, 243, 0.1);
+  background-color: rgba(254, 209, 54, 0.1); /* 연한 노란색 배경 */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2196F3;
+  color: #fed136; /* 노란색 아이콘 */
   font-size: 18px;
   transition: all 0.3s ease;
 }
 
 .education-step:hover .step-icon {
   transform: scale(1.1) rotate(10deg);
-  background-color: rgba(33, 150, 243, 0.2);
+  background-color: rgba(254, 209, 54, 0.2); /* 호버 시 조금 더 진한 배경 */
 }
 
 /* 홀수 항목에 다른 색상 적용 */
 .education-step:nth-child(odd) .step-number {
-  background-color: #3F51B5;
+  background-color: #e6b800; /* 조금 더 어두운 노란색 */
 }
 
 .education-step:nth-child(odd) .step-date {
-  color: #3F51B5;
-  background-color: rgba(63, 81, 181, 0.08);
+  color: #d9ae00; /* 더 어두운 노란색 */
+  background-color: rgba(230, 184, 0, 0.08);
 }
 
 .education-step:nth-child(odd) .step-icon {
-  color: #3F51B5;
-  background-color: rgba(63, 81, 181, 0.1);
+  color: #e6b800;
+  background-color: rgba(230, 184, 0, 0.1);
 }
 
 .education-step:nth-child(odd):hover .step-icon {
-  background-color: rgba(63, 81, 181, 0.2);
+  background-color: rgba(230, 184, 0, 0.2);
 }
 
 .education-step:nth-child(odd) .step-desc ul li:before {
-  color: #3F51B5;
+  color: #e6b800;
 }
 
 /* 짝수 항목에 다른 색상 적용 */
 .education-step:nth-child(even) .step-number {
-  background-color: #009688;
+  background-color: #ffc107; /* 약간 다른 노란색 */
 }
 
 .education-step:nth-child(even) .step-date {
-  color: #009688;
-  background-color: rgba(0, 150, 136, 0.08);
+  color: #ffb300;
+  background-color: rgba(255, 193, 7, 0.08);
 }
 
 .education-step:nth-child(even) .step-icon {
-  color: #009688;
-  background-color: rgba(0, 150, 136, 0.1);
+  color: #ffc107;
+  background-color: rgba(255, 193, 7, 0.1);
 }
 
 .education-step:nth-child(even):hover .step-icon {
-  background-color: rgba(0, 150, 136, 0.2);
+  background-color: rgba(255, 193, 7, 0.2);
 }
 
 .education-step:nth-child(even) .step-desc ul li:before {
-  color: #009688;
+  color: #ffc107;
 }
 
 /* 반응형 스타일 */
