@@ -1,61 +1,66 @@
-// Enhanced Styling for the timeline/awards section
+// Improved Styling for the awards section
 .timeline {
   position: relative;
   padding: 0;
   list-style: none;
+  
+  // Timeline vertical line
   &:before {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 40px;
-    width: 2px;
-    margin-left: -1.5px;
+    width: 3px;
     content: "";
-    background-color: $gray-200;
+    background: linear-gradient(to bottom, rgba(33, 150, 243, 0.3), rgba(156, 39, 176, 0.3));
+    border-radius: 1.5px;
   }
+  
   > li {
     position: relative;
     min-height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+    
     &:after,
     &:before {
       display: table;
       content: " ";
     }
+    
     &:after {
       clear: both;
     }
+    
+    // White card design
     .timeline-panel {
       position: relative;
       float: right;
       width: 100%;
-      padding: 0 20px 0 100px;
+      padding: 25px 25px 25px 100px;
       text-align: left;
-      // Add subtle shadow for depth
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      border-radius: 4px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      background-color: $white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
       
       // Hover effect
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       }
       
+      // Arrow pointer
       &:before {
         right: auto;
         left: -15px;
         border-right-width: 15px;
         border-left-width: 0;
-        // Add arrow pointer
+        border-right-color: $white;
         position: absolute;
         top: 26px;
         display: inline-block;
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
-        border-right-color: $white;
         content: " ";
       }
       
@@ -64,16 +69,17 @@
         left: -14px;
         border-right-width: 14px;
         border-left-width: 0;
-        // Add arrow pointer
+        border-right-color: $white;
         position: absolute;
         top: 27px;
         display: inline-block;
         border-top: 14px solid transparent;
         border-bottom: 14px solid transparent;
-        border-right-color: $white;
         content: " ";
       }
     }
+    
+    // Timeline badge/image
     .timeline-image {
       position: absolute;
       z-index: 100;
@@ -83,22 +89,22 @@
       margin-left: 0;
       text-align: center;
       color: $white;
-      border: 7px solid $gray-200;
+      border: 6px solid $white;
       border-radius: 100%;
       background-color: $primary;
-      overflow: hidden; // For images
+      overflow: hidden;
       transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
       
-      // Hover effect
-      &:hover {
-        transform: scale(1.05);
-        border-color: darken($gray-200, 5%);
-      }
-      
-      // Center content
+      // Content centering
       display: flex;
       justify-content: center;
       align-items: center;
+      
+      // Hover effect
+      &:hover {
+        transform: scale(1.08);
+      }
       
       h4 {
         font-size: 10px;
@@ -113,16 +119,36 @@
         object-fit: cover;
       }
     }
+    
+    // Date badge
+    .timeline-date {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      z-index: 101;
+      padding: 5px 15px;
+      background-color: $primary;
+      color: $white;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      letter-spacing: 0.5px;
+    }
+    
+    // Inverted timeline items
     &.timeline-inverted > .timeline-panel {
       float: right;
-      padding: 0 20px 0 100px;
+      padding: 25px 25px 25px 100px;
       text-align: left;
+      
       &:before {
         right: auto;
         left: -15px;
         border-right-width: 15px;
         border-left-width: 0;
       }
+      
       &:after {
         right: auto;
         left: -14px;
@@ -130,48 +156,71 @@
         border-left-width: 0;
       }
     }
+    
     &:last-child {
       margin-bottom: 0;
     }
   }
+  
+  // Timeline content styling
   .timeline-heading {
+    margin-bottom: 15px;
+    
     h4 {
-      margin-top: 0;
-      color: inherit;
+      color: $gray-600;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 5px 0;
+    }
+    
+    .subheading {
+      color: $primary;
+      font-size: 20px;
+      font-weight: 700;
       margin-bottom: 5px;
-      font-weight: 600;
+      text-transform: none;
+    }
+  }
+  
+  .timeline-body {
+    .text-muted {
+      line-height: 1.7;
       
-      &.subheading {
-        text-transform: none;
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: $primary;
+      // Style to distinguish host from description
+      .award-host {
+        color: $gray-600;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid $gray-200;
+      }
+      
+      .award-description {
+        color: $gray-700;
+        font-size: 15px;
       }
     }
   }
-  .timeline-body {
-    > ul,
-    > p {
-      margin-bottom: 0;
-    }
-    
-    .text-muted {
-      line-height: 1.6;
-    }
-  }
 }
+
+// Tablet and larger screens
 @media (min-width: 768px) {
   .timeline {
     &:before {
       left: 50%;
     }
+    
     > li {
       min-height: 100px;
       margin-bottom: 100px;
+      
       .timeline-panel {
         float: left;
         width: 41%;
-        padding: 20px 30px;
+        padding: 30px;
         text-align: right;
         
         &:before {
@@ -190,19 +239,29 @@
           border-left-color: $white;
         }
       }
+      
       .timeline-image {
         left: 50%;
         width: 100px;
         height: 100px;
         margin-left: -50px;
+        
         h4 {
           font-size: 13px;
           line-height: 18px;
         }
       }
+      
+      .timeline-date {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -15px;
+      }
+      
       &.timeline-inverted > .timeline-panel {
         float: right;
-        padding: 20px 30px;
+        padding: 30px;
         text-align: left;
         
         &:before {
@@ -224,46 +283,58 @@
     }
   }
 }
+
+// Desktop screens
 @media (min-width: 992px) {
   .timeline {
     > li {
       min-height: 150px;
+      
       .timeline-panel {
-        padding: 20px 30px;
+        padding: 30px 35px;
       }
+      
       .timeline-image {
         width: 150px;
         height: 150px;
         margin-left: -75px;
+        
         h4 {
           font-size: 18px;
           line-height: 26px;
         }
       }
+      
       &.timeline-inverted > .timeline-panel {
-        padding: 20px 30px;
+        padding: 30px 35px;
       }
     }
   }
 }
+
+// Large desktop screens
 @media (min-width: 1200px) {
   .timeline {
     > li {
       min-height: 170px;
+      
       .timeline-panel {
-        padding: 30px 40px 30px 80px;
+        padding: 35px 40px;
       }
+      
       .timeline-image {
         width: 170px;
         height: 170px;
         margin-left: -85px;
+        
         h4 {
           font-size: 22px;
           line-height: 30px;
         }
       }
+      
       &.timeline-inverted > .timeline-panel {
-        padding: 30px 80px 30px 40px;
+        padding: 35px 40px;
       }
     }
   }
