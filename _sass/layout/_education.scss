@@ -1,451 +1,242 @@
-/* 교육 타임라인을 위한 CSS */
-.education-timeline {
+/* 가로 타임라인을 위한 CSS */
+.education-horizontal {
   position: relative;
-  padding: 0;
+  padding: 40px 0;
+  margin-top: 40px;
+}
+
+/* 가로 타임라인 선 */
+.education-line {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: linear-gradient(to right, #e1f5fe, #2196F3, #e1f5fe);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.2);
+}
+
+.education-entries {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.education-entry {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 60px;
+  padding-top: 30px;
+}
+
+.education-entry:last-child {
+  margin-bottom: 20px;
+}
+
+/* 타임라인 점 */
+.education-dot {
+  position: absolute;
+  top: -20px;
+  left: calc(5% + 50px); /* 시작점에서 일정 거리 */
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* 두 번째 항목부터는 위치 조정 */
+.education-entry:nth-child(2) .education-dot {
+  left: calc(5% + 200px);
+}
+
+.education-entry:nth-child(3) .education-dot {
+  left: calc(5% + 350px);
+}
+
+.education-entry:nth-child(4) .education-dot {
+  left: calc(5% + 500px);
+}
+
+.education-entry:nth-child(5) .education-dot {
+  left: calc(5% + 650px);
+}
+
+.education-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.education-entry:hover .education-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.4);
+}
+
+.education-icon i {
+  font-size: 16px;
+}
+
+/* 내용 영역 */
+.education-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  margin-left: 100px;
+  border-left: 4px solid #2196F3;
+  transition: all 0.3s ease;
+}
+
+/* 두 번째 항목부터는 위치 조정 */
+.education-entry:nth-child(2) .education-content {
+  margin-left: 250px;
+}
+
+.education-entry:nth-child(3) .education-content {
+  margin-left: 400px;
+}
+
+.education-entry:nth-child(4) .education-content {
+  margin-left: 550px;
+}
+
+.education-entry:nth-child(5) .education-content {
+  margin-left: 700px;
+}
+
+.education-entry:hover .education-content {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.education-date {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2196F3;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  background-color: rgba(33, 150, 243, 0.08);
+  border-radius: 4px;
+}
+
+.education-title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.education-school {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.education-desc {
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.education-desc ul {
   list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.education-desc ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+}
+
+.education-desc ul li:before {
+  content: "•";
+  color: #2196F3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 991px) {
+  .education-entries {
+    margin-left: 0;
+  }
   
-  /* 타임라인 수직선 */
-  &:before {
-    position: absolute;
+  .education-dot {
+    left: 20px !important;
+  }
+  
+  .education-content {
+    margin-left: 50px !important;
+    max-width: calc(100% - 70px);
+  }
+}
+
+@media (max-width: 767px) {
+  .education-line {
+    left: 19px;
+    width: 4px;
+    height: 100%;
     top: 0;
     bottom: 0;
-    left: 50%;
-    width: 3px;
-    margin-left: -1.5px;
-    content: "";
-    background: linear-gradient(to bottom, rgba(33, 150, 243, 0.4), rgba(33, 150, 243, 0.2));
-    border-radius: 1.5px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
   }
   
-  > li {
-    position: relative;
-    min-height: 50px;
+  .education-entries {
+    flex-direction: column;
+  }
+  
+  .education-dot {
+    left: 0px !important;
+  }
+  
+  .education-content {
+    margin-left: 40px !important;
+    max-width: calc(100% - 60px);
+  }
+  
+  .education-title {
+    font-size: 18px;
+  }
+  
+  .education-school {
+    font-size: 15px;
+  }
+}
+
+/* 태블릿 및 모바일에서는 세로 타임라인으로 변경 */
+@media (max-width: 991px) {
+  .education-horizontal {
+    padding-left: 30px;
+  }
+  
+  .education-line {
+    left: 20px;
+    right: auto;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #e1f5fe, #2196F3, #e1f5fe);
+  }
+  
+  .education-entry {
     margin-bottom: 40px;
-    
-    &:after,
-    &:before {
-      display: table;
-      content: " ";
-    }
-    
-    &:after {
-      clear: both;
-    }
-    
-    /* 흰색 카드 디자인 */
-    .timeline-panel {
-      position: relative;
-      float: right;
-      width: 100%;
-      padding: 25px 30px;
-      text-align: left;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.02);
-      margin-left: 50px;
-      
-      /* 호버 효과 */
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      }
-      
-      /* 화살표 포인터 */
-      &:before {
-        right: auto;
-        left: -15px;
-        border-right-width: 15px;
-        border-left-width: 0;
-        border-right-color: #fff;
-        position: absolute;
-        top: 26px;
-        display: inline-block;
-        border-top: 15px solid transparent;
-        border-bottom: 15px solid transparent;
-        content: " ";
-      }
-      
-      &:after {
-        right: auto;
-        left: -14px;
-        border-right-width: 14px;
-        border-left-width: 0;
-        border-right-color: #fff;
-        position: absolute;
-        top: 27px;
-        display: inline-block;
-        border-top: 14px solid transparent;
-        border-bottom: 14px solid transparent;
-        content: " ";
-      }
-    }
-    
-    /* 타임라인 아이콘 */
-    .timeline-image {
-      position: absolute;
-      z-index: 100;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-      margin-left: -40px;
-      text-align: center;
-      color: #fff;
-      border: 5px solid #fff;
-      border-radius: 100%;
-      background-color: #2196F3;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      
-      /* 내용 중앙 정렬 */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      /* 호버 효과 */
-      &:hover {
-        transform: scale(1.08);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-      
-      i {
-        font-size: 30px;
-        color: #fff;
-      }
-      
-      /* "More To Come" 이미지를 위한 특별 스타일링 */
-      &.end-image {
-        background: linear-gradient(135deg, #2196F3, #03A9F4);
-        
-        h4 {
-          font-size: 13px;
-          font-weight: 600;
-          padding: 0 5px;
-        }
-      }
-    }
-    
-    /* 오른쪽 타임라인 아이템 (인버티드) */
-    &.timeline-inverted > .timeline-panel {
-      float: right;
-      text-align: left;
-      margin-left: 0;
-      margin-right: 50px;
-      
-      &:before {
-        right: auto;
-        left: -15px;
-        border-right-width: 15px;
-        border-left-width: 0;
-      }
-      
-      &:after {
-        right: auto;
-        left: -14px;
-        border-right-width: 14px;
-        border-left-width: 0;
-      }
-    }
-    
-    &:last-child {
-      margin-bottom: 0;
-      
-      /* 더 깔끔한 마지막 아이템 */
-      .timeline-image.end-image {
-        background: linear-gradient(135deg, #2196F3, #03A9F4);
-        box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
-        border: 5px solid rgba(255, 255, 255, 0.8);
-        width: 100px;
-        height: 100px;
-        margin-left: -50px;
-        
-        /* 호버 효과 */
-        &:hover {
-          transform: scale(1.1) translateY(-5px);
-          box-shadow: 0 15px 30px rgba(33, 150, 243, 0.4);
-        }
-        
-        h4 {
-          font-size: 16px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin: 0;
-          
-          /* 텍스트 그림자 추가 */
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-  }
-  
-  /* 타임라인 콘텐츠 스타일링 */
-  .timeline-heading {
-    margin-bottom: 15px;
-    
-    .education-date {
-      display: inline-block;
-      font-size: 15px;
-      font-weight: 600;
-      color: #2196F3;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-      background-color: rgba(33, 150, 243, 0.08);
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
-    
-    .subheading {
-      color: #333;
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 5px 0;
-      letter-spacing: 0.5px;
-    }
-    
-    .education-school {
-      font-size: 17px;
-      color: #555;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-  }
-  
-  .timeline-body {
-    .text-muted {
-      line-height: 1.7;
-      
-      .education-description {
-        color: #666;
-        font-size: 15px;
-        
-        /* 리스트 항목 스타일링 */
-        ul {
-          list-style: none;
-          padding-left: 0;
-          margin-top: 10px;
-          
-          li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            
-            &:before {
-              content: "•";
-              color: #2196F3;
-              position: absolute;
-              left: 0;
-              top: 0;
-              font-weight: bold;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-/* 태블릿 및 대형 화면 */
-@media (min-width: 768px) {
-  .education-timeline {
-    > li {
-      min-height: 100px;
-      margin-bottom: 50px;
-      
-      .timeline-panel {
-        float: left;
-        width: 40%;
-        padding: 30px;
-        text-align: right;
-        margin-top: 10px;
-        margin-left: 0;
-        margin-right: 50px;
-        
-        &:before {
-          left: auto;
-          right: -15px;
-          border-left-width: 15px;
-          border-right-width: 0;
-          border-left-color: #fff;
-        }
-        
-        &:after {
-          left: auto;
-          right: -14px;
-          border-left-width: 14px;
-          border-right-width: 0;
-          border-left-color: #fff;
-        }
-      }
-      
-      .timeline-image {
-        left: 50%;
-        width: 100px;
-        height: 100px;
-        margin-left: -50px;
-        
-        i {
-          font-size: 35px;
-        }
-      }
-      
-      /* 인버티드 아이템 오버라이드 */
-      &.timeline-inverted {
-        .timeline-panel {
-          float: right;
-          text-align: left;
-          margin-right: 0;
-          margin-left: 50px;
-          
-          &:before {
-            right: auto;
-            left: -15px;
-            border-right-width: 15px;
-            border-left-width: 0;
-            border-right-color: #fff;
-          }
-          
-          &:after {
-            right: auto;
-            left: -14px;
-            border-right-width: 14px;
-            border-left-width: 0;
-            border-right-color: #fff;
-          }
-        }
-      }
-      
-      /* 마지막 아이템 (More to come) */
-      &:last-child {
-        .timeline-image.end-image {
-          width: 120px;
-          height: 120px;
-          margin-left: -60px;
-          
-          h4 {
-            font-size: 17px;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* 데스크톱 화면 */
-@media (min-width: 992px) {
-  .education-timeline {
-    > li {
-      min-height: 150px;
-      margin-bottom: 60px;
-      
-      .timeline-panel {
-        padding: 35px 40px;
-        width: 42%;
-        margin-right: 60px;
-        
-        &:before {
-          top: 30px;
-        }
-        
-        &:after {
-          top: 31px;
-        }
-      }
-      
-      .timeline-image {
-        width: 120px;
-        height: 120px;
-        margin-left: -60px;
-        
-        i {
-          font-size: 42px;
-        }
-      }
-      
-      .timeline-heading {
-        .education-date {
-          font-size: 16px;
-        }
-        
-        .subheading {
-          font-size: 24px;
-        }
-        
-        .education-school {
-          font-size: 18px;
-        }
-      }
-      
-      &.timeline-inverted .timeline-panel {
-        margin-left: 60px;
-        
-        &:before {
-          top: 30px;
-        }
-        
-        &:after {
-          top: 31px;
-        }
-      }
-      
-      /* 마지막 아이템 (More to come) */
-      &:last-child {
-        .timeline-image.end-image {
-          width: 140px;
-          height: 140px;
-          margin-left: -70px;
-          
-          h4 {
-            font-size: 20px;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* 대형 데스크톱 화면 */
-@media (min-width: 1200px) {
-  .education-timeline {
-    > li {
-      min-height: 170px;
-      margin-bottom: 70px;
-      
-      .timeline-panel {
-        padding: 40px 45px;
-        width: 40%;
-        margin-right: 70px;
-      }
-      
-      .timeline-image {
-        width: 140px;
-        height: 140px;
-        margin-left: -70px;
-        
-        i {
-          font-size: 50px;
-        }
-      }
-      
-      &.timeline-inverted .timeline-panel {
-        margin-left: 70px;
-      }
-      
-      /* 마지막 아이템 (More to come) */
-      &:last-child {
-        .timeline-image.end-image {
-          width: 160px;
-          height: 160px;
-          margin-left: -80px;
-          
-          h4 {
-            font-size: 24px;
-          }
-        }
-      }
-    }
   }
 }
