@@ -171,39 +171,44 @@ en: &DEFAULT_EN
       - title: "최우수상 (ITTP 원장상)"
         year: "Nov 19, 2024"
         desc: |
-          제 1회 자율주행 인공지능 챌린지, 주관: 과학기술정보통신부 / 주최: ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼 <br>
-          차량용 객체복합 상태 인식 - 주행환경의 차량/버스의 분류(Agent), 의미론적 위치(Location), 후미등 상태(State)를 인식하는 동시에 Instance Segmentation을 진행.
+          <strong>대회명:</strong> 제 1회 자율주행 인공지능 챌린지 <br>
+          <strong>주관/주최:</strong> 과학기술정보통신부 / ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼 <br>
+          <strong>수상 내용:</strong> 차량용 객체복합 상태 인식 - 주행환경의 차량/버스의 분류(Agent), 의미론적 위치(Location), 후미등 상태(State)를 인식하는 동시에 Instance Segmentation을 진행.
         image: assets/img/awards/ai.jpg
         alt:
         
       - title: "우수논문상"
         year: "Nov 12, 2021"
         desc: |
-          졸업논문발표회, SoongSil University School of AI Convergence <br>
-          단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 (Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
+          <strong>대회명:</strong> 졸업논문발표회 <br>
+          <strong>주관/주최:</strong> SoongSil University School of AI Convergence <br>
+          <strong>수상 내용:</strong> 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 (Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
         image: assets/img/awards/ssu.jpg
         alt:
         
       - title: "장려상"
         year: "Nov 12, 2021"
         desc: |
-          AI융합 경진대회, SoongSil University School of AI Convergence <br>
-          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
+          <strong>대회명:</strong> AI융합 경진대회 <br>
+          <strong>주관/주최:</strong> SoongSil University School of AI Convergence <br>
+          <strong>수상 내용:</strong> Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/awards/ssu.jpg
         alt: image alt text
         
       - title: "장려상"
         year: "Sep 28, 2021"
         desc: |
-          제 11회 숭실 캡스톤디자인 경진대회, SoongSil University <br>
-          Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
+          <strong>대회명:</strong> 제 11회 숭실 캡스톤디자인 경진대회 <br>
+          <strong>주관/주최:</strong> SoongSil University <br>
+          <strong>수상 내용:</strong> Face Out - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 웹 서비스
         image: assets/img/awards/ssu.jpg
         alt:
         
       - title: "우수상"
         year: "Feb 8, 2021"
         desc: |
-          숭실 A3+ STAR 코딩 경진대회, AI 모빌리티사업단 of SoongSil University <br>
+          <strong>대회명:</strong> 숭실 A3+ STAR 코딩 경진대회 <br>
+          <strong>주관/주최:</strong> AI 모빌리티사업단 of SoongSil University <br>
         image: assets/img/awards/ssu.jpg
         alt:
         # you can enforce the alignment
