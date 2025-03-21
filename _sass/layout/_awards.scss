@@ -161,6 +161,38 @@
     
     &:last-child {
       margin-bottom: 0;
+      
+      // 마지막 아이템이면서 .timeline-image.end-image가 있는 경우
+      // 타임라인 선 없애기
+      &:before {
+        display: none;
+      }
+      
+      // More to come 이미지인 경우 특별한 스타일 적용
+      .timeline-image.end-image {
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.8), rgba(255, 152, 0, 0.8)); // 노란색 그라데이션
+        box-shadow: 0 10px 25px rgba(255, 193, 7, 0.3); // 노란색 계열 그림자
+        border: 5px solid rgba(255, 255, 255, 0.8);
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+        
+        // hover 효과
+        &:hover {
+          transform: scale(1.1) translateY(-5px);
+          box-shadow: 0 15px 30px rgba(255, 193, 7, 0.4);
+        }
+        
+        h4 {
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          
+          // 텍스트 그림자 추가
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+      }
     }
   }
   
@@ -298,6 +330,36 @@
           }
         }
       }
+      
+      // 마지막 아이템(More to come)
+      &:last-child {
+        .timeline-image.end-image {
+          width: 120px;
+          height: 120px;
+          margin-left: -60px;
+          
+          h4 {
+            font-size: 17px;
+          }
+        }
+        
+        // 마지막 아이템 이전의 세로선 제거
+        &:before {
+          display: none;
+        }
+        
+        // 세로선 숨기기 (더 깔끔하게)
+        &:after {
+          bottom: 0;
+          top: -999px;
+          width: 3px;
+          background-color: transparent;
+          position: absolute;
+          left: 50%;
+          margin-left: -1.5px;
+          content: "";
+        }
+      }
     }
   }
 }
@@ -353,6 +415,19 @@
           top: 31px;
         }
       }
+      
+      // 마지막 아이템(More to come)
+      &:last-child {
+        .timeline-image.end-image {
+          width: 140px;
+          height: 140px;
+          margin-left: -70px;
+          
+          h4 {
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
@@ -391,6 +466,19 @@
       
       &.timeline-inverted .timeline-panel {
         margin-left: 70px;
+      }
+      
+      // 마지막 아이템(More to come)
+      &:last-child {
+        .timeline-image.end-image {
+          width: 160px;
+          height: 160px;
+          margin-left: -80px;
+          
+          h4 {
+            font-size: 24px;
+          }
+        }
       }
     }
   }
