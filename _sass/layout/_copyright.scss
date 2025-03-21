@@ -1,7 +1,8 @@
 // 저작권 섹션을 위한 고급스러운 스타일링
 .copyright-section {
   padding: 80px 0;
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  background-color: #ffffff; // 명시적인 하얀색 배경 추가
+
   
   .section-heading {
     margin-bottom: 15px;
