@@ -23,13 +23,23 @@
               <div class="timeline-image">
                 <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
               </div>
+              <div class="timeline-date">{{ event.year | markdownify }}</div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>{{ event.year | markdownify }}</h4>
                   <h4 class="subheading">{{ event.title }}</h4>
                 </div>
                 <div class="timeline-body">
-                  <div class="text-muted">{{ event.desc | markdownify }}</div>
+                  {% assign desc_parts = event.desc | split: "<br>" %}
+                  <div class="text-muted">
+                    {% if desc_parts.size > 1 %}
+                      <div class="award-host">{{ desc_parts.first }}</div>
+                      {% for part in desc_parts offset:1 %}
+                        <div class="award-description">{{ part | markdownify }}</div>
+                      {% endfor %}
+                    {% else %}
+                      <div class="award-description">{{ event.desc | markdownify }}</div>
+                    {% endif %}
+                  </div>
                 </div>
               </div>
             </li>
@@ -72,13 +82,23 @@
             <div class="timeline-image">
               <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
             </div>
+            <div class="timeline-date">{{ event.year | markdownify }}</div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4>{{ event.year | markdownify }}</h4>
                 <h4 class="subheading">{{ event.title }}</h4>
               </div>
               <div class="timeline-body">
-                <div class="text-muted">{{ event.desc | markdownify }}</div>
+                {% assign desc_parts = event.desc | split: "<br>" %}
+                <div class="text-muted">
+                  {% if desc_parts.size > 1 %}
+                    <div class="award-host">{{ desc_parts.first }}</div>
+                    {% for part in desc_parts offset:1 %}
+                      <div class="award-description">{{ part | markdownify }}</div>
+                    {% endfor %}
+                  {% else %}
+                    <div class="award-description">{{ event.desc | markdownify }}</div>
+                  {% endif %}
+                </div>
               </div>
             </div>
           </li>
