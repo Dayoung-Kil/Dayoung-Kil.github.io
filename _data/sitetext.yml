@@ -235,9 +235,9 @@ en: &DEFAULT_EN
           Ph.D. candidate focusing on advanced intelligent semiconductor technologies. 
           Research areas include:
           
-          * Neural processing units
-          * Emerging memory architectures
-          * Low-power AI accelerators
+          # * Neural processing units
+          # * Emerging memory architectures
+          # * Low-power AI accelerators
   
       - title: "Master of Intelligent Systems"
         school: "Soongil University, Seoul, South Korea"
@@ -245,10 +245,10 @@ en: &DEFAULT_EN
         icon: "fas fa-brain"
         desc: |
           Master's degree in Intelligent Systems with a focus on AI applications. 
-          Key achievements:
+          # Key achievements:
           
-          * Thesis: "An Efficient CNN-Transformer Architecture with Lightweight Multiple Branches"
-          * GPA: 4.2/4.5
+          # * Thesis: "An Efficient CNN-Transformer Architecture with Lightweight Multiple Branches"
+          # * GPA: 4.2/4.5
 
   
       - title: "Bachelor of AI Convergence"
