@@ -19,7 +19,7 @@ en: &DEFAULT_EN
   aboutme:
     title: "About Me"
     text: "Ph.D. student in Computer Vision"
-    body: "I am Dayoung, a Ph.D. student at Soongsil University’s Graduate School, under the guidance of Prof. Seong Heum Kim in the Visual Intelligence and Platform (VIP) Lab. My research focuses on hardware-efficient neural network architectures, encompassing efficient deep learning, pruning, Vision Transformers, hybrid architectures, image classification, and object detection. Recently, I have been particularly exploring hybrid CNN-Transformer architectures, pruning strategies, and advancements in efficient deep learning."
+    body: "I am Dayoung, a Ph.D. student at Soongsil University’s Graduate School, under the guidance of Prof. Seong Heum Kim in the Visual Intelligence and Platform (VIP) Lab. My research focuses on hardware-efficient neural network architectures, encompassing Efficient Deep Learning, Pruning, Vision Transformers, Hybrid Architectures, Image Classification, and Object Detection. Recently, I have been particularly exploring Hybrid CNN-Transformer architectures, Pruning strategies, and advancements in Efficient Deep Learning."
     section: aboutme
 
   publications:
