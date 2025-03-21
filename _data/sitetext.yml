@@ -233,7 +233,7 @@ en: &DEFAULT_EN
         icon: "fas fa-microchip"
         desc: |
           Ph.D. candidate focusing on advanced intelligent semiconductor technologies. 
-          Research areas include:
+          # Research areas include:
           
           # * Neural processing units
           # * Emerging memory architectures
