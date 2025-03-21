@@ -34,8 +34,8 @@
                 <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
               </div>
               <div class="timeline-panel">
-                <div class="timeline-date">{{ event.year | markdownify }}</div>
                 <div class="timeline-heading">
+                  <div class="award-date">{{ event.year | markdownify }}</div>
                   <h4 class="subheading">{{ event.title }}</h4>
                 </div>
                 <div class="timeline-body">
@@ -103,8 +103,8 @@
               <img class="rounded-circle img-fluid" src="{{ event.image }}" alt="{{ event.alt | default: ""}}">
             </div>
             <div class="timeline-panel">
-              <div class="timeline-date">{{ event.year | markdownify }}</div>
               <div class="timeline-heading">
+                <div class="award-date">{{ event.year | markdownify }}</div>
                 <h4 class="subheading">{{ event.title }}</h4>
               </div>
               <div class="timeline-body">
