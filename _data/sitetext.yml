@@ -210,7 +210,7 @@ Image Classification, Object Detection. Recently, I have focused on hybrid CNN-T
         # you can enforce the alignment
         align: left
         
-    end: "And <br> this is just <br> the beginning!"
+    end: "More <br> to <br> come!"
 
   copyright:
     title: "Copyright"
