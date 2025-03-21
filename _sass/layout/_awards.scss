@@ -1,4 +1,4 @@
-// Enhanced and beautiful alternating awards section
+// Enhanced Awards Section Styling
 .timeline {
   position: relative;
   padding: 0;
@@ -11,6 +11,7 @@
     bottom: 0;
     left: 40px;
     width: 3px;
+    margin-left: -1.5px;
     content: "";
     background: linear-gradient(to bottom, rgba(33, 150, 243, 0.4), rgba(156, 39, 176, 0.4));
     border-radius: 1.5px;
@@ -30,6 +31,24 @@
     
     &:after {
       clear: both;
+    }
+    
+    // Beautiful date badge
+    .timeline-date {
+      position: absolute;
+      top: -15px;
+      left: 0;
+      z-index: 101;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, $primary, darken($primary, 10%));
+      color: $white;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      letter-spacing: 0.5px;
+      border: 2px solid rgba(255,255,255,0.9);
+      transform: translateY(-50%);
     }
     
     // White card design
@@ -125,6 +144,7 @@
       // Special styling for the end image
       &.end-image {
         background: linear-gradient(135deg, #FFC107, #FF9800);
+        
         h4 {
           font-size: 13px;
           font-weight: 600;
@@ -132,25 +152,7 @@
       }
     }
     
-    // Beautiful date badge
-    .timeline-date {
-      position: absolute;
-      top: -15px;
-      left: 0;
-      z-index: 101;
-      padding: 8px 16px;
-      background: linear-gradient(135deg, $primary, darken($primary, 10%));
-      color: $white;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      letter-spacing: 0.5px;
-      border: 2px solid rgba(255,255,255,0.9);
-      transform: translateY(-50%);
-    }
-    
-    // Inverted timeline items
+    // Inverted timeline items (right side)
     &.timeline-inverted > .timeline-panel {
       float: right;
       padding: 25px 25px 25px 100px;
@@ -220,7 +222,7 @@
     
     > li {
       min-height: 100px;
-      margin-bottom: 80px;
+      margin-bottom: 100px;
       
       .timeline-panel {
         float: left;
@@ -268,6 +270,7 @@
         top: 50%;
       }
       
+      // Override for inverted items
       &.timeline-inverted {
         .timeline-panel {
           float: right;
@@ -305,7 +308,6 @@
   .timeline {
     > li {
       min-height: 150px;
-      margin-bottom: 100px;
       
       .timeline-panel {
         padding: 35px 40px;
