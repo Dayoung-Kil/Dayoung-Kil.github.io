@@ -1,6 +1,6 @@
-<!-- Education -->
+<!-- Education Timeline -->
 {% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="bg-light education-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
+  <section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].education.section | default: "education" }}">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -10,34 +10,50 @@
           {% endif %}
         </div>
       </div>
-      
-      <div class="row justify-content-center">
-        {% for service in site.data.sitetext[site.locale].education.list %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="education-item">
-              <div class="education-icon">
-                <i class="{{ service.icon | default: "fas fa-graduation-cap" }}"></i>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline education-timeline">
+            {% assign align = "left" %}
+            {% for education in site.data.sitetext[site.locale].education.list %}
+              {% if align == "right" %}
+                {% assign align = "left" %}
+                <li class="timeline-inverted">
+              {% else %}
+                {% assign align = "right" %}
+                <li>
+              {% endif %}
+                <div class="timeline-image">
+                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <div class="education-date">{{ education.dates }}</div>
+                    <h4 class="subheading">{{ education.title }}</h4>
+                    {% if education.school %}
+                      <div class="education-school">{{ education.school }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="timeline-body">
+                    <div class="text-muted">
+                      <div class="education-description">{{ education.desc | markdownify }}</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            
+            <li class="timeline-inverted last-item">
+              <div class="timeline-image end-image">
+                <h4>More To Come!</h4>
               </div>
-              <div class="education-content">
-                <h4 class="education-heading">{{ service.title | markdownify }}</h4>
-                {% if service.school %}
-                  <div class="education-school">{{ service.school }}</div>
-                {% endif %}
-                {% if service.dates %}
-                  <div class="education-dates">{{ service.dates }}</div>
-                {% endif %}
-                {% if service.desc %}
-                  <div class="education-desc">{{ service.desc | markdownify }}</div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 {% else %}
-  <section class="education-section" id="{{ site.data.sitetext.education.section | default: "education" }}">
+  <section class="bg-light page-section" id="{{ site.data.sitetext.education.section | default: "education" }}">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -47,31 +63,47 @@
           {% endif %}
         </div>
       </div>
-      
-      <div class="row justify-content-center">
-        {% for service in site.data.sitetext.education.list %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="education-item">
-              <div class="education-icon">
-                <i class="{{ service.icon | default: "fas fa-graduation-cap" }}"></i>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline education-timeline">
+            {% assign align = "left" %}
+            {% for education in site.data.sitetext.education.list %}
+              {% if align == "right" %}
+                {% assign align = "left" %}
+                <li class="timeline-inverted">
+              {% else %}
+                {% assign align = "right" %}
+                <li>
+              {% endif %}
+                <div class="timeline-image">
+                  <i class="{{ education.icon | default: "fas fa-graduation-cap" }}"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <div class="education-date">{{ education.dates }}</div>
+                    <h4 class="subheading">{{ education.title }}</h4>
+                    {% if education.school %}
+                      <div class="education-school">{{ education.school }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="timeline-body">
+                    <div class="text-muted">
+                      <div class="education-description">{{ education.desc | markdownify }}</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            
+            <li class="timeline-inverted last-item">
+              <div class="timeline-image end-image">
+                <h4>More To Come!</h4>
               </div>
-              <div class="education-content">
-                <h4 class="education-heading">{{ service.title | markdownify }}</h4>
-                {% if service.school %}
-                  <div class="education-school">{{ service.school }}</div>
-                {% endif %}
-                {% if service.dates %}
-                  <div class="education-dates">{{ service.dates }}</div>
-                {% endif %}
-                {% if service.desc %}
-                  <div class="education-desc">{{ service.desc | markdownify }}</div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 {% endif %}
-<!-- End Education -->
+<!-- End Education Timeline -->
