@@ -230,35 +230,17 @@ en: &DEFAULT_EN
       - title: "Doctor of Intelligent Semiconductors"
         school: "Soongil University, Seoul, South Korea"
         dates: "Mar 2024 - Now"
-        icon: "fas fa-microchip"
-        desc: |
-          Ph.D. candidate focusing on advanced intelligent semiconductor technologies. 
-          # Research areas include:
-          
-          # * Neural processing units
-          # * Emerging memory architectures
-          # * Low-power AI accelerators
-  
+
       - title: "Master of Intelligent Systems"
         school: "Soongil University, Seoul, South Korea"
         dates: "Mar 2022 - Feb 2024"
         icon: "fas fa-brain"
-        desc: |
-          Master's degree in Intelligent Systems with a focus on AI applications. 
-          # Key achievements:
-          
-          # * Thesis: "An Efficient CNN-Transformer Architecture with Lightweight Multiple Branches"
-          # * GPA: 4.2/4.5
 
-  
       - title: "Bachelor of AI Convergence"
         school: "Soongil University, Seoul, South Korea"
         dates: "Mar 2018 - Feb 2022"
         icon: "fas fa-laptop-code"
-        desc: |
-          Undergraduate studies in AI Convergence focusing on the integration of artificial intelligence
-          with traditional computing paradigms. Notable courses included: Machine Learning,
-          Deep Neural Networks, Computer Vision, and Natural Language
+
       
   
   # about:
