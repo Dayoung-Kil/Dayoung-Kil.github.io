@@ -168,12 +168,12 @@ en: &DEFAULT_EN
     # left is the default
     start_align: "left"
     events:
-      # - title: "4th"
+      # - title: "4th ($200)"
       #   year: "Nov 19, 2024"
       #   desc: |
       #     2025 IEEE Low Power Computer Vision Challenge <br>
       #     <strong>주관/주최:</strong> 2025 CVPR Workshop <br>
-      #     <strong>수상 내용:</strong> 4등($200) / Track 1 : Image classification for different lighting conditions and styles.
+      #     <strong>수상 내용:</strong> Track 1 : Image classification for different lighting conditions and styles.
       #   image: assets/img/awards/25lpcvc.png
       #   alt:
         
