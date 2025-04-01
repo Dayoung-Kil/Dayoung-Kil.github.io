@@ -169,7 +169,7 @@ en: &DEFAULT_EN
     start_align: "left"
     events:
       # - title: "4th ($200)"
-      #   year: "Nov 19, 2024"
+      #   year: "March 31, 2025"
       #   desc: |
       #     2025 IEEE Low Power Computer Vision Challenge <br>
       #     <strong>주관/주최:</strong> 2025 CVPR Workshop <br>
