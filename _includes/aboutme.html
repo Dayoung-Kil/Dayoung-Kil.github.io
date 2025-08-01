@@ -10,7 +10,12 @@
     </div>
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <div class="large text-muted">{{ site.data.sitetext[site.locale].aboutme.body | markdownify }}</div>
+        <div class="large text-muted">{{ site.data.sitetext.aboutme.body | markdownify }}</div>
+      
+        <!-- CV Download Button -->
+        <a class="btn btn-primary mt-4" href="{{ '/assets/files/CV.pdf' | relative_url }}" download>
+          Download CV
+        </a>
       </div>
     </div>
   </div>
