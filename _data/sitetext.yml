@@ -269,12 +269,14 @@ en: &DEFAULT_EN
   footer:
     legal: "Privacy Policy"
     social:
-      - url: https://www.linkedin.com/in/dayoung-kil-23a20230a/
+      - url: https://www.linkedin.com/in/dayoung-kil/
         icon: "fab fa-linkedin-in"
       - url: https://github.com/Dayoung-Kil
         icon: "fab fa-github"
+      - url: dayoungkil@soongsil.ac.kr
+        icon: "fas fa-envelope"
       - url: https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko
-        icon: "fas fa-scroll"
+        icon: "fab fa-google-scholar"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
