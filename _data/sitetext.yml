@@ -168,7 +168,7 @@ en: &DEFAULT_EN
     # left is the default
     start_align: "left"
     events:
-      - title: "4th ($200)"
+      - title: "4th"
         year: "March 31, 2025"
         desc: |
           2025 IEEE Low Power Computer Vision Challenge <br>
