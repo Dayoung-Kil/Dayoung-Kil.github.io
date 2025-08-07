@@ -250,12 +250,10 @@ en: &DEFAULT_EN
       - title: "Master of Intelligent Systems"
         school: "Soongil University, Seoul, South Korea"
         dates: "Mar 2022 - Feb 2024"
-        icon: "fas fa-brain"
 
       - title: "Bachelor of AI Convergence"
         school: "Soongil University, Seoul, South Korea"
         dates: "Mar 2018 - Feb 2022"
-        icon: "fas fa-laptop-code"
 
       
   
