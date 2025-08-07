@@ -274,7 +274,7 @@ en: &DEFAULT_EN
       - url: dayoungkil@soongsil.ac.kr
         icon: "fas fa-envelope"
       - url: https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko
-        icon: "fas fa-google-scholar"
+        icon: "fab fa-google-scholar"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
