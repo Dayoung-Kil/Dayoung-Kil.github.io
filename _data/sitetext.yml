@@ -40,7 +40,7 @@ en: &DEFAULT_EN
       
       - title: "A Study of Structure Pruning for Hybrid Neural Networks"
         authors: "Deepak Ghimire, Dayoung Kil and Seong-heum Kim"
-        venue: "International Conference on Control Automation and Systems, 2024"
+        venue: "International Conference on Control Automation and Systems (ICCAS), 2024"
         image: assets/img/papers/pruning2024.PNG
         links:
           - name: "paper"
@@ -49,7 +49,7 @@ en: &DEFAULT_EN
       
       - title: "Lightweight Room Layout Estimation using a Single Panoramic Image"
         authors: "Dayoung Kil, Seong-heum Kim"
-        venue: "International Conference on Control Automation and Systems, 2022"
+        venue: "International Conference on Control Automation and Systems (ICCAS), 2022"
         image: assets/img/papers/room_2022_iccas.png
         links:
           - name: "paper"
@@ -61,7 +61,7 @@ en: &DEFAULT_EN
             
       - title: "Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image"
         authors: "Dayoung Kil, Seong-heum Kim"
-        venue: "Journal of Institute of Control, Robotics and Systems (SCOPUS), 2022"
+        venue: "Journal of Institute of Control, Robotics and Systems (ICROS), (KCI, SCOPUS), 2022"
         image: assets/img/papers/room_2022.png
         links:
           - name: "paper"
