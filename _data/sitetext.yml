@@ -271,7 +271,7 @@ en: &DEFAULT_EN
         icon: "fab fa-linkedin-in"
       - url: https://github.com/Dayoung-Kil
         icon: "fab fa-github"
-      - url: dayoungkil@soongsil.ac.kr
+      - url: "mailto:dayoungkil@soongsil.ac.kr"
         icon: "fas fa-envelope"
       - url: https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko
         icon: "fab fa-google-scholar"
