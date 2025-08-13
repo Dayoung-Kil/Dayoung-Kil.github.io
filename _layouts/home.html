@@ -6,39 +6,141 @@ permalink: /
 ---
 
 <style>
-  /* 이 페이지의 Skills 섹션 안에서만 적용 */
-  .skills img.skill-icon{
-    width: 20px !important;
-    height: 20px !important;
-    max-width: none;          /* 테마의 img max-width/width 오버라이드 */
-    object-fit: contain;
-    vertical-align: middle;
-    margin-right: 6px;
-    display: inline-block;    /* 혹시 block이면 줄어들지 않는 문제 방지 */
+/* ====== Chirpy 톤을 해치지 않는 선에서의 커스텀 ====== */
+
+/* 섹션 카드 공통 */
+.section-card {
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: .75rem;
+  background: var(--bs-body-bg, #fff);
+  box-shadow: var(--box-shadow, 0 1px 2px rgba(0,0,0,.04));
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* 섹션 타이틀 */
+.section-card .section-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 0 .75rem 0;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* 본문 문단 간격 */
+.section-card p {
+  margin-bottom: .75rem;
+}
+
+/* 리스트 기본 여백 정리 */
+.section-card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* 기술 스택 칩 영역 */
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .6rem;
+}
+
+/* 칩(배지) 스타일 - Chirpy/Bootstrap 톤에 맞춤 */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  line-height: 1;
+  font-size: .875rem;
+  padding: .5rem .6rem;
+  border-radius: 999px;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  background: var(--bs-tertiary-bg, rgba(0,0,0,.03));
+  color: var(--bs-body-color, #212529);
+  transition: transform .08s ease, background-color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--bs-primary, #0d6efd);
+  background: color-mix(in srgb, var(--bs-primary, #0d6efd) 8%, transparent);
+}
+
+/* 칩 그룹(카테고리) 행 */
+.skill-group {
+  margin-bottom: .85rem;
+}
+.skill-group-title {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  margin-right: .35rem;
+}
+
+/* 작은 아이콘(이모지/이미지) 정렬용 */
+.chip .icon {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* 모바일 상단 인트로 박스 */
+.hero {
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: .9rem;
+  background:
+    radial-gradient(60% 100% at 100% 0%, color-mix(in srgb, var(--bs-primary, #0d6efd) 7%, transparent) 0%, transparent 60%),
+    var(--bs-body-bg, #fff);
+  padding: 1.25rem 1.25rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
+  font-weight: 800;
+  margin: 0 0 .25rem 0;
+}
+.hero .subtitle {
+  color: var(--bs-secondary-color, #6c757d);
+  margin-bottom: .75rem;
+}
+
+/* 반응형 여백 보정 */
+@media (min-width: 992px) {
+  .section-card, .hero {
+    padding: 1.25rem 1.25rem 1.1rem;
   }
-  .skills .tech {             /* 아이콘+텍스트 묶음 정렬/간격 */
-    display: inline-flex;
-    align-items: center;
-    margin-right: 12px;
-    margin-bottom: 6px;
-  }
+}
+
+/* 접근성: 포커스 링 */
+.chip:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--bs-primary, #0d6efd) 35%, transparent);
+  outline-offset: 2px;
+  border-color: var(--bs-primary, #0d6efd);
+}
 </style>
 
-<div class="row">
-  <div id="post-list" class="col-12 col-lg-12 pe-lg-4">
-    <div class="mb-4 p-3 border-bottom">
-      <h2 class="mb-3 fw-bold">Introduction</h2>
+<div class="row g-3 g-lg-4">
+  <div id="post-list" class="col-12 col-lg-10 pe-lg-4">
+
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <h1>About Me</h1>
+      <p class="subtitle">Ph.D. Candidate · VIP Lab @ Soongsil Univ.</p>
       <p>
-        I am <strong>Dayoung</strong>, a Ph.D. candidate at the Graduate School of <strong>Soongsil University</strong>, pursuing my research under the guidance of Professor Seong Heum Kim in the <em>Visual Intelligence and Platform (VIP) Lab</em>.  
+        I am <strong>Dayoung</strong>, a Ph.D. candidate at the Graduate School of <strong>Soongsil University</strong>, pursuing my research under the guidance of Professor Seong Heum Kim in the <em>Visual Intelligence and Platform (VIP) Lab</em>.
         My academic journey is dedicated to pushing the boundaries of <strong>hardware-efficient artificial intelligence</strong>, with a keen focus on bridging cutting-edge deep learning methodologies and real-world deployment efficiency.
       </p>
-      <p>
+      <p class="mb-0">
         By combining algorithmic innovation with system-level optimization, I aim to develop AI models that are not only powerful but also sustainable, scalable, and deployable in resource-constrained environments.
       </p>
-    </div>
-    
-    <div class="mb-4 p-3 border-bottom">
-      <h2 class="mb-3 fw-bold">Research Interests</h2>
+    </section>
+
+    <!-- Research Interests -->
+    <section class="section-card">
+      <h2 class="section-title">Research Interests</h2>
       <ul>
         <li>Computer Vision</li>
         <li>Large Vision-Language Models (LVLMs)</li>
@@ -46,89 +148,62 @@ permalink: /
         <li>Efficient Deep Learning</li>
         <li>Model Pruning</li>
       </ul>
-    </div>
-    
-    <div class="mb-4 p-3 border-bottom skills">
-      <h2 class="mb-3 fw-bold">Skills</h2>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-card">
+      <h2 class="section-title">Skills</h2>
 
       <!-- Computer Vision -->
-      <div class="mb-2">
-        <strong>Computer Vision</strong>:
-        <span class="tech">
-          OpenCV
-        </span>
-        <span class="tech">
-          YOLO
-        </span>
-        <span class="tech">
-          Detectron2
-        </span>
-        <span class="tech">
-          OpenMMLab (MMDetection, MMSegmentation)
-        </span>
+      <div class="skill-group">
+        <span class="skill-group-title">Computer Vision:</span>
+        <div class="skills-wrap">
+          <span class="chip">🧿 OpenCV</span>
+          <span class="chip">🎯 YOLO</span>
+          <span class="chip">📦 Detectron2</span>
+          <span class="chip">🧩 OpenMMLab (MMDetection, MMSegmentation)</span>
+        </div>
       </div>
 
       <!-- Deep Learning -->
-      <div class="mb-2">
-        <strong>Deep Learning</strong>:
-        <span class="tech">
-          PyTorch
-        </span>
-        <span class="tech">
-          TensorFlow
-        </span>
-        <span class="tech">
-          Keras
-        </span>
-        <span class="tech">
-          HuggingFace
-        </span>
+      <div class="skill-group">
+        <span class="skill-group-title">Deep Learning:</span>
+        <div class="skills-wrap">
+          <span class="chip">🔥 PyTorch</span>
+          <span class="chip">🔷 TensorFlow</span>
+          <span class="chip">🧱 Keras</span>
+          <span class="chip">🤗 HuggingFace</span>
+        </div>
       </div>
 
       <!-- Programming & Tools -->
-      <div class="mb-2">
-        <strong>Programming &amp; Tools</strong>:
-        <span class="tech">
-          Python
-        </span>
-        <span class="tech">
-          C
-        </span>
-        <span class="tech">
-          C++
-        </span>
-        <span class="tech">
-          GitHub
-        </span>
-        <span class="tech">
-          Anaconda
-        </span>
-        <span class="tech">
-          Jupyter
-        </span>
-        <span class="tech">
-          vs code
-        </span>
+      <div class="skill-group">
+        <span class="skill-group-title">Programming &amp; Tools:</span>
+        <div class="skills-wrap">
+          <span class="chip">🐍 Python</span>
+          <span class="chip">🇨 C</span>
+          <span class="chip">🇨➕➕ C++</span>
+          <span class="chip">🔗 GitHub</span>
+          <span class="chip">🧪 Anaconda</span>
+          <span class="chip">📓 Jupyter</span>
+          <span class="chip">🖥️ VS Code</span>
+        </div>
       </div>
 
       <!-- Web / Platform -->
-      <div>
-        <strong>Web / Platform</strong>:
-        <span class="tech">
-          HTML
-        </span>
-        <span class="tech">
-          CSS
-        </span>
-        <span class="tech">
-          Android
-        </span>
+      <div class="skill-group mb-0">
+        <span class="skill-group-title">Web / Platform:</span>
+        <div class="skills-wrap">
+          <span class="chip">🌐 HTML</span>
+          <span class="chip">🎨 CSS</span>
+          <span class="chip">🤖 Android</span>
+        </div>
       </div>
-    </div>
-    
+    </section>
+
   </div>
 
-  <aside class="col-12 col-lg-2 pe-lg-4">
+  <aside class="col-12 col-lg-2">
     {% include sidebar.html %}
   </aside>
 </div>
