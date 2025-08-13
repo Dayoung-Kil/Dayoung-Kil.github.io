@@ -40,57 +40,39 @@
     </ul>
   </nav>
 
-  <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    {% unless site.theme_mode %}
-      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      {% if site.data.contact.size > 0 %}
-        <span class="icon-border"></span>
-      {% endif %}
-    {% endunless %}
-
-    {% for entry in site.data.contact %}
-      {% case entry.type %}
-        {% when 'github', 'twitter' %}
-          {%- capture url -%}
-            https://{{ entry.type }}.com/{{ site[entry.type].username }}
-          {%- endcapture -%}
-        {% when 'email' %}
-          {% assign email = site.social.email | split: '@' %}
-          {%- capture url -%}
-            javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
-          {%- endcapture -%}
-        {% when 'rss' %}
-          {% assign url = '/feed.xml' | relative_url %}
-        {% else %}
-          {% assign url = entry.url %}
-      {% endcase %}
-
-      {% if url %}
-        <a
-          href="{{ url }}"
-          aria-label="{{ entry.type }}"
-          {% assign link_types = '' %}
-
-          {% unless entry.noblank %}
-            target="_blank"
-            {% assign link_types = 'noopener noreferrer' %}
-          {% endunless %}
-
-          {% if entry.type == 'mastodon' %}
-            {% assign link_types = link_types | append: ' me' | strip %}
-          {% endif %}
-
-          {% unless link_types == empty %}
-            rel="{{ link_types }}"
-          {% endunless %}
-        >
-          <i class="{{ entry.icon }}"></i>
+    <div class="sidebar-bottom d-flex flex-column align-items-start w-100 mt-3">
+    <h3 class="fw-bold mb-2">Contact</h3>
+    <ul class="list-unstyled">
+      <li>
+        <a href="mailto:dayoungkil@soongsil.ac.kr" target="_blank">
+          <i class="fas fa-envelope"></i> Email
         </a>
-      {% endif %}
-    {% endfor %}
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/dayoung-kil/" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/dayoung-kil" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?user=UhhLl8AAAAAJ&hl=ko" target="_blank">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+      </li>
+      <li>
+        <a href="https://literate-dandelion-5ad.notion.site/Dayoung-Kil-24decd6e21c1806fb3b5fa8dacf87a32?source=copy_link" target="_blank">
+          <i class="fas fa-sticky-note"></i> Notion
+        </a>
+      </li>
+    </ul>
+  
+    <a href="/assets/CV_DayoungKil.pdf" class="btn btn-sm btn-primary mt-2" target="_blank">
+      <i class="fas fa-download"></i> Download CV
+    </a>
   </div>
   <!-- .sidebar-bottom -->
 </aside>
