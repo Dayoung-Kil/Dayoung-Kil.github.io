@@ -114,6 +114,15 @@ permalink: /
   outline-offset: 2px;
   border-color: var(--bs-primary, #0d6efd);
 }
+
+.section-title { display: flex; align-items: center; gap: 8px; } /* 이미 있으면 건너뛰기 */
+.section-title img.title-icon{
+  width: 18px !important;
+  height: 18px !important;
+  max-width: none !important;  /* 테마의 img {max-width:100%} 무효화 */
+  flex: 0 0 18px;
+  object-fit: contain;
+}
 </style>
 
 <div class="row g-3 g-lg-4">
@@ -135,8 +144,8 @@ permalink: /
     <!-- Research Interests -->
     <section class="section-card">
       <h2 class="section-title" style="display: flex; align-items: center; gap: 6px;">
-        <img 
-          src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1596028161/noticon/hdm6e0ewnzffvmyul0v7.png" 
+        <img class="title-icon"
+          src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1606889875/noticon/c2ggzek1iwfd0yccf62r.gif" 
           alt="icon" >
         Research Interests
       </h2>
@@ -151,8 +160,9 @@ permalink: /
 
     <!-- Skills -->
     <section class="section-card">
-      <h2 class="section-title"><img 
-          src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1606889875/noticon/c2ggzek1iwfd0yccf62r.gif" 
+      <h2 class="section-title">
+        <img class="title-icon"
+          src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1635067207/noticon/skvxhqthfikal67ospd1.gif" 
           alt="icon" >Skills</h2>
 
       <!-- Computer Vision -->
