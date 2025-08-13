@@ -5,106 +5,97 @@ title: "About Me"
 permalink: /
 ---
 
+<style>
+  /* 이 페이지의 Skills 섹션 안에서만 적용 */
+  .skills img.skill-icon{
+    width: 20px !important;
+    height: 20px !important;
+    max-width: none;          /* 테마의 img max-width/width 오버라이드 */
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 6px;
+    display: inline-block;    /* 혹시 block이면 줄어들지 않는 문제 방지 */
+  }
+  .skills .tech {             /* 아이콘+텍스트 묶음 정렬/간격 */
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;
+    margin-bottom: 6px;
+  }
+</style>
+
 <div class="row">
   <div id="post-list" class="col-12 col-lg-9 pe-lg-4">
-    <div class="mb-4 p-3 border-bottom">
-      <h2 class="mb-3 fw-bold">Introduction</h2>
-      <p>
-        I am <strong>Dayoung</strong>, a Ph.D. candidate at the Graduate School of <strong>Soongsil University</strong>, pursuing my research under the guidance of Professor Seong Heum Kim in the <em>Visual Intelligence and Platform (VIP) Lab</em>.  
-        My academic journey is dedicated to pushing the boundaries of <strong>hardware-efficient artificial intelligence</strong>, with a keen focus on bridging cutting-edge deep learning methodologies and real-world deployment efficiency.
-      </p>
-      <p>
-        By combining algorithmic innovation with system-level optimization, I aim to develop AI models that are not only powerful but also sustainable, scalable, and deployable in resource-constrained environments.
-      </p>
-    </div>
-    
-    <div class="mb-4 p-3 border-bottom">
-      <h2 class="mb-3 fw-bold">Research Interests</h2>
-      <ul>
-        <li>Computer Vision</li>
-        <li>Large Vision-Language Models (LVLMs)</li>
-        <li>Multimodal Large Language Models (MM-LLMs)</li>
-        <li>Efficient Deep Learning</li>
-        <li>Model Pruning</li>
-      </ul>
-    </div>
-    
-    <div class="mb-4 p-3 border-bottom">
+    <!-- ... Introduction / Research Interests 그대로 ... -->
+
+    <div class="mb-4 p-3 border-bottom skills">
       <h2 class="mb-3 fw-bold">Skills</h2>
-    
+
       <!-- Computer Vision -->
       <div class="mb-2">
         <strong>Computer Vision</strong>:
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1669172297/noticon/qw3jpfmbeebxzbbncnus.png" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1669172297/noticon/qw3jpfmbeebxzbbncnus.png" alt="OpenCV">
           OpenCV
         </span>
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1669172491/noticon/k3b8m4os8bduvmr6lff1.png" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1669172491/noticon/k3b8m4os8bduvmr6lff1.png" alt="YOLO">
           YOLO
         </span>
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="/assets/icons/detectron2.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="/assets/icons/detectron2.svg" alt="Detectron2">
           Detectron2
         </span>
-        <span class="d-inline-flex align-items-center">
-          <img src="/assets/icons/openmmlab.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="/assets/icons/openmmlab.svg" alt="OpenMMLab">
           OpenMMLab
         </span>
       </div>
-    
+
       <!-- Deep Learning -->
       <div class="mb-2">
         <strong>Deep Learning</strong>:
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
           PyTorch
         </span>
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
           TensorFlow
         </span>
-        <!-- 나머지 keras, huggingface도 같은 구조로 추가 -->
+        <!-- Keras / HuggingFace도 같은 형식으로 추가 -->
       </div>
-    
+
       <!-- Programming & Tools -->
       <div class="mb-2">
-        <strong>Programming & Tools</strong>:
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20" height="20" class="me-1 align-middle">
+        <strong>Programming &amp; Tools</strong>:
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
           Python
         </span>
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
           GitHub
         </span>
-        <!-- 나머지도 동일 구조로 추가 -->
+        <!-- 나머지도 동일 -->
       </div>
-    
+
       <!-- Web / Platform -->
       <div>
         <strong>Web / Platform</strong>:
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
           HTML
         </span>
-        <span class="d-inline-flex align-items-center me-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
           CSS
         </span>
-        <span class="d-inline-flex align-items-center">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" width="20" height="20" class="me-1 align-middle">
+        <span class="tech">
+          <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
           Android
         </span>
       </div>
     </div>
-    
-  </div>
 
-  <aside class="col-12 col-lg-3 ps-lg-4">
-    {% include sidebar.html %}
-  </aside>
-</div>
-
-{% include lang.html %}
-
+    <!-- ... 이하 동일 ... -->
