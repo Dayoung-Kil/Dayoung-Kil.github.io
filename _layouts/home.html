@@ -14,46 +14,48 @@ permalink: /
   border-radius: .75rem;
   background: var(--bs-body-bg, #fff);
   box-shadow: var(--box-shadow, 0 1px 2px rgba(0,0,0,.04));
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
+  padding: 1.5rem; /* 여백 넓힘 */
+  margin-bottom: 1.5rem;
+  max-width: 900px; /* 텍스트 폭 제한 */
 }
 
 /* 섹션 타이틀 */
 .section-card .section-title {
   font-weight: 700;
   font-size: 1.25rem;
-  margin: 0 0 .75rem 0;
+  margin: 0 0 1rem 0;
   display: flex;
   align-items: center;
   gap: .5rem;
 }
 
-/* 본문 문단 간격 */
-.section-card p {
-  margin-bottom: .75rem;
+/* 본문 문단 간격 (넓힘) */
+.section-card p,
+.hero p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
 }
 
 /* 리스트 기본 여백 정리 */
 .section-card ul {
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
 }
 
 /* 기술 스택 칩 영역 */
 .skills-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem .6rem;
+  gap: .6rem .8rem;
 }
 
-/* 칩(배지) 스타일 - Chirpy/Bootstrap 톤에 맞춤 */
+/* 칩(배지) 스타일 */
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: .35rem;
   line-height: 1;
   font-size: .875rem;
-  padding: .5rem .6rem;
+  padding: .5rem .7rem;
   border-radius: 999px;
   border: 1px solid var(--bs-border-color, #dee2e6);
   background: var(--bs-tertiary-bg, rgba(0,0,0,.03));
@@ -69,22 +71,13 @@ permalink: /
 
 /* 칩 그룹(카테고리) 행 */
 .skill-group {
-  margin-bottom: .85rem;
+  margin-bottom: 1rem;
 }
 .skill-group-title {
   display: inline-flex;
   align-items: center;
   font-weight: 600;
   margin-right: .35rem;
-}
-
-/* 작은 아이콘(이모지/이미지) 정렬용 */
-.chip .icon {
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  object-fit: contain;
-  vertical-align: middle;
 }
 
 /* 모바일 상단 인트로 박스 */
@@ -94,23 +87,24 @@ permalink: /
   background:
     radial-gradient(60% 100% at 100% 0%, color-mix(in srgb, var(--bs-primary, #0d6efd) 7%, transparent) 0%, transparent 60%),
     var(--bs-body-bg, #fff);
-  padding: 1.25rem 1.25rem 1rem;
-  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
 }
 .hero h1 {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
   font-weight: 800;
-  margin: 0 0 .25rem 0;
+  margin: 0 0 .5rem 0;
 }
 .hero .subtitle {
   color: var(--bs-secondary-color, #6c757d);
-  margin-bottom: .75rem;
+  margin-bottom: 1rem;
 }
 
 /* 반응형 여백 보정 */
 @media (min-width: 992px) {
   .section-card, .hero {
-    padding: 1.25rem 1.25rem 1.1rem;
+    padding: 1.5rem;
   }
 }
 
@@ -158,10 +152,10 @@ permalink: /
       <div class="skill-group">
         <span class="skill-group-title">Computer Vision:</span>
         <div class="skills-wrap">
-          <span class="chip">🧿 OpenCV</span>
-          <span class="chip">🎯 YOLO</span>
-          <span class="chip">📦 Detectron2</span>
-          <span class="chip">🧩 OpenMMLab (MMDetection, MMSegmentation)</span>
+          <span class="chip">OpenCV</span>
+          <span class="chip">YOLO</span>
+          <span class="chip">Detectron2</span>
+          <span class="chip">OpenMMLab (MMDetection, MMSegmentation)</span>
         </div>
       </div>
 
@@ -169,10 +163,10 @@ permalink: /
       <div class="skill-group">
         <span class="skill-group-title">Deep Learning:</span>
         <div class="skills-wrap">
-          <span class="chip">🔥 PyTorch</span>
-          <span class="chip">🔷 TensorFlow</span>
-          <span class="chip">🧱 Keras</span>
-          <span class="chip">🤗 HuggingFace</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">Keras</span>
+          <span class="chip">HuggingFace</span>
         </div>
       </div>
 
@@ -180,13 +174,13 @@ permalink: /
       <div class="skill-group">
         <span class="skill-group-title">Programming &amp; Tools:</span>
         <div class="skills-wrap">
-          <span class="chip">🐍 Python</span>
-          <span class="chip">🇨 C</span>
-          <span class="chip">🇨➕➕ C++</span>
-          <span class="chip">🔗 GitHub</span>
-          <span class="chip">🧪 Anaconda</span>
-          <span class="chip">📓 Jupyter</span>
-          <span class="chip">🖥️ VS Code</span>
+          <span class="chip">Python</span>
+          <span class="chip">C</span>
+          <span class="chip">C++</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">Anaconda</span>
+          <span class="chip">Jupyter</span>
+          <span class="chip">VS Code</span>
         </div>
       </div>
 
@@ -194,9 +188,9 @@ permalink: /
       <div class="skill-group mb-0">
         <span class="skill-group-title">Web / Platform:</span>
         <div class="skills-wrap">
-          <span class="chip">🌐 HTML</span>
-          <span class="chip">🎨 CSS</span>
-          <span class="chip">🤖 Android</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">Android</span>
         </div>
       </div>
     </section>
