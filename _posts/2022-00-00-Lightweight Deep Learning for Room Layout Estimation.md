@@ -1,0 +1,20 @@
+---
+title: 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화(Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
+description: ournal of Institute of Control, Robotics and Systems(ICROS) 2022 (KCI 등재, SCOPUS)
+author: Dayoung Kil, Seong-heum Kim
+date: 2022-00-00 
+categories: [Publications]
+tags: [Room Layout Estimation, Neural Architecture Search, Lightweight Deep Learning]
+pin: true
+math: true
+mermaid: true
+image:
+  path: assets/img/publications/room1.PNG
+  alt: 그림1. 실내 공간 레이아웃 복원 모델 경량화 개요
+---
+
+## ABSTRACT
+
+In this paper, we present a lightweight deep learning model for room layout estimation. We build on the work in HorizonNet, in which a 3D room is restored from a single panoramic picture using three steps (pre-processing, feature extraction, and post-processing) by studying the efficient computation of the feature extraction part. In contrast to the baseline method that uses a combination of a typical residual network (ResNet) and long short-term memory (LSTM) as its principal architecture, we focus on the use of a platform-aware neural architecture search for mobile applications (MnasNet) and a gated recurrent unit (GRU) instead of conventional LSTM. Subsequently, hyperparameters of the suggested architectures are selected using sampling-based optimization. In our qualitative and quantitative experiments, the lightweight model using the combination of MnasNet and GRU required approximately half as many parameters compared to the original method for competitive performance of room layout estimation. Based on the Manhattan world assumption, the proposed architecture was validated using Stanford2D3D, PanoContext, and our real-world panorama dataset collected by off-the-shelf software in RICOH THETA Z1.
+
+
