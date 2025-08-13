@@ -14,46 +14,63 @@ permalink: /
   border-radius: .75rem;
   background: var(--bs-body-bg, #fff);
   box-shadow: var(--box-shadow, 0 1px 2px rgba(0,0,0,.04));
-  padding: 2.5rem; /* 여백 넓힘 */
+  padding: 2.5rem;
   margin-bottom: 1.5rem;
-  max-width: 1000px; /* 텍스트 폭 제한 */
+  max-width: 1000px;
 }
 
-/* 섹션 타이틀 */
-.section-card .section-title {
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin: 0 0 1rem 0;
+/* 섹션 타이틀 + 아이콘 공통 */
+.section-title,
+.hero h1 {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 8px;
+}
+.section-title::before,
+.hero h1::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
-/* 본문 문단 간격 (넓힘) */
+/* 섹션별 아이콘 */
+.hero h1::before {
+  background-image: url("https://img.icons8.com/ios/250/000000/user.png");
+}
+.section-title.icon-bulb::before {
+  background-image: url("https://img.icons8.com/ios/250/000000/light-on.png");
+}
+.section-title.icon-rocket::before {
+  background-image: url("https://img.icons8.com/ios/250/000000/rocket.png");
+}
+
+/* 본문 문단 간격 */
 .section-card p,
 .hero p {
   margin-bottom: 2.25rem;
   line-height: 1.7;
 }
 
-/* 리스트 기본 여백 정리 */
+/* 리스트 기본 여백 */
 .section-card ul {
   margin: 0;
   padding-left: 1.2rem;
 }
 
-/* 기술 스택 칩 영역 */
+/* 기술 스택 칩 */
 .skills-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: .6rem .8rem;
 }
-
-/* 칩(배지) 스타일 */
 .chip {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
   font-size: .875rem;
   padding: .5rem .7rem;
   border-radius: 999px;
@@ -69,7 +86,7 @@ permalink: /
   background: color-mix(in srgb, var(--bs-primary, #0d6efd) 8%, transparent);
 }
 
-/* 칩 그룹(카테고리) 행 */
+/* 칩 그룹 */
 .skill-group {
   margin-bottom: 1rem;
 }
@@ -80,7 +97,7 @@ permalink: /
   margin-right: .35rem;
 }
 
-/* 모바일 상단 인트로 박스 */
+/* Hero */
 .hero {
   border: 1px solid var(--bs-border-color, #dee2e6);
   border-radius: .9rem;
@@ -91,37 +108,12 @@ permalink: /
   margin-bottom: 1.5rem;
   max-width: 900px;
 }
-.hero h1 {
-  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
-  font-weight: 800;
-  margin: 0 0 .5rem 0;
-}
-.hero .subtitle {
-  color: var(--bs-secondary-color, #6c757d);
-  margin-bottom: 1rem;
-}
 
-/* 반응형 여백 보정 */
+/* 반응형 */
 @media (min-width: 992px) {
   .section-card, .hero {
     max-width: none;
   }
-}
-
-/* 접근성: 포커스 링 */
-.chip:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--bs-primary, #0d6efd) 35%, transparent);
-  outline-offset: 2px;
-  border-color: var(--bs-primary, #0d6efd);
-}
-
-.section-title { display: flex; align-items: center; gap: 8px; } /* 이미 있으면 건너뛰기 */
-.section-title img.title-icon{
-  width:18px !important;
-  height:18px !important;
-  max-width:none !important;   /* 기본 max-width:100% 무효화 */
-  flex:0 0 18px;
-  object-fit:contain;
 }
 </style>
 
@@ -130,8 +122,7 @@ permalink: /
 
     <!-- Hero / Intro -->
     <section class="hero">
-      <h1><img class="title-icon" src="https://img.icons8.com/ios/250/000000/user.png" 
-          alt="icon" >About Me</h1>
+      <h1>About Me</h1>
       <p class="subtitle">Ph.D. Candidate · VIP Lab @ Soongsil Univ.</p>
       <p>
         I am <strong>Dayoung</strong>, a Ph.D. candidate at the Graduate School of <strong>Soongsil University</strong>, pursuing my research under the guidance of Professor Seong Heum Kim in the <em>Visual Intelligence and Platform (VIP) Lab</em>.
@@ -144,11 +135,7 @@ permalink: /
 
     <!-- Research Interests -->
     <section class="section-card">
-      <h2 class="section-title" style="display: flex; align-items: center; gap: 6px;">
-        <img class="title-icon" src="https://img.icons8.com/ios/250/000000/light-on.png" 
-          alt="icon" >
-        Research Interests
-      </h2>
+      <h2 class="section-title icon-bulb">Research Interests</h2>
       <ul>
         <li>Computer Vision</li>
         <li>Large Vision-Language Models (LVLMs)</li>
@@ -160,9 +147,7 @@ permalink: /
 
     <!-- Skills -->
     <section class="section-card">
-      <h2 class="section-title">
-        <img class="title-icon" src="https://img.icons8.com/ios/250/000000/rocket.png" 
-          alt="icon" >Skills</h2>
+      <h2 class="section-title icon-rocket">Skills</h2>
 
       <!-- Computer Vision -->
       <div class="skill-group">
