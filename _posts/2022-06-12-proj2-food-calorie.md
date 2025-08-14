@@ -50,7 +50,7 @@ mermaid: true
 <!-- GitHub + Paper 버튼 -->
 <div style="text-align:right;">
   <a href="https://github.com/Dayoung-Kil/Food_Calorie_Estimation" target="_blank" style="text-decoration:none; margin-right:10px;">
-    <i class="fab fa-github fa-lg"></i> GitHub Repository
+    <i class="fab fa-github fa-lg"></i> GitHub
   </a>
 
 </div>
