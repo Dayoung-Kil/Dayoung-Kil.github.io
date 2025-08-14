@@ -89,7 +89,7 @@ mermaid: true
 <img src="/assets/img/projects/fall1.gif" alt="preview" class="light w-75 shadow rounded-10" width="1212" height="668">
 <figcaption style="text-align:center; font-size:0.9em;">Preview</figcaption>
 
-```ENV
+```env
 운영체제 : Linux 20.04
 GPU : GeForce RTX 3090
 개발언어 : Python 3.8
@@ -101,11 +101,11 @@ AI 라이브러리 : Pytorch 1.8.1
 <div class="media-grid">
   <figure>
     <img src="/assets/img/projects/fall2.png" alt="Rule-based">
-    <figcaption><b>Rule-based</b> OpenPose, 가속도</figcaption>
+    <figcaption><b>[Rule-based]</b> OpenPose, 가속도</figcaption>
   </figure>
   <figure>
     <img src="/assets/img/projects/fall3.png" alt="Zero-Shot">
-    <figcaption><b>Zero-Shot</b> BLIP, GroundingDINO, Human-Object Interaction(HOI)</figcaption>
+    <figcaption><b>[Zero-Shot]</b> BLIP, GroundingDINO, Human-Object Interaction(HOI)</figcaption>
   </figure>
 </div>
 
