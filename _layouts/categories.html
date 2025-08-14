@@ -15,13 +15,6 @@ layout: page
   {% assign posts_of_category = category | last %}
   {% assign first_post = posts_of_category | first %}
 
-  {%- comment -%}
-  1 -> 3 바로 가기:
-  - 서브카테고리 수집/표시는 아예 제거
-  - 최상위 카테고리 카드 아래에 해당 카테고리의 포스트들을 바로 나열
-  - 날짜/요약(옵션)과 함께 보여주고, 원하면 갯수도 유지
-  {%- endcomment -%}
-
   {% if category_name == first_post.categories[0] %}
     {% assign posts_count = posts_of_category | size %}
 
@@ -51,9 +44,6 @@ layout: page
 
       <!-- posts under this top category -->
       <div class="list-group list-group-flush">
-        {%- comment -%}
-        필요하면 정렬: 최근순
-        {%- endcomment -%}
         {% assign sorted_posts = posts_of_category | sort: 'date' | reverse %}
 
         {% for post in sorted_posts %}
