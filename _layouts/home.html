@@ -99,6 +99,46 @@ permalink: /
     max-width: none;
   }
 }
+
+/* ===== Education (timeline-like cards) ===== */
+.edu-card .edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.edu-card .edu-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: .75rem;
+  background: var(--bs-tertiary-bg, rgba(0,0,0,.03));
+}
+.edu-card .edu-time {
+  font-weight: 700;
+  color: var(--bs-primary, #0d6efd);
+  white-space: nowrap;
+}
+.edu-card .edu-degree {
+  font-weight: 600;
+  margin-bottom: .15rem;
+}
+.edu-card .edu-meta {
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: .95rem;
+}
+
+/* 모바일: 한 줄 레이아웃로 접기 */
+@media (max-width: 576px) {
+  .edu-card .edu-item {
+    grid-template-columns: 1fr;
+  }
+  .edu-card .edu-time {
+    margin-bottom: .25rem;
+  }
+}
 </style>
 
 <div class="row g-3 g-lg-4">
@@ -181,6 +221,37 @@ permalink: /
     </section>
 
   </div>
+
+  <!-- Education -->
+    <section class="section-card edu-card">
+      <h2 class="section-title">Education</h2>
+
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-time">Mar 2024 – Feb 2027</div>
+          <div>
+            <div class="edu-degree">Doctor of Intelligent Semiconductors</div>
+            <div class="edu-meta">Soongsil University · Seoul, South Korea</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-time">Mar 2022 – Feb 2024</div>
+          <div>
+            <div class="edu-degree">Master of Intelligent Systems</div>
+            <div class="edu-meta">Soongsil University · Seoul, South Korea</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-time">Mar 2018 – Feb 2022</div>
+          <div>
+            <div class="edu-degree">Bachelor of AI Convergence</div>
+            <div class="edu-meta">Soongsil University · Seoul, South Korea</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   <aside class="col-12 col-lg-2">
     {% include sidebar.html %}
