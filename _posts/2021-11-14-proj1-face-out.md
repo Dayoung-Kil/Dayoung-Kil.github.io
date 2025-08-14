@@ -101,7 +101,9 @@ mermaid: true
 <img src="/assets/img/projects/face3.png" alt="전체 시스템 구성도" class="light w-75 shadow rounded-10" width="1212" height="668">
 <figcaption style="text-align:center; font-size:0.9em;">전체 시스템 구성도</figcaption>
 
-### Results
+<br>
+
+## Results
 
 <div class="media-grid cols-3">
   <figure>
