@@ -19,34 +19,11 @@ permalink: /
   max-width: 1000px;
 }
 
-/* 섹션 타이틀 + 아이콘 공통 */
-.section-title,
-.hero h1 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.section-title::before,
-.hero h1::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-/* 섹션별 아이콘 */
-.hero h1::before {
-  background-image: url("https://img.icons8.com/ios/250/000000/user.png");
-}
-.section-title.icon-bulb::before {
-  background-image: url("https://img.icons8.com/ios/250/000000/light-on.png");
-}
-.section-title.icon-rocket::before {
-  background-image: url("https://img.icons8.com/ios/250/000000/rocket.png");
+/* 섹션 타이틀 */
+.section-card .section-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 0 1rem 0;
 }
 
 /* 본문 문단 간격 */
@@ -91,8 +68,6 @@ permalink: /
   margin-bottom: 1rem;
 }
 .skill-group-title {
-  display: inline-flex;
-  align-items: center;
   font-weight: 600;
   margin-right: .35rem;
 }
@@ -107,6 +82,15 @@ permalink: /
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   max-width: 900px;
+}
+.hero h1 {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
+  font-weight: 800;
+  margin: 0 0 .5rem 0;
+}
+.hero .subtitle {
+  color: var(--bs-secondary-color, #6c757d);
+  margin-bottom: 1rem;
 }
 
 /* 반응형 */
@@ -135,7 +119,7 @@ permalink: /
 
     <!-- Research Interests -->
     <section class="section-card">
-      <h2 class="section-title icon-bulb">Research Interests</h2>
+      <h2 class="section-title">Research Interests</h2>
       <ul>
         <li>Computer Vision</li>
         <li>Large Vision-Language Models (LVLMs)</li>
@@ -147,7 +131,7 @@ permalink: /
 
     <!-- Skills -->
     <section class="section-card">
-      <h2 class="section-title icon-rocket">Skills</h2>
+      <h2 class="section-title">Skills</h2>
 
       <!-- Computer Vision -->
       <div class="skill-group">
