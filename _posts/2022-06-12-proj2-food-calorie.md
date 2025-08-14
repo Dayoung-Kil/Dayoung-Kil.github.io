@@ -77,55 +77,38 @@ mermaid: true
 
 ## Project Details
 
-### WebSite
+### Work Flow
+- Input Img → Food Detection → Volume Estimation → Calorie Calculation → Results
 
-<div class="media-grid">
-  <figure>
-    <img src="/assets/img/projects/face2.png" alt="Prototype">
-    <figcaption>Prototype</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/img/projects/face1.png" alt="Final Implementation">
-    <figcaption>Final Implementation</figcaption>
-  </figure>
-</div>
-
-### System Architecture
-
-- 서버는 Flask, DB는 MySQL로 제작.
-- Flask에서 MySQL을 사용하기 위해 Flask-sqlalchemy을 사용.
-
-<img src="/assets/img/projects/face3.png" alt="전체 시스템 구성도" class="light w-75 shadow rounded-10" width="1212" height="668">
+<img src="/assets/img/projects/food1.png" alt="전체 시스템 구성도" class="light w-75 shadow rounded-10" width="1212" height="668">
 <figcaption style="text-align:center; font-size:0.9em;">전체 시스템 구성도</figcaption>
 
-### Results
+### Food Detection
 
-<div class="media-grid cols-3">
-  <figure>
-    <img src="/assets/img/projects/input1.jpg" alt="Input 1">
-    <figcaption>Input 1: 모자이크에서 제외할 인물 사진</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/img/projects/input1_2.gif" alt="Input 2">
-    <figcaption>Input 2: 모자이크 처리할 사진</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/img/projects/output1.gif" alt="Output">
-    <figcaption>Output: 모자이크 결과</figcaption>
-  </figure>
-</div>
+- 3개의 Convolution layer와 Pooling layer로 구성
+- Keras를 통한 이미지 로드 및 전처리 방법 : image.ImageDataGenerator
+- Batch_size는 150, epochs는 100으로 설정
+- 결과 Loss: 108.18%, ACC : 73.42%가 나옴
 
-<div class="media-grid cols-3">
-  <figure>
-    <img src="/assets/img/projects/input2.jpg" alt="Input 1">
-    <figcaption>Input 1</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/img/projects/input2_2.jpg" alt="Input 2">
-    <figcaption>Input 2</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/img/projects/output2.jpg" alt="Output">
-    <figcaption>Output</figcaption>
-  </figure>
-</div>
+### Volume Estimation
+
+- Reference: [AlexGraikos-food_volume_estimation](https://github.com/AlexGraikos/food_volume_estimation)
+
+<img src="/assets/img/projects/food2.png" alt="Volume Estimation Overview" class="light w-75 shadow rounded-10" width="1212" height="668">
+<figcaption style="text-align:center; font-size:0.9em;">volume Estimation Overview</figcaption>
+
+### Calorie Estimation
+- Food 101 데이터 셋의 음식 종류와 g수에 따른 칼로리, 영양성분을 나타내기 위해 dict = {'food' : [g, kcal, 탄수화물, 단백질, 지방, 당류]} 형태의 딕셔너리 생성
+- (추정한 volume / g) * kcal 로 input image의 최종 칼로리 계산
+
+<img src="/assets/img/projects/food3.png" alt="Calorie Estimation Method" class="light w-75 shadow rounded-10" width="1212" height="668">
+<figcaption style="text-align:center; font-size:0.9em;">Calorie Estimation Method</figcaption>
+
+<br>
+
+## Results
+- 음식 종류와 g수에 따른 칼로리, 영양성분 나타남.
+
+<img src="/assets/img/projects/food4.png" alt="Results" class="light w-75 shadow rounded-10" width="1212" height="668">
+<figcaption style="text-align:center; font-size:0.9em;">Results</figcaption>
+
