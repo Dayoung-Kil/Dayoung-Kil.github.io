@@ -47,6 +47,14 @@ mermaid: true
 }
 </style>
 
+<!-- GitHub + Paper 버튼 -->
+<div style="text-align:right;">
+  <a href="https://github.com/2021-1-SSU-CapstoneDesign/Face-Out" target="_blank" style="text-decoration:none; margin-right:10px;">
+    <i class="fab fa-github fa-lg"></i> GitHub Repository
+  </a>
+</div>
+
+
 ## Overview
 - Face Recognition을 통해 지정된 사람을 제외한 다른 사람들의 얼굴을 모자이크 처리하는 시스템.
 - 사용자들이 모자이크 처리 시스템을 이용할 수 있도록 웹 서비스 제작
