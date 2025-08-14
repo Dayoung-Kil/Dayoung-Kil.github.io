@@ -9,7 +9,7 @@ pin: true
 math: true
 mermaid: true
 image:
-  path: ../assets/img/publications/room1.PNG
+  path: /assets/img/publications/room1.PNG
   alt: 그림1. 실내 공간 레이아웃 복원 모델 경량화 개요
 ---
 
