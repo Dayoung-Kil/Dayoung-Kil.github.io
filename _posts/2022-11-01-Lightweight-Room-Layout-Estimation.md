@@ -15,13 +15,14 @@ mermaid: true
 <figcaption style="text-align:center; font-size:0.9em;">그림1. 실내 공간 레이아웃 복원 모델 경량화 개요</figcaption>
 
 <!-- GitHub + Paper 버튼 -->
-<a href="https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image" target="_blank" style="text-decoration:none;">
-  <img src="https://img.shields.io/badge/GitHub-000?logo=github&logoColor=white" alt="GitHub Repository">
-</a>
-&nbsp;|&nbsp;
-<a href="https://ieeexplore.ieee.org/document/10003901" target="_blank" style="text-decoration:none;">
-  📄 Paper Link
-</a>
+<div style="text-align:left;">
+  <a href="https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image" target="_blank" style="text-decoration:none; margin-right:10px;">
+    <i class="fab fa-github fa-lg"></i> GitHub Repository
+  </a>
+  <a href="https://ieeexplore.ieee.org/document/10003901" target="_blank" style="text-decoration:none; margin-left:10px;">
+    <i class="fas fa-file-alt"></i> Paper Link
+  </a>
+</div>
 
 <!-- 구분선 -->
 <hr style="border: 0; border-top: 1px solid var(--bs-border-color,#dee2e6); opacity:0.5; margin: 1.5rem 0;">
