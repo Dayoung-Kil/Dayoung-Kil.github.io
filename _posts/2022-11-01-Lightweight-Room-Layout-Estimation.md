@@ -14,6 +14,7 @@ mermaid: true
 ![light mode only](/assets/img/publications/room_1.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
 <figcaption style="text-align:center; font-size:0.9em;">그림1. 실내 공간 레이아웃 복원 모델 경량화 개요</figcaption>
 
+Click the <kbd>[GitHub](https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image)</kbd> and Paper <kbd>[link](https://ieeexplore.ieee.org/document/10003901)</kbd>.
 
 ## ABSTRACT
 
@@ -27,13 +28,3 @@ The image below represents Qualitative Comparison between the Previous Method an
 
 ![light mode only](/assets/img/publications/room_2.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
 
-<!-- markdownlint-capture -->
-<!-- markdownlint-disable -->
-
-> GitHub ['url'](https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image)
-{: .prompt-info }
-
-> Link: ['url'](https://ieeexplore.ieee.org/document/10003901)
-{: .prompt-warning }
-
-<!-- markdownlint-restore -->
