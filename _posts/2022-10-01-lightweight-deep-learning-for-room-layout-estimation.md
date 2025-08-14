@@ -8,10 +8,13 @@ tags: [Room Layout Estimation, Neural Architecture Search, Lightweight Deep Lear
 pin: true
 math: true
 mermaid: true
-image:
-  path: /assets/img/publications/room1.PNG
-  alt: 그림1. 실내 공간 레이아웃 복원 모델 경량화 개요
 ---
+
+<p align="center">
+  <img src="/assets/img/publications/room1.PNG" alt="그림1. 실내 공간 레이아웃 복원 모델 경량화 개요" style="width:70%; border-radius:8px;">
+</p>
+<figcaption style="text-align:center; font-size:0.9em;">그림1. 실내 공간 레이아웃 복원 모델 경량화 개요</figcaption>
+
 
 ## ABSTRACT
 
