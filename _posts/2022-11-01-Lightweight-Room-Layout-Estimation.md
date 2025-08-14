@@ -21,9 +21,9 @@ Recently, we are increasingly sharing structures and interiors of our own houses
 <br>
 
 
-###  Qualitative Comparison between the Previous Method and Ours with Images taken from RICOH THETA Z
+###  Qualitative Comparison
 
-The image below represents Qualitative Comparison between the Previous Method and Ours.  
+The image below represents Qualitative Comparison between the Previous Method and Ours with Images taken from RICOH THETA Z.  
 
 ![light mode only](/assets/img/publications/room_2.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
 
