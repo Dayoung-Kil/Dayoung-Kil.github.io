@@ -3,7 +3,7 @@ title: 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 �
 description: Journal of Institute of Control, Robotics and Systems(ICROS) 2022 (KCI 등재, SCOPUS)
 author: [dayoung, kimsh]
 date: 2022-10-01 09:00:00 +0900 
-categories: [Lightweight 3D Room Layout, Publications]
+categories: [Publications, Lightweight 3D Room Layout]
 tags: [Room Layout Estimation, Neural Architecture Search, Lightweight Deep Learning]
 pin: true
 math: true
