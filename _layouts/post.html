@@ -84,10 +84,16 @@ script_includes:
           <!-- pageviews -->
           {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
             <span>
-              <em id="pageviews">
-                <i class="fas fa-spinner fa-spin small"></i>
+              {{ site.data.locales[lang].post.written_by }}
+              <em>
+                {% if page.author %}
+                  {{ page.author }}
+                {% elsif page.authors %}
+                  {{ page.authors | join: ', ' }}
+                {% else %}
+                  <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
+                {% endif %}
               </em>
-              {{ site.data.locales[lang].post.pageview_measure }}
             </span>
           {% endif %}
 
