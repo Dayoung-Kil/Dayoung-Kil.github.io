@@ -19,7 +19,7 @@ mermaid: true
 <!-- GitHub + Paper 버튼 -->
 <div style="text-align:right;">
   <a href="https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image" target="_blank" style="text-decoration:none; margin-right:10px;">
-    <i class="fab fa-github fa-lg"></i> GitHub Repository
+    <i class="fab fa-github fa-lg"></i> GitHub
   </a>
   <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11142005" target="_blank" style="text-decoration:none; margin-left:10px;">
     <i class="fas fa-file-alt"></i> Paper Link
