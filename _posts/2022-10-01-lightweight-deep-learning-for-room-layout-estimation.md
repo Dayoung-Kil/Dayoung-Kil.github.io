@@ -1,7 +1,7 @@
 ---
 title: 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 (Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
 description: ournal of Institute of Control, Robotics and Systems(ICROS) 2022 (KCI 등재, SCOPUS)
-author: [Dayoung Kil, Seong-heum Kim]
+author: [dayoung, kimsh]
 date: 2022-10-01 09:00:00 +0900 
 categories: [Publications]
 tags: [Room Layout Estimation, Neural Architecture Search, Lightweight Deep Learning]
