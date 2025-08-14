@@ -3,7 +3,7 @@ title: Lightweight Room Layout Estimation using a Single Panoramic Image
 description: International Conference on Control, Automation and Systems (ICCAS 2022)
 author: [dayoung, kimsh]
 date: 2022-11-01 09:00:00 +0900 
-categories: [Lightweight 3D Room Layout, Publications]
+categories: [Publications, Lightweight 3D Room Layout]
 tags: [Lightweight Deep Learning, Room Layout Estimation, Neural Architecture Search]
 pin: true
 math: true
@@ -26,3 +26,14 @@ Recently, we are increasingly sharing structures and interiors of our own houses
 The image below represents Qualitative Comparison between the Previous Method and Ours.  
 
 ![light mode only](/assets/img/publications/room_2.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
+
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
+
+> GitHub ['url'](https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image)
+{: .prompt-info }
+
+> Link: ['url'](https://ieeexplore.ieee.org/document/10003901)
+{: .prompt-warning }
+
+<!-- markdownlint-restore -->
