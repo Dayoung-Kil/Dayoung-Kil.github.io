@@ -57,6 +57,14 @@ mermaid: true
 <!-- 구분선 -->
 <hr style="border: 0; border-top: 1px solid var(--bs-border-color,#dee2e6); opacity:0.5; margin: 1.5rem 0;">
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
+> 2023 산학 프로젝트 챌린지 with KOH YOUNG TECHNOLOGY <b>본선 1차 진출</b>
+{: .prompt-tip }
+
+<!-- markdownlint-restore -->
+
+
 ## Overview
 ### Koh Young Technology 요구 사항
 - 제조 자동화 산업
@@ -80,6 +88,14 @@ mermaid: true
 
 <img src="/assets/img/projects/fall1.gif" alt="preview" class="light w-75 shadow rounded-10" width="1212" height="668">
 <figcaption style="text-align:center; font-size:0.9em;">Preview</figcaption>
+
+```ENV
+운영체제 : Linux 20.04
+GPU : GeForce RTX 3090
+개발언어 : Python 3.8
+사용 툴 : Linux
+AI 라이브러리 : Pytorch 1.8.1
+```
 
 ### System Overview
 <div class="media-grid">
