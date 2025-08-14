@@ -14,6 +14,18 @@ mermaid: true
 ![light mode only](/assets/img/publications/room1.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
 <figcaption style="text-align:center; font-size:0.9em;">그림1. 실내 공간 레이아웃 복원 모델 경량화 개요</figcaption>
 
+<!-- GitHub + Paper 버튼 -->
+<div style="text-align:right;">
+  <a href="https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image" target="_blank" style="text-decoration:none; margin-right:10px;">
+    <i class="fab fa-github fa-lg"></i> GitHub Repository
+  </a>
+  <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11142005" target="_blank" style="text-decoration:none; margin-left:10px;">
+    <i class="fas fa-file-alt"></i> Paper Link
+  </a>
+</div>
+
+<!-- 구분선 -->
+<hr style="border: 0; border-top: 1px solid var(--bs-border-color,#dee2e6); opacity:0.5; margin: 1.5rem 0;">
 
 ## ABSTRACT
 
