@@ -20,7 +20,7 @@ In this paper, we present a lightweight deep learning model for room layout esti
 
 ## Tables
 
-| Test cases        | ResNet50-LSTM          | MnasNet-LSTM | Our MnasNet-GRU |
+| Test cases        | ResNet50-LSTM   | MnasNet-LSTM | Our MnasNet-GRU |
 | :------------------ | --------------- | ------ |----|
 | # Parameter (Total) | 81,570,348 |40,397,700|37,641,092|
 | # FLOPs          |  71.83| 56.19|58.48|
@@ -28,4 +28,4 @@ In this paper, we present a lightweight deep learning model for room layout esti
 | # 3D IoU (%) |  84.53|80.80 |81.89|
 | # MSE |  0.18| 0.23|0.21|
 | # Pixel error (%) | 2.04| 2.57|2.70|
-| # Corner error (%) |  0.65| 0.80|0.84|
+| # Corner error (%) | 0.65| 0.80|0.84|
