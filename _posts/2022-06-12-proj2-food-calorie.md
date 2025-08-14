@@ -47,6 +47,18 @@ mermaid: true
 }
 </style>
 
+<!-- GitHub + Paper 버튼 -->
+<div style="text-align:right;">
+  <a href="https://github.com/Dayoung-Kil/Food_Calorie_Estimation" target="_blank" style="text-decoration:none; margin-right:10px;">
+    <i class="fab fa-github fa-lg"></i> GitHub Repository
+  </a>
+
+</div>
+
+<!-- 구분선 -->
+<hr style="border: 0; border-top: 1px solid var(--bs-border-color,#dee2e6); opacity:0.5; margin: 1.5rem 0;">
+
+
 ## Overview
 - Food Detection 및 Volume Estimation을 통해, 이미지 내 음식 인식 후 칼로리 계산.
 - 음식 종류와 g수에 따른 칼로리, 영양성분 표시.
