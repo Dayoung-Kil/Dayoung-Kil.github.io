@@ -1,5 +1,5 @@
 ---
-title: 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 (Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image)
+title: 단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화
 description: Journal of Institute of Control, Robotics and Systems(ICROS) 2022 (KCI 등재, SCOPUS)
 author: [dayoung, kimsh]
 date: 2022-10-01 09:00:00 +0900 
