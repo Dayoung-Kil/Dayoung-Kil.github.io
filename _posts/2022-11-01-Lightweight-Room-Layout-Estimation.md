@@ -3,7 +3,7 @@ title: Lightweight Room Layout Estimation using a Single Panoramic Image
 description: International Conference on Control, Automation and Systems (ICCAS 2022)
 author: [dayoung, kimsh]
 date: 2022-11-01 09:00:00 +0900 
-categories: [Publications]
+categories: [Lightweight 3D Room Layout, Publications]
 tags: [Lightweight Deep Learning, Room Layout Estimation, Neural Architecture Search]
 pin: true
 math: true
