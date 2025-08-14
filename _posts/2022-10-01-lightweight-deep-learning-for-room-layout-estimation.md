@@ -18,7 +18,7 @@ image:
 In this paper, we present a lightweight deep learning model for room layout estimation. We build on the work in HorizonNet, in which a 3D room is restored from a single panoramic picture using three steps (pre-processing, feature extraction, and post-processing) by studying the efficient computation of the feature extraction part. In contrast to the baseline method that uses a combination of a typical residual network (ResNet) and long short-term memory (LSTM) as its principal architecture, we focus on the use of a platform-aware neural architecture search for mobile applications (MnasNet) and a gated recurrent unit (GRU) instead of conventional LSTM. Subsequently, hyperparameters of the suggested architectures are selected using sampling-based optimization. In our qualitative and quantitative experiments, the lightweight model using the combination of MnasNet and GRU required approximately half as many parameters compared to the original method for competitive performance of room layout estimation. Based on the Manhattan world assumption, the proposed architecture was validated using Stanford2D3D, PanoContext, and our real-world panorama dataset collected by off-the-shelf software in RICOH THETA Z1.
 
 
-## Tables
+### 기존 및 제안 방법의 정량적 결과 비교
 
 | Test cases        | ResNet50-LSTM   | MnasNet-LSTM | Our MnasNet-GRU |
 | :------------------ | --------------- | ------ |----|
@@ -29,3 +29,10 @@ In this paper, we present a lightweight deep learning model for room layout esti
 | # MSE |  0.18| 0.23|0.21|
 | # Pixel error (%) | 2.04| 2.57|2.70|
 | # Corner error (%) | 0.65| 0.80|0.84|
+
+
+### MnasNet-GRU 기반의 HorizonNet 경량화 모델 구조도
+
+The image below represents Lightweight HorizonNet using Our MnasNet-GRU Architecture.  
+
+![light mode only](/assets/img/publications/room2.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
