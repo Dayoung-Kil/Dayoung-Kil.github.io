@@ -10,9 +10,8 @@ math: true
 mermaid: true
 ---
 
-<p align="center">
-  <img src="/assets/img/publications/room1.PNG" alt="그림1. 실내 공간 레이아웃 복원 모델 경량화 개요" style="width:70%; border-radius:8px;">
-</p>
+
+![light mode only](/assets/img/publications/room1.PNG){: .light .w-75 .shadow .rounded-10 w='1212' h='668' }
 <figcaption style="text-align:center; font-size:0.9em;">그림1. 실내 공간 레이아웃 복원 모델 경량화 개요</figcaption>
 
 
