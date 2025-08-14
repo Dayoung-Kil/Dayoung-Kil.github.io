@@ -6,8 +6,6 @@ layout: page
 {% include lang.html %}
 
 {% assign HEAD_PREFIX = 'h_' %}
-{% assign LIST_PREFIX = 'l_' %}
-
 {% assign group_index = 0 %}
 
 {% assign sort_categories = site.categories | sort %}
@@ -17,119 +15,63 @@ layout: page
   {% assign posts_of_category = category | last %}
   {% assign first_post = posts_of_category | first %}
 
+  {%- comment -%}
+  1 -> 3 바로 가기:
+  - 서브카테고리 수집/표시는 아예 제거
+  - 최상위 카테고리 카드 아래에 해당 카테고리의 포스트들을 바로 나열
+  - 날짜/요약(옵션)과 함께 보여주고, 원하면 갯수도 유지
+  {%- endcomment -%}
+
   {% if category_name == first_post.categories[0] %}
-    {% assign sub_categories = '' | split: '' %}
-
-    {% for post in posts_of_category %}
-      {% assign second_category = post.categories[1] %}
-      {% if second_category %}
-        {% unless sub_categories contains second_category %}
-          {% assign sub_categories = sub_categories | push: second_category %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-
-    {% assign sub_categories = sub_categories | sort %}
-    {% assign sub_categories_size = sub_categories | size %}
+    {% assign posts_count = posts_of_category | size %}
 
     <div class="card categories">
       <!-- top-category -->
-      <div
-        id="{{ HEAD_PREFIX }}{{ group_index }}"
-        class="card-header d-flex justify-content-between hide-border-bottom"
-      >
+      <div id="{{ HEAD_PREFIX }}{{ group_index }}" class="card-header d-flex justify-content-between hide-border-bottom">
         <span class="ms-2">
-          <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+          <i class="far fa-folder-open fa-fw"></i>
 
           {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
           <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
 
           <!-- content count -->
-          {% assign top_posts_size = site.categories[category_name] | size %}
           <span class="text-muted small font-weight-light">
-            {% if sub_categories_size > 0 %}
-              {{ sub_categories_size }}
-              {% if sub_categories_size > 1 %}
-                {{
-                  site.data.locales[lang].categories.category_measure.plural
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% else %}
-                {{
-                  site.data.locales[lang].categories.category_measure.singular
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% endif -%}
-              ,
-            {% endif %}
-
-            {{ top_posts_size }}
-
-            {% if top_posts_size > 1 %}
-              {{
-                site.data.locales[lang].categories.post_measure.plural
-                | default: site.data.locales[lang].categories.post_measure
-              }}
+            {{ posts_count }}
+            {% if posts_count > 1 %}
+              {{ site.data.locales[lang].categories.post_measure.plural
+                 | default: site.data.locales[lang].categories.post_measure }}
             {% else %}
-              {{
-                site.data.locales[lang].categories.post_measure.singular
-                | default: site.data.locales[lang].categories.post_measure
-              }}
+              {{ site.data.locales[lang].categories.post_measure.singular
+                 | default: site.data.locales[lang].categories.post_measure }}
             {% endif %}
           </span>
         </span>
-
-        <!-- arrow -->
-        {% if sub_categories_size > 0 %}
-          <a
-            href="#{{ LIST_PREFIX }}{{ group_index }}"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
-            class="category-trigger hide-border-bottom"
-          >
-            <i class="fas fa-fw fa-angle-down"></i>
-          </a>
-        {% else %}
-          <span data-bs-toggle="collapse" class="category-trigger hide-border-bottom disabled">
-            <i class="fas fa-fw fa-angle-right"></i>
-          </span>
-        {% endif %}
       </div>
       <!-- .card-header -->
 
-      <!-- Sub-categories -->
-      {% if sub_categories_size > 0 %}
-        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
-          <ul class="list-group">
-            {% for sub_category in sub_categories %}
-              <li class="list-group-item">
-                <i class="far fa-folder fa-fw"></i>
+      <!-- posts under this top category -->
+      <div class="list-group list-group-flush">
+        {%- comment -%}
+        필요하면 정렬: 최근순
+        {%- endcomment -%}
+        {% assign sorted_posts = posts_of_category | sort: 'date' | reverse %}
 
-                {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
-                <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ sub_category }}</a>
-
-                {% assign posts_size = site.categories[sub_category] | size %}
-                <span class="text-muted small font-weight-light">
-                  {{ posts_size }}
-
-                  {% if posts_size > 1 %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.plural
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% else %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.singular
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% endif %}
-                </span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
+        {% for post in sorted_posts %}
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+             href="{{ post.url | relative_url }}">
+            <span class="text-truncate">
+              {{ post.title }}
+              {% if post.description %}
+                <span class="text-muted small"> — {{ post.description }}</span>
+              {% endif %}
+            </span>
+            <time class="text-muted small">
+              {{ post.date | date: site.data.locales[lang].date_format.post }}
+            </time>
+          </a>
+        {% endfor %}
+      </div>
+      <!-- .list-group -->
     </div>
     <!-- .card -->
 
