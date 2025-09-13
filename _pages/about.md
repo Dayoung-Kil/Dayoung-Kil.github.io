@@ -10,6 +10,7 @@ redirect_from:
 I am Dayoung, a Ph.D. student at the Graduate School of Soongsil University, conducting my research under the supervision of Professor Seong Heum Kim in the Visual Intelligence and Platform (VIP) Lab. My research primarily focuses on hardware-efficient artificial intelligence, with particular emphasis on Efficient Deep Learning, Pruning, Large Vision-Language Models (LVLMs), and Multimodal Large Language Models (MM-LLMs). 
 Recently, I have been actively exploring LVLMs and advanced token pruning techniques to enhance the efficiency and performance of large-scale multimodal systems.
 
+
 Research Interests
 ======
 - Computer Vision
@@ -18,26 +19,23 @@ Research Interests
 - Efficient Deep Learning
 - Model Pruning
 
+
 Educations
 ======
-
 Mar 2024 - Feb 2027
 ------
 Doctor of Intelligent Semiconductors
 Soongil University, Seoul, South Korea
-
 
 Mar 2022 - Feb 2024
 ------
 Master of Intelligent Systems
 Soongil University, Seoul, South Korea
 
-
 Mar 2018 - Feb 2022
 ------
 Bachelor of AI Convergence
 Soongil University, Seoul, South Korea
-
 
 Mar 2014 - Feb 2017
 ------
