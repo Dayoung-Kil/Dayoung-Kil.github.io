@@ -8,6 +8,7 @@ date: 2022-10-01
 venue: 'Journal of Institute of Control, Robotics and Systems (ICROS), (KCI, SCOPUS), 2022'
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719'
+codeurl: 'https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image'
 # bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
 citation: 'Dayoung Kil and Seong-heum Kim. (2022). Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image. Journal of Institute of Control, Robotics and Systems, 28(10), 868-873.'
 ---
