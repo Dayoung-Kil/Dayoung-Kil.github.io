@@ -10,6 +10,7 @@ redirect_from:
 I am Dayoung, a Ph.D. student at the Graduate School of Soongsil University, conducting my research under the supervision of Professor Seong Heum Kim in the Visual Intelligence and Platform (VIP) Lab. My research primarily focuses on hardware-efficient artificial intelligence, with particular emphasis on Efficient Deep Learning, Pruning, Large Vision-Language Models (LVLMs), and Multimodal Large Language Models (MM-LLMs). 
 Recently, I have been actively exploring LVLMs and advanced token pruning techniques to enhance the efficiency and performance of large-scale multimodal systems.
 
+<br>
 
 Research Interests
 ======
@@ -19,9 +20,11 @@ Research Interests
 - Efficient Deep Learning
 - Model Pruning
 
+<br>
 
 Educations
 ======
+
 Mar 2024 - Feb 2027
 ------
 Doctor of Intelligent Semiconductors
@@ -60,4 +63,4 @@ Example: editing a Markdown file for a talk
 
 For more info
 ------
-More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful. --> -->
+More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful. --> 
