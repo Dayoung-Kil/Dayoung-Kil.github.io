@@ -9,9 +9,9 @@ tags:
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/Dayoung-Kil/Food_Calorie_Estimation)
 
-Date|Participants
+Date|김준용|길다영
 --|--
-2022.04 - 2022.06|김준용, 길다영
+2022.04 - 2022.06|Food Detection|Volume Estimation
 
 
 <br>
