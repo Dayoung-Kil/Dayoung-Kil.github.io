@@ -13,7 +13,7 @@ Date|김준용|길다영
 --|--
 2022.04 - 2022.06|Food Detection|Volume Estimation
 
-
+![image](https://user-images.githubusercontent.com/53934639/173487955-0bf8e1a4-d5cc-4032-aeb8-fe60ecab5dfc.png)
 
 
 ## Overview

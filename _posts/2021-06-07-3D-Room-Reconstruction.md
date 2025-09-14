@@ -21,6 +21,8 @@ Date|Participants
 - 한 장의 파노라마 이미지만을 사용해서 방을 3D로 복원 가능.
 - HorizonNet은 Manhattan World 가정을 기반으로 하여 짧은 시간에 방의 구조를 추측하는 방법으로 HorizonNet을 통해 기존 SFM(Structure From Motion) 방법에서의 다양한 문제점(조명에 영향 받음, 많은 시간 소요, 무수히 많은 이미지 필요, 유리 인식 불가 등)들을 해결할 수 있을 거라 판단함.
 
+<img src="./img/our model.PNG" width="100%" height="90%" title="result" alt="result"></img>
+
 <br>
 
 ## Expected effects
