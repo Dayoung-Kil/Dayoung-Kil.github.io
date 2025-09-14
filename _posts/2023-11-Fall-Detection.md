@@ -1,5 +1,5 @@
 ---
-title: Zero-Shot Fall Detection: Leveraging Text Prompt in Vision-Language Models
+title: Zero-Shot Fall Detection - Leveraging Text Prompt in Vision-Language Models
 date: 2023.08 - 2023.11
 permalink: /posts/2023/11/Fall-Detection/
 tags:
