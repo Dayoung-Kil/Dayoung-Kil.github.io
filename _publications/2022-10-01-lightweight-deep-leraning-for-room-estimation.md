@@ -1,5 +1,5 @@
 ---
-title: "단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화"
+title: "단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화 [KCI]"
 collection: publications
 category: conferences
 
@@ -7,7 +7,7 @@ permalink: /publication/2022-10-01-Lightweight-Deep-Learning-for-Room-Layout-Est
 
 excerpt: 'In this paper, we present a lightweight deep learning model for room layout estimation. In contrast to the baseline method that uses a combination of a typical residual network (ResNet) and long short-term memory (LSTM) as its principal architecture, we focus on the use of a platform-aware neural architecture search for mobile applications (MnasNet) and a gated recurrent unit (GRU) instead of conventional LSTM.'
 date: 2022-10-01
-venue: 'Journal of Institute of Control, Robotics and Systems (ICROS), (KCI)'
+venue: 'Journal of Institute of Control, Robotics and Systems (ICROS)'
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719'
 codeurl: 'https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image'
