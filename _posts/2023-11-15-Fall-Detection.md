@@ -1,5 +1,5 @@
 ---
-title: Zero-Shot Fall Detection: Leveraging Text Prompt in Vision-Language Models
+title: Zero-Shot Fall Detection - Leveraging Text Prompt in Vision-Language Models
 date: 2023-11-15
 permalink: /posts/2023/11/Fall-Detection/
 tags:
@@ -8,7 +8,7 @@ tags:
   - VLM
 ---
 
-[![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection)
+[![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection) 2023 산학 프로젝트 챌린지 본선 1차 진출
 
 ## Date
 2023.08 - 2023.11
