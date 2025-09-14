@@ -40,9 +40,9 @@ Awards
 
 Education
 ======
-* Ph.D in Seoul, South Korea Intelligent Semiconductors of Soongil University, 2027 (expected)
-* M.S. in Seoul, South Korea Intelligent Systems of Soongil University, 2024
-* B.S. in Seoul, South Korea AI Convergence of Soongil University, 2022
+* Ph.D in Seoul, South Korea, Intelligent Semiconductors of Soongil University, 2027 (expected)
+* M.S. in Seoul, South Korea, Intelligent Systems of Soongil University, 2024
+* B.S. in Seoul, South Korea, AI Convergence of Soongil University, 2022
 
 <!-- Work experience
 ======

@@ -10,13 +10,11 @@ tags:
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/2021-1-SSU-Computer-Vision/3D_Room_Reconstruction)
 
-## Date
-2021.05 - 2021.06
+Date|Participants
+--|--
+2021.05 - 2021.06|길다영, 김현우
 
-<br>
 
-## Participants
-길다영, 김현우
 
 <br>
 

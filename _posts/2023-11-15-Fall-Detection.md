@@ -10,13 +10,10 @@ tags:
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection) 2023 산학 프로젝트 챌린지 본선 1차 진출
 
-## Date
-2023.08 - 2023.11
+Date|Participants
+--|--
+2023.08 - 2023.11|김준용, 길다영
 
-<br>
-
-## Participants
-김준용, 길다영
 
 <br>
 
