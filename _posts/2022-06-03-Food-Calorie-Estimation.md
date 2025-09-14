@@ -1,6 +1,8 @@
 ---
 title: Food Calorie Estimation
-date: 2022.04 - 2022.06
+date: 2022-04-16
+enddate: 2022-06-04
+display_date: "2022.04 - 2022.06"
 permalink: /posts/2022/06/Food-Calorie-Estimation/
 tags:
   - Food Detection

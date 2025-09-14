@@ -1,6 +1,8 @@
 ---
 title: '3D Room Reconstruction Using HorizonNet'
-date: 2021.05 - 2021.06
+date: 2021-05-09
+enddate: 2021-06-13
+display_date: "2021.05 - 2021.06"
 permalink: /posts/2021/06/3D-Room-Reconstruction/
 tags:
   - 3D Room Reconstruction

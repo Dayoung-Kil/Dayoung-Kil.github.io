@@ -61,7 +61,7 @@ layout: default
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
         {% elsif page.slidesurl and page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.paperurl and page.codeurl %}
+        {% elsif page.citation and page.paperurl and page.codeurl %}
           <p style="font-size: smaller"><a href="{{ page.paperurl }}">View the Paper</a> | <a href="{{ page.codeurl }}">Go to Github</a></p>
         {% elsif page.paperurl and page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
@@ -73,7 +73,7 @@ layout: default
           <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
         {% elsif page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
-        {% elsif page.paperurl %}
+        {% elsif page.citation and page.paperurl %}
           <p style="font-size: smaller"><a href="{{ page.paperurl }}">View the Paper</a></p>
         {% endif %}
 
