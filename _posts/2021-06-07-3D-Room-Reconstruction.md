@@ -1,6 +1,6 @@
 ---
 title: '3D Room Reconstruction Using HorizonNet'
-date: 2021.05 - 2021.06
+date: 2021-06-07
 permalink: /posts/2021/06/3D-Room-Reconstruction/
 tags:
   - 3D Room Reconstruction
@@ -9,6 +9,16 @@ tags:
 ---
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/2021-1-SSU-Computer-Vision/3D_Room_Reconstruction)
+
+## Date
+2021.05 - 2021.06
+
+<br>
+
+## Participants
+길다영, 김현우
+
+<br>
 
 ## Overview
 - HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원.

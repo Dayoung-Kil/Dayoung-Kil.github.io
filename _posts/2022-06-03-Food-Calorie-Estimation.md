@@ -1,8 +1,6 @@
 ---
 title: Food Calorie Estimation
-date: 2022-04-16
-enddate: 2022-06-04
-display_date: "2022.04 - 2022.06"
+date: 2022-06-03
 permalink: /posts/2022/06/Food-Calorie-Estimation/
 tags:
   - Food Detection
@@ -10,6 +8,16 @@ tags:
 ---
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/Dayoung-Kil/Food_Calorie_Estimation)
+
+## Date
+2022.04 - 2022.06
+
+<br>
+
+## Participants
+김준용, 길다영
+
+<br>
 
 ## Overview
 - Food Detection 및 Volume Estimation을 통해, 이미지 내 음식 인식 후 칼로리 계산.

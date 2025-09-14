@@ -1,6 +1,6 @@
 ---
 title: Zero-Shot Fall Detection: Leveraging Text Prompt in Vision-Language Models
-date: 2023.08 - 2023.11
+date: 2023-11-15
 permalink: /posts/2023/11/Fall-Detection/
 tags:
   - Fall Detection
@@ -9,6 +9,17 @@ tags:
 ---
 
 [![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection)
+
+## Date
+2023.08 - 2023.11
+
+<br>
+
+## Participants
+김준용, 길다영
+
+<br>
+
 
 ## Overview
 - 시각-언어 모델을 이용하여 데이터셋을 훈련없이 Abnormal Detection이라는 일반적인 프레임워크 생성.
