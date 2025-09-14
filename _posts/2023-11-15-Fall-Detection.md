@@ -14,12 +14,21 @@ Date|Participants
 --|--
 2023.08 - 2023.11|김준용, 길다영
 
+<br>
 
+<p align="center">
+ <img src="https://github.com/VIP-Projects/Zero-Shot-Fall-Detection/assets/53934639/6740809a-62bf-4d13-8cda-9a05a8e9fc1f" width="800px"> </p>
 
 ## Overview
 - 시각-언어 모델을 이용하여 데이터셋을 훈련없이 Abnormal Detection이라는 일반적인 프레임워크 생성.
 - 빠른 신고와 조치가 필요한 다양한 상황에서 정교화된 Prompt 기술로 학습 없이 즉각적인 대응이 가능한 시스템 구축.
 - 기존 연구인 Fall Detection을 사례연구로 먼저 시도했고, 다양한 상황에서의 이상 감지로 일반화 가능성을 확인.
+
+Rule-based|Zero-Shot
+:--:|:--:
+<img src="https://github.com/VIP-Projects/Zero-Shot-Fall-Detection/assets/53934639/4065a77a-6334-4fa6-a829-9401a8de469b" width="500px">|<img src="https://github.com/VIP-Projects/Zero-Shot-Fall-Detection/assets/53934639/bf9f8af9-aa76-4118-8f44-f3ae1db44bb6" width="500px">
+OpenPose<br>가속도|BLIP<br>GroundingDINO<br>Human-Object Interaction(HOI)
+
 
 <br>
 
