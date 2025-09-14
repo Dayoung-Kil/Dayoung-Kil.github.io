@@ -16,8 +16,6 @@ Date|Participants
 
 
 
-<br>
-
 ## Overview
 - HorizonNet 연구 분석 후, 모델을 훈련시키고 직접 촬영한 이미지를 적용하여 3D Room 복원.
 - 한 장의 파노라마 이미지만을 사용해서 방을 3D로 복원 가능.

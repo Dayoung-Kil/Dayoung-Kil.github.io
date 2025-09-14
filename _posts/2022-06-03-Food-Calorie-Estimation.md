@@ -14,11 +14,7 @@ Date|김준용|길다영
 2022.04 - 2022.06|Food Detection|Volume Estimation
 
 
-<br>
 
-
-
-<br>
 
 ## Overview
 - Food Detection 및 Volume Estimation을 통해, 이미지 내 음식 인식 후 칼로리 계산.

@@ -15,8 +15,6 @@ Date|Participants
 2023.08 - 2023.11|김준용, 길다영
 
 
-<br>
-
 
 ## Overview
 - 시각-언어 모델을 이용하여 데이터셋을 훈련없이 Abnormal Detection이라는 일반적인 프레임워크 생성.
