@@ -1,4 +1,5 @@
 ---
+layout: single
 title: '3D Room Reconstruction Using HorizonNet'
 date: 2021-06-07
 permalink: /posts/2021/06/3D-Room-Reconstruction/
