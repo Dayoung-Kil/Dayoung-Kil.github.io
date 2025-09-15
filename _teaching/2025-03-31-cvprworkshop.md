@@ -7,7 +7,7 @@ venue: "2025 CVPR Workshop"
 date: 2025-03-31
 # location: "City, Country"
 ---
-[![Check_Mark](https://img.icons8.com/?size=30&id=82861&format=png&color=000000/Check_Mark.png)](https://lpcv.ai/2025LPCVC/leaderboard/track1/) 
+[![Internet](https://img.icons8.com/?size=30&id=Zt694HAaTkB3&format=png&color=000000/Internet.png)](https://lpcv.ai/2025LPCVC/leaderboard/track1/) 
 
 Team: VIP (길다영, 이정윤)
 
