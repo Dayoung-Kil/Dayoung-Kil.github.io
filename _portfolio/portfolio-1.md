@@ -1,7 +1,7 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화"
+excerpt: " C-2022-036602 (소프트웨어등록)"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+길다영, 김성흠, “단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화,” C-2022-036602 (소프트웨어등록)
