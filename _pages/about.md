@@ -39,6 +39,13 @@ Awards
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
+<br>
+
+Patents
+======
+* 길다영, 김성흠, “단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화,” C-2022-036602 (소프트웨어등록)
+
+
 <!-- <br> 
 
  Educations
