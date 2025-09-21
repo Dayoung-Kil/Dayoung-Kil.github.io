@@ -36,7 +36,7 @@ Patents
 ======
 * 길다영, 김성흠, “단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화,” C-2022-036602 (소프트웨어등록)
 
-<!-- <br>
+<br>
 
 
 Education
@@ -44,6 +44,7 @@ Education
 * Ph.D in Seoul, South Korea, Intelligent Semiconductors of Soongil University, 2027 (expected)
 * M.S. in Seoul, South Korea, Intelligent Systems of Soongil University, 2024
 * B.S. in Seoul, South Korea, AI Convergence of Soongil University, 2022
+
 
 <!-- Work experience
 ======

@@ -46,9 +46,10 @@ Patents
 * 길다영, 김성흠, “단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화,” C-2022-036602 (소프트웨어등록)
 
 
-<!-- <br> 
+<br>
 
- Educations
+
+Educations
 ======
 
 Mar 2024 - Feb 2027
@@ -72,7 +73,7 @@ Kojan High School (General Program)
 Ansan, Gyeonggi-do, South Korea 
 
 
-<br>
+<!-- <br> 
 
 Skills
 ======
