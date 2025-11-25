@@ -3,7 +3,7 @@ title: "최우수상(ITTP 원장상), 차량용 객체복합 상태 인식"
 collection: teaching
 type: "제 1회 자율주행 인공지능 챌린지"
 permalink: /teaching/2024-11-19-automobile
-venue: "과학기술정보통신부 / ETRI, kakao mobility, IITP, KADIF, 자율주행 DNA 기술포럼"
+venue: "과학기술정보통신부 /  한국전자통신연구원(ETRI), 정보통신기획평가원(IITP), 자율주행기술개발혁신사업단(KADIF), 자율주행 DNA 기술포럼"
 date: 2024-11-19
 # location: "City, Country"
 ---
