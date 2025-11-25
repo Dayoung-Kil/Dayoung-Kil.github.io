@@ -1,5 +1,5 @@
 ---
-title: "부총리 겸 과학기술정보통신부 장상, 시멘틱 세그멘테이션"
+title: "부총리 겸 과학기술정보통신부 장관상, 시멘틱 세그멘테이션"
 collection: teaching
 type: "2025 자율주행 인공지능 챌린지"
 permalink: /teaching/2025-11-14-automobile2
