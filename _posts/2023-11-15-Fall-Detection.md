@@ -7,8 +7,7 @@ tags:
   - Zero-Shot
   - VLM
 ---
-
-[![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection) 2023 산학 프로젝트 챌린지 본선 1차 진출
+<a href="https://github.com/VIP-Projects/Zero-Shot-Anomaly-Detection"><img src="../images/github.png" width="30" /></a> 2023 산학 프로젝트 챌린지 본선 1차 진출
 
 Date|Participants
 --|--
