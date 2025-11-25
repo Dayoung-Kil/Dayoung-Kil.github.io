@@ -6,8 +6,7 @@ tags:
   - Food Detection
   - Volume Estimation
 ---
-
-[![GitHub](https://img.icons8.com/ios-glyphs/30/000000/github.png)](https://github.com/Dayoung-Kil/Food_Calorie_Estimation)
+<a href="https://github.com/Dayoung-Kil/Food_Calorie_Estimation"><img src="../images/github.png" width="30" /></a>
 
 Date|김준용|길다영
 --|--
