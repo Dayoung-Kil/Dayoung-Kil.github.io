@@ -53,10 +53,40 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Profile
+// Profile — draggable with mouse/touch; bio text reflows around it natively
+// via the float's `shape-outside: margin-box` (default for floats).
 
 .profile {
   width: 100%;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  z-index: 2;
+  shape-outside: margin-box;
+  shape-margin: 0.75rem;
+  transition: filter 0.25s ease;
+  touch-action: none; // prevent browser touch gestures from interfering with drag
+
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  a,
+  button {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  &.profile--dragging {
+    cursor: grabbing;
+    filter:
+      drop-shadow(0 18px 28px rgba(0, 0, 0, 0.18))
+      drop-shadow(0 6px 10px rgba(0, 0, 0, 0.1));
+    z-index: 100;
+    transition: none;
+  }
 
   .more-info {
     margin-bottom: 5px;
@@ -87,6 +117,16 @@ ul.task-list input[type="checkbox"] {
         display: block;
       }
     }
+  }
+}
+
+// Allow profile to drag beyond its parent bounds without being clipped
+body.profile-drag-active {
+  cursor: grabbing;
+
+  .post,
+  article {
+    overflow: visible;
   }
 }
 
