@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6e85b7"/>
+      <stop offset="1" stop-color="#b2c8df"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- DK monogram tile -->
+  <rect x="90" y="190" width="250" height="250" rx="32" fill="#ffffff" fill-opacity="0.14"/>
+  <rect x="90" y="190" width="250" height="250" rx="32" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="2"/>
+  <text x="215" y="370" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-4">DK</text>
+
+  <!-- Name -->
+  <text x="390" y="285" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="900" fill="#ffffff" letter-spacing="-2">Dayoung Kil</text>
+
+  <!-- Role -->
+  <text x="390" y="345" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="500" fill="#ffffff" fill-opacity="0.95">Ph.D. Student &#183; Soongsil University</text>
+
+  <!-- Research tagline -->
+  <text x="390" y="395" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" fill="#ffffff" fill-opacity="0.82">VIP Lab &#183; Hardware-efficient AI &amp; LVLMs</text>
+
+  <!-- Accent line -->
+  <rect x="390" y="425" width="60" height="3" fill="#ffffff" fill-opacity="0.7"/>
+
+  <!-- URL footer -->
+  <text x="90" y="585" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" fill="#ffffff" fill-opacity="0.8" letter-spacing="2">DAYOUNG-KIL.GITHUB.IO</text>
+</svg>

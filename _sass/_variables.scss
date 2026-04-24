@@ -21,7 +21,7 @@ $green-color-bright: #11d68b !default;
 
 // Pastel palette (custom for Dayoung's site — dusty blue)
 $pastel-mint: #6e85b7 !default;          // slate-blue pastel for light-mode accent (AA-friendly on white)
-$pastel-mint-light: #b2c8df !default;    // powder-blue pastel for dark-mode accent / borders
+$pastel-mint-light: #9bbcde !default;    // dark-mode accent — slightly more saturated powder blue for pop on near-black bg
 $pastel-mint-tint: rgba(110, 133, 183, 0.12); // subtle bg tint
 $purple-color: #b509ac !default;
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);

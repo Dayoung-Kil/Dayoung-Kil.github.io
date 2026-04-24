@@ -126,6 +126,140 @@ tt {
   font-family: #{$font-mono};
 }
 
+// -----------------------------------------------------------------------------
+// Scroll fade-in (activated by JS adding .has-fade-in to <html>)
+// -----------------------------------------------------------------------------
+
+.has-fade-in .fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-delay: var(--fade-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.has-fade-in .fade-in.fade-in--visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-fade-in .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Vertical timeline (awards, experience)
+// -----------------------------------------------------------------------------
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin: 1.2rem 0 0.5rem 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--global-divider-color) 0%,
+      var(--global-divider-color) 85%,
+      transparent 100%
+    );
+  }
+
+  .timeline-group {
+    position: relative;
+    margin-bottom: 1.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .timeline-year {
+    font-family: #{$font-heading};
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--global-theme-color);
+    margin: 0 0 0.75rem -0.75rem;
+    position: relative;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 1.1rem 1.4rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1.45rem;
+      top: 0.55rem;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--global-bg-color);
+      border: 2.5px solid var(--global-theme-color);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    &:hover::before {
+      background: var(--global-theme-color);
+      transform: scale(1.15);
+      box-shadow: 0 0 0 4px rgba(110, 133, 183, 0.2);
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--global-text-color);
+      line-height: 1.45;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-subtitle {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--global-text-color);
+      margin-bottom: 0.15rem;
+      line-height: 1.45;
+    }
+
+    .timeline-meta {
+      font-size: 0.78rem;
+      color: var(--global-text-color-light);
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-family: #{$font-heading};
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--global-theme-color);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
 // Profile sidebar — tiered typography (role / affiliation / bio / contact)
 // Designed for quick scanning + comfortable reading
 .profile {
