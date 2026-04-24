@@ -1,0 +1,75 @@
+---
+---
+
+@article{kil2025ocspruner,
+  abbr         = {WACV},
+  bibtex_show  = {true},
+  title        = {One-cycle Structured Pruning with Stability Driven Structure Search},
+  author       = {Ghimire, Deepak and Kil, Dayoung and Jeong, Seonghwan and Park, Jaesik and Kim, Seong-heum},
+  journal      = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year         = {2026},
+  arxiv        = {2501.13439},
+  html         = {https://arxiv.org/abs/2501.13439},
+  code         = {https://github.com/ghimiredhikura/OCSPruner},
+  abstract     = {Existing structured pruning typically involves multi-stage training procedures that often demand heavy computation. We propose an efficient framework for one-cycle structured pruning that integrates pre-training, pruning, and fine-tuning into a single training cycle. The core idea is to search for the optimal sub-network during the early stages of network training, guided by norm-based group saliency criteria and structured sparsity regularization. We introduce a novel pruning indicator that determines the stable pruning epoch by assessing the similarity between evolving pruning sub-networks across consecutive training epochs. Extensive experiments on CIFAR-10/100 and ImageNet using VGGNet, ResNet, MobileNet, and ViT architectures demonstrate state-of-the-art accuracy while being one of the most efficient pruning frameworks in terms of training time.},
+  selected     = {true}
+}
+
+@inproceedings{ghimire2024structured,
+  abbr         = {ICCAS},
+  bibtex_show  = {true},
+  title        = {A Study of Structured Pruning for Hybrid Neural Networks},
+  author       = {Ghimire, Deepak and Kil, Dayoung and Kim, Seong-heum},
+  booktitle    = {24th International Conference on Control, Automation and Systems (ICCAS)},
+  pages        = {1110--1113},
+  year         = {2024},
+  doi          = {10.23919/ICCAS63016.2024.10773379},
+  html         = {https://ieeexplore.ieee.org/document/10773379},
+  abstract     = {We explore the impact of structure pruning on model compression for CNN--transformer hybrid architectures. Our approach automatically selects filter pruning criteria from a specified pool based on magnitude or similarity, and adjusts the specific pruning layer in each iteration based on the network's overall loss on a small subset of training data. Experiments on VGGNet, ResNet, and MobileNet with CIFAR-10 and ImageNet validate the effectiveness of the proposed method.}
+}
+
+@article{ghimire2022survey,
+  abbr         = {Electronics},
+  bibtex_show  = {true},
+  title        = {A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration},
+  author       = {Ghimire, Deepak and Kil, Dayoung and Kim, Seong-heum},
+  journal      = {Electronics},
+  volume       = {11},
+  number       = {6},
+  pages        = {945},
+  year         = {2022},
+  publisher    = {MDPI},
+  doi          = {10.3390/electronics11060945},
+  html         = {https://www.mdpi.com/2079-9292/11/6/945},
+  abstract     = {Over the past decade, deep-learning-based representations have demonstrated remarkable performance in academia and industry. In this review, to improve the efficiency of deep learning research, we focus on three aspects: quantized/binarized models, optimized architectures, and resource-constrained systems. Recent advances in light-weight deep learning models and network architecture search (NAS) algorithms are reviewed, starting with simplified layers and efficient convolution and including new architectural design and optimization.},
+  selected     = {true}
+}
+
+@inproceedings{kil2022iccas,
+  abbr         = {ICCAS},
+  bibtex_show  = {true},
+  title        = {Lightweight Room Layout Estimation using a Single Panoramic Image},
+  author       = {Kil, Dayoung and Kim, Seong-heum},
+  booktitle    = {22nd International Conference on Control, Automation and Systems (ICCAS)},
+  pages        = {1951--1953},
+  year         = {2022},
+  doi          = {10.23919/ICCAS55662.2022.10003901},
+  html         = {https://ieeexplore.ieee.org/document/10003901},
+  code         = {https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image},
+  abstract     = {We suggest a lightweight deep representation for room layout estimation using a single panoramic image. Based on HorizonNet, we replace the feature extraction networks of ResNet and LSTM with a platform-aware neural architecture search model (MnasNet) and a gated recurrent unit (GRU). The proposed architecture utilizes sampling-based optimization and uses only about 1/2 fewer parameters than the existing network.}
+}
+
+@article{kil2022icros,
+  abbr         = {ICROS},
+  bibtex_show  = {true},
+  title        = {Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image},
+  author       = {Kil, Dayoung and Kim, Seong-heum},
+  journal      = {Journal of Institute of Control, Robotics and Systems (KCI)},
+  volume       = {28},
+  number       = {10},
+  pages        = {868--873},
+  year         = {2022},
+  html         = {https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719},
+  code         = {https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image},
+  abstract     = {We present a lightweight deep learning model for room layout estimation. In contrast to the baseline HorizonNet that uses ResNet+LSTM, we focus on MnasNet and GRU with sampling-based hyperparameter optimization. The lightweight model required approximately half as many parameters compared to the original method while achieving competitive performance on Stanford2D3D, PanoContext, and a real-world panorama dataset.}
+}

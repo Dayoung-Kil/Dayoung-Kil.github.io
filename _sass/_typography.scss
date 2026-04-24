@@ -1,0 +1,318 @@
+/*******************************************************************************
+ * Typography styles: Headings, text, links, tables, blockquotes
+ ******************************************************************************/
+
+@use "variables" as v;
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+div,
+li,
+span,
+strong {
+  color: var(--global-text-color);
+}
+
+hr {
+  border-top: 1px solid var(--global-divider-color);
+}
+
+table {
+  td,
+  th {
+    font-size: 1rem;
+    padding: 1px 1rem 1px 0;
+  }
+
+  th {
+    font-weight: bold;
+  }
+}
+
+a,
+table.table a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+  text-decoration-color: var(--global-theme-color);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s ease,
+    text-decoration-thickness 0.2s ease,
+    text-decoration-color 0.2s ease;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2.5px;
+  }
+
+  &:hover:after :not(.nav-item.dropdown) {
+    width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Readability + interaction polish
+// -----------------------------------------------------------------------------
+
+$font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
+  "Apple SD Gothic Neo", Roboto, sans-serif;
+$font-heading: "Roboto", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+$font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+
+body {
+  font-family: #{$font-sans};
+  font-size: 1.0625rem; // ~17px base for body copy
+  line-height: 1.7;
+  letter-spacing: -0.003em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+li {
+  line-height: 1.75;
+}
+
+// Headings — bold Roboto with tight tracking
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: #{$font-heading};
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+// Section headings in UPPERCASE for scan-ability
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+code,
+pre,
+kbd,
+samp,
+tt {
+  font-family: #{$font-mono};
+}
+
+// Profile sidebar — tiered typography (role / affiliation / bio / contact)
+// Designed for quick scanning + comfortable reading
+.profile {
+  .more-info {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: #{$font-sans};
+    line-height: 1.65;
+    color: var(--global-text-color);
+
+    p {
+      display: block !important;
+      margin: 0 0 0.35rem 0;
+    }
+
+    // Bold accent label — "PH.D. STUDENT"
+    .role {
+      font-family: #{$font-heading};
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--global-theme-color);
+      margin-bottom: 0.35rem;
+    }
+
+    // Affiliation — slightly larger, strong but not shouting
+    .aff {
+      font-family: #{$font-sans};
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--global-text-color);
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.005em;
+    }
+
+    // Short bio — italic, muted, readable body size
+    .bio {
+      font-family: #{$font-sans};
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.92rem;
+      color: var(--global-text-color-light);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+
+    // Contact lines — clean sentence case, bigger than before
+    .contact {
+      font-family: #{$font-sans};
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--global-text-color);
+      letter-spacing: -0.003em;
+      text-transform: none;
+      margin-bottom: 0.22rem;
+      font-feature-settings: "tnum", "ss01";
+    }
+  }
+}
+
+// Lift + accent animation for interactive blocks
+.btn,
+button.btn {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(110, 133, 183, 0.28);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Navbar links: sliding underline accent
+.navbar-nav .nav-item .nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.35rem;
+    height: 2px;
+    background-color: var(--global-theme-color);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover::after,
+  &.active::after {
+    transform: scaleX(1);
+  }
+}
+
+.table-dark {
+  background-color: transparent;
+  &.table-bordered {
+    border: 1px solid var(--global-divider-color) !important;
+  }
+}
+
+blockquote {
+  background: var(--global-bg-color);
+  border-left: 5px solid var(--global-theme-color);
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 1.2rem;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  /* Tips, warnings, and dangers blockquotes */
+  &.block-tip {
+    border-color: var(--global-tip-block);
+    background-color: var(--global-tip-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-tip-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-tip-block-title);
+    }
+  }
+
+  &.block-warning {
+    border-color: var(--global-warning-block);
+    background-color: var(--global-warning-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-warning-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-warning-block-title);
+    }
+  }
+
+  &.block-danger {
+    border-color: var(--global-danger-block);
+    background-color: var(--global-danger-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-danger-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-danger-block-title);
+    }
+  }
+}

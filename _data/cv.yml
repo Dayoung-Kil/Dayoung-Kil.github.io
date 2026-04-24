@@ -1,0 +1,171 @@
+cv:
+  name: Dayoung Kil
+  label: Ph.D. Student
+  email: dayoungkil@soongsil.ac.kr
+  location: Seoul, Republic of Korea
+  image: ""
+  summary: "Ph.D. Student at the Visual Intelligence and Platform (VIP) Lab, Soongsil University, working under Prof. Seong-heum Kim. My research centers on hardware-efficient artificial intelligence — developing deep learning models that remain performant under real-world compute and latency constraints, with current emphasis on token pruning and efficient inference for large vision-language models (LVLMs) and multimodal LLMs."
+
+  social_networks:
+    - network: GitHub
+      username: Dayoung-Kil
+    - network: LinkedIn
+      username: dayoung-kil
+
+  sections:
+    Education:
+      - institution: Soongsil University
+        location: Seoul, Republic of Korea
+        area: Intelligent Semiconductors
+        studyType: Ph.D.
+        start_date: 2024-03
+        end_date: 2027-02
+        highlights:
+          - Advisor&#58; Prof. Seong-heum Kim (Visual Intelligence and Platform Lab)
+          - Research on efficient deep learning, model pruning, and large vision-language models
+
+      - institution: Soongsil University
+        location: Seoul, Republic of Korea
+        area: Intelligent Systems
+        studyType: M.S.
+        start_date: 2022-03
+        end_date: 2024-02
+        highlights:
+          - Thesis on lightweight deep learning for room layout estimation from single panoramic images
+          - Member of Visual Intelligence and Platform (VIP) Lab
+
+      - institution: Soongsil University
+        location: Seoul, Republic of Korea
+        area: AI Convergence
+        studyType: B.S.
+        start_date: 2018-03
+        end_date: 2022-02
+
+    Publications:
+      - title: One-cycle Structured Pruning with Stability Driven Structure Search
+        authors:
+          - Deepak Ghimire
+          - Dayoung Kil
+          - Seonghwan Jeong
+          - Jaesik Park
+          - Seong-heum Kim
+        publisher: IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)
+        releaseDate: 2026
+        url: https://arxiv.org/abs/2501.13439
+        summary: An efficient one-cycle structured pruning framework that integrates pre-training, pruning, and fine-tuning into a single training cycle, achieving state-of-the-art accuracy with minimal training time on CIFAR-10/100, ImageNet, and VGGNet/ResNet/MobileNet/ViT.
+
+      - title: A Study of Structured Pruning for Hybrid Neural Networks
+        authors:
+          - Deepak Ghimire
+          - Dayoung Kil
+          - Seong-heum Kim
+        publisher: 24th International Conference on Control, Automation and Systems (ICCAS)
+        releaseDate: 2024-10-29
+        url: https://ieeexplore.ieee.org/document/10773379
+        summary: Structured pruning for CNN&ndash;transformer hybrid architectures with automatic selection of filter pruning criteria and layer-wise pruning rates.
+
+      - title: A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration
+        authors:
+          - Deepak Ghimire
+          - Dayoung Kil
+          - Seong-heum Kim
+        publisher: Electronics (MDPI), 11(6), 945
+        releaseDate: 2022-02-23
+        url: https://www.mdpi.com/2079-9292/11/6/945
+        summary: A comprehensive survey on quantized/binarized models, optimized architectures, and resource-constrained systems for efficient deep learning.
+
+      - title: Lightweight Room Layout Estimation using a Single Panoramic Image
+        authors:
+          - Dayoung Kil
+          - Seong-heum Kim
+        publisher: 22nd International Conference on Control, Automation and Systems (ICCAS)
+        releaseDate: 2022-11-27
+        url: https://ieeexplore.ieee.org/document/10003901
+        summary: Lightweight HorizonNet variant using MnasNet and GRU, reducing parameters to roughly half while maintaining competitive performance.
+
+      - title: Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image
+        authors:
+          - Dayoung Kil
+          - Seong-heum Kim
+        publisher: Journal of Institute of Control, Robotics and Systems (KCI), 28(10)
+        releaseDate: 2022-10
+        url: https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002884719
+        summary: KCI journal version of the lightweight room layout estimation work; validated on Stanford2D3D, PanoContext, and real-world panorama images.
+
+    Awards:
+      - title: 부총리 겸 과학기술정보통신부 장관상 &mdash; 시멘틱 세그멘테이션
+        date: 2025-11-14
+        awarder: 과학기술정보통신부 (주관 ETRI / IITP / KADIF)
+        summary: "2025 자율주행 인공지능 챌린지: 주행 환경에서의 카메라 기반 픽셀 단위 의미론적 분할."
+
+      - title: Track 1, 4th Place &mdash; Image Classification for Different Lighting Conditions and Styles
+        date: 2025-03-31
+        awarder: IEEE Low-Power Computer Vision Challenge (CVPR 2025 Workshop)
+        summary: Knowledge-distillation-based lightweight classifier for images under diverse lighting and style conditions.
+
+      - title: 최우수상 (IITP 원장상) &mdash; 차량용 객체복합 상태 인식
+        date: 2024-11-19
+        awarder: 과학기술정보통신부 (주관 ETRI / IITP / KADIF / 자율주행 DNA 기술포럼)
+        summary: 제1회 자율주행 인공지능 챌린지 &mdash; 차량/버스 Agent, 의미론적 Location, 후미등 State 인식 및 Instance Segmentation.
+
+      - title: 우수논문상 &mdash; 단일 파노라마 이미지 기반 실내 공간 레이아웃 경량화
+        date: 2021-11-12
+        awarder: 숭실대학교 AI융합학부
+        summary: "졸업논문발표회: HorizonNet의 백본을 MnasNet/GRU로 교체하여 약 1/2 파라미터 경량화 달성."
+
+      - title: 장려상 &mdash; Face Out
+        date: 2021-11-12
+        awarder: 숭실대학교 AI융합학부
+        summary: AI융합 경진대회 &mdash; 얼굴 인식 기반 모자이크 처리 웹 애플리케이션.
+
+      - title: 장려상 &mdash; Face Out
+        date: 2021-09-28
+        awarder: 숭실대학교
+        summary: 제11회 숭실 캡스톤디자인 경진대회 &mdash; 얼굴 인식 기반 모자이크 처리 웹 애플리케이션.
+
+      - title: 우수상 &mdash; 코딩 경진대회
+        date: 2021-02-08
+        awarder: 숭실대학교 AI모빌리티사업단
+        summary: 숭실 A3+ STAR 코딩 경진대회.
+
+    Patents:
+      - bullet: "**Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Input** &mdash; *단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화* &middot; Dayoung Kil, Seong-heum Kim &middot; Software Registration No. **C-2022-036602** (Republic of Korea, 2022)"
+
+    Skills:
+      - name: Frameworks
+        keywords:
+          - PyTorch
+          - TensorFlow
+          - HuggingFace
+          - Torchvision
+
+      - name: Computer Vision
+        keywords:
+          - OpenCV
+          - Detectron2
+          - OpenMMLab
+          - YOLO
+
+      - name: Languages & Tools
+        keywords:
+          - Python
+          - C / C++
+          - Git
+          - Linux
+
+    Languages:
+      - name: Korean
+        summary: Native speaker
+
+      - name: English
+        summary: Professional working proficiency
+
+    Interests:
+      - name: Research Focus
+        keywords:
+          - Large Vision-Language Models (LVLMs)
+          - Multimodal Large Language Models (MM-LLMs)
+          - Token Pruning & Efficient Inference
+          - Structured Network Pruning
+          - Hardware-Efficient Deep Learning
+          - Computer Vision
