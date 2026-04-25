@@ -165,7 +165,7 @@ tt {
   &::before {
     content: "";
     position: absolute;
-    left: 0.55rem;
+    left: calc(0.55rem + 5.5px);
     top: 0.6rem;
     bottom: 0.6rem;
     width: 2px;

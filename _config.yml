@@ -11,8 +11,7 @@ contact_note: >
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal academic website of Dayoung Kil, Ph.D. Student at the VIP Lab, Soongsil University.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Toward the accuracy–compute frontier for modern vision-language systems.
 keywords: Dayoung Kil, Soongsil University, VIP Lab, efficient deep learning, model pruning, LVLM, MM-LLM, computer vision
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.svg # custom monogram favicon — DK in theme blue
