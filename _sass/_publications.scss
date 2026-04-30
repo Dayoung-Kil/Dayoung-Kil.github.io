@@ -72,18 +72,25 @@
       }
 
       .author {
+        color: var(--global-text-color-light);
+
         a {
-          border-bottom: 1px dashed var(--global-theme-color);
+          color: var(--global-text-color-light);
+          border-bottom: 1px dashed var(--global-text-color-light);
 
           &:hover {
+            color: var(--global-text-color);
+            border-bottom-color: var(--global-text-color);
             border-bottom-style: solid;
             text-decoration: none;
           }
         }
 
         > em {
-          border-bottom: 1px solid;
+          color: var(--global-theme-color);
           font-style: normal;
+          font-weight: 600;
+          border-bottom: none;
         }
 
         > span.more-authors {
@@ -114,15 +121,6 @@
             border-color: var(--global-theme-color);
             background-color: rgba(0, 0, 0, 0.03);
             transform: translateY(-1px);
-          }
-        }
-        a.abstract.btn {
-          color: var(--global-theme-color);
-          border-color: var(--global-theme-color);
-
-          &:hover {
-            background-color: var(--global-theme-color);
-            color: var(--global-bg-color);
           }
         }
         a.award.btn {
