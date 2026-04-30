@@ -107,10 +107,22 @@
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
+          transition: all 0.2s ease;
 
           &:hover {
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
+            background-color: rgba(0, 0, 0, 0.03);
+            transform: translateY(-1px);
+          }
+        }
+        a.abstract.btn {
+          color: var(--global-theme-color);
+          border-color: var(--global-theme-color);
+
+          &:hover {
+            background-color: var(--global-theme-color);
+            color: var(--global-bg-color);
           }
         }
         a.award.btn {
@@ -167,10 +179,21 @@
 
       div.abstract.hidden {
         border: dashed 1px var(--global-bg-color);
+        border-radius: 6px;
+        background-color: transparent;
+        transition: all 0.25s ease;
       }
 
       div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        border: solid 1px transparent;
+        border-left: 3px solid var(--global-theme-color);
+        background-color: var(--global-code-bg-color);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        padding: 0.25rem 0.5rem;
+
+        p {
+          color: var(--global-text-color);
+        }
       }
     }
     div.award.hidden {

@@ -15,7 +15,7 @@ cv:
   sections:
     Education:
       - institution: Soongsil University
-        location: Seoul, Republic of Korea
+        location: Seoul, Korea
         area: Intelligent Semiconductors
         studyType: Ph.D.
         start_date: 2024-03
@@ -25,7 +25,7 @@ cv:
           - Research on efficient deep learning, model pruning, and large vision-language models
 
       - institution: Soongsil University
-        location: Seoul, Republic of Korea
+        location: Seoul, Korea
         area: Intelligent Systems
         studyType: M.S.
         start_date: 2022-03
@@ -35,7 +35,7 @@ cv:
           - Member of Visual Intelligence and Platform (VIP) Lab
 
       - institution: Soongsil University
-        location: Seoul, Republic of Korea
+        location: Seoul, Korea
         area: AI Convergence
         studyType: B.S.
         start_date: 2018-03
@@ -161,11 +161,16 @@ cv:
         summary: Professional working proficiency
 
     Interests:
-      - name: Research Focus
+      - name: Currently Working On
         keywords:
           - Large Vision-Language Models (LVLMs)
-          - Multimodal Large Language Models (MM-LLMs)
-          - Token Pruning & Efficient Inference
+          - Multimodal LLMs
+          - Token Pruning
+          - Efficient Inference
+
+      - name: Broader Research Themes
+        keywords:
           - Structured Network Pruning
+          - Model Compression
           - Hardware-Efficient Deep Learning
           - Computer Vision

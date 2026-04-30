@@ -5,18 +5,18 @@
 <div class="card-text font-weight-light">
   {% for entry in entries %}
     <div class="interest-item">
-      {% if entry.icon %}
-        <i class="{{ entry.icon }}"></i>
-      {% endif %}
-      <strong>{{ entry.name }}:</strong>
+      <div class="interest-name">
+        {% if entry.icon %}
+          <i class="{{ entry.icon }}"></i>
+        {% endif %}
+        <strong>{{ entry.name }}</strong>
+      </div>
       {% if entry.keywords %}
-        {% for keyword in entry.keywords %}
-          {% if forloop.last %}
-            {{ keyword }}
-          {% else %}
-            {{ keyword }},
-          {% endif %}
-        {% endfor %}
+        <div class="interest-keywords">
+          {% for keyword in entry.keywords %}
+            <span class="interest-pill">{{ keyword }}</span>
+          {% endfor %}
+        </div>
       {% endif %}
     </div>
   {% endfor %}
@@ -24,6 +24,31 @@
 
 <style>
   .interest-item {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0.75rem;
+  }
+  .interest-name {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--global-text-color);
+  }
+  .interest-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .interest-pill {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--global-theme-color);
+    background-color: transparent;
+    border: 1px solid var(--global-theme-color);
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+  .interest-pill:hover {
+    background-color: var(--global-theme-color);
+    color: var(--global-bg-color);
   }
 </style>
