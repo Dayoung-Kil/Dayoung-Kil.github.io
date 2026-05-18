@@ -1,3 +1,24 @@
 metadata:
-  last_updated: '2026-04-30'
-papers: {}
+  last_updated: '2026-05-18'
+  source: manual (Google Scholar)
+papers:
+  2osOgNQ5qMEC:
+    title: One-cycle Structured Pruning with Stability Driven Structure Search
+    year: 2026
+    citations: 4
+  9yKSN-GCB0IC:
+    title: A Study of Structured Pruning for Hybrid Neural Networks
+    year: 2024
+    citations: 1
+  u5HHmVD_uO8C:
+    title: A Survey on Efficient Convolutional Neural Networks and Hardware Acceleration
+    year: 2022
+    citations: 268
+  u-x6o8ySG0sC:
+    title: Lightweight Room Layout Estimation using a Single Panoramic Image
+    year: 2022
+    citations: 0
+  d1gkVwhDpl0C:
+    title: Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Image
+    year: 2022
+    citations: 0

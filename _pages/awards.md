@@ -10,6 +10,17 @@ nav_order: 3
 <div class="timeline">
 
   <div class="timeline-group">
+    <div class="timeline-year">2026</div>
+
+    <div class="timeline-item">
+      <div class="timeline-title"><strong>Track 3, 2nd Place</strong> &mdash; AI Generated Images Detection</div>
+      <div class="timeline-subtitle">2026 IEEE Low-Power Computer Vision Challenge &middot; Team <em>SSUPER_POWER</em></div>
+      <div class="timeline-meta">ECV Workshop at CVPR 2026, Denver, CO &middot; Sponsored by Qualcomm</div>
+      <div class="timeline-date">2026</div>
+    </div>
+  </div>
+
+  <div class="timeline-group">
     <div class="timeline-year">2025</div>
 
     <div class="timeline-item">
@@ -17,13 +28,6 @@ nav_order: 3
       <div class="timeline-subtitle">2025 자율주행 인공지능 챌린지</div>
       <div class="timeline-meta">주최: 과학기술정보통신부 &middot; 주관: ETRI, IITP, KADIF</div>
       <div class="timeline-date">2025.11.14</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-title"><strong>Track 1, 4th Place</strong> &mdash; Image Classification for Different Lighting Conditions and Styles</div>
-      <div class="timeline-subtitle">2025 IEEE Low-Power Computer Vision Challenge</div>
-      <div class="timeline-meta">Co-located with CVPR 2025 Workshop</div>
-      <div class="timeline-date">2025.03.31</div>
     </div>
   </div>
 

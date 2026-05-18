@@ -93,15 +93,15 @@ cv:
         summary: KCI journal version of the lightweight room layout estimation work; validated on Stanford2D3D, PanoContext, and real-world panorama images.
 
     Awards:
+      - title: Track 3, 2nd Place &mdash; AI Generated Images Detection
+        date: 2026
+        awarder: 2026 IEEE Low-Power Computer Vision Challenge (ECV Workshop at CVPR 2026, Denver, CO; sponsored by Qualcomm)
+        summary: Team SSUPER_POWER (Soongsil University) &mdash; lightweight detector for AI-generated images under low-power constraints.
+
       - title: 부총리 겸 과학기술정보통신부 장관상 &mdash; 시멘틱 세그멘테이션
         date: 2025-11-14
         awarder: 과학기술정보통신부 (주관 ETRI / IITP / KADIF)
         summary: "2025 자율주행 인공지능 챌린지: 주행 환경에서의 카메라 기반 픽셀 단위 의미론적 분할."
-
-      - title: Track 1, 4th Place &mdash; Image Classification for Different Lighting Conditions and Styles
-        date: 2025-03-31
-        awarder: IEEE Low-Power Computer Vision Challenge (CVPR 2025 Workshop)
-        summary: Knowledge-distillation-based lightweight classifier for images under diverse lighting and style conditions.
 
       - title: 최우수상 (IITP 원장상) &mdash; 차량용 객체복합 상태 인식
         date: 2024-11-19
