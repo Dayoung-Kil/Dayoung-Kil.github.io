@@ -394,14 +394,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-finished-4th-place-in-track-1-of-the-2025-ieee-low-power-computer-vision-challenge-image-classification-for-different-lighting-conditions-and-styles-co-located-with-the-cvpr-2025-workshop",
-          title: 'Finished 4th place in Track 1 of the 2025 IEEE Low-Power Computer Vision...',
-          description: "",
-          section: "News",},{id: "news-received-the-부총리-겸-과학기술정보통신부-장관상-at-the-2025-자율주행-인공지능-챌린지-semantic-segmentation-track",
+            },},{id: "news-received-the-부총리-겸-과학기술정보통신부-장관상-at-the-2025-자율주행-인공지능-챌린지-semantic-segmentation-track",
           title: 'Received the 부총리 겸 과학기술정보통신부 장관상 at the 2025 자율주행 인공지능 챌린지 (Semantic...',
           description: "",
           section: "News",},{id: "news-the-paper-one-cycle-structured-pruning-with-stability-driven-structure-search-has-been-accepted-to-wacv-2026",
           title: 'The paper One-cycle Structured Pruning with Stability Driven Structure Search has been accepted...',
+          description: "",
+          section: "News",},{id: "news-team-ssuper-power-finished-2nd-place-in-track-3-ai-generated-images-detection-of-the-2026-ieee-low-power-computer-vision-challenge-held-at-the-ecv-workshop-at-cvpr-2026-denver-co-sponsored-by-qualcomm-results",
+          title: 'Team SSUPER_POWER finished 2nd place in Track 3 (AI Generated Images Detection) of...',
           description: "",
           section: "News",},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
