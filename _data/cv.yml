@@ -129,6 +129,8 @@ cv:
         summary: 숭실 A3+ STAR 코딩 경진대회.
 
     Patents:
+      - bullet: "**Inference-Aware Pruning and Query-Guided Reclamation-Based Token Compression System and Method for Vision-Language Models** &mdash; *추론 인식 프루닝 및 질의 유도 복원을 이용한 시각-언어 모델 추론 시스템 및 방법* &middot; Dayoung Kil, Seong-heum Kim &middot; Patent Application No. **10-2026-0101880** (Republic of Korea, filed 2026)"
+      - bullet: "**Pruning Method for One-cycle-based Neural Network Model and Computing Device for Performing Same** &mdash; *원 사이클 기반의 신경망 모델의 가지치기 방법 및 이를 수행하기 위한 컴퓨팅 장치* &middot; Dayoung Kil, Seong-heum Kim &middot; Patent Application No. **10-2026-0081765** (Republic of Korea, filed 2026)"
       - bullet: "**Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Input** &mdash; *단일 파노라마 입력의 실내 공간 레이아웃 복원 모델 경량화* &middot; Dayoung Kil, Seong-heum Kim &middot; Software Registration No. **C-2022-036602** (Republic of Korea, 2022)"
 
     Skills:

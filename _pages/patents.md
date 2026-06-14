@@ -14,6 +14,11 @@ nav_order: 4
   <br>Dayoung Kil, Seong-heum Kim
   <br><small>Patent Application &middot; Republic of Korea &middot; Application No. **10-2026-0101880** &middot; Filed Jun 5, 2026</small>
 
+- **Pruning Method for One-cycle-based Neural Network Model and Computing Device for Performing Same**
+  <br>_원 사이클 기반의 신경망 모델의 가지치기 방법 및 이를 수행하기 위한 컴퓨팅 장치_
+  <br>Dayoung Kil, Seong-heum Kim
+  <br><small>Patent Application &middot; Republic of Korea &middot; Application No. **10-2026-0081765** &middot; Filed Jun 5, 2026</small>
+
 ### 2022
 
 - **Lightweight Deep Learning for Room Layout Estimation with a Single Panoramic Input**
