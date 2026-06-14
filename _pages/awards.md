@@ -16,7 +16,7 @@ nav_order: 3
       <div class="timeline-title"><strong>Track 3, 2nd Place</strong> &mdash; AI Generated Images Detection</div>
       <div class="timeline-subtitle">2026 IEEE Low-Power Computer Vision Challenge &middot; Team <em>SSUPER_POWER</em></div>
       <div class="timeline-meta">ECV Workshop at CVPR 2026, Denver, CO &middot; Sponsored by Qualcomm</div>
-      <div class="timeline-date">2026</div>
+      <div class="timeline-date">2026.06.04</div>
     </div>
   </div>
 
@@ -28,6 +28,9 @@ nav_order: 3
       <div class="timeline-subtitle">2025 자율주행 인공지능 챌린지</div>
       <div class="timeline-meta">주최: 과학기술정보통신부 &middot; 주관: ETRI, IITP, KADIF</div>
       <div class="timeline-date">2025.11.14</div>
+      <div class="timeline-figure mt-2" style="max-width: 420px">
+        {% include figure.liquid loading="lazy" path="assets/img/awards/2025_ministry_award.jpg" class="img-fluid rounded z-depth-1" zoomable=true alt="2025 자율주행 AI 챌린지 시상식" caption="2025 자율주행 AI 챌린지 시상식 · 엘타워 엘론홀 (2025.11.14)" %}
+      </div>
     </div>
   </div>
 
@@ -39,6 +42,9 @@ nav_order: 3
       <div class="timeline-subtitle">제1회 자율주행 인공지능 챌린지</div>
       <div class="timeline-meta">주최: 과학기술정보통신부 &middot; 주관: ETRI, IITP, KADIF, 자율주행 DNA 기술포럼</div>
       <div class="timeline-date">2024.11.19</div>
+      <div class="timeline-figure mt-2" style="max-width: 420px">
+        {% include figure.liquid loading="lazy" path="assets/img/awards/2024_iitp_award.jpg" class="img-fluid rounded z-depth-1" zoomable=true alt="2024 자율주행 인공지능 챌린지 시상식" caption="2024년 자율주행 인공지능 챌린지 시상식 · ETRI 국제회의장 (2024.11.19)" %}
+      </div>
     </div>
   </div>
 

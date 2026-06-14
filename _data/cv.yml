@@ -94,7 +94,7 @@ cv:
 
     Awards:
       - title: Track 3, 2nd Place &mdash; AI Generated Images Detection
-        date: 2026
+        date: 2026-06-04
         awarder: 2026 IEEE Low-Power Computer Vision Challenge (ECV Workshop at CVPR 2026, Denver, CO; sponsored by Qualcomm)
         summary: Team SSUPER_POWER (Soongsil University) &mdash; lightweight detector for AI-generated images under low-power constraints.
 
