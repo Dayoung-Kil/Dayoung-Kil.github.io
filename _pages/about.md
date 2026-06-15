@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. Student, <a href="https://vip.ssu.ac.kr/" target="_blank">Visual Intelligence and Platform (VIP) Lab</a>, <a href="https://www.ssu.ac.kr/" target="_blank">Soongsil University</a>
+subtitle: Ph.D. Student, <a href="https://vip.ssu.ac.kr/" target="_blank">Visual Intelligence and Platform (VIP) Lab</a>, Soongsil University
 
 profile:
   align: right
