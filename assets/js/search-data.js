@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Selected projects and competition work, with code.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
         },{id: "nav-awards",
           title: "awards",
           description: "Honors, prizes, and competition recognitions.",
@@ -406,7 +413,17 @@ ninja.data = [{
           section: "News",},{id: "news-filed-two-korean-patent-applications-inference-aware-pruning-and-query-guided-reclamation-based-token-compression-system-and-method-for-vision-language-models-application-no-10-2026-0101880-and-pruning-method-for-one-cycle-based-neural-network-model-and-computing-device-for-performing-same-application-no-10-2026-0081765",
           title: 'Filed two Korean patent applications: Inference-Aware Pruning and Query-Guided Reclamation-Based Token Compression System...',
           description: "",
-          section: "News",},{id: "teachings-data-science-fundamentals",
+          section: "News",},{id: "projects-face-out",
+          title: 'Face Out',
+          description: "2021 · 🏆 Honorable Mention ×2 — a web app that blurs every face in a photo or video except the one you choose.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/face-out/";
+            },},{id: "projects-ai-generated-image-detection-on-edge",
+          title: 'AI-Generated Image Detection on Edge',
+          description: "2026 · 🥈 LPCVC Track 3, 2nd Place — an on-device vision-language model that detects AI-generated images and explains why.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/lpcv-2026-aigid/";
+            },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
           section: "Teachings",handler: () => {
