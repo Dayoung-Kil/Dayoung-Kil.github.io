@@ -1,0 +1,6 @@
+# Local-only overrides for `bundle exec jekyll serve` on Windows.
+# Do NOT deploy with this file — it disables responsive-image generation
+# only to work around a jekyll-imagemagick path bug on Windows.
+# Usage: bundle exec jekyll serve --config _config.yml,_config_local.yml
+imagemagick:
+  enabled: false

@@ -4,7 +4,7 @@ permalink: /awards/
 title: awards
 description: Honors, prizes, and competition recognitions.
 nav: true
-nav_order: 3
+nav_order: 4
 ---
 
 <div class="timeline">
@@ -17,6 +17,7 @@ nav_order: 3
       <div class="timeline-subtitle">2026 IEEE Low-Power Computer Vision Challenge &middot; Team <em>SSUPER_POWER</em></div>
       <div class="timeline-meta">ECV Workshop at CVPR 2026, Denver, CO &middot; Sponsored by Qualcomm</div>
       <div class="timeline-date">2026.06.04</div>
+      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/lpcv-2026-aigid/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
     </div>
   </div>
 
@@ -63,6 +64,7 @@ nav_order: 3
       <div class="timeline-subtitle">AI융합 경진대회</div>
       <div class="timeline-meta">주관: 숭실대학교 AI융합학부</div>
       <div class="timeline-date">2021.11.12</div>
+      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
     </div>
 
     <div class="timeline-item">
@@ -70,6 +72,7 @@ nav_order: 3
       <div class="timeline-subtitle">제11회 숭실 캡스톤디자인 경진대회</div>
       <div class="timeline-meta">주관: 숭실대학교</div>
       <div class="timeline-date">2021.09.28</div>
+      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
     </div>
 
     <div class="timeline-item">
