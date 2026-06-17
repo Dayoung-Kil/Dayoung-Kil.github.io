@@ -15,8 +15,8 @@ _styles: >
 
 <div class="mb-2">
   <span class="badge rounded-pill bg-warning text-dark me-1">🥈 2nd Place</span>
-  <span class="badge rounded-pill me-1" style="background-color:#b6747d;color:#fff">LPCVC 2026 · Track 3</span>
-  <span class="badge rounded-pill" style="background-color:#b6747d;color:#fff">On-device · Snapdragon 8 Elite</span>
+  <span class="badge rounded-pill me-1" style="background-color:#4d5f8c;color:#fff">LPCVC 2026 · Track 3</span>
+  <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">On-device · Snapdragon 8 Elite</span>
 </div>
 <p class="text-muted">ECV Workshop @ CVPR 2026, Denver &middot; Sponsored by Qualcomm</p>
 
