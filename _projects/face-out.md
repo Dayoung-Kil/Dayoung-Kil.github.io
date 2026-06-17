@@ -11,11 +11,11 @@ _styles: >
 ---
 
 <div class="mb-1">
-  <span class="badge rounded-pill bg-warning text-dark me-1"><i class="fa-solid fa-trophy me-1"></i>장려상</span>
+  <span class="badge rounded-pill me-1" style="background-color:#e8c468;color:#1c1c1d"><i class="fa-solid fa-trophy me-1"></i>장려상</span>
   <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">제11회 숭실 캡스톤디자인 경진대회 &middot; 2021.09</span>
 </div>
 <div class="mb-2">
-  <span class="badge rounded-pill bg-warning text-dark me-1"><i class="fa-solid fa-trophy me-1"></i>장려상</span>
+  <span class="badge rounded-pill me-1" style="background-color:#e8c468;color:#1c1c1d"><i class="fa-solid fa-trophy me-1"></i>장려상</span>
   <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">AI융합 경진대회 &middot; 2021.11</span>
 </div>
 

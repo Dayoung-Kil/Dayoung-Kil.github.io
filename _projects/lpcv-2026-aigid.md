@@ -14,7 +14,7 @@ _styles: >
 ---
 
 <div class="mb-2">
-  <span class="badge rounded-pill bg-warning text-dark me-1">🥈 2nd Place</span>
+  <span class="badge rounded-pill me-1" style="background-color:#e8c468;color:#1c1c1d">🥈 2nd Place</span>
   <span class="badge rounded-pill me-1" style="background-color:#4d5f8c;color:#fff">LPCVC 2026 · Track 3</span>
   <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">On-device · Snapdragon 8 Elite</span>
 </div>
