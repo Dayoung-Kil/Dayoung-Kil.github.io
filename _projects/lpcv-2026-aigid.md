@@ -23,7 +23,8 @@ _styles: >
 <p class="lead">Can a phone tell a real photo from an AI-generated one — and <em>explain its reasoning</em>? Our entry to the 2026 IEEE Low-Power Computer Vision Challenge does both, <strong>fully on-device</strong>, under the contest's strict latency and power budgets.</p>
 
 <p>
-  <a class="btn btn-sm btn-outline-dark" href="https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> View code on GitHub</a>
+  <a class="btn btn-sm btn-outline-dark me-1" href="https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> View code on GitHub</a>
+  <a class="btn btn-sm btn-outline-dark" href="https://huggingface.co/Dayoung-space/SSUPER-AIGID" target="_blank" rel="noopener noreferrer">🤗 Model weights</a>
 </p>
 
 <hr>
