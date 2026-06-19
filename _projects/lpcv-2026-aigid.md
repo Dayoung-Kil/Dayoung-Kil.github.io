@@ -5,9 +5,7 @@ description: "2026 · 🥈 LPCVC Track 3, 2nd Place — an on-device vision-lang
 img: assets/img/projects/lpcv_challenge.png
 importance: 1
 category: 2026
-mermaid:
-  enabled: true
-  zoomable: true
+type: award
 github: https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection
 _styles: >
   .post article strong { color: #5d5c98; }
@@ -20,7 +18,10 @@ _styles: >
 </div>
 <p class="text-muted">ECV Workshop @ CVPR 2026, Denver &middot; Sponsored by Qualcomm</p>
 
-<p class="lead">Can a phone tell a real photo from an AI-generated one — and <em>explain its reasoning</em>? Our entry to the 2026 IEEE Low-Power Computer Vision Challenge does both, <strong>fully on-device</strong>, under the contest's strict latency and power budgets.</p>
+<div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+  <p class="lead mb-2" style="font-weight:700">Can a phone tell a real photo from an AI-generated one — and <em>explain its reasoning</em>?</p>
+  <p class="mb-0">Our entry to the 2026 IEEE Low-Power Computer Vision Challenge does both, fully on-device, under the contest's strict latency and power budgets.</p>
+</div>
 
 <p>
   <a class="btn btn-sm btn-outline-dark me-1" href="https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> View code on GitHub</a>
@@ -100,12 +101,7 @@ $$
 
 ## Approach
 
-```mermaid
-flowchart LR
-  A["~788K images<br/>ADM · BigGAN · SID<br/>SynthScars · ImageNet · COCO"] -->|"Qwen2.5-VL auto-annotation<br/>8 criteria · evidence · domain"| B["SFT splits"]
-  B -->|"Step 0 → 1 → 2<br/>LoRA+ on Qwen2-VL-2B"| C["Merged detector"]
-  C -->|"AIMET W4A16<br/>ONNX → QNN"| D["On-device<br/>Snapdragon 8 Elite"]
-```
+The system comes together in three parts: building a **labeled dataset**, a **staged training curriculum**, and **on-device quantization & deployment**.
 
 ### 1 · Data & annotation
 

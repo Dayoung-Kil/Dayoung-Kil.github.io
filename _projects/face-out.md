@@ -5,6 +5,7 @@ description: "2021 · 🏆 Honorable Mention ×2 — a web app that blurs every 
 img: assets/img/projects/face_out.png
 importance: 2
 category: 2021
+type: award
 github: https://github.com/2021-1-SSU-CapstoneDesign/Face-Out
 _styles: >
   .post article strong { color: #5d5c98; }
@@ -21,7 +22,10 @@ _styles: >
 
 <p class="text-muted">Soongsil University &middot; Capstone Design Project</p>
 
-<p class="lead">A privacy-protection web app: give it <strong>one reference photo</strong> of the person to keep, then upload a group photo or video — every other face is automatically mosaicked.</p>
+<div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+  <p class="lead mb-2" style="font-weight:700">What if you could blur everyone in a photo or video — except one person?</p>
+  <p class="mb-0">Face Out is a privacy-protection web app: give it one reference photo of the person to keep, then upload a group photo or video, and every other face is automatically mosaicked.</p>
+</div>
 
 <p>
   <a class="btn btn-sm btn-outline-dark" href="https://github.com/2021-1-SSU-CapstoneDesign/Face-Out" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> View code on GitHub</a>
