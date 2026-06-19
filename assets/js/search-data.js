@@ -423,6 +423,11 @@ ninja.data = [{
           description: "2026 · 🥈 LPCVC Track 3, 2nd Place — an on-device vision-language model that detects AI-generated images and explains why.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/lpcv-2026-aigid/";
+            },},{id: "projects-lightweight-room-layout-estimation",
+          title: 'Lightweight Room Layout Estimation',
+          description: "2022 · ICCAS — lightweight 3D room layout estimation from a single panorama.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/room-layout-lightweight/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
