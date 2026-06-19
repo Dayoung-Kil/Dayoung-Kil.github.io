@@ -1,8 +1,9 @@
 ---
 layout: default
 permalink: /blog/
-title: blog
-nav: false
+title: notes
+nav: true
+nav_order: 6
 pagination:
   enabled: true
   collection: posts
@@ -27,6 +28,28 @@ pagination:
     <h2>{{ site.blog_description }}</h2>
   </div>
   {% endif %}
+
+<div class="row">
+  {% if site.categories.size > 0 %}
+  <div class="col-lg-3 mb-4 order-2 order-lg-1">
+    <nav class="sticky-top" style="top:5rem;font-size:0.85rem;">
+      <h6 class="mb-2" style="font-weight:700;color:#5d5c98">📑 Contents</h6>
+      {% for cat in site.categories %}
+        <p class="mb-1 mt-2" style="font-weight:700;color:#5d5c98">{{ cat[0] | replace: '-', ' ' | capitalize }}</p>
+        <ul class="list-unstyled mb-3" style="padding-left:0.4rem">
+          {% for post in cat[1] %}{% if post.tags contains 'survey' %}
+            <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %}<br><span class="text-muted" style="font-size:0.75rem">{{ post.venue }}</span>{% endif %}</li>
+          {% endif %}{% endfor %}
+          {% assign chrono = cat[1] | sort: "date" %}
+          {% for post in chrono %}{% unless post.tags contains 'survey' %}
+            <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %}<br><span class="text-muted" style="font-size:0.75rem">{{ post.venue }}</span>{% endif %}</li>
+          {% endunless %}{% endfor %}
+        </ul>
+      {% endfor %}
+    </nav>
+  </div>
+  {% endif %}
+  <div class="col-lg-9 order-1 order-lg-2">
 
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
 
@@ -141,7 +164,7 @@ pagination:
       <p>{{ post.description }}</p>
       <p class="post-meta">
         {{ read_time }} min read &nbsp; &middot; &nbsp;
-        {{ post.date | date: '%B %d, %Y' }}
+        {% if post.venue %}{{ post.venue }}{% else %}{{ post.date | date: '%B %d, %Y' }}{% endif %}
         {% if post.external_source %}
         &nbsp; &middot; &nbsp; {{ post.external_source }}
         {% endif %}
@@ -192,4 +215,6 @@ pagination:
 {% include pagination.liquid %}
 {% endif %}
 
+  </div>
+</div>
 </div>
