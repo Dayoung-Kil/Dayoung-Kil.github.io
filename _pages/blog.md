@@ -43,6 +43,13 @@ pagination:
   }
   .post .post-list .post-tags a.tag-chip:hover { filter: brightness(0.94); }
   .post .post-list .post-tags a.tag-chip .fa-hashtag { opacity: 0.65; }
+  /* Contents 사이드바: 방법 계열 헤더 칩 */
+  nav.sticky-top .ct-type { display:inline-block; padding:0.02rem 0.5rem; border-radius:999px; font-size:0.66rem; font-weight:700; letter-spacing:0.02em; }
+  /* featured 핵심 논문 카드 — extra compact */
+  .post .featured-posts .card-body { padding:0.5rem 0.65rem; }
+  .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.25rem; }
+  .post .featured-posts .card-text { font-size:0.68rem; line-height:1.45; margin-bottom:0; color:var(--global-text-color); }
+  .post .featured-posts .badge { font-size:0.52rem; font-weight:600; }
 </style>
 
 <div class="post">
@@ -53,7 +60,7 @@ pagination:
   {% if site.categories.size > 0 %}
   <div class="col-lg-3 mb-4 order-2 order-lg-1">
     <nav class="sticky-top" style="top:5rem;font-size:0.85rem;">
-      <h6 class="mb-2" style="font-weight:700;color:#5d5c98">📑 Contents</h6>
+      <h6 class="mb-2" style="font-weight:700;color:#5d5c98">Contents</h6>
       {% for cat in site.categories %}
         {% assign survey_count = cat[1] | where_exp: "p", "p.tags contains 'survey'" | size %}
         {% assign paper_count = cat[1] | size | minus: survey_count %}
@@ -67,13 +74,22 @@ pagination:
         </p>
         <div class="collapse show" id="contents-{{ forloop.index }}">
           <ul class="list-unstyled mb-3" style="padding-left:0.9rem;font-size:0.78rem">
+            {% comment %} survey/overview 먼저 고정 {% endcomment %}
             {% for post in cat[1] %}{% if post.tags contains 'survey' %}
               <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a></li>
             {% endif %}{% endfor %}
-            {% assign chrono = cat[1] | sort: "date" %}
-            {% for post in chrono %}{% unless post.tags contains 'survey' %}
-              <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %} <span class="text-muted" style="font-size:0.68rem">{{ post.venue }}</span>{% endif %}</li>
-            {% endunless %}{% endfor %}
+            {% comment %} 방법 계열별 그룹 (그룹 내 연도순) {% endcomment %}
+            {% assign type_order = "pruning,merging,pooling,hybrid" | split: "," %}
+            {% for t in type_order %}
+              {% assign group = cat[1] | where_exp: "p", "p.tags contains t" | sort: "date" %}
+              {% if group.size > 0 %}
+                {% assign tc = site.data.note_tags[t] %}
+                <li class="mt-2 mb-1"><span class="ct-type" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ t | capitalize }}</span></li>
+                {% for post in group %}
+                <li class="mb-1" style="padding-left:0.25rem"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %} <span class="text-muted" style="font-size:0.66rem">{{ post.venue }}</span>{% endif %}</li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
           </ul>
         </div>
       {% endfor %}
@@ -111,48 +127,32 @@ pagination:
   </div>
   {% endif %}
 
-{% assign featured_posts = site.posts | where: "featured", "true" %}
+{% assign featured_posts = site.posts | where: "featured", "true" | sort: "date" %}
 {% if featured_posts.size > 0 %}
-<br>
 
-<div class="container featured-posts">
-{% assign is_even = featured_posts.size | modulo: 2 %}
-<div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
+<p class="mb-2" style="font-weight:700;color:#5d5c98">Key papers <span style="font-weight:600;color:#9a99c0;font-size:0.85rem">— start here to follow the storyline</span></p>
+
+<div class="container featured-posts px-0">
+<div class="row row-cols-1 row-cols-md-3">
 {% for post in featured_posts %}
-<div class="col mb-4">
-<a href="{{ post.url | relative_url }}">
-<div class="card hoverable">
-<div class="row g-0">
-<div class="col-md-12">
+<div class="col mb-2">
+<a href="{{ post.url | relative_url }}" class="text-decoration-none">
+<div class="card hoverable h-100">
 <div class="card-body">
-<div class="float-right">
-<i class="fa-solid fa-thumbtack fa-xs"></i>
+<h3 class="card-title">{{ post.shortname | default: post.title }}</h3>
+<div class="mb-2">
+{% for tag in post.tags %}{% assign tc = site.data.note_tags[tag] %}{% if tc %}<span class="badge rounded-pill me-1" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ tag | capitalize }}</span>{% endif %}{% endfor %}
+{% if post.venue %}<span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">{{ post.venue }}</span>{% endif %}
 </div>
-<h3 class="card-title text-lowercase">{{ post.title }}</h3>
 <p class="card-text">{{ post.description }}</p>
-
-                    {% if post.external_source == blank %}
-                      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
-                    {% else %}
-                      {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
-                    {% endif %}
-                    {% assign year = post.date | date: "%Y" %}
-
-                    <p class="post-meta">
-                      {{ read_time }} min read &nbsp; &middot; &nbsp;
-                      <a href="{{ year | prepend: '/blog/' | relative_url }}">
-                        <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      {% endfor %}
-      </div>
-    </div>
-    <hr>
+</div>
+</div>
+</a>
+</div>
+{% endfor %}
+</div>
+</div>
+<hr>
 
 {% endif %}
 

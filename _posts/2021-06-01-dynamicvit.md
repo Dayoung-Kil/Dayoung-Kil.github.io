@@ -7,6 +7,7 @@ thumbnail: assets/img/notes/dynamicvit/fig1.png
 categories: token-reduction-in-vits
 tags: pruning
 shortname: DynamicViT
+featured: true
 venue: NeurIPS 2021
 giscus_comments: false
 related_posts: false
