@@ -5,15 +5,7 @@ title: notes
 nav: true
 nav_order: 6
 pagination:
-  enabled: true
-  collection: posts
-  permalink: /page/:num/
-  per_page: 5
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+  enabled: false
 ---
 
 <style>
@@ -29,18 +21,11 @@ pagination:
   /* Contents 펼침/접힘 caret 회전 */
   nav.sticky-top a[data-toggle="collapse"] .fa-caret-down { transition: transform 0.2s ease; }
   nav.sticky-top a[data-toggle="collapse"].collapsed .fa-caret-down { transform: rotate(-90deg); }
-  /* 카테고리 칩(pill) — 상단 목록 + 각 노트 하단 공통 */
-  .post a.cat-chip {
-    display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
-    background-color: rgba(93,92,152,0.12); color: #5d5c98; font-weight: 600;
-    line-height: 1.4; text-decoration: none;
-  }
+  /* 카테고리 칩(pill) */
+  .post a.cat-chip { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px; background-color: rgba(93,92,152,0.12); color: #5d5c98; font-weight: 600; line-height: 1.4; text-decoration: none; }
   .post a.cat-chip:hover { background-color: rgba(93,92,152,0.22); }
-  /* 메서드 태그 칩(pill) — 색은 분류 배지와 동일 */
-  .post .post-list .post-tags a.tag-chip {
-    display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
-    font-weight: 600; line-height: 1.4; text-decoration: none;
-  }
+  /* 메서드 태그 칩(pill) */
+  .post .post-list .post-tags a.tag-chip { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px; font-weight: 600; line-height: 1.4; text-decoration: none; }
   .post .post-list .post-tags a.tag-chip:hover { filter: brightness(0.94); }
   .post .post-list .post-tags a.tag-chip .fa-hashtag { opacity: 0.65; }
   /* Contents 사이드바: 방법 계열 헤더 칩 */
@@ -50,16 +35,20 @@ pagination:
   .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.25rem; }
   .post .featured-posts .card-text { font-size:0.68rem; line-height:1.45; margin-bottom:0; color:var(--global-text-color); }
   .post .featured-posts .badge { font-size:0.52rem; font-weight:600; }
+  .post .feat-cat { font-weight:600; color:#9a99c0; font-size:0.8rem; margin:0.7rem 0 0.3rem; }
+  /* 메인 랜딩: 카테고리 섹션 헤더 */
+  .post h2.cat-section { font-size:1.15rem; font-weight:800; color:#5d5c98; margin:1.8rem 0 0.2rem; padding-bottom:0.3rem; border-bottom:2px solid rgba(93,92,152,0.25); text-transform:none; }
+  .post h2.cat-section:first-of-type { margin-top:0.4rem; }
+  .post h2.cat-section .cat-count { font-size:0.8rem; font-weight:600; color:#9a99c0; }
+  .post .cat-more { font-size:0.8rem; }
 </style>
 
 <div class="post">
 
-{% comment %} notes 페이지 상단 제목/부제(header-bar) 제거 — 깔끔한 목록만 표시 {% endcomment %}
-
 <div class="row">
   {% if site.categories.size > 0 %}
   <div class="col-lg-3 mb-4 order-2 order-lg-1">
-    <nav class="sticky-top" style="top:5rem;font-size:0.85rem;">
+    <nav class="sticky-top" style="top:5rem;font-size:0.78rem;">
       <h6 class="mb-2" style="font-weight:700;color:#5d5c98">Contents</h6>
       {% for cat in site.categories %}
         {% assign survey_count = cat[1] | where_exp: "p", "p.tags contains 'survey'" | size %}
@@ -73,7 +62,7 @@ pagination:
           </a>
         </p>
         <div class="collapse show" id="contents-{{ forloop.index }}">
-          <ul class="list-unstyled mb-3" style="padding-left:0.9rem;font-size:0.78rem">
+          <ul class="list-unstyled mb-3" style="padding-left:0.9rem;font-size:0.72rem">
             {% comment %} survey/overview 먼저 고정 {% endcomment %}
             {% for post in cat[1] %}{% if post.tags contains 'survey' %}
               <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a></li>
@@ -93,166 +82,74 @@ pagination:
           </ul>
         </div>
       {% endfor %}
+      {% if site.display_categories and site.display_categories.size > 0 %}
+      <div class="mt-3" style="font-size:0.72rem">
+        <h6 class="mb-2" style="font-weight:700;color:#5d5c98">Categories</h6>
+        {% for category in site.display_categories %}
+          {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
+          {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
+          <a class="cat-chip d-inline-block mb-1" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
     </nav>
   </div>
   {% endif %}
   <div class="col-lg-9 order-1 order-lg-2">
 
-{% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
+  {% comment %} 랜딩: 카테고리별 Overview + Key papers만 (전체 목록은 카테고리 페이지에서) {% endcomment %}
+  {% for cat in site.categories %}
+    {% assign cat_slug = cat[0] %}
+    {% assign cat_fallback = cat_slug | replace: '-', ' ' | capitalize %}
+    {% assign cat_name = site.data.note_categories[cat_slug].name | default: cat_fallback %}
+    {% assign overviews = cat[1] | where_exp: "p", "p.tags contains 'survey'" %}
+    {% assign keypapers = cat[1] | where: "featured", "true" | sort: "date" %}
+    {% assign total = cat[1] | size %}
 
-  <div class="tag-category-list">
-    <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
-        <li>
-          <i class="fa-solid fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-      {% if site.display_categories.size > 0 and site.display_tags.size > 0 %}
-        <p>&bull;</p>
-      {% endif %}
-      {% for category in site.display_categories %}
-        {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
-        {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
-        <li>
-          <a class="cat-chip" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
+    <h2 class="cat-section"><a href="{{ cat_slug | slugify | prepend: '/blog/category/' | relative_url }}" style="color:inherit;text-decoration:none">{{ cat_name }}</a> <span class="cat-count">({{ total }})</span></h2>
+
+    {% comment %} Overview 카드 {% endcomment %}
+    {% if overviews.size > 0 %}
+    <ul class="post-list mb-1">
+      {% for post in overviews %}
+      <li>
+        {% if post.thumbnail %}<div class="row"><div class="col-sm-9">{% endif %}
+        <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.description }}</p>
+        <p class="post-tags mb-0"><a class="cat-chip" href="{{ post.url | relative_url }}"><i class="fa-solid fa-book-open fa-sm"></i> Overview</a></p>
+        {% if post.thumbnail %}</div><div class="col-sm-3"><img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image"></div></div>{% endif %}
+      </li>
       {% endfor %}
     </ul>
-  </div>
-  {% endif %}
-
-{% assign featured_posts = site.posts | where: "featured", "true" | sort: "date" %}
-{% if featured_posts.size > 0 %}
-
-<p class="mb-2" style="font-weight:700;color:#5d5c98">Key papers <span style="font-weight:600;color:#9a99c0;font-size:0.85rem">— start here to follow the storyline</span></p>
-
-<div class="container featured-posts px-0">
-<div class="row row-cols-1 row-cols-md-3">
-{% for post in featured_posts %}
-<div class="col mb-2">
-<a href="{{ post.url | relative_url }}" class="text-decoration-none">
-<div class="card hoverable h-100">
-<div class="card-body">
-<h3 class="card-title">{{ post.shortname | default: post.title }}</h3>
-<div class="mb-2">
-{% for tag in post.tags %}{% assign tc = site.data.note_tags[tag] %}{% if tc %}<span class="badge rounded-pill me-1" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ tag | capitalize }}</span>{% endif %}{% endfor %}
-{% if post.venue %}<span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">{{ post.venue }}</span>{% endif %}
-</div>
-<p class="card-text">{{ post.description }}</p>
-</div>
-</div>
-</a>
-</div>
-{% endfor %}
-</div>
-</div>
-<hr>
-
-{% endif %}
-
-  <ul class="post-list">
-
-    {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
-    {% else %}
-      {% assign postlist = site.posts %}
     {% endif %}
 
-    {% for post in postlist %}
-
-    {% if post.external_source == blank %}
-      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
-    {% else %}
-      {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
+    {% comment %} Key papers {% endcomment %}
+    {% if keypapers.size > 0 %}
+    <p class="feat-cat">Key papers</p>
+    <div class="container featured-posts px-0">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for post in keypapers %}
+        <div class="col mb-2">
+          <a href="{{ post.url | relative_url }}" class="text-decoration-none">
+            <div class="card hoverable h-100">
+              {% if post.thumbnail %}<img class="card-img-top" src="{{ post.thumbnail | relative_url }}" style="height:110px;object-fit:contain;background-color:#f5f5f7;padding:3px" alt="">{% endif %}
+              <div class="card-body">
+              <h3 class="card-title">{{ post.shortname | default: post.title }}</h3>
+              <div class="mb-2">
+                {% for tag in post.tags %}{% assign tc = site.data.note_tags[tag] %}{% if tc %}<span class="badge rounded-pill me-1" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ tag | capitalize }}</span>{% endif %}{% endfor %}
+                {% if post.venue %}<span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">{{ post.venue }}</span>{% endif %}
+              </div>
+              <p class="card-text">{{ post.description }}</p>
+            </div></div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     {% endif %}
-    {% assign year = post.date | date: "%Y" %}
-    {% assign tags = post.tags | join: "" %}
-    {% assign categories = post.categories | join: "" %}
 
-    <li>
-
-{% if post.thumbnail %}
-
-<div class="row">
-          <div class="col-sm-9">
-{% endif %}
-        <h3>
-        {% if post.redirect == blank %}
-          <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% elsif post.redirect contains '://' %}
-          <a class="post-title" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
-          <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        {% else %}
-          <a class="post-title" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
-        {% endif %}
-      </h3>
-      <p>{{ post.description }}</p>
-      <p class="post-meta">
-        {{ read_time }} min read &nbsp; &middot; &nbsp;
-        {% if post.venue %}{{ post.venue }}{% else %}{{ post.date | date: '%B %d, %Y' }}{% endif %}
-        {% if post.external_source %}
-        &nbsp; &middot; &nbsp; {{ post.external_source }}
-        {% endif %}
-      </p>
-      <p class="post-tags">
-        <a href="{{ year | prepend: '/blog/' | relative_url }}">
-          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-
-          {% if tags != "" %}
-          &nbsp; &middot; &nbsp;
-            {% for tag in post.tags %}
-            {% assign tag_color = site.data.note_tags[tag] %}
-            {% if tag_color %}
-            <a class="tag-chip" href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}" style="background-color:{{ tag_color.bg }};color:{{ tag_color.fg }}"><i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-            {% else %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"><i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-            {% endif %}
-              {% unless forloop.last %}
-                &nbsp;
-              {% endunless %}
-              {% endfor %}
-          {% endif %}
-
-          {% if categories != "" %}
-          &nbsp; &middot; &nbsp;
-            {% for category in post.categories %}
-            {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
-            {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
-            <a class="cat-chip" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
-              <i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
-              {% unless forloop.last %}
-                &nbsp;
-              {% endunless %}
-              {% endfor %}
-          {% endif %}
-    </p>
-
-{% if post.thumbnail %}
-
-</div>
-
-  <div class="col-sm-3">
-    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image">
-  </div>
-</div>
-{% endif %}
-    </li>
-
-    {% endfor %}
-
-  </ul>
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
+    <p class="cat-more mt-2 mb-4"><a class="cat-chip" href="{{ cat_slug | slugify | prepend: '/blog/category/' | relative_url }}">{{ cat_name }} 전체 {{ total }}개 보기 →</a></p>
+  {% endfor %}
 
   </div>
 </div>

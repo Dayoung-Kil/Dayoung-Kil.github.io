@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Token Reduction — Overview"
+title: "Token Reduction in ViTs — Overview"
 date: 2026-06-19
 description: ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with 17 key papers at a glance.
 thumbnail: assets/img/notes/token-reduction-types.png
