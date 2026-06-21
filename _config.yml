@@ -265,6 +265,7 @@ jekyll-archives:
 
 display_tags: [] # these tags will be displayed on the front page of your blog
 display_categories: ["token-reduction-in-vits", "vlm"] # these categories will be displayed on the front page of your blog
+future: true # build posts dated in the future (overview notes use 2026 dates)
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

@@ -30,6 +30,10 @@ pagination:
   .post .post-list .post-tags a.tag-chip .fa-hashtag { opacity: 0.65; }
   /* Contents 사이드바: 방법 계열 헤더 칩 */
   nav.sticky-top .ct-type { display:inline-block; padding:0.02rem 0.5rem; border-radius:999px; font-size:0.66rem; font-weight:700; letter-spacing:0.02em; }
+  /* Contents 사이드바: 글씨 검정 (venue 회색은 유지) */
+  nav.sticky-top a { color:#1c1c1d; }
+  nav.sticky-top a:hover { color:#5d5c98; }
+  nav.sticky-top a.cat-chip { color:#1c1c1d; background-color:rgba(0,0,0,0.05); }
   /* featured 핵심 논문 카드 — extra compact */
   .post .featured-posts .card-body { padding:0.5rem 0.65rem; }
   .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.25rem; }
@@ -49,7 +53,7 @@ pagination:
   {% if site.categories.size > 0 %}
   <div class="col-lg-3 mb-4 order-2 order-lg-1">
     <nav class="sticky-top" style="top:5rem;font-size:0.78rem;">
-      <h6 class="mb-2" style="font-weight:700;color:#5d5c98">Contents</h6>
+      <h6 class="mb-2" style="font-weight:700;color:#1c1c1d">Contents</h6>
       {% for cat in site.categories %}
         {% assign survey_count = cat[1] | where_exp: "p", "p.tags contains 'survey'" | size %}
         {% assign paper_count = cat[1] | size | minus: survey_count %}
@@ -57,8 +61,8 @@ pagination:
         {% assign cat_fallback = cat_slug | replace: '-', ' ' | capitalize %}
         {% assign cat_name = site.data.note_categories[cat_slug].name | default: cat_fallback %}
         <p class="mb-1 mt-2">
-          <a data-toggle="collapse" href="#contents-{{ forloop.index }}" role="button" aria-expanded="true" class="d-block text-decoration-none" style="font-weight:700;color:#5d5c98">
-            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat_name }} <span style="font-weight:600;color:#9a99c0">({{ paper_count }})</span>
+          <a data-toggle="collapse" href="#contents-{{ forloop.index }}" role="button" aria-expanded="true" class="d-block text-decoration-none" style="font-weight:700;color:#1c1c1d">
+            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat_name }} <span style="font-weight:600;color:#1c1c1d">({{ paper_count }})</span>
           </a>
         </p>
         <div class="collapse show" id="contents-{{ forloop.index }}">
@@ -84,7 +88,7 @@ pagination:
       {% endfor %}
       {% if site.display_categories and site.display_categories.size > 0 %}
       <div class="mt-3" style="font-size:0.72rem">
-        <h6 class="mb-2" style="font-weight:700;color:#5d5c98">Categories</h6>
+        <h6 class="mb-2" style="font-weight:700;color:#1c1c1d">Categories</h6>
         {% for category in site.display_categories %}
           {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
           {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
