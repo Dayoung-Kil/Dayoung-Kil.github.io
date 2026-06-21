@@ -51,9 +51,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-token-reduction-overview",
+        },{id: "post-token-reduction-in-vits-overview",
         
-          title: "Token Reduction — Overview",
+          title: "Token Reduction in ViTs — Overview",
         
         description: "ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with 17 key papers at a glance.",
         section: "Posts",
