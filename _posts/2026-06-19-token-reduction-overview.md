@@ -7,7 +7,7 @@ thumbnail: assets/img/notes/token-reduction-types.png
 categories: token-reduction
 tags: survey
 shortname: Overview
-venue: 전체 정리
+venue: Survey
 giscus_comments: false
 related_posts: false
 toc:
@@ -88,7 +88,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
     <div class="col mb-3">
       <div class="card h-100">
         <div class="card-body">
-          <span class="badge rounded-pill mb-2" style="background-color:#4d5f8c;color:#fff">Merging · 병합</span>
+          <span class="badge rounded-pill mb-2" style="background-color:#c0566e;color:#fff">Merging · 병합</span>
           <p class="card-text mb-1">비슷한 토큰끼리 <strong>합친다</strong>. 버리는 것보다 정보 손실이 적고 training-free로도 가능.</p>
           <p class="card-text mb-0 text-muted" style="font-size:0.78rem">예: ToMe, DTEM, MCTF</p>
         </div>
@@ -127,17 +127,17 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
 | 2 | [**TokenLearner**]({% post_url 2021-06-15-tokenlearner %}) | NeurIPS 2021 | <span class="badge rounded-pill" style="background-color:#7e57c2;color:#fff">Pooling</span> | attention map으로 소수(8~16개)의 learned 토큰을 생성 |
 | 3 | [**EViT**]({% post_url 2022-02-01-evit %}) | ICLR 2022 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | CLS attention 상위 토큰은 유지, 나머지는 1개로 fusion |
 | 4 | [**Evo-ViT**]({% post_url 2022-02-15-evo-vit %}) | AAAI 2022 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | 안 버리고 informative/placeholder로 나눠 slow-fast 업데이트 |
-| 5 | **ATS** | ECCV 2022 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | 입력·stage마다 토큰 수를 적응적으로(attention 기반 샘플링) |
-| 6 | **Adaptive Sparse ViT** | IJCAI 2023 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | learned threshold로 keep/prune, head importance 반영 |
-| 7 | **ToMe** | ICLR 2023 | <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">Merging</span> | Bipartite Soft Matching으로 비슷한 토큰 r개 합침, training-free |
-| 8 | **DiffRate** | ICCV 2023 | <span class="badge rounded-pill" style="background-color:#5a9e6f;color:#fff">Hybrid</span> | pruning·merging rate를 미분가능하게 자동 학습 |
-| 9 | **TPS** | CVPR 2023 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | pruned 토큰을 가장 비슷한 kept 토큰에 squeeze(정보 보존) |
+| 5 | [**ATS**]({% post_url 2022-03-01-ats %}) | ECCV 2022 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | 입력·stage마다 토큰 수를 적응적으로(attention 기반 샘플링) |
+| 6 | [**Adaptive Sparse ViT**]({% post_url 2023-01-01-adaptive-sparse-vit %}) | IJCAI 2023 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | learned threshold로 keep/prune, head importance 반영 |
+| 7 | [**ToMe**]({% post_url 2023-02-01-tome %}) | ICLR 2023 | <span class="badge rounded-pill" style="background-color:#c0566e;color:#fff">Merging</span> | Bipartite Soft Matching으로 비슷한 토큰 r개 합침, training-free |
+| 8 | [**DiffRate**]({% post_url 2023-03-01-diffrate %}) | ICCV 2023 | <span class="badge rounded-pill" style="background-color:#5a9e6f;color:#fff">Hybrid</span> | pruning·merging rate를 미분가능하게 자동 학습 |
+| 9 | [**TPS**]({% post_url 2023-04-01-tps %}) | CVPR 2023 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | pruned 토큰을 가장 비슷한 kept 토큰에 squeeze(정보 보존) |
 | 10 | **Token Pooling** | WACV 2023 | <span class="badge rounded-pill" style="background-color:#7e57c2;color:#fff">Pooling</span> | k-means/K-medoids로 대표 토큰 근사(top-k 편향 보완) |
 | 11 | **Zero-TPrune** | CVPR 2024 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | attention graph + Weighted PageRank로 학습 없이(zero-shot) pruning |
-| 12 | **DTEM** | NeurIPS 2024 | <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">Merging</span> | merging 전용 decoupled embedding을 따로 학습 |
+| 12 | **DTEM** | NeurIPS 2024 | <span class="badge rounded-pill" style="background-color:#c0566e;color:#fff">Merging</span> | merging 전용 decoupled embedding을 따로 학습 |
 | 13 | **Token Fusion (ToFu)** | WACV 2024 | <span class="badge rounded-pill" style="background-color:#5a9e6f;color:#fff">Hybrid</span> | functional linearity에 따라 layer별 pruning↔merging 전환(MLERP) |
 | 14 | **STAR** | ICLR 2024 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | intra-layer + inter-layer(LRP) importance 결합 |
-| 15 | **MCTF** | CVPR 2024 | <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">Merging</span> | similarity × informativeness × size 다기준 fusion + one-step-ahead attention |
+| 15 | **MCTF** | CVPR 2024 | <span class="badge rounded-pill" style="background-color:#c0566e;color:#fff">Merging</span> | similarity × informativeness × size 다기준 fusion + one-step-ahead attention |
 | 16 | **Frequency-Aware TR** | NeurIPS 2025 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | high-freq는 보존, low-freq는 DC 토큰으로 aggregate |
 | 17 | **Token Cropr** | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e8c468;color:#1c1c1d">Pruning</span> | task-specific aux head로 dense task(seg/det)까지 학습 기반 pruning |
 

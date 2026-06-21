@@ -2,7 +2,7 @@
 layout: post
 title: "[DynamicViT] Efficient Vision Transformers with Dynamic Token Sparsification"
 date: 2021-06-01
-description: "NeurIPS 2021 · Pruning — dynamically drops redundant tokens per input to speed up ViTs."
+description: "Dynamically drops redundant tokens per input to speed up ViTs."
 thumbnail: assets/img/notes/dynamicvit/fig1.png
 categories: token-reduction
 tags: pruning

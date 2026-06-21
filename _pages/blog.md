@@ -16,6 +16,13 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
+<style>
+  .post .post-list li { margin-bottom: 0.55rem; padding-bottom: 0; }
+  .post .post-list h3 + p { font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.35rem; }
+  .post .post-list .post-meta { font-size: 0.72rem; margin-bottom: 0.2rem; }
+  .post .post-list .post-tags { font-size: 0.72rem; margin-bottom: 0; }
+</style>
+
 <div class="post">
 
 {% assign blog_name_size = site.blog_name | size %}
@@ -35,16 +42,22 @@ pagination:
     <nav class="sticky-top" style="top:5rem;font-size:0.85rem;">
       <h6 class="mb-2" style="font-weight:700;color:#5d5c98">📑 Contents</h6>
       {% for cat in site.categories %}
-        <p class="mb-1 mt-2" style="font-weight:700;color:#5d5c98">{{ cat[0] | replace: '-', ' ' | capitalize }}</p>
-        <ul class="list-unstyled mb-3" style="padding-left:0.4rem">
-          {% for post in cat[1] %}{% if post.tags contains 'survey' %}
-            <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %}<br><span class="text-muted" style="font-size:0.75rem">{{ post.venue }}</span>{% endif %}</li>
-          {% endif %}{% endfor %}
-          {% assign chrono = cat[1] | sort: "date" %}
-          {% for post in chrono %}{% unless post.tags contains 'survey' %}
-            <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %}<br><span class="text-muted" style="font-size:0.75rem">{{ post.venue }}</span>{% endif %}</li>
-          {% endunless %}{% endfor %}
-        </ul>
+        <p class="mb-1 mt-2">
+          <a data-toggle="collapse" href="#contents-{{ forloop.index }}" role="button" aria-expanded="true" class="d-block text-decoration-none" style="font-weight:700;color:#5d5c98">
+            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat[0] | replace: '-', ' ' | capitalize }}
+          </a>
+        </p>
+        <div class="collapse show" id="contents-{{ forloop.index }}">
+          <ul class="list-unstyled mb-3" style="padding-left:0.9rem;font-size:0.78rem">
+            {% for post in cat[1] %}{% if post.tags contains 'survey' %}
+              <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a></li>
+            {% endif %}{% endfor %}
+            {% assign chrono = cat[1] | sort: "date" %}
+            {% for post in chrono %}{% unless post.tags contains 'survey' %}
+              <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %} <span class="text-muted" style="font-size:0.68rem">{{ post.venue }}</span>{% endif %}</li>
+            {% endunless %}{% endfor %}
+          </ul>
+        </div>
       {% endfor %}
     </nav>
   </div>
