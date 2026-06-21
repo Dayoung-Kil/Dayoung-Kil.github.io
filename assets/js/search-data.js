@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-token-reduction-in-vits-overview",
+        },{id: "post-vlm-overview",
+        
+          title: "VLM — Overview",
+        
+        description: "How vision-language / multimodal LLMs are built — the 5-component architecture (encoder · projector · LLM · output projector · generator), the understanding-vs-generation taxonomy, and key models from Flamingo to Qwen2.5-VL.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vlm-overview/";
+          
+        },
+      },{id: "post-token-reduction-in-vits-overview",
         
           title: "Token Reduction in ViTs — Overview",
         
