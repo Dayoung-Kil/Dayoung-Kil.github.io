@@ -62,6 +62,94 @@ ninja.data = [{
             window.location.href = "/blog/2026/token-reduction-overview/";
           
         },
+      },{id: "post-token-cropr-token-cropr-faster-vits-for-quite-a-few-tasks",
+        
+          title: "[Token Cropr] Token Cropr: Faster ViTs for Quite a Few Tasks",
+        
+        description: "Prunes tokens by task relevance using auxiliary cross-attention heads that are thrown away after training, plus Last Layer Fusion to revive pruned tokens for dense tasks.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/token-cropr/";
+          
+        },
+      },{id: "post-frequency-aware-tr-frequency-aware-token-reduction-for-efficient-vision-transformer",
+        
+          title: "[Frequency-Aware TR] Frequency-Aware Token Reduction for Efficient Vision Transformer",
+        
+        description: "Reads token reduction through a frequency lens: keeps high-frequency tokens (which fight rank collapse) and squeezes the low-frequency rest into a compact DC token.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/frequency-aware-token-reduction/";
+          
+        },
+      },{id: "post-mctf-multi-criteria-token-fusion-with-one-step-ahead-attention-for-efficient-vision-transformers",
+        
+          title: "[MCTF] Multi-criteria Token Fusion with One-step-ahead Attention for Efficient Vision Transformers",
+        
+        description: "Fuses tokens by a product of three criteria — similarity, informativeness, size — with one-step-ahead attention and bidirectional bipartite matching, beating the base model while cutting FLOPs.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/mctf/";
+          
+        },
+      },{id: "post-star-synergistic-patch-pruning-for-vision-transformer-unifying-intra-amp-inter-layer-patch-importance",
+        
+          title: "[STAR] Synergistic Patch Pruning for Vision Transformer: Unifying Intra- &amp; Inter-Layer Patch Importance...",
+        
+        description: "Fuses online intra-layer [CLS] attention with offline inter-layer LRP importance, and auto-tunes per-layer retention rates from patch similarity.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/star/";
+          
+        },
+      },{id: "post-token-fusion-tofu-bridging-the-gap-between-token-pruning-and-token-merging",
+        
+          title: "[Token Fusion / ToFu] Bridging the Gap between Token Pruning and Token Merging...",
+        
+        description: "Switches between pruning (early layers) and merging (later layers) by each layer&#39;s functional linearity, with a norm-preserving MLERP merge.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tofu/";
+          
+        },
+      },{id: "post-dtem-learning-to-merge-tokens-via-decoupled-embedding-for-efficient-vision-transformers",
+        
+          title: "[DTEM] Learning to Merge Tokens via Decoupled Embedding for Efficient Vision Transformers",
+        
+        description: "Learns a lightweight embedding dedicated to merging — decoupled from the ViT forward pass — via a continuously relaxed (differentiable) token merging.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/dtem/";
+          
+        },
+      },{id: "post-zero-tprune-zero-shot-token-pruning-through-leveraging-of-the-attention-graph-in-pre-trained-transformers",
+        
+          title: "[Zero-TPrune] Zero-Shot Token Pruning through Leveraging of the Attention Graph in Pre-Trained Transformers...",
+        
+        description: "Treats the attention matrix as a directed graph and ranks tokens with a Weighted PageRank — pruning without any fine-tuning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/zero-tprune/";
+          
+        },
+      },{id: "post-token-pooling-token-pooling-in-vision-transformers",
+        
+          title: "[Token Pooling] Token Pooling in Vision Transformers",
+        
+        description: "Reframes token downsampling as minimizing reconstruction error, and solves it with simple, parameter-free clustering (K-Means / K-Medoids).",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/token-pooling/";
+          
+        },
       },{id: "post-tps-joint-token-pruning-amp-squeezing-towards-more-aggressive-compression-of-vision-transformers",
         
           title: "[TPS] Joint Token Pruning &amp; Squeezing Towards More Aggressive Compression of Vision Transformers...",
