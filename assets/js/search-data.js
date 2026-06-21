@@ -62,11 +62,66 @@ ninja.data = [{
             window.location.href = "/blog/2026/token-reduction-overview/";
           
         },
+      },{id: "post-tps-joint-token-pruning-amp-squeezing-towards-more-aggressive-compression-of-vision-transformers",
+        
+          title: "[TPS] Joint Token Pruning &amp; Squeezing Towards More Aggressive Compression of Vision Transformers...",
+        
+        description: "Instead of throwing pruned tokens away, squeezes their information into the surviving &#39;host&#39; tokens — parameter-free matching + similarity-based fusing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tps/";
+          
+        },
+      },{id: "post-diffrate-differentiable-compression-rate-for-efficient-vision-transformers",
+        
+          title: "[DiffRate] Differentiable Compression Rate for Efficient Vision Transformers",
+        
+        description: "Makes the per-layer compression rate differentiable, and prunes + merges in one unified framework.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/diffrate/";
+          
+        },
+      },{id: "post-tome-token-merging-your-vit-but-faster",
+        
+          title: "[ToMe] Token Merging: Your ViT But Faster",
+        
+        description: "Combine similar tokens (not prune) via bipartite soft matching, fast as pruning, works even without training.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/tome/";
+          
+        },
+      },{id: "post-as-vit-adaptive-sparse-vit-learnable-adaptive-token-pruning-by-fully-exploiting-self-attention",
+        
+          title: "[AS-ViT] Adaptive Sparse ViT: Learnable Adaptive Token Pruning by Fully Exploiting Self-Attention",
+        
+        description: "Learnable thresholds replace fixed keep-ratios, scoring tokens for free from MHSA&#39;s own intermediate results.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/adaptive-sparse-vit/";
+          
+        },
+      },{id: "post-ats-adaptive-token-sampling-for-efficient-vision-transformers",
+        
+          title: "[ATS] Adaptive Token Sampling for Efficient Vision Transformers",
+        
+        description: "Parameter-free, picks a variable number of tokens per image by sampling the attention CDF.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/ats/";
+          
+        },
       },{id: "post-evo-vit-slow-fast-token-evolution-for-dynamic-vision-transformer",
         
           title: "[Evo-ViT] Slow-Fast Token Evolution for Dynamic Vision Transformer",
         
-        description: "AAAI 2022 · Pruning — keep all tokens but update informative vs placeholder tokens on different paths.",
+        description: "Keep all tokens but update informative vs placeholder tokens on different paths.",
         section: "Posts",
         handler: () => {
           
@@ -77,7 +132,7 @@ ninja.data = [{
         
           title: "[EViT] Not All Patches Are What You Need: Expediting ViTs via Token Reorganizations...",
         
-        description: "ICLR 2022 · Pruning — keep top-k attentive tokens by CLS attention, fuse the rest into one.",
+        description: "Keep top-k attentive tokens by CLS attention, fuse the rest into one.",
         section: "Posts",
         handler: () => {
           
@@ -88,7 +143,7 @@ ninja.data = [{
         
           title: "[TokenLearner] What Can 8 Learned Tokens Do for Images and Videos?",
         
-        description: "NeurIPS 2021 · Pooling — learns a handful of adaptive tokens instead of a dense uniform grid.",
+        description: "Learns a handful of adaptive tokens instead of a dense uniform grid.",
         section: "Posts",
         handler: () => {
           
@@ -99,7 +154,7 @@ ninja.data = [{
         
           title: "[DynamicViT] Efficient Vision Transformers with Dynamic Token Sparsification",
         
-        description: "NeurIPS 2021 · Pruning — dynamically drops redundant tokens per input to speed up ViTs.",
+        description: "Dynamically drops redundant tokens per input to speed up ViTs.",
         section: "Posts",
         handler: () => {
           
