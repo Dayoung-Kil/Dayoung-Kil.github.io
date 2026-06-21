@@ -1,0 +1,17 @@
+# Badge colors for method-type tags (tag → background / foreground).
+# Mirrors the taxonomy used in per-paper note badges.
+pruning:
+  bg: "#e8c468"
+  fg: "#1c1c1d"
+merging:
+  bg: "#c0566e"
+  fg: "#ffffff"
+pooling:
+  bg: "#7e57c2"
+  fg: "#ffffff"
+hybrid:
+  bg: "#5a9e6f"
+  fg: "#ffffff"
+survey:
+  bg: "#4d5f8c"
+  fg: "#ffffff"

@@ -1,0 +1,9 @@
+# Display names for note categories (slug → name).
+# URL slugs stay as the front-matter category (e.g. token-reduction);
+# only the on-screen label is taken from here. Add VLM / Lightweight VLM as they come.
+token-reduction-in-vits:
+  name: Token Reduction in ViTs
+vlm:
+  name: VLM
+efficient-vlm:
+  name: Efficient VLM

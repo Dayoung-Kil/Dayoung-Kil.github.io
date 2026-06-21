@@ -4,7 +4,7 @@ title: "[TokenLearner] What Can 8 Learned Tokens Do for Images and Videos?"
 date: 2021-06-15
 description: "Learns a handful of adaptive tokens instead of a dense uniform grid."
 thumbnail: assets/img/notes/tokenlearner/fig1.png
-categories: token-reduction
+categories: token-reduction-in-vits
 tags: pooling
 shortname: TokenLearner
 venue: NeurIPS 2021

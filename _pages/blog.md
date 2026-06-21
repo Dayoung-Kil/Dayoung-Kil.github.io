@@ -17,24 +17,37 @@ pagination:
 ---
 
 <style>
-  .post .post-list li { margin-bottom: 0.55rem; padding-bottom: 0; }
+  .post .post-list li { margin-bottom: 0.55rem; padding-top: 1rem; padding-bottom: 0; border-bottom: none; }
   .post .post-list h3 + p { font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.35rem; }
   .post .post-list .post-meta { font-size: 0.72rem; margin-bottom: 0.2rem; }
   .post .post-list .post-tags { font-size: 0.72rem; margin-bottom: 0; }
+  /* notes 목록 제목: 테마 전역 h3 대문자 규칙을 이 페이지에서만 정상 대소문자로 되돌림 */
+  .post .post-list .post-title { text-transform: none; font-weight: 700; letter-spacing: -0.005em; }
+  /* Contents 사이드바: 항목 간 간격 축소 */
+  nav.sticky-top .list-unstyled li { margin-bottom: 0.2rem; line-height: 1.3; }
+  nav.sticky-top p.mb-1 { margin-bottom: 0.1rem; margin-top: 0.4rem; }
+  /* Contents 펼침/접힘 caret 회전 */
+  nav.sticky-top a[data-toggle="collapse"] .fa-caret-down { transition: transform 0.2s ease; }
+  nav.sticky-top a[data-toggle="collapse"].collapsed .fa-caret-down { transform: rotate(-90deg); }
+  /* 카테고리 칩(pill) — 상단 목록 + 각 노트 하단 공통 */
+  .post a.cat-chip {
+    display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+    background-color: rgba(93,92,152,0.12); color: #5d5c98; font-weight: 600;
+    line-height: 1.4; text-decoration: none;
+  }
+  .post a.cat-chip:hover { background-color: rgba(93,92,152,0.22); }
+  /* 메서드 태그 칩(pill) — 색은 분류 배지와 동일 */
+  .post .post-list .post-tags a.tag-chip {
+    display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+    font-weight: 600; line-height: 1.4; text-decoration: none;
+  }
+  .post .post-list .post-tags a.tag-chip:hover { filter: brightness(0.94); }
+  .post .post-list .post-tags a.tag-chip .fa-hashtag { opacity: 0.65; }
 </style>
 
 <div class="post">
 
-{% assign blog_name_size = site.blog_name | size %}
-{% assign blog_description_size = site.blog_description | size %}
-
-{% if blog_name_size > 0 or blog_description_size > 0 %}
-
-  <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
-    <h2>{{ site.blog_description }}</h2>
-  </div>
-  {% endif %}
+{% comment %} notes 페이지 상단 제목/부제(header-bar) 제거 — 깔끔한 목록만 표시 {% endcomment %}
 
 <div class="row">
   {% if site.categories.size > 0 %}
@@ -42,9 +55,14 @@ pagination:
     <nav class="sticky-top" style="top:5rem;font-size:0.85rem;">
       <h6 class="mb-2" style="font-weight:700;color:#5d5c98">📑 Contents</h6>
       {% for cat in site.categories %}
+        {% assign survey_count = cat[1] | where_exp: "p", "p.tags contains 'survey'" | size %}
+        {% assign paper_count = cat[1] | size | minus: survey_count %}
+        {% assign cat_slug = cat[0] %}
+        {% assign cat_fallback = cat_slug | replace: '-', ' ' | capitalize %}
+        {% assign cat_name = site.data.note_categories[cat_slug].name | default: cat_fallback %}
         <p class="mb-1 mt-2">
           <a data-toggle="collapse" href="#contents-{{ forloop.index }}" role="button" aria-expanded="true" class="d-block text-decoration-none" style="font-weight:700;color:#5d5c98">
-            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat[0] | replace: '-', ' ' | capitalize }}
+            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat_name }} <span style="font-weight:600;color:#9a99c0">({{ paper_count }})</span>
           </a>
         </p>
         <div class="collapse show" id="contents-{{ forloop.index }}">
@@ -80,8 +98,10 @@ pagination:
         <p>&bull;</p>
       {% endif %}
       {% for category in site.display_categories %}
+        {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
+        {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
         <li>
-          <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
+          <a class="cat-chip" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
         </li>
         {% unless forloop.last %}
           <p>&bull;</p>
@@ -189,8 +209,12 @@ pagination:
           {% if tags != "" %}
           &nbsp; &middot; &nbsp;
             {% for tag in post.tags %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">
-              <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            {% assign tag_color = site.data.note_tags[tag] %}
+            {% if tag_color %}
+            <a class="tag-chip" href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}" style="background-color:{{ tag_color.bg }};color:{{ tag_color.fg }}"><i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            {% else %}
+            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"><i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            {% endif %}
               {% unless forloop.last %}
                 &nbsp;
               {% endunless %}
@@ -200,8 +224,10 @@ pagination:
           {% if categories != "" %}
           &nbsp; &middot; &nbsp;
             {% for category in post.categories %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
-              <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
+            {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
+            {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
+            <a class="cat-chip" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
+              <i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
               {% unless forloop.last %}
                 &nbsp;
               {% endunless %}

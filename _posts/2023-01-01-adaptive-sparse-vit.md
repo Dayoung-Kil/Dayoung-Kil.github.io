@@ -4,7 +4,7 @@ title: "[AS-ViT] Adaptive Sparse ViT: Learnable Adaptive Token Pruning by Fully 
 date: 2023-01-01
 description: "Learnable thresholds replace fixed keep-ratios, scoring tokens for free from MHSA's own intermediate results."
 thumbnail: assets/img/notes/adaptive-sparse-vit/fig2.png
-categories: token-reduction
+categories: token-reduction-in-vits
 tags: pruning
 shortname: AS-ViT
 venue: IJCAI 2023

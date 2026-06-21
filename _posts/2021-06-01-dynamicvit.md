@@ -4,7 +4,7 @@ title: "[DynamicViT] Efficient Vision Transformers with Dynamic Token Sparsifica
 date: 2021-06-01
 description: "Dynamically drops redundant tokens per input to speed up ViTs."
 thumbnail: assets/img/notes/dynamicvit/fig1.png
-categories: token-reduction
+categories: token-reduction-in-vits
 tags: pruning
 shortname: DynamicViT
 venue: NeurIPS 2021
