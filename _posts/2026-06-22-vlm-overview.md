@@ -26,10 +26,10 @@ _styles: >
   .post-content .vlm-insights .card-title { font-size: 0.95rem; color: #5d5c98; font-weight: 700; }
   .post-content .vlm-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .vlm-models table { font-size: 0.72rem; }
-  .post-content .vlm-models th, .post-content .vlm-models td { line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
+  .post-content .vlm-models th, .post-content .vlm-models td { font-size: 0.72rem; line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
   .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
   .post-content .vlm-bench table { font-size: 0.72rem; }
-  .post-content .vlm-bench th, .post-content .vlm-bench td { line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
+  .post-content .vlm-bench th, .post-content .vlm-bench td { font-size: 0.7rem; line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
   .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
   .post-content .vlm-bench td:first-child { white-space: nowrap; font-weight: 700; }
   .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }

@@ -1,0 +1,44 @@
+<!-- 🐾 hidden easter egg: type "arittung" anywhere → 아리 & 뚱이 pop up -->
+<div id="ari-ttung-egg" aria-hidden="true">
+  <div class="att-card">
+    <img src="{{ '/assets/img/arittung.png' | relative_url }}" alt="아리 & 뚱이" />
+    <span class="att-h att-h1">💛</span>
+    <span class="att-h att-h2">💛</span>
+    <span class="att-h att-h3">💛</span>
+  </div>
+</div>
+
+<style>
+  #ari-ttung-egg { position: fixed; left: 0; right: 0; bottom: 18px; z-index: 1300; display: none; justify-content: center; pointer-events: none; }
+  #ari-ttung-egg.run { display: flex; }
+  #ari-ttung-egg .att-card { position: relative; pointer-events: auto; cursor: pointer; animation: att-popup .6s cubic-bezier(.2,.85,.25,1.2) both; }
+  #ari-ttung-egg .att-card img { display: block; width: min(360px, 78vw); border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.28); animation: att-wiggle 1.6s ease-in-out infinite; }
+  #ari-ttung-egg .att-h { position: absolute; font-size: 1.4rem; opacity: 0; }
+  #ari-ttung-egg .att-h1 { left: 14%; top: 8%; }
+  #ari-ttung-egg .att-h2 { left: 50%; top: 2%; }
+  #ari-ttung-egg .att-h3 { left: 80%; top: 10%; }
+  #ari-ttung-egg.run .att-h1 { animation: att-float 2.2s ease-in-out .4s infinite; }
+  #ari-ttung-egg.run .att-h2 { animation: att-float 2.2s ease-in-out .9s infinite; }
+  #ari-ttung-egg.run .att-h3 { animation: att-float 2.2s ease-in-out .6s infinite; }
+  @keyframes att-popup { 0% { transform: translateY(120%) scale(.8); opacity: 0; } 60% { transform: translateY(-12px) scale(1.04); opacity: 1; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+  @keyframes att-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  @keyframes att-float { 0% { opacity: 0; transform: translateY(0) scale(.6); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-46px) scale(1.1); } }
+</style>
+
+<script>
+  (function () {
+    var TRIGGER = "arittung", buf = "", busy = false;
+    var el = document.getElementById("ari-ttung-egg");
+    if (!el) return;
+    function stop() { el.classList.remove("run"); busy = false; }
+    function go() { if (busy) return; busy = true; el.classList.add("run"); setTimeout(stop, 6000); }
+    el.addEventListener("click", stop);
+    document.addEventListener("keydown", function (e) {
+      if (!e.key || e.key.length !== 1) return;
+      var t = e.target;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      buf = (buf + e.key.toLowerCase()).slice(-TRIGGER.length);
+      if (buf === TRIGGER) { buf = ""; go(); }
+    });
+  })();
+</script>
