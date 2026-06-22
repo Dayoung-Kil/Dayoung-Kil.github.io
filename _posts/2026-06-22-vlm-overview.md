@@ -28,6 +28,10 @@ _styles: >
   .post-content .vlm-models table { font-size: 0.72rem; }
   .post-content .vlm-models th, .post-content .vlm-models td { line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
   .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .vlm-bench table { font-size: 0.72rem; }
+  .post-content .vlm-bench th, .post-content .vlm-bench td { line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
+  .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .vlm-bench td:first-child { white-space: nowrap; font-weight: 700; }
   .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }
   .post-content .tr-callout p { margin-bottom: 0; }
   .post-content blockquote { font-size: 0.9rem; }
@@ -155,6 +159,29 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 
 - **Connector의 진화** — Flamingo의 cross-attention, BLIP-2의 **Q-Former**(학습 query가 이미지 특징에서 텍스트에 유용한 정보만 압축 추출)처럼 복잡하던 것이, LLaVA에서 **단순 Linear/MLP**로도 충분함이 드러났다(VILA 등도 동일 결론).
 - **Qwen2.5-VL** — 이미지·문서·장시간 비디오를 **네이티브 해상도/시간축 그대로** 다루도록 dynamic resolution·dynamic FPS + absolute time encoding을 도입하고, RMSNorm·SwiGLU·**M-RoPE**(멀티모달 회전 위치 임베딩)로 확장.
+
+## 주요 벤치마크
+
+VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 자주 쓰이는 것들을 묶으면:
+
+<div class="vlm-bench" markdown="1">
+
+| 벤치마크 | 무엇을 보나 | 특징 |
+| --- | --- | --- |
+| **VQAv2** | 일반 시각 인식 + 상식 추론 | 이미지+질문→짧은 답(COCO 기반). 비슷한 이미지쌍으로 언어 편향 완화. 가장 표준적 지표 |
+| **GQA** | 조합적·논리적 추론 | scene graph 기반, and/or/not·비교·관계가 얽힌 질문 |
+| **VizWiz** | 현실 강건성(robustness) | 시각장애인이 찍은 저품질 실사진 + 거친 질문 |
+| **ScienceQA (SQA)** | 지식 기반 멀티모달 추론 | 과학 객관식(이미지+텍스트+선택지+해설 chain) |
+| **TextVQA** | OCR + 시각-언어 정렬 | 이미지 속 문자(간판·메뉴·표지판) 인식·이해 |
+| **POPE** | 환각(hallucination) 억제 | "없는 객체를 있다고 답하나" Yes/No 프로빙. "아는 척" 여부 |
+| **MME** | 종합 성능 | Perception(객체·색·위치·수량) + Cognition(추론·상식·계산)을 분리 채점 |
+| **MMBench** | 인식+추론+지식 종합 | 객관식(MCQ), 자동평가·재현성↑, 모델 랭킹용 (영/중 MMBench-CN) |
+| **SEED-Bench** | 이미지+비디오 이해 | 시간적 추론(temporal) 포함, 정적 VQA를 넘어서는 능력 |
+| **LLaVA-Bench (in the Wild)** | 실사용 체감 품질 | 자유형식 대화, 주관적 평가(창의성·설명력·자연스러움) |
+
+</div>
+
+> **한계.** 많은 벤치마크가 학습(PT/IT) 데이터에 일부 노출돼 변별력이 떨어질 수 있다. 그래서 MMMU·MathVista처럼 더 어렵고 전문적인(수학·다학제) 벤치마크가 등장하는 추세다.
 
 ## 발전 흐름 & 다음 주제
 
