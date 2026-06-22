@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-vlm-overview",
+        },{id: "post-efficient-vlm-overview",
+        
+          title: "Efficient VLM — Overview",
+        
+        description: "Cutting visual tokens to make VLMs cheaper — where it happens (encoder · bridge · LLM), text-guided selection, recover/recycle, and a map of MADTP·CrossGET·IVTP·SparseVLM·Recoverable Compression·CoViPAL.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/efficient-vlm-overview/";
+          
+        },
+      },{id: "post-vlm-overview",
         
           title: "VLM — Overview",
         
