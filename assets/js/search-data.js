@@ -77,11 +77,33 @@ ninja.data = [{
         
           title: "Token Reduction in ViTs — Overview",
         
-        description: "ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with 17 key papers at a glance.",
+        description: "ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with key papers at a glance.",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/token-reduction-overview/";
+          
+        },
+      },{id: "post-llava-onevision-easy-visual-task-transfer",
+        
+          title: "[LLaVA-OneVision] Easy Visual Task Transfer",
+        
+        description: "The first single open LMM strong across single-image, multi-image, and video — with cross-scenario task transfer (video understanding emerges from image training) via a balanced AnyRes token budget.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/llava-onevision/";
+          
+        },
+      },{id: "post-internvl-scaling-up-vision-foundation-models-and-aligning-for-generic-visual-linguistic-tasks",
+        
+          title: "[InternVL] Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks",
+        
+        description: "Argues the vision encoder is too small next to the LLM, so it scales the encoder to 6B (InternViT-6B) and bridges it with an 8B language middleware (QLLaMA) via progressive contrastive→generative alignment.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/internvl/";
           
         },
       },{id: "post-token-cropr-token-cropr-faster-vits-for-quite-a-few-tasks",
@@ -139,6 +161,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/star/";
           
         },
+      },{id: "post-qwen-vl-a-versatile-vision-language-model-for-understanding-localization-text-reading-and-beyond",
+        
+          title: "[Qwen-VL] A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond",
+        
+        description: "Adds vision to Qwen-7B via a ViT + position-aware cross-attention adapter (256 query tokens), trained in 3 stages — and adds grounding and text-reading via box/ref special tokens.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/qwen-vl/";
+          
+        },
       },{id: "post-token-fusion-tofu-bridging-the-gap-between-token-pruning-and-token-merging",
         
           title: "[Token Fusion / ToFu] Bridging the Gap between Token Pruning and Token Merging...",
@@ -172,6 +205,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/zero-tprune/";
           
         },
+      },{id: "post-instructblip-towards-general-purpose-vision-language-models-with-instruction-tuning",
+        
+          title: "[InstructBLIP] Towards General-purpose Vision-Language Models with Instruction Tuning",
+        
+        description: "Instruction-tunes BLIP-2 on 26 datasets, and makes the Q-Former instruction-aware — feeding the instruction to the Q-Former so it extracts visual features tailored to the task.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/instructblip/";
+          
+        },
       },{id: "post-token-pooling-token-pooling-in-vision-transformers",
         
           title: "[Token Pooling] Token Pooling in Vision Transformers",
@@ -181,6 +225,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/token-pooling/";
+          
+        },
+      },{id: "post-minigpt-4-enhancing-vision-language-understanding-with-advanced-large-language-models",
+        
+          title: "[MiniGPT-4] Enhancing Vision-Language Understanding with Advanced Large Language Models",
+        
+        description: "Aligns a frozen vision encoder (BLIP-2&#39;s ViT+Q-Former) and a frozen Vicuna with a single linear projection layer — showing GPT-4-like abilities emerge from minimal alignment of a strong LLM.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/minigpt-4/";
           
         },
       },{id: "post-llava-visual-instruction-tuning",
@@ -214,6 +269,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/diffrate/";
+          
+        },
+      },{id: "post-kosmos-1-language-is-not-all-you-need-aligning-perception-with-language-models",
+        
+          title: "[Kosmos-1] Language Is Not All You Need: Aligning Perception with Language Models",
+        
+        description: "A multimodal LLM trained from scratch on web-scale interleaved image-text — perceiving general modalities, learning in context (few-shot), and following instructions (zero-shot), without a frozen LLM.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/kosmos-1/";
           
         },
       },{id: "post-tome-token-merging-your-vit-but-faster",
