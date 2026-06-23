@@ -11,7 +11,7 @@ venue: WACV 2023
 giscus_comments: false
 related_posts: false
 toc:
-  sidebar: left
+  sidebar: right
 _styles: >
   .post-title { font-size: 1.6rem; line-height: 1.35; }
   .post-content { font-size: 0.92rem; line-height: 1.75; }
@@ -24,7 +24,7 @@ _styles: >
 ---
 
 <div class="mb-2">
-  <span class="badge rounded-pill me-1" style="background-color:#7e57c2;color:#fff">Pooling</span>
+  <span class="badge rounded-pill me-1" style="background-color:#b1d3b9;color:#1c1c1d">Pooling</span>
   <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">WACV 2023</span>
 </div>
 <p class="text-muted mb-3">Dmitrii Marin, Jen-Hao Rick Chang, Anurag Ranjan, Anish Prabhu, Mohammad Rastegari, Oncel Tuzel · University of Waterloo / Apple</p>

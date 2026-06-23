@@ -1,17 +1,46 @@
-# Badge colors for method-type tags (tag → background / foreground).
-# Mirrors the taxonomy used in per-paper note badges.
+# Badge colors for method-type / component tags (tag → background / foreground).
+# Token Reduction in ViTs = GREEN family; VLM = BLUE family.
+# survey (overview) + venue badges share neutral slate #4d5f8c.
+
+# --- Token Reduction in ViTs: method types (green family) ---
 pruning:
-  bg: "#e8c468"
-  fg: "#1c1c1d"
+  bg: "#659287"
+  fg: "#ffffff"
 merging:
-  bg: "#c0566e"
-  fg: "#ffffff"
+  bg: "#88bda4"
+  fg: "#1c1c1d"
 pooling:
-  bg: "#7e57c2"
-  fg: "#ffffff"
+  bg: "#b1d3b9"
+  fg: "#1c1c1d"
 hybrid:
-  bg: "#5a9e6f"
-  fg: "#ffffff"
+  bg: "#e6f2dd"
+  fg: "#1c1c1d"
 survey:
   bg: "#4d5f8c"
   fg: "#ffffff"
+
+# --- VLM: full models + 5-component architecture (blue family) ---
+vlm:
+  bg: "#2698ba"
+  fg: "#ffffff"
+  name: VLM
+modality-encoder:
+  bg: "#3a7ca5"
+  fg: "#ffffff"
+  name: Modality Encoder
+input-projector:
+  bg: "#4a90c2"
+  fg: "#ffffff"
+  name: Input Projector
+llm-backbone:
+  bg: "#2a6f97"
+  fg: "#ffffff"
+  name: LLM Backbone
+output-projector:
+  bg: "#6c8ebf"
+  fg: "#ffffff"
+  name: Output Projector
+modality-generator:
+  bg: "#28406e"
+  fg: "#ffffff"
+  name: Modality Generator

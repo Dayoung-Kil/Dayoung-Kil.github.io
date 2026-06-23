@@ -2,31 +2,50 @@
   Unified skills entry renderer for both formats
 {% endcomment %}
 
-<div class="card-text font-weight-light">
+<div class="card-text font-weight-light cv-skills">
   {% for entry in entries %}
     <div class="skill-item">
-      {% if entry.icon %}
-        <i class="{{ entry.icon }}"></i>
-      {% endif %}
-      <strong>
-        {{- entry.name -}}
-        {%- if entry.level %} ({{ entry.level }}){% endif %}:</strong
-      >
+      <div class="skill-cat">
+        {% if entry.icon %}<i class="{{ entry.icon }}"></i>{% endif %}
+        {{- entry.name -}}{%- if entry.level %} ({{ entry.level }}){% endif -%}
+      </div>
       {% if entry.keywords %}
-        {% for keyword in entry.keywords %}
-          {% if forloop.last %}
-            {{ keyword }}
-          {% else %}
-            {{ keyword }},
-          {% endif %}
-        {% endfor %}
+        <div class="skill-tags">
+          {% for keyword in entry.keywords %}
+            <span class="badge rounded-pill bg-light text-dark border">{{ keyword }}</span>
+          {% endfor %}
+        </div>
       {% endif %}
     </div>
   {% endfor %}
 </div>
 
 <style>
-  .skill-item {
-    padding: 0.5rem 0;
+  .cv-skills .skill-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.6rem;
+    padding: 0.4rem 0;
+  }
+  .cv-skills .skill-cat {
+    flex: 0 0 9rem;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--global-theme-color);
+  }
+  .cv-skills .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .cv-skills .skill-tags .badge {
+    font-size: 0.72rem;
+    font-weight: 400;
+  }
+  @media (max-width: 576px) {
+    .cv-skills .skill-cat {
+      flex-basis: 100%;
+    }
   }
 </style>

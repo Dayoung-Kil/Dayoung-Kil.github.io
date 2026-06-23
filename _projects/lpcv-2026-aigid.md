@@ -20,7 +20,7 @@ _styles: >
 
 <div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
   <p class="lead mb-2" style="font-weight:700">Can a phone tell a real photo from an AI-generated one — and <em>explain its reasoning</em>?</p>
-  <p class="mb-0">Our entry to the 2026 IEEE Low-Power Computer Vision Challenge does both, fully on-device, under the contest's strict latency and power budgets.</p>
+  <p class="mb-0">Our entry in the 2026 IEEE Low-Power Computer Vision Challenge does both, fully on-device, under the contest's strict latency and power budgets.</p>
 </div>
 
 <p>
@@ -34,7 +34,7 @@ _styles: >
 
 {% include figure.liquid loading="lazy" path="assets/img/projects/lpcv_challenge.png" class="img-fluid rounded z-depth-1" zoomable=true caption="2026 IEEE Low-Power Computer Vision Challenge — Track 3: AI Generated Images Detection." %}
 
-Track 3 raises the bar past a yes/no classifier: the model has to **decide *and* justify**.
+Track 3 goes beyond a yes/no classifier: the model has to **decide *and* justify**.
 
 > Saying "fake" isn't enough — the model has to point to **what** gives it away.
 
@@ -44,14 +44,14 @@ Every prediction therefore has two parts:
 - **Explanation** — a score and written evidence for each of **8 forensic criteria**:
 
 <div class="row g-2 my-3">
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>💡 Lighting &amp; Shadows</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>✂️ Edges &amp; Boundaries</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>🧵 Texture &amp; Resolution</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>📐 Perspective &amp; Space</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>⚖️ Physical / Common-Sense</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>🔤 Text &amp; Symbols</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>🧍 Human / Biological</small></div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>🧱 Material &amp; Object Detail</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Lighting &amp; Shadows</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Edges &amp; Boundaries</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Texture &amp; Resolution</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Perspective &amp; Space</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Physical / Common-Sense</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Text &amp; Symbols</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Human / Biological</small></div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center"><small>Material &amp; Object Detail</small></div></div>
 </div>
 
 The organizers grade the submitted binary in **two stages**: first the model reads the image and writes a free-form analysis across the 8 criteria *(Stage 1)*, then it folds that analysis into one structured **JSON** — per-criterion score, evidence, and final verdict *(Stage 2)*.
@@ -105,21 +105,98 @@ The system comes together in three parts: building a **labeled dataset**, a **st
 
 ### 1 · Data & annotation
 
-The hard part: almost none of the source images came with the 8-criteria labels the task needs.
+Almost none of the source images came with the 8-criteria labels the task needs — so we generated them ourselves, using **Qwen2.5-VL-7B** as a teacher model. **89,263 images** in all, balanced ~50 : 50 real / fake.
 
-- **Sources** — fakes from **GenImage (ADM, BigGAN)**, **SID-Set**, and **SynthScars**; real photos from **ImageNet** and **COCO**.
-- **Auto-labeling** — **Qwen2.5-VL** annotates every image with a domain tag, text/person flags, and a 0–2 score + evidence per criterion.
-- **Real images** get all-zero scores and a "no artifacts" note — turning a pile of unlabeled images into a fully supervised set.
+<div class="row g-3 my-3">
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-2" style="color:#5d5c98">AI-generated sources</h6>
+      <p class="mb-0 text-muted">ARForensics <em>(Infinity · Janus-Pro · LlamaGen · RAR · …)</em> · GenImage <em>(ADM · BigGAN)</em> · SID-Set · SynthScars</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-2" style="color:#5d5c98">Real sources</h6>
+      <p class="mb-0 text-muted">ImageNet · COCO train2017 · SID-Set <em>(real split)</em></p>
+    </div>
+  </div>
+</div>
 
-### 2 · A 3-step training curriculum
+#### Auto-labeling — 4 questions per image
 
-A general VLM doesn't know what AI artifacts look like, so we taught **Qwen2-VL-2B** in stages with **LoRA+** *(LoRA, DoRA and PiSSA were also tried; the 7B model overfit, so 2B won)*:
+Instead of one yes/no call, we ask the teacher **three vision passes**, each scanning a slice of the 8 criteria, then **fuse them into JSON** in a final text-only pass.
 
-- **Step 0 — learn to *analyze.*** Free-form "real or fake, and why" reasoning, so the model learns to *see* artifacts.
-- **Step 1 — learn the *format.*** Compress that reasoning into the contest's compact template (~300 tokens) — token budget is part of the speed gate.
-- **Step 2 — learn the *JSON.*** Emit valid structured output, with a consistency rule so any fake-criterion forces an `AI-Generated` verdict.
+<div class="row g-2 my-3">
+  <div class="col-md-4"><div class="card h-100 p-3"><strong>Q1 · Vision</strong><br><small class="text-muted">edges · texture · material</small></div></div>
+  <div class="col-md-4"><div class="card h-100 p-3"><strong>Q2 · Vision</strong><br><small class="text-muted">physics · text · human</small></div></div>
+  <div class="col-md-4"><div class="card h-100 p-3"><strong>Q3 · Vision</strong><br><small class="text-muted">lighting · perspective</small></div></div>
+</div>
 
-The trained adapter is then **merged** into the base model to give a single deployable network.
+<div class="card p-3 my-2" style="border-left:4px solid #5d5c98;">
+  <strong>Q4 · Text-only synthesis</strong> — fold Q1–Q3 into one structured JSON: an <code>aigc score</code> + written <code>evidence</code> per criterion, plus an overall <code>Real / AI-Generated</code> verdict.
+</div>
+
+<p class="text-muted small mt-2">Fake images get a one-line hint prepended so the model looks for artifacts; real images come out all-zero with "looks authentic" evidence — yielding a fully supervised set.</p>
+
+Each image becomes one annotation JSON *(8 criteria shown trimmed to 3)*:
+
+```json
+{
+  "per_criterion": [
+    { "criterion": "Lighting & Shadows Consistency",
+      "evidence": "Lighting is consistent throughout; no abrupt brightness or shadow changes.",
+      "aigc score": 0 },
+    { "criterion": "Physical & Common Sense Logic",
+      "evidence": "The fish has an unusual shape and size; the person's features look exaggerated.",
+      "aigc score": 1 },
+    { "criterion": "Human & Biological Structure Integrity",
+      "evidence": "Unrealistic proportions and facial features; fish anatomy is inconsistent.",
+      "aigc score": 1 }
+    // … 8 criteria total
+  ],
+  "overall_likelihood": "AI-Generated"
+}
+```
+
+### 2 · A staged LoRA training chain
+
+A general VLM doesn't know what AI artifacts look like, so we adapt **Qwen2-VL-2B** over **four LoRA phases**. Each phase trains an adapter, then **merges** it into the base before the next starts — so skills stack into one deployable network *(LoRA+ won out over LoRA / DoRA / PiSSA; the 7B model overfit, so 2B won)*.
+
+<div class="row g-3 my-3">
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P1</span> Detect</h6>
+      <p class="mb-2 small">Emit the per-criterion + overall verdict from a single prompt.</p>
+      <p class="mb-0"><code>token CE + 2.0 × BCE</code><br><small class="text-muted">aux real/fake head on vision features</small></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P2</span> Stay consistent</h6>
+      <p class="mb-2 small">Multi-prompt robustness (4 phrasings/image), scores tied to the written answer.</p>
+      <p class="mb-0"><code>token CE + 0.1 × overall BCE + 0.05 × criterion BCE</code></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P3</span> Explain</h6>
+      <p class="mb-2 small">Image → free-form written <strong>evidence</strong> for each criterion.</p>
+      <p class="mb-0"><code>standard SFT token CE</code></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P4</span> Format</h6>
+      <p class="mb-2 small">Text-only → one valid <strong>JSON</strong>; any fake criterion forces an <code>AI-Generated</code> verdict.</p>
+      <p class="mb-0"><code>standard SFT token CE</code></p>
+    </div>
+  </div>
+</div>
+
+<div class="p-3 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+  <p class="mb-2"><strong>Vision tower</strong> — unfrozen <strong>only in P1</strong>, so the ViT itself learns to see artifacts; frozen for P2–P4. The auxiliary heads (P1, P2) are dropped after training — only the LoRA delta is merged.</p>
+  <p class="mb-0"><strong>P4 runs in two passes</strong> — a warmup (lr 5e-5) then a low-lr final (lr 1e-5) to lock the JSON format without overfitting. The merged P4 model is what ships to quantization.</p>
+</div>
 
 ### 3 · Quantization & deployment
 

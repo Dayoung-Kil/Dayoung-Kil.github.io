@@ -23,7 +23,23 @@
     <!-- Content -->
     <div class="container mt-5" role="main">
       {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
+        {% if page.toc.sidebar == 'right' and page.categories %}
+          <!-- Notes: Contents nav (left) + content (center) + heading TOC (right) -->
+          <style>
+            @media (min-width: 992px) {
+              .container[role="main"] { max-width: 1400px; }
+            }
+          </style>
+          <div class="row">
+            <div class="col-lg-3 order-2 order-lg-1 mb-4">
+              {% include notes_contents.liquid %}
+            </div>
+            <div class="col-lg-7 order-1 order-lg-2">{{ content }}</div>
+            <div class="col-lg-2 order-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+          </div>
+        {% elsif page.toc.sidebar == 'right' %}
           <div class="row">
             <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>

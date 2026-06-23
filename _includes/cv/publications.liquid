@@ -40,7 +40,7 @@
             {% endif %}
 
             {% if entry.summary %}
-              <p class="ml-1 ml-md-4">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+              <p class="ml-1 ml-md-4 pub-summary">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             {% endif %}
           </div>
         {% else %}
@@ -60,7 +60,7 @@
             {% endif %}
 
             {% if entry.summary %}
-              <p class="ml-1 ml-md-4">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+              <p class="ml-1 ml-md-4 pub-summary">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             {% endif %}
           </div>
         {% endif %}
@@ -68,3 +68,12 @@
     </li>
   {% endfor %}
 </ul>
+
+<style>
+  .pub-summary {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--global-text-color-light, #828282);
+    margin-top: 0.3rem;
+  }
+</style>

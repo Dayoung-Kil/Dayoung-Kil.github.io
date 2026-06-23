@@ -23,7 +23,7 @@ _styles: >
 
 <div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
   <p class="lead mb-2" style="font-weight:700">Can a phone-sized network rebuild the 3D layout of a room from a <em>single</em> panorama?</p>
-  <p class="mb-0">We make HorizonNet lightweight: its ResNet backbone is replaced by a searched MnasNet, and its LSTM by a GRU. The result runs at less than half the parameters — with almost no loss in layout accuracy.</p>
+  <p class="mb-0">We make HorizonNet lightweight: its ResNet backbone is replaced by a searched MnasNet, and its LSTM by a GRU. The result runs on under half the parameters, with almost no loss in layout accuracy.</p>
 </div>
 
 <p>
@@ -41,7 +41,7 @@ _styles: >
 
 ## The problem
 
-Sharing the inside of a home as a single photo or panorama is everyday now — but a 2D image **distorts the real size and proportions** of a 3D space. *Room layout estimation* recovers the true 3D structure (floor, ceiling, walls) from one image, which is useful for architects, interior design, and AR.
+Sharing the inside of a home as a single photo or panorama is commonplace now — but a 2D image **distorts the real size and proportions** of a 3D space. *Room layout estimation* recovers the true 3D structure (floor, ceiling, walls) from one image, which is useful for architects, interior design, and AR.
 
 The catch: state-of-the-art models like **HorizonNet** are heavy, and camera ISPs / embedded platforms have a tight compute budget.
 
@@ -51,9 +51,31 @@ The catch: state-of-the-art models like **HorizonNet** are heavy, and camera ISP
 
 ## Approach
 
-HorizonNet recovers a layout in three stages — **pre-processing** (align the panorama, detect vanishing points), **feature extraction** (predict a 1D layout of ceiling/floor/wall boundaries), and **post-processing** (lift it to 3D under the Manhattan-world assumption). We leave this pipeline intact and only make the **feature-extraction network** lightweight.
+HorizonNet recovers a layout in three stages. We leave the pipeline intact and slim down **only the middle one** — the feature-extraction network.
 
-The feature extractor in HorizonNet is **ResNet-50 + LSTM**. We replace both halves with lighter modules and **search** the configuration instead of hand-fixing it:
+<div class="row g-2 my-3 text-center">
+  <div class="col-md-4">
+    <div class="card h-100 p-3">
+      <small class="text-muted text-uppercase">Pre-processing</small>
+      <p class="mb-0 mt-1 small">align the panorama · detect vanishing points</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100 p-3" style="border:2px solid #5d5c98">
+      <strong style="color:#5d5c98" class="text-uppercase">Feature extraction</strong>
+      <p class="mb-1 mt-1 small">predict 1D ceiling / floor / wall boundaries</p>
+      <span class="badge rounded-pill" style="background-color:#5d5c98;color:#fff">we make this lightweight</span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100 p-3">
+      <small class="text-muted text-uppercase">Post-processing</small>
+      <p class="mb-0 mt-1 small">lift to 3D under the Manhattan-world assumption</p>
+    </div>
+  </div>
+</div>
+
+The feature extractor in HorizonNet is **ResNet-50 + LSTM**. We replace both halves with lighter modules and **search** the configuration instead of hand-tuning it:
 
 | Stage | HorizonNet (baseline) | Ours (lightweight) |
 | --- | --- | --- |
@@ -63,12 +85,24 @@ The feature extractor in HorizonNet is **ResNet-50 + LSTM**. We replace both hal
 
 ### Why these swaps
 
-- **ResNet-50 → MnasNet.** MnasNet decomposes the network into blocks and uses a *factorized hierarchical search space* — each block can differ, but layers inside a block share structure, so the search space stays small and mobile-friendly.
-- **LSTM → GRU.** A GRU merges the LSTM's input/forget gates into one update gate and its cell/hidden states into a single state — fewer parameters for the same sequence modeling.
+<div class="row g-3 my-3">
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-2" style="color:#5d5c98">ResNet-50 → MnasNet</h6>
+      <p class="mb-0 small">MnasNet decomposes the network into blocks over a <em>factorized hierarchical search space</em> — each block can differ, but layers inside a block share structure, so the search space stays small and mobile-friendly.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 p-3">
+      <h6 class="mb-2" style="color:#5d5c98">LSTM → GRU</h6>
+      <p class="mb-0 small">A GRU merges the LSTM's input / forget gates into one update gate, and its cell / hidden states into a single state — fewer parameters for the same sequence modeling.</p>
+    </div>
+  </div>
+</div>
 
 ### Searching the backbone
 
-We tune the 6 inverted-residual blocks with sampling-based optimization. Mirroring ResNet's `256·512·1024·2048` blew up the parameter count, so we use **`128 · 256 · 512 · 1024 · 36 · 24`** out-channels, and assign **fewer repeats to the wide blocks** — trading FLOPs and parameters for almost no accuracy drop.
+We tune the 6 inverted-residual blocks with sampling-based optimization. Mirroring ResNet's `256·512·1024·2048` blew up the parameter count, so we use **`128 · 256 · 512 · 1024 · 36 · 24`** out-channels, and assign **fewer repeats to the wide blocks** — cutting FLOPs and parameters at almost no accuracy cost.
 
 {% include figure.liquid loading="lazy" path="assets/img/projects/room_layout_arch.png" class="img-fluid rounded z-depth-1" zoomable=true caption="Factorized hierarchical search space of our MnasNet backbone. Each of the 6 blocks is tuned by sampling-based optimization over kernel size, stride, expansion ratio, repeat count, and output channels." %}
 
@@ -110,13 +144,13 @@ On real THETA panoramas, the lightweight model's 3D reconstructions show **no si
 | **MnasNet + GRU *(ours)*** | **37.6 M** | **58.48** | **0.21** |
 
 - **MnasNet does the heavy lifting** — it alone roughly halves the parameters (81.6M → 40.4M) and cuts FLOPs (71.83 → 59.19).
-- **GRU trims a bit more** (40.4M → 37.6M) and, interestingly, *improves* MSE (0.23 → 0.21): once the model is right-sized, extra under-trained parameters were hurting rather than helping.
+- **GRU trims a bit more** (40.4M → 37.6M) and, interestingly, *improves* MSE (0.23 → 0.21): once the model is right-sized, the extra under-trained parameters hurt more than they helped.
 
 <hr>
 
 ## Takeaways
 
-- A searched MobileNet-style backbone + GRU makes panoramic room-layout estimation **embedded-friendly** at less than half the parameters.
+- A searched MobileNet-style backbone + GRU makes panoramic room-layout estimation **embedded-friendly** with under half the parameters.
 - The accuracy cost is small (≈2 IoU points), and qualitatively the 3D layouts are indistinguishable from the full model.
 
 **Future work:** add the Structured3D dataset, and use reinforcement learning to search the remaining inverted-residual hyperparameters (kernel size, expansion ratio, stride).

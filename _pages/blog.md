@@ -52,51 +52,7 @@ pagination:
 <div class="row">
   {% if site.categories.size > 0 %}
   <div class="col-lg-3 mb-4 order-2 order-lg-1">
-    <nav class="sticky-top" style="top:5rem;font-size:0.78rem;">
-      <h6 class="mb-2" style="font-weight:700;color:#1c1c1d">Contents</h6>
-      {% for cat in site.categories %}
-        {% assign survey_count = cat[1] | where_exp: "p", "p.tags contains 'survey'" | size %}
-        {% assign paper_count = cat[1] | size | minus: survey_count %}
-        {% assign cat_slug = cat[0] %}
-        {% assign cat_fallback = cat_slug | replace: '-', ' ' | capitalize %}
-        {% assign cat_name = site.data.note_categories[cat_slug].name | default: cat_fallback %}
-        <p class="mb-1 mt-2">
-          <a data-toggle="collapse" href="#contents-{{ forloop.index }}" role="button" aria-expanded="true" class="d-block text-decoration-none" style="font-weight:700;color:#1c1c1d">
-            <i class="fa-solid fa-caret-down fa-xs mr-1"></i>{{ cat_name }} <span style="font-weight:600;color:#1c1c1d">({{ paper_count }})</span>
-          </a>
-        </p>
-        <div class="collapse show" id="contents-{{ forloop.index }}">
-          <ul class="list-unstyled mb-3" style="padding-left:0.9rem;font-size:0.72rem">
-            {% comment %} survey/overview 먼저 고정 {% endcomment %}
-            {% for post in cat[1] %}{% if post.tags contains 'survey' %}
-              <li class="mb-2"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a></li>
-            {% endif %}{% endfor %}
-            {% comment %} 방법 계열별 그룹 (그룹 내 연도순) {% endcomment %}
-            {% assign type_order = "pruning,merging,pooling,hybrid" | split: "," %}
-            {% for t in type_order %}
-              {% assign group = cat[1] | where_exp: "p", "p.tags contains t" | sort: "date" %}
-              {% if group.size > 0 %}
-                {% assign tc = site.data.note_tags[t] %}
-                <li class="mt-2 mb-1"><span class="ct-type" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ t | capitalize }}</span></li>
-                {% for post in group %}
-                <li class="mb-1" style="padding-left:0.25rem"><a href="{{ post.url | relative_url }}">{{ post.shortname | default: post.title }}</a>{% if post.venue %} <span class="text-muted" style="font-size:0.66rem">{{ post.venue }}</span>{% endif %}</li>
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
-      {% if site.display_categories and site.display_categories.size > 0 %}
-      <div class="mt-3" style="font-size:0.72rem">
-        <h6 class="mb-2" style="font-weight:700;color:#1c1c1d">Categories</h6>
-        {% for category in site.display_categories %}
-          {% assign cat_fallback = category | replace: '-', ' ' | capitalize %}
-          {% assign cat_name = site.data.note_categories[category].name | default: cat_fallback %}
-          <a class="cat-chip d-inline-block mb-1" href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fa-solid fa-tag fa-sm"></i> {{ cat_name }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </nav>
+    {% include notes_contents.liquid %}
   </div>
   {% endif %}
   <div class="col-lg-9 order-1 order-lg-2">

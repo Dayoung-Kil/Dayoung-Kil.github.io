@@ -11,7 +11,7 @@ venue: Survey
 giscus_comments: false
 related_posts: false
 toc:
-  sidebar: left
+  sidebar: right
 _styles: >
   .post-title { font-size: 1.8rem; }
   .post-content { font-size: 0.92rem; line-height: 1.75; }
@@ -25,12 +25,15 @@ _styles: >
   .post-content .vlm-tax .card-text { font-size: 0.82rem; line-height: 1.6; }
   .post-content .vlm-insights .card-title { font-size: 0.95rem; color: #5d5c98; font-weight: 700; }
   .post-content .vlm-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
-  .post-content .vlm-models table { font-size: 0.72rem; }
-  .post-content .vlm-models th, .post-content .vlm-models td { font-size: 0.72rem; line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
+  .post-content .vlm-models table { font-size: 0.8rem; width: 100%; }
+  .post-content .vlm-models th, .post-content .vlm-models td { font-size: 0.8rem; line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
   .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .vlm-models tr.gen td { background-color: rgba(38,152,186,0.12); color:#1c1c1d; font-weight: 700; font-size: 0.76rem; border-top: 2px solid #2698ba; padding: 0.3rem 0.5rem; }
   .post-content .vlm-bench table { font-size: 0.72rem; }
   .post-content .vlm-bench th, .post-content .vlm-bench td { font-size: 0.7rem; line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
   .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .vlm-adapt table { font-size: 0.72rem; }
+  .post-content .vlm-adapt th, .post-content .vlm-adapt td { font-size: 0.72rem; line-height: 1.45; padding: 0.3rem 0.45rem; vertical-align: top; }
   .post-content .vlm-bench td:first-child { white-space: nowrap; font-weight: 700; }
   .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }
   .post-content .tr-callout p { margin-bottom: 0; }
@@ -43,16 +46,26 @@ _styles: >
 <p class="text-muted mb-3">참고: Zhang et al., "MM-LLMs: Recent Advances in Multimodal Large Language Models." ACL 2024 (+ Flamingo·BLIP-2·LLaVA·Qwen2.5-VL)</p>
 
 <div class="tr-callout p-3 my-3 rounded">
-  <p><strong>한 줄 요약.</strong> VLM(넓게는 멀티모달 LLM)은 <strong>이미 잘 학습된 단일 모달 foundation 모델</strong>(특히 LLM)을 그대로 가져와, 다른 모달리티(이미지·비디오·오디오)를 <strong>LLM이 알아듣는 토큰 공간으로 정렬(connector)</strong> 해 붙인 모델이다. 처음부터 학습하지 않으니 싸고, LLM의 추론·ICL·instruction following 능력을 물려받는다. 구조는 <strong>5개 부품</strong>(Modality Encoder → Input Projector → LLM Backbone → Output Projector → Modality Generator)으로 일반화되며, <strong>이해(understanding)</strong> 만 하면 앞 3개, <strong>생성(generation)</strong> 까지 하면 5개를 쓴다. 보통 <strong>encoder·LLM·generator는 freeze</strong>하고 가벼운 projector만 학습해 학습 파라미터가 전체의 약 2%뿐이다.</p>
+  <p><strong>한 줄 요약.</strong> VLM(넓게는 멀티모달 LLM)은 <strong>새 모델을 처음부터 만들지 않는다.</strong> 이미 잘 학습된 <strong>비전 인코더와 LLM을 그대로(freeze) 가져와</strong>, 그 사이에 <strong>얇은 connector만 학습</strong>해 이미지·비디오·오디오를 LLM이 알아듣는 토큰으로 정렬한다. 그래서 싸게 만들면서 LLM의 추론·ICL·instruction-following 능력을 물려받는다. 이 노트는 그 구조를 <strong>5개 부품</strong>으로 정리하고, 입출력 분류·학습 방식·대표 모델(Flamingo → BLIP-2 → LLaVA → …)이 어떻게 갈라지는지 따라간다.</p>
 </div>
 
-{% include figure.liquid loading="eager" path="assets/img/notes/vlm-overview/teaser.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 한눈에 보기 — Modality Encoder → Adapter(Connector) → LLM Backbone → (Adapter → Generator)의 5단계 파이프라인과 부품별 선택지, 그리고 이해(Understanding)·생성(Generation) 분기. (직접 정리)" %}
+{% include figure.liquid loading="eager" path="assets/img/notes/vlm-overview/teaser.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 한눈에 보기 — Modality Encoder → Adapter(Connector) → LLM Backbone → (Adapter → Generator)의 5단계 파이프라인과 부품별 선택지, 그리고 이해(Understanding)·생성(Generation) 분기." %}
 
 ## VLM이란?
 
-멀티모달 모델을 처음부터(from scratch) 학습하면 비용이 폭발한다. 그래서 **이미 강력한 단일 모달 모델을 재활용**하는 흐름이 등장했다 — 특히 **LLM을 "인지 엔진(cognitive engine)"** 으로 두고, 비전·오디오 등 다른 모달리티의 사전학습 인코더를 거기에 연결한다.
+조금 더 풀어보자. 핵심은 **LLM을 "인지 엔진(cognitive engine)"** 으로 두는 것이다 — 비전·오디오 등 다른 모달리티의 사전학습 인코더를 LLM에 연결해, **추론·판단은 LLM이 맡게** 한다.
 
-- **왜 LLM 중심인가** — LLM은 강한 언어 생성, zero-shot 전이, In-Context Learning(ICL), CoT, instruction following을 이미 갖췄다. 이걸 버리지 않고 그대로 쓴다.
+- **왜 LLM 중심인가** — LLM은 강한 언어 생성, zero-shot 전이, In-Context Learning(ICL), CoT, instruction following을 이미 갖췄다. 처음부터 다시 배우는 대신 이걸 그대로 물려받는다.
+
+<div class="tr-callout p-3 my-3 rounded">
+  <p class="mb-2"><strong>물려받는 핵심 능력 3가지</strong></p>
+  <ul class="mb-0">
+    <li><strong>추론(Reasoning)</strong> — 여러 단계를 거쳐 논리적 결론을 도출(예: CoT, "단계별로 생각"). VLM에선 이미지+상식을 결합해 답을 유도.</li>
+    <li><strong>ICL(In-Context Learning)</strong> — <strong>재학습 없이</strong> 프롬프트 속 예시 몇 개만 보고 추론 시점에 즉석으로 task를 학습(few-/zero-shot).</li>
+    <li><strong>Instruction following</strong> — 자연어 지시를 이해·수행하고 <strong>새 지시에도 일반화</strong>. Instruction Tuning(SFT+RLHF)으로 사람 의도에 정렬.</li>
+  </ul>
+</div>
+
 - **핵심 난제** — 서로 따로 사전학습된 모달리티 모델들을 **어떻게 연결(align)해 함께 추론**하게 하느냐. 그래서 대부분의 연구가 **모달리티 정렬 + 사람 의도 정렬(MM PT + MM IT)** 에 집중한다.
 
 > 즉 VLM은 "새 모델을 만든다"기보다 **"freeze된 비전 인코더와 freeze된 LLM 사이에 얇은 다리(connector)를 학습으로 놓는다"** 에 가깝다.
@@ -141,25 +154,78 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 - **MM PT (Pre-Training)** — X-Text 데이터(이미지-텍스트 쌍, interleaved 코퍼스 등)로 **projector를 학습해 모달리티를 정렬**. 이해 모델은 입력 projector만, 생성 모델은 출력 projector·생성 손실까지 함께 최적화.
 - **MM IT (Instruction-Tuning)** — instruction 형식 데이터로 fine-tune해 **새 지시에 일반화**(zero-shot↑). **SFT**(지도 미세조정) + **RLHF**(사람 피드백 강화학습)로 사람 의도와 대화 능력을 맞춘다.
 
-## 대표 모델 한눈에
+## 관련 논문 한눈에 보기
 
-같은 5-부품 틀 위에서 **무엇을 connector로 쓰고, 어떻게 학습하느냐**가 모델을 가른다.
+먼저 **태그(부품·유형)별로**, 풀 모델인 **VLM**은 다시 **세대(G1→G4)별**로 본다.
+
+### <span class="badge rounded-pill" style="background-color:#3a7ca5;color:#fff;font-size:0.9rem">Modality Encoder</span>
 
 <div class="vlm-models" markdown="1">
 
-| 모델 | I→O | Encoder | Connector | LLM | 학습 단계 |
-| --- | --- | --- | --- | --- | --- |
-| **Flamingo** <span class="text-muted">(NeurIPS 2022)</span> | I+V+T→T | NFNet-F6 | Cross-attention (Perceiver Resampler) + gated cross-attn | Chinchilla | 1단계: ViT·LLM freeze, resampler·gated cross-attn만 학습 |
-| **BLIP-2** <span class="text-muted">(ICML 2023)</span> | I+T→T | CLIP / EVA-CLIP ViT | **Q-Former** (+ Linear) | Flan-T5 / OPT | 2단계: ①표현학습(인코더 freeze+Q-Former) ②생성학습(LLM freeze+Q-Former) |
-| **LLaVA** <span class="text-muted">(NeurIPS 2023)</span> | I+T→T | CLIP ViT-L/14 | **Linear** projection | Vicuna 7B/13B | 2단계: ①정렬(인코더·LLM freeze, projection만) ②지시튜닝(projection+LLM) |
-| **LLaVA-1.5** <span class="text-muted">(CVPR 2024)</span> | I+T→T | CLIP ViT-L@336 | **MLP** projection | Vicuna-1.5 7B/13B | LLaVA + MLP 커넥터·고해상도(336)·학술 VQA/포맷 프롬프트 데이터 |
-| **Qwen2.5-VL** <span class="text-muted">(arXiv 2025)</span> | I+V+T→T | native dynamic-resolution ViT | MLP merger | Qwen2.5 | 4단계: 인코더 → V-L 정렬 → end-to-end 멀티모달 PT(비디오/에이전트) → SFT |
+| 모델 | 핵심 |
+| --- | --- |
+| [**CLIP**]({% post_url 2021-02-26-clip %}) <span class="text-muted">(ICML 2021)</span> | 이미지-텍스트 **contrastive**(웹 4억 쌍), open-vocab **zero-shot**. 대부분 VLM이 freeze해 쓰는 **①번 부품** |
 
 </div>
 
-- **Connector의 진화** — Flamingo의 cross-attention, BLIP-2의 **Q-Former**(학습 query가 이미지 특징에서 텍스트에 유용한 정보만 압축 추출)처럼 복잡하던 것이, LLaVA에서 **단순 Linear/MLP**로도 충분함이 드러났다(VILA 등도 동일 결론).
-- **Qwen2.5-VL** — 이미지·문서·장시간 비디오를 **네이티브 해상도/시간축 그대로** 다루도록 dynamic resolution·dynamic FPS + absolute time encoding을 도입하고, RMSNorm·SwiGLU·**M-RoPE**(멀티모달 회전 위치 임베딩)로 확장.
+### <span class="badge rounded-pill" style="background-color:#2698ba;color:#fff;font-size:0.9rem">VLM</span> <span class="text-muted" style="font-size:0.9rem;font-weight:400">풀 멀티모달 모델</span>
 
+<div class="row g-2 my-3 vlm-gen">
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
+    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G1</span></div>
+    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Foundations</div>
+    <small class="text-muted" style="font-size:0.72rem">LLM 이전 · 통합 VL</small>
+  </div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
+    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G2</span></div>
+    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Frozen LLM + Connector</div>
+    <small class="text-muted" style="font-size:0.72rem">frozen LLM에 다리 놓기</small>
+  </div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
+    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G3</span></div>
+    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Visual Instruction Tuning</div>
+    <small class="text-muted" style="font-size:0.72rem">지시 따르는 어시스턴트</small>
+  </div></div>
+  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
+    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G4</span></div>
+    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Native Multimodal</div>
+    <small class="text-muted" style="font-size:0.72rem">네이티브 해상도·비디오</small>
+  </div></div>
+</div>
+
+<div class="vlm-models">
+<table>
+<thead><tr><th>모델</th><th>Encoder</th><th>Connector</th><th>LLM</th><th>핵심</th></tr></thead>
+<tbody>
+<tr class="gen"><td colspan="5">G1 · Foundations <span class="text-muted">— LLM 이전</span></td></tr>
+<tr><td><a href="{% post_url 2022-01-28-blip %}">BLIP</a> <span class="text-muted">'22</span></td><td>ViT-B/L</td><td>MED <span class="text-muted">(cross-attn 내장)</span></td><td>—</td><td>ITC·ITM·LM 통합 + <strong>CapFilt</strong></td></tr>
+<tr class="gen"><td colspan="5">G2 · Frozen LLM + Connector <span class="text-muted">— 다리 놓기</span></td></tr>
+<tr><td><a href="{% post_url 2022-04-29-flamingo %}">Flamingo</a> <span class="text-muted">'22</span></td><td>NFNet-F6</td><td><strong>Cross-attention</strong></td><td>Chinchilla</td><td>connector만 학습 → <strong>few-shot ICL</strong></td></tr>
+<tr><td><a href="{% post_url 2023-01-30-blip2 %}">BLIP-2</a> <span class="text-muted">'23</span></td><td>CLIP / EVA ViT</td><td><strong>Q-Former</strong></td><td>Flan-T5 / OPT</td><td>2단계(표현→생성), 극도로 효율적</td></tr>
+<tr class="gen"><td colspan="5">G3 · Visual Instruction Tuning <span class="text-muted">— 어시스턴트</span></td></tr>
+<tr><td><a href="{% post_url 2023-04-17-llava %}">LLaVA</a> <span class="text-muted">'23</span></td><td>CLIP ViT-L/14</td><td><strong>Linear</strong></td><td>Vicuna</td><td><strong>visual instruction tuning</strong></td></tr>
+<tr><td><a href="{% post_url 2023-10-05-llava1-5 %}">LLaVA-1.5</a> <span class="text-muted">'24</span></td><td>CLIP @336</td><td><strong>MLP</strong></td><td>Vicuna-1.5</td><td>+ 고해상도·학술 VQA·포맷 프롬프트</td></tr>
+<tr class="gen"><td colspan="5">G4 · Native Multimodal <span class="text-muted">— 스케일·비디오·에이전트</span></td></tr>
+<tr><td>Qwen2.5-VL <span class="text-muted">'25</span></td><td>dynamic-res ViT</td><td>MLP merger</td><td>Qwen2.5</td><td>dynamic res/FPS · <strong>M-RoPE</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+### 큰 흐름 — 두 축으로 읽기
+
+**① Connector의 진화 (무엇으로 잇나)** — Flamingo의 cross-attention → BLIP-2의 **Q-Former**(학습 query가 텍스트에 유용한 시각 정보만 압축 추출)처럼 복잡하던 것이, **LLaVA의 단순 Linear/MLP**로도 충분함이 드러났다(VILA 등 동일 결론).
+
+**② 적응 방식의 진화 (어떻게 학습하나)** — 결과는 셋 다 *사진+질문→답*으로 비슷해 보여도, 거기에 이르는 방법이 다르다. 이게 *"LLaVA가 instruction tuning을 멀티모달로 가져온 첫 모델"* 이라는 말의 뜻:
+
+<div class="vlm-adapt" markdown="1">
+
+| 모델 | 적응 방식 | 핵심 |
+| --- | --- | --- |
+| **Flamingo** | few-shot 프롬프팅 (ICL) | 추론 때 프롬프트에 **예시 몇 개**를 넣어 적응(가중치 변경 X). 지시 데이터로 튜닝한 게 아님 |
+| **BLIP-2** | VL 사전학습 / 정렬 | Q-Former로 **그림↔글 정렬**. 지시를 따르는 능력은 뒤의 frozen LLM(예: Flan-T5)의 몫 |
+| **LLaVA** | **visual instruction tuning** | GPT-4가 만든 멀티모달 (지시,응답)으로 **직접 fine-tune** → 멀티모달 IT를 **처음 도입**(이후 표준 레시피) |
+
+</div>
 ## 주요 벤치마크
 
 VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 자주 쓰이는 것들을 묶으면:
@@ -194,10 +260,6 @@ VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 자주 쓰이는 
     <div class="col mb-3"><div class="card h-100"><div class="card-body">
       <h6 class="card-title">PT → SFT → RLHF</h6>
       <p class="card-text mb-0">정렬만 하던 학습이 지시튜닝·사람 피드백으로 정교화(예: BLIP-2 → InstructBLIP → DRESS).</p>
-    </div></div></div>
-    <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">복잡한 connector → 단순 projector</h6>
-      <p class="card-text mb-0">Q-/P-Former 같은 무거운 모듈에서 → 단순 linear/MLP로도 강력(BLIP-2·DLP → LLaVA·VILA).</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100"><div class="card-body">
       <h6 class="card-title">고해상도 & 경량 배포</h6>

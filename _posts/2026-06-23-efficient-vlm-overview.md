@@ -11,7 +11,7 @@ venue: Survey
 giscus_comments: false
 related_posts: false
 toc:
-  sidebar: left
+  sidebar: right
 _styles: >
   .post-title { font-size: 1.8rem; }
   .post-content { font-size: 0.92rem; line-height: 1.75; }
@@ -50,7 +50,7 @@ _styles: >
 
 ## 어디서 줄이나 (위치별 분류)
 
-{% include figure.liquid loading="eager" path="assets/img/notes/efficient-vlm-overview/overview.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 파이프라인(Input → Visual Encoder → Bridge/Projector → LLM → Output)에서 시각 토큰을 줄일 수 있는 지점. encoder-side · bridge-side · LLM-side(주로 text-guided)로 나뉜다. 효과는 latency·memory·FLOPs·throughput. (직접 정리)" %}
+{% include figure.liquid loading="eager" path="assets/img/notes/efficient-vlm-overview/overview.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 파이프라인(Input → Visual Encoder → Bridge/Projector → LLM → Output)에서 시각 토큰을 줄일 수 있는 지점. encoder-side · bridge-side · LLM-side(주로 text-guided)로 나뉜다. 효과는 latency·memory·FLOPs·throughput." %}
 
 <div class="evlm-where">
   <div class="row row-cols-1 row-cols-md-3">

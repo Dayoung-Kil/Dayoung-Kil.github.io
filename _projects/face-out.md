@@ -24,7 +24,7 @@ _styles: >
 
 <div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
   <p class="lead mb-2" style="font-weight:700">What if you could blur everyone in a photo or video — except one person?</p>
-  <p class="mb-0">Face Out is a privacy-protection web app: give it one reference photo of the person to keep, then upload a group photo or video, and every other face is automatically mosaicked.</p>
+  <p class="mb-0">Face Out is a privacy-protection web app: give it one reference photo of the person to keep, then upload a group photo or video, and every other face is automatically blurred out.</p>
 </div>
 
 <p>
@@ -35,9 +35,9 @@ _styles: >
 
 ## Why we built it
 
-As creators like YouTubers exploded, more and more **bystanders ended up on camera without consent** — and manually blurring each one is tedious and easy to miss.
+As content creators like YouTubers exploded in number, more and more **bystanders ended up on camera without consent** — and manually blurring each one is tedious and easy to miss.
 
-> The goal: protect the **portrait rights** of incidental people, automatically — keep the one person who should stay, blur everyone else.
+> The goal: protect the **image rights** of bystanders, automatically — keep the one person who should stay, blur everyone else.
 
 <hr>
 
@@ -63,12 +63,40 @@ As creators like YouTubers exploded, more and more **bystanders ended up on came
 
 From upload to download, the flow is four steps:
 
-1. **Reference** — the user uploads one photo of the person to keep.
-2. **Detect & encode** — every face in the target image or video is detected and turned into a face embedding.
-3. **Match** — each face is compared against the reference; anyone who doesn't match is flagged.
-4. **Mosaic** — flagged faces are blurred and the result is returned for download or saved to the account.
+<div class="row g-2 my-3">
+  <div class="col-6 col-md-3">
+    <div class="card h-100 p-3">
+      <span class="badge rounded-pill mb-2 align-self-start" style="background-color:#5d5c98;color:#fff">1</span>
+      <h6 class="mb-1">Reference</h6>
+      <small class="text-muted">Upload one photo of the person to keep.</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card h-100 p-3">
+      <span class="badge rounded-pill mb-2 align-self-start" style="background-color:#5d5c98;color:#fff">2</span>
+      <h6 class="mb-1">Detect &amp; encode</h6>
+      <small class="text-muted">Every face in the image or video is detected and turned into a face embedding.</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card h-100 p-3">
+      <span class="badge rounded-pill mb-2 align-self-start" style="background-color:#5d5c98;color:#fff">3</span>
+      <h6 class="mb-1">Match</h6>
+      <small class="text-muted">Each face is compared against the reference; anyone who doesn't match is flagged.</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card h-100 p-3">
+      <span class="badge rounded-pill mb-2 align-self-start" style="background-color:#5d5c98;color:#fff">4</span>
+      <h6 class="mb-1">Blur</h6>
+      <small class="text-muted">Flagged faces are blurred and the result is returned for download or saved to the account.</small>
+    </div>
+  </div>
+</div>
 
-**Images vs. video.** Photos and video run through separate pipelines: video is processed **frame by frame** with a dedicated, speed-optimized path, and a **thumbnail** is generated for each clip.
+<div class="p-3 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+  <strong>Images vs. video</strong> — photos and video run through separate pipelines: video is processed <strong>frame by frame</strong> on a dedicated, speed-optimized path, with a <strong>thumbnail</strong> generated for each clip.
+</div>
 
 <hr>
 
