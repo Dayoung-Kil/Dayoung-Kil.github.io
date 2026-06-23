@@ -30,7 +30,7 @@ modality-encoder:
   name: Modality Encoder
 input-projector:
   bg: "#9cb4cc"
-  fg: "#1c1c1d"
+  fg: "#ffffff"
   name: Input Projector
 llm-backbone:
   bg: "#b2c8df"

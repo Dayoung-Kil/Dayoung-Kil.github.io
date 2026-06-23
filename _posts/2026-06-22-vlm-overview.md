@@ -31,6 +31,7 @@ _styles: >
   .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
   .post-content .vlm-models tr.gen td { background-color: rgba(120,123,179,0.12); color:#1c1c1d; font-weight: 700; font-size: 0.76rem; border-top: 2px solid #787bb3; padding: 0.3rem 0.5rem; }
   .post-content .vlm-models tbody td:first-child { font-weight: 700; }
+  .post-content .vlm-models tbody td:first-child a { color: #1c1c1d; font-weight: 700; }
   .post-content .vlm-models tbody td:first-child .text-muted { font-weight: 400; }
   .post-content .vlm-gen .card { border-left: 4px solid #787bb3; }
   .post-content .vlm-gen .gh { display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.98rem; color: #1c1c1d; padding-bottom: 0.45rem; margin-bottom: 0.55rem; border-bottom: 1px solid rgba(120,123,179,0.25); }
@@ -38,7 +39,7 @@ _styles: >
   .post-content .vlm-gen .gh strong, .post-content .vlm-gen .gh { font-weight: 800; }
   .post-content .vlm-gen .gd-lead { font-size: 0.85rem; font-weight: 700; color: #1c1c1d; margin-bottom: 0.3rem; }
   .post-content .vlm-gen .gd { font-size: 0.8rem; line-height: 1.6; margin-bottom: 0; color: #444; }
-  .post-content .vlm-bench table { font-size: 0.72rem; }
+  .post-content .vlm-bench table { font-size: 0.72rem; width: 100%; }
   .post-content .vlm-bench th, .post-content .vlm-bench td { font-size: 0.7rem; line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
   .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
   .post-content .vlm-adapt table { font-size: 0.72rem; }
@@ -174,10 +175,25 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 | 모델 | 핵심 |
 | --- | --- |
 | [**CLIP**]({% post_url 2021-02-26-clip %}) <span class="text-muted">(ICML 2021)</span> | 이미지-텍스트 **contrastive**(웹 4억 쌍), open-vocab **zero-shot**. 대부분 VLM이 freeze해 쓰는 **①번 부품** |
+| [**EVA-CLIP**]({% post_url 2023-03-27-eva-clip %}) <span class="text-muted">(arXiv 2023)</span> | CLIP을 **싸고 안정적으로 스케일**하는 학습 레시피(EVA 초기화·LAMB·토큰 드롭·flash attn). zero-shot 82.0%, **BLIP-2 등이 쓰는 EVA ViT** |
 
 </div>
 
-### <span class="badge rounded-pill" style="background-color:#787bb3;color:#fff;font-size:0.9rem">VLM</span> <span class="text-muted" style="font-size:0.9rem;font-weight:400">풀 멀티모달 모델</span>
+<hr style="margin:2.4rem 0 1.6rem;border:0;border-top:2px solid rgba(120,123,179,0.35);">
+
+### <span class="badge rounded-pill" style="background-color:#9cb4cc;color:#fff;font-size:0.9rem">Input Projector</span> <span class="text-muted" style="font-size:0.9rem;font-weight:400">시각→언어 커넥터</span>
+
+<div class="vlm-models" markdown="1">
+
+| 모델 | 핵심 |
+| --- | --- |
+| [**P-Former**]({% post_url 2023-07-13-p-former %}) <span class="text-muted">(NeurIPS 2023)</span> | 시각 특징을 고르는 대신 **텍스트만으로 "이상적 프롬프트"를 먼저 학습**(backward-decoupling)해 커넥터 학습을 도움. BLIP-2 데이터효율↑(4M→129M급), **학습 때만 사용** |
+
+</div>
+
+<hr style="margin:2.4rem 0 1.6rem;border:0;border-top:2px solid rgba(120,123,179,0.35);">
+
+### <span class="badge rounded-pill" style="background-color:#787bb3;color:#fff;font-size:0.9rem">VLM</span>
 
 <div class="row g-3 my-3 vlm-gen">
   <div class="col-md-6"><div class="card h-100"><div class="card-body">
@@ -197,14 +213,14 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
   </div></div></div>
   <div class="col-md-6"><div class="card h-100"><div class="card-body">
     <div class="gh"><span class="badge rounded-pill">G4</span> Native Multimodal</div>
-    <p class="gd-lead">이미지를 원래 해상도·비율 그대로(네이티브).</p>
-    <p class="gd">앞 세대는 이미지를 <strong>작은 고정 크기(224·336·448px)로 줄여서</strong> 봤다면, G4는 네이티브로 보고 <strong>영상·긴 문서·에이전트</strong>까지 다룬다 — 입력의 크기·종류를 키운 단계.</p>
+    <p class="gd-lead">모달리티를 <strong>처음부터 함께</strong>, 이미지는 네이티브 해상도로.</p>
+    <p class="gd">앞 세대가 <strong>완성된 LLM에 비전을 나중에 붙이고</strong> 이미지를 <strong>작은 고정 크기(224·336·448px)로 줄여</strong> 봤다면, G4는 ⓐ <strong>텍스트·이미지·오디오·비디오를 처음부터 함께 학습</strong>(Gemini)하거나 ⓑ 이미지를 <strong>네이티브 해상도·비디오</strong>로 보고 <strong>긴 문서·에이전트</strong>까지 다룬다 — 입력의 크기·종류를 키운 단계.</p>
   </div></div></div>
 </div>
 
 <div class="vlm-models">
 <table>
-<thead><tr><th>모델</th><th>Encoder</th><th>Connector</th><th>LLM</th><th>차별점 <span style="font-weight:400">(남다른 점)</span></th></tr></thead>
+<thead><tr><th>모델</th><th>Encoder</th><th>Connector</th><th>LLM</th><th>차별점</th></tr></thead>
 <tbody>
 <tr class="gen"><td colspan="5">G1 · Foundations <span class="text-muted">— LLM 없이 비전·언어 정렬</span></td></tr>
 <tr><td><a href="{% post_url 2022-01-28-blip %}">BLIP</a> <span class="text-muted">'22</span></td><td>ViT-B/L</td><td>MED <span class="text-muted">(cross-attn 내장)</span></td><td>—</td><td>이해+생성을 <strong>한 모델(MED)로 통합</strong> + CapFilt로 데이터 정제</td></tr>
@@ -219,62 +235,130 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 <tr><td><a href="{% post_url 2023-08-24-qwen-vl %}">Qwen-VL</a> <span class="text-muted">'23</span></td><td>ViT-bigG @448</td><td>cross-attn adapter <span class="text-muted">(Resampler 256q)</span></td><td>Qwen-7B</td><td><strong>grounding·OCR 능력</strong> 추가(<code>&lt;box&gt;</code>·<code>&lt;ref&gt;</code> 토큰) · 3단계 학습</td></tr>
 <tr><td><a href="{% post_url 2023-10-05-llava1-5 %}">LLaVA-1.5</a> <span class="text-muted">'24</span></td><td>CLIP @336</td><td><strong>MLP</strong></td><td>Vicuna-1.5</td><td><strong>학술 VQA 데이터 + 포맷 프롬프트</strong>(단답/장답 균형) → 공개데이터 SOTA</td></tr>
 <tr><td><a href="{% post_url 2023-12-21-internvl %}">InternVL</a> <span class="text-muted">'24</span></td><td><strong>InternViT-6B</strong></td><td>QLLaMA <span class="text-muted">(8B 미들웨어)</span></td><td>Vicuna 등</td><td>작은 인코더+거대 LLM <strong>불균형 해결</strong> — <strong>비전 인코더를 6B로 스케일</strong> + 강한 미들웨어</td></tr>
-<tr class="gen"><td colspan="5">G4 · Native Multimodal <span class="text-muted">— 네이티브 해상도·비디오로 스케일</span></td></tr>
+<tr class="gen"><td colspan="5">G4 · Native Multimodal <span class="text-muted">— 처음부터 함께 학습 · 네이티브 해상도·비디오로 스케일</span></td></tr>
+<tr><td><a href="{% post_url 2023-12-06-gemini %}">Gemini</a> <span class="text-muted">'23</span></td><td>—</td><td>—</td><td>natively multimodal</td><td><strong>처음부터 텍스트·이미지·오디오·비디오를 함께(natively) 사전학습</strong> — 비전을 나중에 붙이지 않음 · 이미지 출력까지 · Ultra/Pro/Nano</td></tr>
 <tr><td><a href="{% post_url 2024-08-06-llava-onevision %}">LLaVA-OneVision</a> <span class="text-muted">'24</span></td><td>SigLIP</td><td><strong>2-layer MLP</strong></td><td>Qwen-2</td><td><strong>이미지+멀티이미지+비디오 한 모델</strong> + 시나리오 간 전이(이미지→비디오 창발) · AnyRes 고해상도</td></tr>
-<tr><td>Qwen2.5-VL <span class="text-muted">'25</span></td><td>dynamic-res ViT</td><td>MLP merger</td><td>Qwen2.5</td><td><strong>네이티브 동적 해상도/시간축</strong>·비디오·에이전트</td></tr>
+<tr><td><a href="{% post_url 2024-09-18-qwen2-vl %}">Qwen2-VL</a> <span class="text-muted">'24</span></td><td>675M ViT <span class="text-muted">(2D-RoPE)</span></td><td>MLP merger <span class="text-muted">(2×2 압축)</span></td><td>Qwen2 <span class="text-muted">(2~72B)</span></td><td><strong>Naive Dynamic Resolution</strong>(원해상도→가변 토큰) + <strong>M-RoPE</strong>(시간·높이·너비)로 이미지·비디오 위치를 한 좌표계에</td></tr>
+<tr><td><a href="{% post_url 2024-12-06-internvl2-5 %}">InternVL 2.5</a> <span class="text-muted">'24</span></td><td><strong>InternViT-6B</strong>/300M <span class="text-muted">(타일 448)</span></td><td>MLP <span class="text-muted">(unshuffle 1024→256)</span></td><td>InternLM2.5 / Qwen2.5</td><td>아키텍처는 그대로, <strong>모델·데이터·test-time 3축 스케일링</strong> — 6B ViT로 <strong>학습 토큰 1/10</strong> · 오픈 최초 <strong>MMMU 70%+</strong></td></tr>
+<tr><td><a href="{% post_url 2024-12-13-deepseek-vl2 %}">DeepSeek-VL2</a> <span class="text-muted">'24</span></td><td>SigLIP <span class="text-muted">(동적 타일링)</span></td><td>2-layer MLP</td><td><strong>DeepSeekMoE</strong> <span class="text-muted">(+MLA)</span></td><td><strong>MoE로 효율</strong> — 활성 파라미터 1~4.5B로 dense급 성능 · 단일 인코더 동적 타일링 · 그라운딩·GUI</td></tr>
+<tr><td><a href="{% post_url 2025-02-19-qwen2-5-vl %}">Qwen2.5-VL</a> <span class="text-muted">'25</span></td><td>from-scratch ViT <span class="text-muted">(window attn)</span></td><td>MLP merger</td><td>Qwen2.5</td><td><strong>Qwen2-VL을 정련</strong> — MRoPE <strong>절대 시간 정렬</strong>·dynamic FPS·window attention(선형 비용)·에이전트</td></tr>
+<tr><td><a href="{% post_url 2025-04-11-internvl3 %}">InternVL3</a> <span class="text-muted">'25</span></td><td>InternViT</td><td>MLP</td><td>InternLM/Qwen <span class="text-muted">(공동 학습)</span></td><td><strong>네이티브 멀티모달 사전학습</strong> — 텍스트+멀티모달을 단일 단계에서 공동 학습(post-hoc 탈피) · V2PE·MPO · 오픈 MMMU 72.2</td></tr>
+<tr><td><a href="{% post_url 2025-08-26-internvl3-5 %}">InternVL3.5</a> <span class="text-muted">'25</span></td><td>InternViT <span class="text-muted">(+ViR)</span></td><td>MLP</td><td>InternLM/Qwen <span class="text-muted">(dense+MoE)</span></td><td>InternVL3 위에 <strong>추론·효율</strong> — <strong>Cascade RL</strong>(offline→online)·<strong>ViR</strong>(동적 해상도)·<strong>DvD</strong>(비전·언어 분리) → 추론 +16%·속도 4.05×</td></tr>
+<tr><td><a href="{% post_url 2025-11-26-qwen3-vl %}">Qwen3-VL</a> <span class="text-muted">'25</span></td><td>dynamic-res ViT <span class="text-muted">(DeepStack)</span></td><td>MLP merger <span class="text-muted">(다층 주입)</span></td><td>Qwen3 <span class="text-muted">(dense+MoE)</span></td><td>네이티브 <strong>256K interleaved</strong> · <strong>DeepStack</strong>(다층 ViT 융합)·interleaved-MRoPE·텍스트 타임스탬프 · thinking 변형</td></tr>
 </tbody>
 </table>
 </div>
 
 ### 두 축으로 보는 진화
 
-세대를 가르는 흐름은 결국 **두 축**으로 압축된다 (모델별 자세한 차이는 위 표의 *핵심* 열 참고).
+세대(G2→G3)를 가르는 흐름은 결국 **두 축**으로 압축된다 (모델별 차이는 위 표의 *차별점* 열 참고).
 
-- **Connector — 복잡 → 단순.** G2의 cross-attention(Flamingo)·Q-Former(BLIP-2)·Resampler(Qwen-VL)처럼 무겁던 다리가, G3 **LLaVA의 단순 Linear/MLP**로도 충분함이 드러났다.
-- **적응 — 프롬프트 → 튜닝.** G2는 **few-shot ICL**(예시 몇 개로 그 자리에서 적응)이지만, G3부터는 **GPT-4 instruction 데이터로 직접 튜닝**해 지시 따르는 챗봇이 된다.
-- *(보너스1: 같은 G2라도 **Flamingo·BLIP-2**는 frozen LLM에 다리를 놓고, **Kosmos-1**만 다리 없이 from-scratch로 한 몸으로 학습한다.)*
-- *(보너스2: **BLIP-2**의 Q-Former는 지시와 무관한 **고정 시각 특징**을 주는데, **InstructBLIP**은 지시문을 Q-Former에도 넣어 **"지시에 맞는 시각 특징"** 을 뽑는다.)*
+<div class="row row-cols-1 row-cols-md-2 g-3 my-3 vlm-insights">
+  <div class="col"><div class="card h-100"><div class="card-body">
+    <h6 class="card-title">Connector: 복잡 → 단순</h6>
+    <p class="card-text">G2의 무거운 다리 — cross-attention(<strong>Flamingo</strong>)·Q-Former(<strong>BLIP-2</strong>)·Resampler(<strong>Qwen-VL</strong>) — 가, G3 <strong>LLaVA의 단순 Linear/MLP</strong>로도 충분함이 드러났다.</p>
+  </div></div></div>
+  <div class="col"><div class="card h-100"><div class="card-body">
+    <h6 class="card-title">적응: 프롬프트 → 튜닝</h6>
+    <p class="card-text">G2는 <strong>few-shot ICL</strong>(예시 몇 개로 그 자리에서 적응)이지만, G3부터는 <strong>GPT-4 instruction 데이터로 직접 튜닝</strong>해 지시 따르는 챗봇이 된다.</p>
+  </div></div></div>
+</div>
+
+<div class="tr-callout p-3 my-3 rounded">
+  <p class="mb-2"><strong>곁가지로 알아둘 예외 셋</strong></p>
+  <ul class="mb-0" style="font-size:0.84rem;line-height:1.6;padding-left:1.1rem">
+    <li><strong>한 몸 학습</strong> — 같은 G2라도 Flamingo·BLIP-2는 frozen LLM에 다리를 놓지만, <strong>Kosmos-1</strong>은 다리 없이 from-scratch로 한 몸 학습.</li>
+    <li><strong>instruction-aware 특징</strong> — BLIP-2의 Q-Former는 지시와 무관한 <strong>고정 시각 특징</strong>을 주는데, <strong>InstructBLIP</strong>은 지시문을 Q-Former에도 넣어 "지시에 맞는 시각 특징"을 뽑는다.</li>
+    <li><strong>부착 vs 네이티브</strong> — 대부분 완성된 LLM에 비전 인코더를 <strong>나중에 붙이지만</strong>, <strong>Gemini</strong>는 처음부터 텍스트·이미지·오디오·비디오를 함께 학습한 네이티브 멀티모달이라 인코더/커넥터로 분리되지 않는다.</li>
+  </ul>
+</div>
 
 ## 주요 벤치마크
 
-VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 자주 쓰이는 것들을 묶으면:
+VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 최근 서베이(*A Survey on Benchmarks of MLLMs*, 2024 — 200여 벤치마크 리뷰)는 이들을 **"무슨 능력을 보는가"** 축으로 분류한다 — ① 인식·이해 ② 인지·추론 ③ 특정 도메인 ④ 핵심 능력 ⑤ 기타 모달리티(비디오·오디오·3D). 이 축에 맞춰 자주 쓰는 것들을 정리하면:
+
+### ① 인식·이해 (Perception & Understanding)
+
+이미지를 보고 특징을 뽑아 답하는 가장 기본 축 — 종합·일반 VQA·세밀 지각·멀티이미지.
 
 <div class="vlm-bench" markdown="1">
 
 | 벤치마크 | 무엇을 보나 | 특징 |
 | --- | --- | --- |
-| **VQAv2** | 일반 시각 인식 + 상식 추론 | 이미지+질문→짧은 답(COCO 기반). 비슷한 이미지쌍으로 언어 편향 완화. 가장 표준적 지표 |
-| **GQA** | 조합적·논리적 추론 | scene graph 기반, and/or/not·비교·관계가 얽힌 질문 |
+| **MME** | 종합(인식+인지) | Perception(객체·색·위치·수량) + Cognition(추론·상식·계산)을 분리 채점 |
+| **MMBench** | 종합 (인식+추론+지식) | 객관식(MCQ), 자동평가·재현성↑ (영/중 MMBench-CN) |
+| **SEED-Bench** | 이미지+비디오 이해 | 시간적 추론(temporal) 포함, 정적 VQA를 넘어섬 |
+| **VQAv2** | 일반 인식 + 상식 | 짧은 답(COCO), 비슷한 이미지쌍으로 언어 편향 완화 — 가장 표준 |
+| **GQA** | 조합·논리 추론 | scene graph 기반 and/or/not·비교·관계 질문 |
 | **VizWiz** | 현실 강건성(robustness) | 시각장애인이 찍은 저품질 실사진 + 거친 질문 |
-| **ScienceQA (SQA)** | 지식 기반 멀티모달 추론 | 과학 객관식(이미지+텍스트+선택지+해설 chain) |
+| **BLINK** | 세밀 시지각 | 깊이·대응점·다시점·직소(jigsaw) 등 **언어 지식으론 못 푸는** 순수 지각. CoT가 안 통함 |
+| **MuirBench** | 멀티이미지 이해 | **여러 장을 함께** 비교·정렬·차이 찾기(12개 태스크). 한 장 VQA로는 평가 불가 |
+
+</div>
+
+### ② 인지·추론 (Cognition & Reasoning)
+
+기본 인식을 넘어, **지식·논리**를 동원한 고차 추론.
+
+<div class="vlm-bench" markdown="1">
+
+| 벤치마크 | 무엇을 보나 | 특징 |
+| --- | --- | --- |
+| **ScienceQA** | 과학 지식 추론 | 과학 객관식(이미지+텍스트+선택지+해설 chain) |
+| **MMMU** | 전문·다학제 추론 | **대학·전문가 수준 6개 분야 30개 과목** + 신중한(deliberate) 추론. 오픈 모델이 70% 넘기 어려운 새 변별 기준 |
+
+</div>
+
+### ③ 특정 도메인 (Specific Domains)
+
+특정 입력 형태·응용에 특화 — text-rich/문서·에이전트 등.
+
+<div class="vlm-bench" markdown="1">
+
+| 벤치마크 | 무엇을 보나 | 특징 |
+| --- | --- | --- |
 | **TextVQA** | OCR + 시각-언어 정렬 | 이미지 속 문자(간판·메뉴·표지판) 인식·이해 |
+| **InfoVQA** | 문서·인포그래픽 | TextVQA의 *간판 한 줄*을 넘어, **표·차트·레이아웃이 빽빽한 인포그래픽**에서 읽기+산술+구조 추론 |
+| **MMT-Bench** | 광역 멀티태스크·에이전트 | **32개 메타·162 서브태스크**(인식·OCR·3D·계획·**에이전트**)를 한 벤치마크에 |
+
+</div>
+
+### ④ 핵심 능력 (Key Capabilities)
+
+정확도와 별개로 모델이 갖춰야 할 **신뢰성·대화** 품질.
+
+<div class="vlm-bench" markdown="1">
+
+| 벤치마크 | 무엇을 보나 | 특징 |
+| --- | --- | --- |
 | **POPE** | 환각(hallucination) 억제 | "없는 객체를 있다고 답하나" Yes/No 프로빙. "아는 척" 여부 |
-| **MME** | 종합 성능 | Perception(객체·색·위치·수량) + Cognition(추론·상식·계산)을 분리 채점 |
-| **MMBench** | 인식+추론+지식 종합 | 객관식(MCQ), 자동평가·재현성↑, 모델 랭킹용 (영/중 MMBench-CN) |
-| **SEED-Bench** | 이미지+비디오 이해 | 시간적 추론(temporal) 포함, 정적 VQA를 넘어서는 능력 |
 | **LLaVA-Bench (in the Wild)** | 실사용 체감 품질 | 자유형식 대화, 주관적 평가(창의성·설명력·자연스러움) |
 
 </div>
 
-> **한계.** 많은 벤치마크가 학습(PT/IT) 데이터에 일부 노출돼 변별력이 떨어질 수 있다. 그래서 MMMU·MathVista처럼 더 어렵고 전문적인(수학·다학제) 벤치마크가 등장하는 추세다.
-
 ## 발전 흐름 & 다음 주제
+
+G1→G4를 관통하는 최근 흐름은 네 갈래로 읽힌다.
 
 <div class="vlm-insights">
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">이해 → 생성 → any-to-any</h6>
-      <p class="card-text mb-0">텍스트 결과만 내던 이해 모델에서 → 특정 모달 생성 → 임의 모달 변환으로(예: MiniGPT-4 → MiniGPT-5 → NExT-GPT).</p>
+      <h6 class="card-title">부착 → 네이티브 (학습 패러다임)</h6>
+      <p class="card-text mb-0">완성된 LLM에 비전을 다리로 <strong>나중에 붙이던</strong> 방식(LLaVA·BLIP-2)에서, 처음부터 모달리티를 함께 학습한 <strong>네이티브 멀티모달</strong>(Gemini)·<strong>네이티브 사전학습</strong>(InternVL3)으로.</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">PT → SFT → RLHF</h6>
-      <p class="card-text mb-0">정렬만 하던 학습이 지시튜닝·사람 피드백으로 정교화(예: BLIP-2 → InstructBLIP → DRESS).</p>
+      <h6 class="card-title">입력 확장: 해상도·비디오·롱컨텍스트</h6>
+      <p class="card-text mb-0">작은 고정 해상도 → <strong>네이티브 동적 해상도</strong>(Qwen2-VL)·<strong>절대 시간 비디오</strong>(Qwen2.5-VL)·<strong>256K interleaved</strong>(Qwen3-VL)로 입력의 크기·종류를 키움.</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">고해상도 & 경량 배포</h6>
-      <p class="card-text mb-0">디테일을 위해 해상도↑(336·448), 동시에 모바일/엣지용 경량화(MobileVLM 등)도 활발.</p>
+      <h6 class="card-title">효율 스케일링</h6>
+      <p class="card-text mb-0">성능은 키우되 추론 비용은 잡는다 — 큰 ViT 데이터효율(InternVL 2.5)·<strong>MoE 희소화</strong>(DeepSeek-VL2)·window attention·동적 해상도 라우팅(ViR)·비전-언어 분리 배치(DvD, InternVL3.5).</p>
+    </div></div></div>
+    <div class="col mb-3"><div class="card h-100"><div class="card-body">
+      <h6 class="card-title">지시 → 추론·에이전트</h6>
+      <p class="card-text mb-0">instruction tuning(G3)을 넘어 <strong>RL로 추론 강화</strong>(Cascade RL·thinking 변형)하고, <strong>GUI·embodied 에이전트</strong>로 실세계 조작까지 확장.</p>
     </div></div></div>
   </div>
 </div>
 
-> **다음 주제 — Efficient / Lightweight VLM.** VLM은 시각 토큰이 텍스트보다 훨씬 많아(예: LLaVA 576개) LLM 입력이 길어지고 연산이 제곱으로 폭증한다. 그래서 **시각 토큰을 줄이는** 흐름(SparseVLM·IVTP·VLTP·Recoverable Compression 등)이 나온다 — [Token Reduction in ViTs]({% post_url 2026-06-19-token-reduction-overview %})를 **텍스트(질문)까지 고려하는 멀티모달 버전**으로 확장한 것이다. 별도 카테고리로 정리 예정.
+> **다음 주제 — Efficient VLM.** VLM은 시각 토큰이 텍스트보다 훨씬 많아(LLaVA 한 장 576개) LLM 입력이 길어지고 연산이 토큰 수의 제곱으로 폭증한다. 그래서 **질문을 고려해 답에 필요 없는 시각 토큰을 줄이는** 흐름(FastV·SparseVLM·IVTP 등)이 나온다 — [Efficient VLM 개요]({% post_url 2026-06-23-efficient-vlm-overview %})에 정리했고, 이는 [Token Reduction in ViTs]({% post_url 2026-06-19-token-reduction-overview %})를 **텍스트(질문)까지 고려하는 멀티모달 버전**으로 확장한 것이다.

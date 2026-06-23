@@ -14,7 +14,7 @@ footer_text: >
   Toward the accuracy–compute frontier for modern vision-language systems.
 keywords: Dayoung Kil, Soongsil University, VIP Lab, efficient deep learning, model pruning, LVLM, MM-LLM, computer vision
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: favicon.png # custom favicon — illustrated portrait (train window)
+icon: logo2.png # custom favicon — logo2
 
 url: https://dayoung-kil.github.io # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root

@@ -35,9 +35,10 @@ pagination:
   nav.sticky-top a:hover { color:#6e85b7; }
   nav.sticky-top a.cat-chip { color:#1c1c1d; background-color:rgba(0,0,0,0.05); }
   /* featured 핵심 논문 카드 — extra compact */
-  .post .featured-posts .card-body { padding:0.5rem 0.65rem; }
-  .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.25rem; }
-  .post .featured-posts .card-text { font-size:0.68rem; line-height:1.45; margin-bottom:0; color:var(--global-text-color); }
+  .post .featured-posts .card-body { padding:0.35rem 0.6rem; }
+  .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.1rem; }
+  .post .featured-posts .card-body .mb-2 { margin-bottom:0.2rem !important; }
+  .post .featured-posts .card-text { font-size:0.68rem; line-height:1.35; margin-bottom:0; color:var(--global-text-color); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
   .post .featured-posts .badge { font-size:0.52rem; font-weight:600; }
   .post .feat-cat { font-weight:600; color:#93a4c8; font-size:0.8rem; margin:0.7rem 0 0.3rem; }
   /* 메인 랜딩: 카테고리 섹션 헤더 */
