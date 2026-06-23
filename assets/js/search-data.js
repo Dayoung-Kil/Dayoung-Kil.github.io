@@ -106,6 +106,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/frequency-aware-token-reduction/";
           
         },
+      },{id: "post-llava-1-5-improved-baselines-with-visual-instruction-tuning",
+        
+          title: "[LLaVA-1.5] Improved Baselines with Visual Instruction Tuning",
+        
+        description: "A systematic study of LLaVA&#39;s design choices — an MLP connector, a 336px CLIP encoder, and academic-task VQA data with response-format prompts — sets SOTA on 11 benchmarks with only public data.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/llava1-5/";
+          
+        },
       },{id: "post-mctf-multi-criteria-token-fusion-with-one-step-ahead-attention-for-efficient-vision-transformers",
         
           title: "[MCTF] Multi-criteria Token Fusion with One-step-ahead Attention for Efficient Vision Transformers",
@@ -172,6 +183,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/token-pooling/";
           
         },
+      },{id: "post-llava-visual-instruction-tuning",
+        
+          title: "[LLaVA] Visual Instruction Tuning",
+        
+        description: "Uses language-only GPT-4 to generate multimodal instruction-following data, then connects a frozen CLIP encoder to Vicuna with a single linear projection and instruction-tunes end-to-end.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/llava/";
+          
+        },
       },{id: "post-tps-joint-token-pruning-amp-squeezing-towards-more-aggressive-compression-of-vision-transformers",
         
           title: "[TPS] Joint Token Pruning &amp; Squeezing Towards More Aggressive Compression of Vision Transformers...",
@@ -205,6 +227,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/tome/";
           
         },
+      },{id: "post-blip-2-bootstrapping-language-image-pre-training-with-frozen-image-encoders-and-large-language-models",
+        
+          title: "[BLIP-2] Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+        
+        description: "Bridges a frozen image encoder and a frozen LLM with a lightweight Querying Transformer (Q-Former), pre-trained in two stages — representation learning then generative learning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/blip2/";
+          
+        },
       },{id: "post-as-vit-adaptive-sparse-vit-learnable-adaptive-token-pruning-by-fully-exploiting-self-attention",
         
           title: "[AS-ViT] Adaptive Sparse ViT: Learnable Adaptive Token Pruning by Fully Exploiting Self-Attention",
@@ -214,6 +247,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/adaptive-sparse-vit/";
+          
+        },
+      },{id: "post-flamingo-flamingo-a-visual-language-model-for-few-shot-learning",
+        
+          title: "[Flamingo] Flamingo: a Visual Language Model for Few-Shot Learning",
+        
+        description: "Bridges a frozen vision encoder and a frozen LLM with a Perceiver Resampler + gated cross-attention, unlocking GPT-3-style few-shot in-context learning on image/video tasks.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/flamingo/";
           
         },
       },{id: "post-ats-adaptive-token-sampling-for-efficient-vision-transformers",
@@ -249,6 +293,17 @@ ninja.data = [{
             window.location.href = "/blog/2022/evit/";
           
         },
+      },{id: "post-blip-bootstrapping-language-image-pre-training-for-unified-vision-language-understanding-and-generation",
+        
+          title: "[BLIP] Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+        
+        description: "A unified vision-language model (MED) that handles both understanding and generation, plus CapFilt — a captioner+filter that bootstraps noisy web captions into cleaner training data.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2022/blip/";
+          
+        },
       },{id: "post-tokenlearner-what-can-8-learned-tokens-do-for-images-and-videos",
         
           title: "[TokenLearner] What Can 8 Learned Tokens Do for Images and Videos?",
@@ -269,6 +324,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2021/dynamicvit/";
+          
+        },
+      },{id: "post-clip-learning-transferable-visual-models-from-natural-language-supervision",
+        
+          title: "[CLIP] Learning Transferable Visual Models From Natural Language Supervision",
+        
+        description: "Trains an image encoder and a text encoder to match images with their captions (contrastive) on 400M web pairs — enabling open-vocabulary zero-shot transfer, and becoming the vision encoder most VLMs freeze and reuse.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2021/clip/";
           
         },
       },{id: "books-the-godfather",
