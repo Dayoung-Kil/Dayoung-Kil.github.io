@@ -84,6 +84,83 @@ ninja.data = [{
             window.location.href = "/blog/2026/token-reduction-overview/";
           
         },
+      },{id: "post-qwen3-vl-technical-report",
+        
+          title: "[Qwen3-VL] Technical Report",
+        
+        description: "The most capable Qwen VLM yet — native 256K interleaved context, dense (2/4/8/32B) and MoE (30B-A3B/235B-A22B) variants, and three architecture upgrades: interleaved-MRoPE, DeepStack multi-level ViT fusion, and text-based timestamp alignment for video.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/qwen3-vl/";
+          
+        },
+      },{id: "post-internvl3-5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency",
+        
+          title: "[InternVL3.5] Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency",
+        
+        description: "Builds on InternVL3 with Cascade RL (offline→online) for reasoning, a Visual Resolution Router (ViR) and Decoupled Vision-Language Deployment (DvD) for efficiency — +16% reasoning and 4.05× faster inference, plus GUI/embodied agency.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/internvl3-5/";
+          
+        },
+      },{id: "post-internvl3-exploring-advanced-training-and-test-time-recipes-for-open-source-multimodal-models",
+        
+          title: "[InternVL3] Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models",
+        
+        description: "Brings native multimodal pre-training to the open InternVL line — jointly learning language and vision in a single stage instead of retrofitting a text-only LLM — plus V2PE, mixed preference optimization (MPO), and test-time scaling. InternVL3-78B sets a new open MMMU SOTA (72.2).",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/internvl3/";
+          
+        },
+      },{id: "post-qwen2-5-vl-technical-report",
+        
+          title: "[Qwen2.5-VL] Technical Report",
+        
+        description: "Refines Qwen2-VL: a from-scratch native-resolution ViT with window attention (linear cost), dynamic FPS sampling, and MRoPE aligned to absolute time — pushing document parsing, object grounding, hour-long video, and computer/mobile agents.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/qwen2-5-vl/";
+          
+        },
+      },{id: "post-deepseek-vl2-mixture-of-experts-vision-language-models-for-advanced-multimodal-understanding",
+        
+          title: "[DeepSeek-VL2] Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding",
+        
+        description: "Upgrades DeepSeek-VL with a dynamic tiling vision encoder (single SigLIP, any aspect ratio) and a DeepSeekMoE LLM with Multi-head Latent Attention — matching or beating dense/MoE models with only 1.0/2.8/4.5B activated parameters.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/deepseek-vl2/";
+          
+        },
+      },{id: "post-internvl-2-5-expanding-performance-boundaries-with-model-data-and-test-time-scaling",
+        
+          title: "[InternVL 2.5] Expanding Performance Boundaries with Model, Data, and Test-Time Scaling",
+        
+        description: "Keeps InternVL 2.0&#39;s ViT-MLP-LLM architecture but pushes three scaling axes — model (6B vision encoder), data (doubled + strictly filtered), and test-time (CoT + voting) — becoming the first open MLLM to pass 70% on MMMU.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/internvl2-5/";
+          
+        },
+      },{id: "post-qwen2-vl-enhancing-vision-language-model-39-s-perception-of-the-world-at-any-resolution",
+        
+          title: "[Qwen2-VL] Enhancing Vision-Language Model&#39;s Perception of the World at Any Resolution",
+        
+        description: "Upgrades Qwen-VL with Naive Dynamic Resolution (any resolution → variable visual tokens) and Multimodal RoPE (M-RoPE: temporal·height·width), unifying image and video under one spatiotemporal position scheme — scaled to 2B/7B/72B.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/qwen2-vl/";
+          
+        },
       },{id: "post-llava-onevision-easy-visual-task-transfer",
         
           title: "[LLaVA-OneVision] Easy Visual Task Transfer",
@@ -104,6 +181,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/internvl/";
+          
+        },
+      },{id: "post-gemini-a-family-of-highly-capable-multimodal-models",
+        
+          title: "[Gemini] A Family of Highly Capable Multimodal Models",
+        
+        description: "Google&#39;s frontier family (Ultra/Pro/Nano) trained jointly across image, audio, video, and text from the beginning — natively multimodal rather than bolting a vision encoder onto a pretrained LLM.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/gemini/";
           
         },
       },{id: "post-token-cropr-token-cropr-faster-vits-for-quite-a-few-tasks",
@@ -183,6 +271,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/tofu/";
           
         },
+      },{id: "post-p-former-bootstrapping-vision-language-learning-with-decoupled-language-pre-training",
+        
+          title: "[P-Former] Bootstrapping Vision-Language Learning with Decoupled Language Pre-training",
+        
+        description: "Flips the usual connector training: instead of asking &#39;which visual features make a good prompt&#39;, P-Former first learns — from text only — the ideal &#39;reference prompt&#39; a frozen LLM needs, then aligns visual features to it. A training-only module that boosts BLIP-2&#39;s data efficiency.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/p-former/";
+          
+        },
       },{id: "post-dtem-learning-to-merge-tokens-via-decoupled-embedding-for-efficient-vision-transformers",
         
           title: "[DTEM] Learning to Merge Tokens via Decoupled Embedding for Efficient Vision Transformers",
@@ -258,6 +357,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/tps/";
+          
+        },
+      },{id: "post-eva-clip-improved-training-techniques-for-clip-at-scale",
+        
+          title: "[EVA-CLIP] Improved Training Techniques for CLIP at Scale",
+        
+        description: "Makes CLIP training cheaper and more stable at scale — EVA initialization, the LAMB optimizer, random token dropping, and flash attention — reaching 82.0% zero-shot ImageNet with far fewer samples. The vision encoder many VLMs (e.g., BLIP-2) reuse.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/eva-clip/";
           
         },
       },{id: "post-diffrate-differentiable-compression-rate-for-efficient-vision-transformers",
