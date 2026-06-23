@@ -19,14 +19,14 @@ _styles: >
   .post-content h3 { font-size: 1.05rem; }
   .post-content .evlm-where .card-title { font-size: 0.95rem; font-weight: 700; }
   .post-content .evlm-where .card-text { font-size: 0.82rem; line-height: 1.6; }
-  .post-content .evlm-where .card { border-left: 4px solid #5d5c98; }
+  .post-content .evlm-where .card { border-left: 4px solid #6e85b7; }
   .post-content .evlm-tab table { font-size: 0.66rem; }
   .post-content .evlm-tab th, .post-content .evlm-tab td { line-height: 1.4; vertical-align: top; padding: 0.3rem 0.4rem; }
-  .post-content .evlm-tab tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .evlm-tab tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
   .post-content .evlm-tab td:first-child { white-space: nowrap; font-weight: 700; }
-  .post-content .evlm-insights .card-title { font-size: 0.95rem; color: #5d5c98; font-weight: 700; }
+  .post-content .evlm-insights .card-title { font-size: 0.95rem; color: #6e85b7; font-weight: 700; }
   .post-content .evlm-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
-  .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }
+  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
   .post-content .tr-callout p { margin-bottom: 0; }
   .post-content blockquote { font-size: 0.9rem; }
 ---
@@ -36,7 +36,7 @@ _styles: >
 </div>
 
 <div class="tr-callout p-3 my-3 rounded">
-  <p><strong>한 줄 요약.</strong> VLM은 <strong>시각 토큰이 텍스트보다 훨씬 많아</strong>(예: LLaVA 한 장에 576개) LLM 입력이 길어지고 연산이 토큰 수의 제곱으로 폭증한다. <strong>Efficient VLM</strong>은 이 <strong>시각 토큰을 줄여(선택·압축·복구)</strong> latency·메모리·FLOPs를 낮추는 방법들이다. 핵심은 두 가지 — ① 줄이는 <strong>위치</strong>(시각 인코더 / 브리지(projector) / LLM 내부) 가 다 다르고, ② 순수 시각만 보던 [ViT의 토큰 축소]({% post_url 2026-06-19-token-reduction-overview %})와 달리 대부분 <strong>텍스트(질문)를 가이드로</strong> 어떤 토큰이 답에 필요한지 본다.</p>
+  <p><strong>한 줄 요약.</strong> VLM은 <strong>시각 토큰이 텍스트보다 훨씬 많아</strong>(예: LLaVA 한 장에 576개) LLM 입력이 길어지고 연산이 토큰 수의 제곱으로 폭증한다. <strong>Efficient VLM</strong>은 이 <strong>시각 토큰을 줄여(선택·압축·복구)</strong> latency·메모리·FLOPs를 낮추는 방법들이다. 핵심은 두 가지 — ① 줄이는 <strong>위치</strong>(시각 인코더 / 브리지(projector) / LLM 내부) 가 다 다르고, ② 순수 시각만 보던 <a href="{% post_url 2026-06-19-token-reduction-overview %}">ViT의 토큰 축소</a>와 달리 대부분 <strong>텍스트(질문)를 가이드로</strong> 어떤 토큰이 답에 필요한지 본다.</p>
 </div>
 
 ## 왜 Efficient VLM인가

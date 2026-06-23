@@ -19,7 +19,7 @@ _styles: >
   .post-content h3 { font-size: 1.02rem; }
   .post-content table { font-size: 0.8rem; }
   .post-content figure { max-width: 600px; margin-left: auto; margin-right: auto; }
-  .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }
+  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
   .post-content .tr-callout p { margin-bottom: 0; }
 ---
 

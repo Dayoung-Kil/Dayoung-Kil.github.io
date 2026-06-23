@@ -8,7 +8,7 @@ category: 2026
 type: award
 github: https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection
 _styles: >
-  .post article strong { color: #5d5c98; }
+  .post article strong { color: #6e85b7; }
 ---
 
 <div class="mb-2">
@@ -18,7 +18,7 @@ _styles: >
 </div>
 <p class="text-muted">ECV Workshop @ CVPR 2026, Denver &middot; Sponsored by Qualcomm</p>
 
-<div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+<div class="p-4 my-3 rounded" style="background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7;">
   <p class="lead mb-2" style="font-weight:700">Can a phone tell a real photo from an AI-generated one — and <em>explain its reasoning</em>?</p>
   <p class="mb-0">Our entry in the 2026 IEEE Low-Power Computer Vision Challenge does both, fully on-device, under the contest's strict latency and power budgets.</p>
 </div>
@@ -110,13 +110,13 @@ Almost none of the source images came with the 8-criteria labels the task needs 
 <div class="row g-3 my-3">
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-2" style="color:#5d5c98">AI-generated sources</h6>
+      <h6 class="mb-2" style="color:#6e85b7">AI-generated sources</h6>
       <p class="mb-0 text-muted">ARForensics <em>(Infinity · Janus-Pro · LlamaGen · RAR · …)</em> · GenImage <em>(ADM · BigGAN)</em> · SID-Set · SynthScars</p>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-2" style="color:#5d5c98">Real sources</h6>
+      <h6 class="mb-2" style="color:#6e85b7">Real sources</h6>
       <p class="mb-0 text-muted">ImageNet · COCO train2017 · SID-Set <em>(real split)</em></p>
     </div>
   </div>
@@ -132,7 +132,7 @@ Instead of one yes/no call, we ask the teacher **three vision passes**, each sca
   <div class="col-md-4"><div class="card h-100 p-3"><strong>Q3 · Vision</strong><br><small class="text-muted">lighting · perspective</small></div></div>
 </div>
 
-<div class="card p-3 my-2" style="border-left:4px solid #5d5c98;">
+<div class="card p-3 my-2" style="border-left:4px solid #6e85b7;">
   <strong>Q4 · Text-only synthesis</strong> — fold Q1–Q3 into one structured JSON: an <code>aigc score</code> + written <code>evidence</code> per criterion, plus an overall <code>Real / AI-Generated</code> verdict.
 </div>
 
@@ -165,35 +165,35 @@ A general VLM doesn't know what AI artifacts look like, so we adapt **Qwen2-VL-2
 <div class="row g-3 my-3">
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P1</span> Detect</h6>
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#6e85b7;color:#fff">P1</span> Detect</h6>
       <p class="mb-2 small">Emit the per-criterion + overall verdict from a single prompt.</p>
       <p class="mb-0"><code>token CE + 2.0 × BCE</code><br><small class="text-muted">aux real/fake head on vision features</small></p>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P2</span> Stay consistent</h6>
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#6e85b7;color:#fff">P2</span> Stay consistent</h6>
       <p class="mb-2 small">Multi-prompt robustness (4 phrasings/image), scores tied to the written answer.</p>
       <p class="mb-0"><code>token CE + 0.1 × overall BCE + 0.05 × criterion BCE</code></p>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P3</span> Explain</h6>
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#6e85b7;color:#fff">P3</span> Explain</h6>
       <p class="mb-2 small">Image → free-form written <strong>evidence</strong> for each criterion.</p>
       <p class="mb-0"><code>standard SFT token CE</code></p>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#5d5c98;color:#fff">P4</span> Format</h6>
+      <h6 class="mb-1"><span class="badge rounded-pill me-1" style="background-color:#6e85b7;color:#fff">P4</span> Format</h6>
       <p class="mb-2 small">Text-only → one valid <strong>JSON</strong>; any fake criterion forces an <code>AI-Generated</code> verdict.</p>
       <p class="mb-0"><code>standard SFT token CE</code></p>
     </div>
   </div>
 </div>
 
-<div class="p-3 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+<div class="p-3 my-3 rounded" style="background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7;">
   <p class="mb-2"><strong>Vision tower</strong> — unfrozen <strong>only in P1</strong>, so the ViT itself learns to see artifacts; frozen for P2–P4. The auxiliary heads (P1, P2) are dropped after training — only the LoRA delta is merged.</p>
   <p class="mb-0"><strong>P4 runs in two passes</strong> — a warmup (lr 5e-5) then a low-lr final (lr 1e-5) to lock the JSON format without overfitting. The merged P4 model is what ships to quantization.</p>
 </div>

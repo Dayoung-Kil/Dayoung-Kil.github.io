@@ -15,27 +15,36 @@ toc:
 _styles: >
   .post-title { font-size: 1.8rem; }
   .post-content { font-size: 0.92rem; line-height: 1.75; }
-  .post-content h2 { font-size: 1.3rem; margin-top: 1.8rem; }
+  .post-content p { margin-bottom: 1.15rem; }
+  .post-content h2 { font-size: 1.3rem; margin-top: 2.2rem; }
   .post-content h3 { font-size: 1.05rem; }
   .post-content table { font-size: 0.8rem; }
   .post-content .vlm-comp .card-title { font-size: 0.95rem; font-weight: 700; }
   .post-content .vlm-comp .card-text { font-size: 0.82rem; line-height: 1.6; }
-  .post-content .vlm-comp .card { border-left: 4px solid #5d5c98; }
+  .post-content .vlm-comp .card { border-left: 4px solid #6e85b7; }
   .post-content .vlm-tax .card-title { font-size: 0.95rem; font-weight: 700; }
   .post-content .vlm-tax .card-text { font-size: 0.82rem; line-height: 1.6; }
-  .post-content .vlm-insights .card-title { font-size: 0.95rem; color: #5d5c98; font-weight: 700; }
+  .post-content .vlm-insights .card-title { font-size: 0.95rem; color: #6e85b7; font-weight: 700; }
   .post-content .vlm-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .vlm-models table { font-size: 0.8rem; width: 100%; }
   .post-content .vlm-models th, .post-content .vlm-models td { font-size: 0.8rem; line-height: 1.4; vertical-align: middle; padding: 0.35rem 0.5rem; }
-  .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
-  .post-content .vlm-models tr.gen td { background-color: rgba(38,152,186,0.12); color:#1c1c1d; font-weight: 700; font-size: 0.76rem; border-top: 2px solid #2698ba; padding: 0.3rem 0.5rem; }
+  .post-content .vlm-models tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
+  .post-content .vlm-models tr.gen td { background-color: rgba(120,123,179,0.12); color:#1c1c1d; font-weight: 700; font-size: 0.76rem; border-top: 2px solid #787bb3; padding: 0.3rem 0.5rem; }
+  .post-content .vlm-models tbody td:first-child { font-weight: 700; }
+  .post-content .vlm-models tbody td:first-child .text-muted { font-weight: 400; }
+  .post-content .vlm-gen .card { border-left: 4px solid #787bb3; }
+  .post-content .vlm-gen .gh { display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.98rem; color: #1c1c1d; padding-bottom: 0.45rem; margin-bottom: 0.55rem; border-bottom: 1px solid rgba(120,123,179,0.25); }
+  .post-content .vlm-gen .gh .badge { background-color: #787bb3; color: #fff; font-size: 0.72rem; }
+  .post-content .vlm-gen .gh strong, .post-content .vlm-gen .gh { font-weight: 800; }
+  .post-content .vlm-gen .gd-lead { font-size: 0.85rem; font-weight: 700; color: #1c1c1d; margin-bottom: 0.3rem; }
+  .post-content .vlm-gen .gd { font-size: 0.8rem; line-height: 1.6; margin-bottom: 0; color: #444; }
   .post-content .vlm-bench table { font-size: 0.72rem; }
   .post-content .vlm-bench th, .post-content .vlm-bench td { font-size: 0.7rem; line-height: 1.4; vertical-align: top; padding: 0.3rem 0.45rem; }
-  .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .vlm-bench tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
   .post-content .vlm-adapt table { font-size: 0.72rem; }
   .post-content .vlm-adapt th, .post-content .vlm-adapt td { font-size: 0.72rem; line-height: 1.45; padding: 0.3rem 0.45rem; vertical-align: top; }
   .post-content .vlm-bench td:first-child { white-space: nowrap; font-weight: 700; }
-  .post-content .tr-callout { background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98; }
+  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
   .post-content .tr-callout p { margin-bottom: 0; }
   .post-content blockquote { font-size: 0.9rem; }
 ---
@@ -101,14 +110,14 @@ VLM 구조는 5개 부품으로 일반화된다. **이해만** 하는 모델은 
     </div>
     <div class="col mb-3">
       <div class="card h-100"><div class="card-body">
-        <h6 class="card-title">④ Output Projector $\Theta_{T\to X}$ <span class="badge rounded-pill" style="background-color:#9a99c0;color:#fff;font-size:0.6rem;vertical-align:middle">생성 전용</span></h6>
+        <h6 class="card-title">④ Output Projector $\Theta_{T\to X}$ <span class="badge rounded-pill" style="background-color:#93a4c8;color:#fff;font-size:0.6rem;vertical-align:middle">생성 전용</span></h6>
         <p class="card-text mb-1">LLM의 신호 토큰 $S_X$ 를 <strong>생성기가 알아듣는 조건 특징 $H_X$</strong> 로 매핑. <strong>학습 대상</strong>.</p>
         <p class="card-text mb-0 text-muted">예: Tiny Transformer · MLP</p>
       </div></div>
     </div>
     <div class="col mb-3">
       <div class="card h-100"><div class="card-body">
-        <h6 class="card-title">⑤ Modality Generator (MG) <span class="badge rounded-pill" style="background-color:#9a99c0;color:#fff;font-size:0.6rem;vertical-align:middle">생성 전용</span></h6>
+        <h6 class="card-title">⑤ Modality Generator (MG) <span class="badge rounded-pill" style="background-color:#93a4c8;color:#fff;font-size:0.6rem;vertical-align:middle">생성 전용</span></h6>
         <p class="card-text mb-1">$H_X$ 를 조건으로 <strong>off-the-shelf 생성기</strong>가 최종 산출물을 만든다. 보통 <strong>freeze</strong>.</p>
         <p class="card-text mb-0 text-muted">예: Stable Diffusion(이미지) · Zeroscope(비디오) · AudioLDM(오디오)</p>
       </div></div>
@@ -158,7 +167,7 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 
 먼저 **태그(부품·유형)별로**, 풀 모델인 **VLM**은 다시 **세대(G1→G4)별**로 본다.
 
-### <span class="badge rounded-pill" style="background-color:#3a7ca5;color:#fff;font-size:0.9rem">Modality Encoder</span>
+### <span class="badge rounded-pill" style="background-color:#6e85b7;color:#fff;font-size:0.9rem">Modality Encoder</span>
 
 <div class="vlm-models" markdown="1">
 
@@ -168,64 +177,64 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 
 </div>
 
-### <span class="badge rounded-pill" style="background-color:#2698ba;color:#fff;font-size:0.9rem">VLM</span> <span class="text-muted" style="font-size:0.9rem;font-weight:400">풀 멀티모달 모델</span>
+### <span class="badge rounded-pill" style="background-color:#787bb3;color:#fff;font-size:0.9rem">VLM</span> <span class="text-muted" style="font-size:0.9rem;font-weight:400">풀 멀티모달 모델</span>
 
-<div class="row g-2 my-3 vlm-gen">
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
-    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G1</span></div>
-    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Foundations</div>
-    <small class="text-muted" style="font-size:0.72rem">LLM 이전 · 통합 VL</small>
-  </div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
-    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G2</span></div>
-    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Frozen LLM + Connector</div>
-    <small class="text-muted" style="font-size:0.72rem">frozen LLM에 다리 놓기</small>
-  </div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
-    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G3</span></div>
-    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Visual Instruction Tuning</div>
-    <small class="text-muted" style="font-size:0.72rem">지시 따르는 어시스턴트</small>
-  </div></div>
-  <div class="col-6 col-md-3"><div class="card h-100 p-2 text-center">
-    <div><span class="badge rounded-pill" style="background-color:#2698ba;color:#fff">G4</span></div>
-    <div class="mt-1" style="font-weight:700;font-size:0.82rem">Native Multimodal</div>
-    <small class="text-muted" style="font-size:0.72rem">네이티브 해상도·비디오</small>
-  </div></div>
+<div class="row g-3 my-3 vlm-gen">
+  <div class="col-md-6"><div class="card h-100"><div class="card-body">
+    <div class="gh"><span class="badge rounded-pill">G1</span> Foundations</div>
+    <p class="gd-lead">거대 LLM을 붙이기 전, 비전·언어의 토대.</p>
+    <p class="gd">이미지↔텍스트를 <strong>같은 의미 공간에 맞추거나(정렬)</strong> 이해+생성을 자체적으로 한다. 이후 VLM이 그대로 갖다 쓸 <strong>비전 인코더·데이터</strong>를 마련한 단계.</p>
+  </div></div></div>
+  <div class="col-md-6"><div class="card h-100"><div class="card-body">
+    <div class="gh"><span class="badge rounded-pill">G2</span> LLM + ICL</div>
+    <p class="gd-lead">강력한 LLM을 가져다 붙인다.</p>
+    <p class="gd"><strong>이미 학습을 마친 모델</strong>에 새 task가 와도, <strong>추가 학습(파인튜닝) 없이</strong> 프롬프트(입력)에 <strong>예시 몇 개·질문만 넣으면</strong> 모델이 보고 따라 한다 — in-context learning(few-shot). <span class="text-muted">("처음부터 학습"은 모델을 <em>만드는</em> 단계 얘기, few-shot은 다 만든 모델을 <em>쓰는</em> 단계 얘기.)</span></p>
+  </div></div></div>
+  <div class="col-md-6"><div class="card h-100"><div class="card-body">
+    <div class="gh"><span class="badge rounded-pill">G3</span> Instruction Tuning</div>
+    <p class="gd-lead">(지시, 답) 데이터로 LLM을 한 번 더 학습(튜닝).</p>
+    <p class="gd">G2는 <strong>프롬프트로 그때그때</strong> 적응할 뿐. G3은 <strong>"이렇게 물으면 이렇게 답해라"는 예시 데이터</strong>(예: GPT-4가 만든 멀티모달 Q&A 158K)로 튜닝 → <strong>자유로운 지시를 잘 따르는 챗봇</strong>이 된다.</p>
+  </div></div></div>
+  <div class="col-md-6"><div class="card h-100"><div class="card-body">
+    <div class="gh"><span class="badge rounded-pill">G4</span> Native Multimodal</div>
+    <p class="gd-lead">이미지를 원래 해상도·비율 그대로(네이티브).</p>
+    <p class="gd">앞 세대는 이미지를 <strong>작은 고정 크기(224·336·448px)로 줄여서</strong> 봤다면, G4는 네이티브로 보고 <strong>영상·긴 문서·에이전트</strong>까지 다룬다 — 입력의 크기·종류를 키운 단계.</p>
+  </div></div></div>
 </div>
 
 <div class="vlm-models">
 <table>
-<thead><tr><th>모델</th><th>Encoder</th><th>Connector</th><th>LLM</th><th>핵심</th></tr></thead>
+<thead><tr><th>모델</th><th>Encoder</th><th>Connector</th><th>LLM</th><th>차별점 <span style="font-weight:400">(남다른 점)</span></th></tr></thead>
 <tbody>
-<tr class="gen"><td colspan="5">G1 · Foundations <span class="text-muted">— LLM 이전</span></td></tr>
-<tr><td><a href="{% post_url 2022-01-28-blip %}">BLIP</a> <span class="text-muted">'22</span></td><td>ViT-B/L</td><td>MED <span class="text-muted">(cross-attn 내장)</span></td><td>—</td><td>ITC·ITM·LM 통합 + <strong>CapFilt</strong></td></tr>
-<tr class="gen"><td colspan="5">G2 · Frozen LLM + Connector <span class="text-muted">— 다리 놓기</span></td></tr>
-<tr><td><a href="{% post_url 2022-04-29-flamingo %}">Flamingo</a> <span class="text-muted">'22</span></td><td>NFNet-F6</td><td><strong>Cross-attention</strong></td><td>Chinchilla</td><td>connector만 학습 → <strong>few-shot ICL</strong></td></tr>
-<tr><td><a href="{% post_url 2023-01-30-blip2 %}">BLIP-2</a> <span class="text-muted">'23</span></td><td>CLIP / EVA ViT</td><td><strong>Q-Former</strong></td><td>Flan-T5 / OPT</td><td>2단계(표현→생성), 극도로 효율적</td></tr>
-<tr class="gen"><td colspan="5">G3 · Visual Instruction Tuning <span class="text-muted">— 어시스턴트</span></td></tr>
-<tr><td><a href="{% post_url 2023-04-17-llava %}">LLaVA</a> <span class="text-muted">'23</span></td><td>CLIP ViT-L/14</td><td><strong>Linear</strong></td><td>Vicuna</td><td><strong>visual instruction tuning</strong></td></tr>
-<tr><td><a href="{% post_url 2023-10-05-llava1-5 %}">LLaVA-1.5</a> <span class="text-muted">'24</span></td><td>CLIP @336</td><td><strong>MLP</strong></td><td>Vicuna-1.5</td><td>+ 고해상도·학술 VQA·포맷 프롬프트</td></tr>
-<tr class="gen"><td colspan="5">G4 · Native Multimodal <span class="text-muted">— 스케일·비디오·에이전트</span></td></tr>
-<tr><td>Qwen2.5-VL <span class="text-muted">'25</span></td><td>dynamic-res ViT</td><td>MLP merger</td><td>Qwen2.5</td><td>dynamic res/FPS · <strong>M-RoPE</strong></td></tr>
+<tr class="gen"><td colspan="5">G1 · Foundations <span class="text-muted">— LLM 없이 비전·언어 정렬</span></td></tr>
+<tr><td><a href="{% post_url 2022-01-28-blip %}">BLIP</a> <span class="text-muted">'22</span></td><td>ViT-B/L</td><td>MED <span class="text-muted">(cross-attn 내장)</span></td><td>—</td><td>이해+생성을 <strong>한 모델(MED)로 통합</strong> + CapFilt로 데이터 정제</td></tr>
+<tr class="gen"><td colspan="5">G2 · LLM + ICL <span class="text-muted">— LLM 붙이고 프롬프트로 적응</span></td></tr>
+<tr><td><a href="{% post_url 2022-04-29-flamingo %}">Flamingo</a> <span class="text-muted">'22</span></td><td>NFNet-F6</td><td><strong>Cross-attention</strong></td><td>Chinchilla</td><td>cross-attention을 <strong>LLM 층 안에 주입</strong> (few-shot ICL)</td></tr>
+<tr><td><a href="{% post_url 2023-01-30-blip2 %}">BLIP-2</a> <span class="text-muted">'23</span></td><td>CLIP / EVA ViT</td><td><strong>Q-Former</strong></td><td>Flan-T5 / OPT</td><td><strong>Q-Former 병목</strong>으로 최소 파라미터(학습 188M)</td></tr>
+<tr><td><a href="{% post_url 2023-02-27-kosmos-1 %}">Kosmos-1</a> <span class="text-muted">'23</span></td><td>CLIP ViT</td><td>토큰열 interleave</td><td><strong>from-scratch</strong></td><td>freeze 없이 <strong>처음부터 한 몸으로</strong> 학습</td></tr>
+<tr class="gen"><td colspan="5">G3 · Instruction Tuning <span class="text-muted">— 지시 데이터로 튜닝, 지시 따르는 챗봇</span></td></tr>
+<tr><td><a href="{% post_url 2023-04-17-llava %}">LLaVA</a> <span class="text-muted">'23</span></td><td>CLIP ViT-L/14</td><td><strong>Linear</strong></td><td>Vicuna</td><td><strong>GPT-4가 만든 instruction 데이터</strong>로 visual instruction tuning <strong>첫 도입</strong> <span class="text-muted">(부품은 일부러 단순)</span></td></tr>
+<tr><td><a href="{% post_url 2023-04-20-minigpt-4 %}">MiniGPT-4</a> <span class="text-muted">'23</span></td><td>ViT+Q-Former <span class="text-muted">(BLIP-2 것)</span></td><td><strong>Linear</strong> <span class="text-muted">(1층만 학습)</span></td><td>Vicuna</td><td><strong>BLIP-2 비전을 재활용</strong> + 더 강한 LLM(Vicuna)에 linear 한 층만 + 대화 2단계 정렬</td></tr>
+<tr><td><a href="{% post_url 2023-05-11-instructblip %}">InstructBLIP</a> <span class="text-muted">'23</span></td><td>ViT <span class="text-muted">(BLIP-2 것)</span></td><td><strong>instruction-aware Q-Former</strong></td><td>Flan-T5 / Vicuna</td><td>BLIP-2를 <strong>26개 학술 데이터로 instruction 튜닝</strong> + <strong>지시문을 Q-Former에도 줘 맞춤 시각 특징</strong></td></tr>
+<tr><td><a href="{% post_url 2023-08-24-qwen-vl %}">Qwen-VL</a> <span class="text-muted">'23</span></td><td>ViT-bigG @448</td><td>cross-attn adapter <span class="text-muted">(Resampler 256q)</span></td><td>Qwen-7B</td><td><strong>grounding·OCR 능력</strong> 추가(<code>&lt;box&gt;</code>·<code>&lt;ref&gt;</code> 토큰) · 3단계 학습</td></tr>
+<tr><td><a href="{% post_url 2023-10-05-llava1-5 %}">LLaVA-1.5</a> <span class="text-muted">'24</span></td><td>CLIP @336</td><td><strong>MLP</strong></td><td>Vicuna-1.5</td><td><strong>학술 VQA 데이터 + 포맷 프롬프트</strong>(단답/장답 균형) → 공개데이터 SOTA</td></tr>
+<tr><td><a href="{% post_url 2023-12-21-internvl %}">InternVL</a> <span class="text-muted">'24</span></td><td><strong>InternViT-6B</strong></td><td>QLLaMA <span class="text-muted">(8B 미들웨어)</span></td><td>Vicuna 등</td><td>작은 인코더+거대 LLM <strong>불균형 해결</strong> — <strong>비전 인코더를 6B로 스케일</strong> + 강한 미들웨어</td></tr>
+<tr class="gen"><td colspan="5">G4 · Native Multimodal <span class="text-muted">— 네이티브 해상도·비디오로 스케일</span></td></tr>
+<tr><td><a href="{% post_url 2024-08-06-llava-onevision %}">LLaVA-OneVision</a> <span class="text-muted">'24</span></td><td>SigLIP</td><td><strong>2-layer MLP</strong></td><td>Qwen-2</td><td><strong>이미지+멀티이미지+비디오 한 모델</strong> + 시나리오 간 전이(이미지→비디오 창발) · AnyRes 고해상도</td></tr>
+<tr><td>Qwen2.5-VL <span class="text-muted">'25</span></td><td>dynamic-res ViT</td><td>MLP merger</td><td>Qwen2.5</td><td><strong>네이티브 동적 해상도/시간축</strong>·비디오·에이전트</td></tr>
 </tbody>
 </table>
 </div>
 
-### 큰 흐름 — 두 축으로 읽기
+### 두 축으로 보는 진화
 
-**① Connector의 진화 (무엇으로 잇나)** — Flamingo의 cross-attention → BLIP-2의 **Q-Former**(학습 query가 텍스트에 유용한 시각 정보만 압축 추출)처럼 복잡하던 것이, **LLaVA의 단순 Linear/MLP**로도 충분함이 드러났다(VILA 등 동일 결론).
+세대를 가르는 흐름은 결국 **두 축**으로 압축된다 (모델별 자세한 차이는 위 표의 *핵심* 열 참고).
 
-**② 적응 방식의 진화 (어떻게 학습하나)** — 결과는 셋 다 *사진+질문→답*으로 비슷해 보여도, 거기에 이르는 방법이 다르다. 이게 *"LLaVA가 instruction tuning을 멀티모달로 가져온 첫 모델"* 이라는 말의 뜻:
+- **Connector — 복잡 → 단순.** G2의 cross-attention(Flamingo)·Q-Former(BLIP-2)·Resampler(Qwen-VL)처럼 무겁던 다리가, G3 **LLaVA의 단순 Linear/MLP**로도 충분함이 드러났다.
+- **적응 — 프롬프트 → 튜닝.** G2는 **few-shot ICL**(예시 몇 개로 그 자리에서 적응)이지만, G3부터는 **GPT-4 instruction 데이터로 직접 튜닝**해 지시 따르는 챗봇이 된다.
+- *(보너스1: 같은 G2라도 **Flamingo·BLIP-2**는 frozen LLM에 다리를 놓고, **Kosmos-1**만 다리 없이 from-scratch로 한 몸으로 학습한다.)*
+- *(보너스2: **BLIP-2**의 Q-Former는 지시와 무관한 **고정 시각 특징**을 주는데, **InstructBLIP**은 지시문을 Q-Former에도 넣어 **"지시에 맞는 시각 특징"** 을 뽑는다.)*
 
-<div class="vlm-adapt" markdown="1">
-
-| 모델 | 적응 방식 | 핵심 |
-| --- | --- | --- |
-| **Flamingo** | few-shot 프롬프팅 (ICL) | 추론 때 프롬프트에 **예시 몇 개**를 넣어 적응(가중치 변경 X). 지시 데이터로 튜닝한 게 아님 |
-| **BLIP-2** | VL 사전학습 / 정렬 | Q-Former로 **그림↔글 정렬**. 지시를 따르는 능력은 뒤의 frozen LLM(예: Flan-T5)의 몫 |
-| **LLaVA** | **visual instruction tuning** | GPT-4가 만든 멀티모달 (지시,응답)으로 **직접 fine-tune** → 멀티모달 IT를 **처음 도입**(이후 표준 레시피) |
-
-</div>
 ## 주요 벤치마크
 
 VLM 성능은 대부분 **VQA 계열 벤치마크**로 잰다. 자주 쓰이는 것들을 묶으면:

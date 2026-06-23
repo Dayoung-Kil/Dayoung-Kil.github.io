@@ -21,26 +21,26 @@ survey:
 
 # --- VLM: full models + 5-component architecture (blue family) ---
 vlm:
-  bg: "#2698ba"
+  bg: "#787bb3"
   fg: "#ffffff"
   name: VLM
 modality-encoder:
-  bg: "#3a7ca5"
+  bg: "#6e85b7"
   fg: "#ffffff"
   name: Modality Encoder
 input-projector:
-  bg: "#4a90c2"
-  fg: "#ffffff"
+  bg: "#9cb4cc"
+  fg: "#1c1c1d"
   name: Input Projector
 llm-backbone:
-  bg: "#2a6f97"
-  fg: "#ffffff"
+  bg: "#b2c8df"
+  fg: "#1c1c1d"
   name: LLM Backbone
 output-projector:
-  bg: "#6c8ebf"
-  fg: "#ffffff"
+  bg: "#c4d7e0"
+  fg: "#1c1c1d"
   name: Output Projector
 modality-generator:
-  bg: "#28406e"
-  fg: "#ffffff"
+  bg: "#d8e6ed"
+  fg: "#1c1c1d"
   name: Modality Generator

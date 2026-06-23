@@ -2,7 +2,7 @@
 layout: post
 title: "Token Reduction in ViTs — Overview"
 date: 2026-06-19
-description: ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with 17 key papers at a glance.
+description: ViT token efficiency — Pruning · Merging · Pooling · Hybrid, with key papers at a glance.
 thumbnail: assets/img/notes/token-reduction-types.png
 categories: token-reduction-in-vits
 tags: survey
@@ -18,7 +18,7 @@ _styles: >
   .post-content h2 { font-size: 1.3rem; margin-top: 1.8rem; }
   .post-content h3 { font-size: 1.05rem; }
   .post-content table { font-size: 0.85rem; }
-  .post-content .tr-insights .card-title { font-size: 0.95rem; color: #5d5c98; font-weight: 700; }
+  .post-content .tr-insights .card-title { font-size: 0.95rem; color: #6e85b7; font-weight: 700; }
   .post-content .tr-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .tr-types .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .tr-axes .card-title { font-size: 0.95rem; font-weight: 700; }
@@ -26,18 +26,18 @@ _styles: >
   .post-content .tr-papers table { font-size: 0.68rem; }
   .post-content .tr-papers th, .post-content .tr-papers td { font-size: 0.68rem; line-height: 1.35; vertical-align: middle; padding: 0.3rem 0.5rem; }
   .post-content .tr-papers .badge { font-size: 0.62rem; }
-  .post-content .tr-papers tbody tr:nth-child(odd) { background-color: rgba(93,92,152,0.05); }
+  .post-content .tr-papers tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
   .post-content .tr-papers .badge { font-weight: 600; white-space: nowrap; }
-  .post-content .tr-gen .gen-stage { border-left: 5px solid #5d5c98; }
+  .post-content .tr-gen .gen-stage { border-left: 5px solid #6e85b7; }
   .post-content .tr-gen .gen-stage .card-title { font-size: 0.98rem; font-weight: 700; line-height: 1.4; }
   .post-content .tr-gen .gen-stage .card-text { font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.4rem; }
   .post-content .tr-gen .gen-limit { font-size: 0.8rem; color: #b05a6e; }
-  .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #5d5c98; font-weight: 600; }
-  .post-content .tr-gen .gen-arrow { text-align: center; color: #9a99c0; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
+  .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #6e85b7; font-weight: 600; }
+  .post-content .tr-gen .gen-arrow { text-align: center; color: #93a4c8; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
   .post-content blockquote { font-size: 0.9rem; }
 ---
 
-<p class="text-muted mb-4">Pruning · Merging · Pooling · Hybrid · 관련 논문 17편</p>
+<p class="text-muted mb-4">Pruning · Merging · Pooling · Hybrid</p>
 
 이 글은 **Token Reduction** 분야의 큰 그림을 잡기 위한 개요 노트다. 개별 논문 노트로 들어가기 전에, *무엇을 줄이는 것인지 · 어떤 방식들이 있는지 · 논문들이 어떻게 발전해 왔는지*를 한눈에 정리한다.
 
@@ -63,9 +63,9 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
       </div>
     </div>
     <div class="col mb-3">
-      <div class="card h-100" style="border-color:#5d5c98">
+      <div class="card h-100" style="border-color:#6e85b7">
         <div class="card-body">
-          <h6 class="card-title" style="color:#5d5c98">Token pruning <span class="badge rounded-pill" style="background-color:#5d5c98;color:#fff;font-size:0.65rem;vertical-align:middle">이 노트</span></h6>
+          <h6 class="card-title" style="color:#6e85b7">Token pruning <span class="badge rounded-pill" style="background-color:#6e85b7;color:#fff;font-size:0.65rem;vertical-align:middle">이 노트</span></h6>
           <p class="card-text mb-1">줄이는 축: <strong>토큰/패치 길이 N</strong></p>
           <p class="card-text mb-0 text-muted">이미지에서 덜 중요한 <strong>위치</strong>를 안 봄</p>
         </div>
@@ -123,7 +123,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
 
 > 경계는 칼같지 않다. "pruned merging"(이름은 merging이지만 사실상 하나를 버림)처럼 한 방법 안에서 여러 전략이 섞이기도 한다.
 
-## 관련 논문 17편 한눈에 보기
+## 관련 논문 한눈에 보기
 
 <div class="tr-papers" markdown="1">
 
@@ -151,7 +151,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
 
 ## Evolution
 
-위 17편을 발표순이 아니라 **문제→해결의 사슬**로 다시 늘어놓으면 분야가 한 줄기로 읽힌다. 각 단계는 앞 단계가 남긴 한계를 풀고, 또 새 한계를 남긴다.
+위 논문들을 발표순이 아니라 **문제→해결의 사슬**로 다시 늘어놓으면 분야가 한 줄기로 읽힌다. 각 단계는 앞 단계가 남긴 한계를 풀고, 또 새 한계를 남긴다.
 
 <div class="tr-gen">
 
@@ -182,7 +182,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
   </div>
   <div class="gen-arrow">▼</div>
 
-  <div class="card gen-stage" style="border-left-color:#5d5c98">
+  <div class="card gen-stage" style="border-left-color:#6e85b7">
     <div class="card-body">
       <h6 class="card-title">④ 다기준 · 전역 신호 — 여러 단서를 결합한다 <span class="badge rounded-pill me-1" style="background-color:#88bda4;color:#1c1c1d">Merging</span><span class="badge rounded-pill" style="background-color:#659287;color:#fff">Pruning</span></h6>
       <p class="card-text">한 기준의 약점을 여러 신호로 메운다. 유사도×중요도×크기 다기준 fusion(<strong>MCTF</strong>), intra-layer + inter-layer(LRP) 중요도 결합(<strong>STAR</strong>), attention graph + PageRank로 전역 중요도를 학습 없이(<strong>Zero-TPrune</strong>).</p>

@@ -22,8 +22,8 @@ pagination:
   nav.sticky-top a[data-toggle="collapse"] .fa-caret-down { transition: transform 0.2s ease; }
   nav.sticky-top a[data-toggle="collapse"].collapsed .fa-caret-down { transform: rotate(-90deg); }
   /* 카테고리 칩(pill) */
-  .post a.cat-chip { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px; background-color: rgba(93,92,152,0.12); color: #5d5c98; font-weight: 600; line-height: 1.4; text-decoration: none; }
-  .post a.cat-chip:hover { background-color: rgba(93,92,152,0.22); }
+  .post a.cat-chip { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px; background-color: rgba(110,133,183,0.12); color: #6e85b7; font-weight: 600; line-height: 1.4; text-decoration: none; }
+  .post a.cat-chip:hover { background-color: rgba(110,133,183,0.22); }
   /* 메서드 태그 칩(pill) */
   .post .post-list .post-tags a.tag-chip { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px; font-weight: 600; line-height: 1.4; text-decoration: none; }
   .post .post-list .post-tags a.tag-chip:hover { filter: brightness(0.94); }
@@ -32,18 +32,18 @@ pagination:
   nav.sticky-top .ct-type { display:inline-block; padding:0.02rem 0.5rem; border-radius:999px; font-size:0.66rem; font-weight:700; letter-spacing:0.02em; }
   /* Contents 사이드바: 글씨 검정 (venue 회색은 유지) */
   nav.sticky-top a { color:#1c1c1d; }
-  nav.sticky-top a:hover { color:#5d5c98; }
+  nav.sticky-top a:hover { color:#6e85b7; }
   nav.sticky-top a.cat-chip { color:#1c1c1d; background-color:rgba(0,0,0,0.05); }
   /* featured 핵심 논문 카드 — extra compact */
   .post .featured-posts .card-body { padding:0.5rem 0.65rem; }
   .post .featured-posts .card-title { text-transform:none; font-weight:700; font-size:0.82rem; letter-spacing:-0.01em; margin-bottom:0.25rem; }
   .post .featured-posts .card-text { font-size:0.68rem; line-height:1.45; margin-bottom:0; color:var(--global-text-color); }
   .post .featured-posts .badge { font-size:0.52rem; font-weight:600; }
-  .post .feat-cat { font-weight:600; color:#9a99c0; font-size:0.8rem; margin:0.7rem 0 0.3rem; }
+  .post .feat-cat { font-weight:600; color:#93a4c8; font-size:0.8rem; margin:0.7rem 0 0.3rem; }
   /* 메인 랜딩: 카테고리 섹션 헤더 */
-  .post h2.cat-section { font-size:1.15rem; font-weight:800; color:#5d5c98; margin:1.8rem 0 0.2rem; padding-bottom:0.3rem; border-bottom:2px solid rgba(93,92,152,0.25); text-transform:none; }
+  .post h2.cat-section { font-size:1.15rem; font-weight:800; color:#6e85b7; margin:1.8rem 0 0.2rem; padding-bottom:0.3rem; border-bottom:2px solid rgba(110,133,183,0.25); text-transform:none; }
   .post h2.cat-section:first-of-type { margin-top:0.4rem; }
-  .post h2.cat-section .cat-count { font-size:0.8rem; font-weight:600; color:#9a99c0; }
+  .post h2.cat-section .cat-count { font-size:0.8rem; font-weight:600; color:#93a4c8; }
   .post .cat-more { font-size:0.8rem; }
 </style>
 

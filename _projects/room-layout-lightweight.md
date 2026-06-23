@@ -9,7 +9,7 @@ type: publication
 github: https://github.com/Dayoung-Kil/Lightweight-Deep-Learning-for-Room-Layout-Estimation-with-a-Single-Panoramic-Image
 paper: https://ieeexplore.ieee.org/document/10003901
 _styles: >
-  .post article strong { color: #5d5c98; }
+  .post article strong { color: #6e85b7; }
 ---
 
 <div class="mb-2">
@@ -21,7 +21,7 @@ _styles: >
 
 <p class="mb-3"><strong>Dayoung Kil</strong>, Seong-heum Kim &middot; VIP Lab, Soongsil University</p>
 
-<div class="p-4 my-3 rounded" style="background-color: rgba(93,92,152,0.08); border-left: 4px solid #5d5c98;">
+<div class="p-4 my-3 rounded" style="background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7;">
   <p class="lead mb-2" style="font-weight:700">Can a phone-sized network rebuild the 3D layout of a room from a <em>single</em> panorama?</p>
   <p class="mb-0">We make HorizonNet lightweight: its ResNet backbone is replaced by a searched MnasNet, and its LSTM by a GRU. The result runs on under half the parameters, with almost no loss in layout accuracy.</p>
 </div>
@@ -61,10 +61,10 @@ HorizonNet recovers a layout in three stages. We leave the pipeline intact and s
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card h-100 p-3" style="border:2px solid #5d5c98">
-      <strong style="color:#5d5c98" class="text-uppercase">Feature extraction</strong>
+    <div class="card h-100 p-3" style="border:2px solid #6e85b7">
+      <strong style="color:#6e85b7" class="text-uppercase">Feature extraction</strong>
       <p class="mb-1 mt-1 small">predict 1D ceiling / floor / wall boundaries</p>
-      <span class="badge rounded-pill" style="background-color:#5d5c98;color:#fff">we make this lightweight</span>
+      <span class="badge rounded-pill" style="background-color:#6e85b7;color:#fff">we make this lightweight</span>
     </div>
   </div>
   <div class="col-md-4">
@@ -88,13 +88,13 @@ The feature extractor in HorizonNet is **ResNet-50 + LSTM**. We replace both hal
 <div class="row g-3 my-3">
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-2" style="color:#5d5c98">ResNet-50 → MnasNet</h6>
+      <h6 class="mb-2" style="color:#6e85b7">ResNet-50 → MnasNet</h6>
       <p class="mb-0 small">MnasNet decomposes the network into blocks over a <em>factorized hierarchical search space</em> — each block can differ, but layers inside a block share structure, so the search space stays small and mobile-friendly.</p>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card h-100 p-3">
-      <h6 class="mb-2" style="color:#5d5c98">LSTM → GRU</h6>
+      <h6 class="mb-2" style="color:#6e85b7">LSTM → GRU</h6>
       <p class="mb-0 small">A GRU merges the LSTM's input / forget gates into one update gate, and its cell / hidden states into a single state — fewer parameters for the same sequence modeling.</p>
     </div>
   </div>
