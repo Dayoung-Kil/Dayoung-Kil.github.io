@@ -150,6 +150,39 @@ ninja.data = [{
             window.location.href = "/blog/2024/internvl2-5/";
           
         },
+      },{id: "post-pyramiddrop-accelerating-large-vision-language-models-via-pyramid-visual-redundancy-reduction",
+        
+          title: "[PyramidDrop] Accelerating Large Vision-Language Models via Pyramid Visual Redundancy Reduction",
+        
+        description: "Empirically shows visual tokens are all needed in shallow LLM layers but grow redundant in deeper ones — so it splits the LLM into stages and drops a fixed ratio of image tokens at the end of each stage (pyramid). Accelerates both training (−40%) and inference (−55% FLOPs).",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/pyramiddrop/";
+          
+        },
+      },{id: "post-sparsevlm-visual-token-sparsification-for-efficient-vision-language-model-inference",
+        
+          title: "[SparseVLM] Visual Token Sparsification for Efficient Vision-Language Model Inference",
+        
+        description: "Training-free, text-guided visual token sparsification inside the LLM — relevant text tokens act as &#39;raters&#39; to score visual tokens via self-attention, a rank-based rule sets the per-layer ratio, and pruned tokens are recycled by clustering. 4.5× compression keeping 97% on LLaVA; beats FastV.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/sparsevlm/";
+          
+        },
+      },{id: "post-ivtp-instruction-guided-visual-token-pruning-for-large-vision-language-models",
+        
+          title: "[IVTP] Instruction-guided Visual Token Pruning for Large Vision-Language Models",
+        
+        description: "Two-stage visual token pruning for LVLMs — a Group-wise Token Pruning (attention rollout) inside the frozen ViT, then an instruction-guided filter inside the LLM using a pseudo CLS token. Training-free: cuts 88.9% of visual tokens (FLOPs −46%) with only ~1% drop on LLaVA-1.5.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/ivtp/";
+          
+        },
       },{id: "post-qwen2-vl-enhancing-vision-language-model-39-s-perception-of-the-world-at-any-resolution",
         
           title: "[Qwen2-VL] Enhancing Vision-Language Model&#39;s Perception of the World at Any Resolution",
@@ -161,6 +194,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/qwen2-vl/";
           
         },
+      },{id: "post-vltp-vision-language-guided-token-pruning-for-task-oriented-segmentation",
+        
+          title: "[VLTP] Vision-Language Guided Token Pruning for Task-Oriented Segmentation",
+        
+        description: "Accelerates ViT-based segmentation by pruning image tokens that aren&#39;t relevant to the task — a prune decoder uses MLLM guidance to score each token&#39;s task-relevance, keeping only relevant tokens in deeper ViT layers. ~25% ViT FLOPs cut with no drop (40% with 1%).",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/vltp/";
+          
+        },
       },{id: "post-llava-onevision-easy-visual-task-transfer",
         
           title: "[LLaVA-OneVision] Easy Visual Task Transfer",
@@ -170,6 +214,39 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/llava-onevision/";
+          
+        },
+      },{id: "post-crossget-cross-guided-ensemble-of-tokens-for-accelerating-vision-language-transformers",
+        
+          title: "[CrossGET] Cross-Guided Ensemble of Tokens for Accelerating Vision-Language Transformers",
+        
+        description: "Reduces tokens inside vision-language Transformers by ensembling (merging) them, guided by cross-modal importance — works on both modality-independent (CLIP) and modality-dependent (BLIP-2) models via learnable cross tokens and a parallelizable complete-graph soft matching.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/crossget/";
+          
+        },
+      },{id: "post-fastv-an-image-is-worth-1-2-tokens-after-layer-2",
+        
+          title: "[FastV] An Image is Worth 1/2 Tokens After Layer 2",
+        
+        description: "Observes that in deep LLM layers of LVLMs, visual tokens receive almost no attention — so after an early layer (e.g., layer 2) it prunes low-attention visual tokens. Training-free plug-and-play: 45% FLOPs cut on LLaVA-1.5-13B with no performance loss.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/fastv/";
+          
+        },
+      },{id: "post-madtp-multimodal-alignment-guided-dynamic-token-pruning-for-accelerating-vision-language-transformer",
+        
+          title: "[MADTP] Multimodal Alignment-Guided Dynamic Token Pruning for Accelerating Vision-Language Transformer",
+        
+        description: "Prunes tokens inside vision-language Transformers, but guided by cross-modal alignment (MAG) so a token isn&#39;t cut in one branch while still vital in the other — plus per-layer, per-instance dynamic ratios (DTP). 80% fewer GFLOPs on BLIP/NLVR2 with &lt;4% drop.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/madtp/";
           
         },
       },{id: "post-internvl-scaling-up-vision-foundation-models-and-aligning-for-generic-visual-linguistic-tasks",
