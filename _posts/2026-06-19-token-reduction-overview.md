@@ -34,7 +34,7 @@ _styles: >
   .post-content .tr-gen .gen-limit { font-size: 0.8rem; color: #b05a6e; }
   .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #6e85b7; font-weight: 600; }
   .post-content .tr-gen .gen-arrow { text-align: center; color: #93a4c8; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
-  .post-content blockquote { font-size: 0.9rem; }
+  .post-content blockquote { font-size: 0.9rem; border-left-color: #659287; }
 ---
 
 <p class="text-muted mb-4">Pruning · Merging · Pooling · Hybrid</p>
@@ -182,7 +182,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
   </div>
   <div class="gen-arrow">▼</div>
 
-  <div class="card gen-stage" style="border-left-color:#6e85b7">
+  <div class="card gen-stage" style="border-left-color:#659287">
     <div class="card-body">
       <h6 class="card-title">④ 다기준 · 전역 신호 — 여러 단서를 결합한다 <span class="badge rounded-pill me-1" style="background-color:#88bda4;color:#1c1c1d">Merging</span><span class="badge rounded-pill" style="background-color:#659287;color:#fff">Pruning</span></h6>
       <p class="card-text">한 기준의 약점을 여러 신호로 메운다. 유사도×중요도×크기 다기준 fusion(<strong>MCTF</strong>), intra-layer + inter-layer(LRP) 중요도 결합(<strong>STAR</strong>), attention graph + PageRank로 전역 중요도를 학습 없이(<strong>Zero-TPrune</strong>).</p>
@@ -191,7 +191,7 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
   </div>
   <div class="gen-arrow">▼</div>
 
-  <div class="card gen-stage" style="border-left-color:#4d5f8c">
+  <div class="card gen-stage" style="border-left-color:#659287">
     <div class="card-body">
       <h6 class="card-title">⑤ 근본 원인 · 범용성 — 주파수와 task로 다시 본다 <span class="badge rounded-pill" style="background-color:#659287;color:#fff">Pruning</span></h6>
       <p class="card-text">무엇을 남길지의 기준을 휴리스틱에서 <strong>원리</strong>로 옮긴다. self-attention의 low-pass·rank collapse를 주파수로 설명하고 high-freq 토큰을 보존(<strong>Frequency-Aware TR</strong>), 중요도를 <strong>task 적합도</strong>로 직접 학습하고 LLF로 dense task(seg/det)까지 확장(<strong>Token Cropr</strong>).</p>

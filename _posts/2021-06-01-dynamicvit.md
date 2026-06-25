@@ -18,14 +18,15 @@ _styles: >
   .post-content { font-size: 0.92rem; line-height: 1.75; }
   .post-content h2 { font-size: 1.25rem; margin-top: 1.8rem; }
   .post-content h3 { font-size: 1.02rem; }
+  .post-content blockquote { border-left-color: #659287; }
   .post-content table { font-size: 0.8rem; }
-  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
+  .post-content .tr-callout { background-color: rgba(101,146,135,0.08); border-left: 4px solid #659287; }
   .post-content .tr-callout p { margin-bottom: 0; }
 ---
 
 <div class="mb-2">
   <span class="badge rounded-pill me-1" style="background-color:#659287;color:#fff">Pruning</span>
-  <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">NeurIPS 2021</span>
+  <span class="badge rounded-pill" style="background-color:#659287;color:#fff">NeurIPS 2021</span>
 </div>
 <p class="text-muted mb-3">Yongming Rao, Wenliang Zhao, Benlin Liu, Jiwen Lu, Jie Zhou, Cho-Jui Hsieh · Tsinghua / UCLA / UW</p>
 

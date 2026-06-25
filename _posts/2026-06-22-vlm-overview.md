@@ -45,9 +45,9 @@ _styles: >
   .post-content .vlm-adapt table { font-size: 0.72rem; }
   .post-content .vlm-adapt th, .post-content .vlm-adapt td { font-size: 0.72rem; line-height: 1.45; padding: 0.3rem 0.45rem; vertical-align: top; }
   .post-content .vlm-bench td:first-child { white-space: nowrap; font-weight: 700; }
-  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
+  .post-content .tr-callout { background-color: rgba(120,123,179,0.08); border-left: 4px solid #787bb3; }
   .post-content .tr-callout p { margin-bottom: 0; }
-  .post-content blockquote { font-size: 0.9rem; }
+  .post-content blockquote { font-size: 0.9rem; border-left-color: #787bb3; }
 ---
 
 <div class="mb-2">

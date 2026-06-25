@@ -6,18 +6,23 @@
 pruning:
   bg: "#659287"
   fg: "#ffffff"
+  name: Pruning
 merging:
   bg: "#88bda4"
   fg: "#1c1c1d"
+  name: Merging
 pooling:
   bg: "#b1d3b9"
   fg: "#1c1c1d"
+  name: Pooling
 hybrid:
   bg: "#e6f2dd"
   fg: "#1c1c1d"
+  name: Hybrid
 survey:
   bg: "#4d5f8c"
   fg: "#ffffff"
+  name: Survey
 
 # --- VLM: full models + 5-component architecture (blue family) ---
 vlm:
@@ -44,3 +49,21 @@ modality-generator:
   bg: "#d8e6ed"
   fg: "#1c1c1d"
   name: Modality Generator
+
+# --- Efficient VLM: reduction location (red/rose family) ---
+encoder-side:
+  bg: "#a87676"
+  fg: "#ffffff"
+  name: Encoder
+bridge:
+  bg: "#ca8787"
+  fg: "#ffffff"
+  name: Bridge
+llm-side:
+  bg: "#e1acac"
+  fg: "#1c1c1d"
+  name: LLM
+encoder-llm:
+  bg: "#ffd0d0"
+  fg: "#1c1c1d"
+  name: Encoder+LLM

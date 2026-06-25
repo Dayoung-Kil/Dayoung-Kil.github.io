@@ -17,14 +17,15 @@ _styles: >
   .post-content { font-size: 0.92rem; line-height: 1.75; }
   .post-content h2 { font-size: 1.25rem; margin-top: 1.8rem; }
   .post-content h3 { font-size: 1.02rem; }
+  .post-content blockquote { border-left-color: #b1d3b9; }
   .post-content table { font-size: 0.8rem; }
-  .post-content .tr-callout { background-color: rgba(110,133,183,0.08); border-left: 4px solid #6e85b7; }
+  .post-content .tr-callout { background-color: rgba(177,211,185,0.08); border-left: 4px solid #b1d3b9; }
   .post-content .tr-callout p { margin-bottom: 0; }
 ---
 
 <div class="mb-2">
   <span class="badge rounded-pill me-1" style="background-color:#b1d3b9;color:#1c1c1d">Pooling</span>
-  <span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">NeurIPS 2021</span>
+  <span class="badge rounded-pill" style="background-color:#b1d3b9;color:#1c1c1d">NeurIPS 2021</span>
 </div>
 <p class="text-muted mb-3">Michael S. Ryoo, AJ Piergiovanni, Anurag Arnab, Mostafa Dehghani, Anelia Angelova · Google Research</p>
 

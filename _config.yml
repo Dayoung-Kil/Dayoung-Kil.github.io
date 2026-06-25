@@ -264,7 +264,7 @@ jekyll-archives:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
 display_tags: [] # these tags will be displayed on the front page of your blog
-display_categories: ["token-reduction-in-vits", "vlm", "efficient-vlm"] # these categories will be displayed on the front page of your blog
+display_categories: ["efficient-vlm", "vlm", "token-reduction-in-vits"] # these categories will be displayed on the front page of your blog
 future: true # build posts dated in the future (overview notes use 2026 dates)
 
 # -----------------------------------------------------------------------------

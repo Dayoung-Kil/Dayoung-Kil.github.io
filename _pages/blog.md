@@ -59,13 +59,14 @@ pagination:
   <div class="col-lg-9 order-1 order-lg-2">
 
   {% comment %} 랜딩: 카테고리별 Overview + Key papers만 (전체 목록은 카테고리 페이지에서) {% endcomment %}
-  {% for cat in site.categories %}
-    {% assign cat_slug = cat[0] %}
+  {% for cat_slug in site.display_categories %}
+    {% assign cat_posts = site.categories[cat_slug] %}
+    {% unless cat_posts %}{% continue %}{% endunless %}
     {% assign cat_fallback = cat_slug | replace: '-', ' ' | capitalize %}
     {% assign cat_name = site.data.note_categories[cat_slug].name | default: cat_fallback %}
-    {% assign overviews = cat[1] | where_exp: "p", "p.tags contains 'survey'" %}
-    {% assign keypapers = cat[1] | where: "featured", "true" | sort: "date" %}
-    {% assign total = cat[1] | size %}
+    {% assign overviews = cat_posts | where_exp: "p", "p.tags contains 'survey'" %}
+    {% assign keypapers = cat_posts | where_exp: "p", "p.featured and p.categories.first == cat_slug" | sort: "date" %}
+    {% assign total = cat_posts | size %}
 
     <h2 class="cat-section"><a href="{{ cat_slug | slugify | prepend: '/blog/category/' | relative_url }}" style="color:inherit;text-decoration:none">{{ cat_name }}</a> <span class="cat-count">({{ total }})</span></h2>
 
@@ -97,7 +98,7 @@ pagination:
               <div class="card-body">
               <h3 class="card-title">{{ post.shortname | default: post.title }}</h3>
               <div class="mb-2">
-                {% for tag in post.tags %}{% assign tc = site.data.note_tags[tag] %}{% if tc %}<span class="badge rounded-pill me-1" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ tag | capitalize }}</span>{% endif %}{% endfor %}
+                {% for tag in post.tags %}{% assign tc = site.data.note_tags[tag] %}{% if tc %}<span class="badge rounded-pill me-1" style="background-color:{{ tc.bg }};color:{{ tc.fg }}">{{ tc.name | default: tag }}</span>{% endif %}{% endfor %}
                 {% if post.venue %}<span class="badge rounded-pill" style="background-color:#4d5f8c;color:#fff">{{ post.venue }}</span>{% endif %}
               </div>
               <p class="card-text">{{ post.description }}</p>
@@ -109,7 +110,7 @@ pagination:
     </div>
     {% endif %}
 
-    <p class="cat-more mt-2 mb-4"><a class="cat-chip" href="{{ cat_slug | slugify | prepend: '/blog/category/' | relative_url }}">{{ cat_name }} 전체 {{ total }}개 보기 →</a></p>
+    <p class="cat-more mt-2 mb-4"><a class="cat-chip" href="{{ cat_slug | slugify | prepend: '/blog/category/' | relative_url }}">View all {{ total }} {{ cat_name }} notes →</a></p>
   {% endfor %}
 
   </div>
