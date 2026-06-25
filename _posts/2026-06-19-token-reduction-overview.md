@@ -31,7 +31,7 @@ _styles: >
   .post-content .tr-gen .gen-stage { border-left: 5px solid #659287; }
   .post-content .tr-gen .gen-stage .card-title { font-size: 0.98rem; font-weight: 700; line-height: 1.4; }
   .post-content .tr-gen .gen-stage .card-text { font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.4rem; }
-  .post-content .tr-gen .gen-limit { font-size: 0.8rem; color: #b05a6e; }
+  .post-content .tr-gen .gen-limit { font-size: 0.8rem; color: #8a8a8a; }
   .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #659287; font-weight: 600; }
   .post-content .tr-gen .gen-arrow { text-align: center; color: #8aa99d; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
   .post-content blockquote { font-size: 0.9rem; border-left-color: #659287; }
