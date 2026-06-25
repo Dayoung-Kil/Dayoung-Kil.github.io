@@ -48,6 +48,7 @@ _styles: >
   .post-content .tr-callout { background-color: rgba(120,123,179,0.08); border-left: 4px solid #787bb3; }
   .post-content .tr-callout p { margin-bottom: 0; }
   .post-content blockquote { font-size: 0.9rem; border-left-color: #787bb3; }
+  .post-content a:not(.btn) { color: #787bb3; }
 ---
 
 <div class="mb-2">

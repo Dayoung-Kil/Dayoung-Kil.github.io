@@ -18,6 +18,7 @@ _styles: >
   .post-content h2 { font-size: 1.25rem; margin-top: 1.8rem; }
   .post-content h3 { font-size: 1.02rem; }
   .post-content blockquote { border-left-color: #ca8787; }
+  .post-content a:not(.btn) { color: #ca8787; }
   .post-content table { font-size: 0.8rem; }
   .post-content figure { max-width: 620px; margin-left: auto; margin-right: auto; }
   .post-content .tr-callout { background-color: rgba(202,135,135,0.12); border-left: 4px solid #ca8787; }

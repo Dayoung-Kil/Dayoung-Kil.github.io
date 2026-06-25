@@ -18,7 +18,7 @@ _styles: >
   .post-content h2 { font-size: 1.3rem; margin-top: 1.8rem; }
   .post-content h3 { font-size: 1.05rem; }
   .post-content table { font-size: 0.85rem; }
-  .post-content .tr-insights .card-title { font-size: 0.95rem; color: #6e85b7; font-weight: 700; }
+  .post-content .tr-insights .card-title { font-size: 0.95rem; color: #659287; font-weight: 700; }
   .post-content .tr-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .tr-types .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .tr-axes .card-title { font-size: 0.95rem; font-weight: 700; }
@@ -26,15 +26,16 @@ _styles: >
   .post-content .tr-papers table { font-size: 0.68rem; }
   .post-content .tr-papers th, .post-content .tr-papers td { font-size: 0.68rem; line-height: 1.35; vertical-align: middle; padding: 0.3rem 0.5rem; }
   .post-content .tr-papers .badge { font-size: 0.62rem; }
-  .post-content .tr-papers tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
+  .post-content .tr-papers tbody tr:nth-child(odd) { background-color: rgba(101,146,135,0.05); }
   .post-content .tr-papers .badge { font-weight: 600; white-space: nowrap; }
-  .post-content .tr-gen .gen-stage { border-left: 5px solid #6e85b7; }
+  .post-content .tr-gen .gen-stage { border-left: 5px solid #659287; }
   .post-content .tr-gen .gen-stage .card-title { font-size: 0.98rem; font-weight: 700; line-height: 1.4; }
   .post-content .tr-gen .gen-stage .card-text { font-size: 0.83rem; line-height: 1.6; margin-bottom: 0.4rem; }
   .post-content .tr-gen .gen-limit { font-size: 0.8rem; color: #b05a6e; }
-  .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #6e85b7; font-weight: 600; }
-  .post-content .tr-gen .gen-arrow { text-align: center; color: #93a4c8; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
+  .post-content .tr-gen .gen-goal { font-size: 0.82rem; color: #659287; font-weight: 600; }
+  .post-content .tr-gen .gen-arrow { text-align: center; color: #8aa99d; font-size: 1rem; line-height: 1; margin: 0.15rem 0; }
   .post-content blockquote { font-size: 0.9rem; border-left-color: #659287; }
+  .post-content a:not(.btn) { color: #659287; }
 ---
 
 <p class="text-muted mb-4">Pruning · Merging · Pooling · Hybrid</p>
@@ -63,9 +64,9 @@ Vision Transformer(ViT)는 이미지를 패치 단위 **토큰 시퀀스**로 �
       </div>
     </div>
     <div class="col mb-3">
-      <div class="card h-100" style="border-color:#6e85b7">
+      <div class="card h-100" style="border-color:#659287">
         <div class="card-body">
-          <h6 class="card-title" style="color:#6e85b7">Token pruning <span class="badge rounded-pill" style="background-color:#6e85b7;color:#fff;font-size:0.65rem;vertical-align:middle">이 노트</span></h6>
+          <h6 class="card-title" style="color:#659287">Token pruning <span class="badge rounded-pill" style="background-color:#659287;color:#fff;font-size:0.65rem;vertical-align:middle">이 노트</span></h6>
           <p class="card-text mb-1">줄이는 축: <strong>토큰/패치 길이 N</strong></p>
           <p class="card-text mb-0 text-muted">이미지에서 덜 중요한 <strong>위치</strong>를 안 봄</p>
         </div>

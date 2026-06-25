@@ -19,20 +19,21 @@ _styles: >
   .post-content h3 { font-size: 1.05rem; }
   .post-content .evlm-where .card-title { font-size: 0.95rem; font-weight: 700; }
   .post-content .evlm-where .card-text { font-size: 0.82rem; line-height: 1.6; }
-  .post-content .evlm-where .card { border-left: 4px solid #6e85b7; }
+  .post-content .evlm-where .card { border-left: 4px solid #a87676; }
   .post-content .evlm-tab table { font-size: 0.72rem !important; width: 100%; table-layout: fixed; }
   .post-content .evlm-tab th, .post-content .evlm-tab td { font-size: 0.72rem !important; line-height: 1.35; vertical-align: top; padding: 0.25rem 0.4rem; overflow-wrap: anywhere; }
-  .post-content .evlm-tab tbody tr:nth-child(odd) { background-color: rgba(110,133,183,0.05); }
+  .post-content .evlm-tab tbody tr:nth-child(odd) { background-color: rgba(168,118,118,0.05); }
   .post-content .evlm-tab td:first-child, .post-content .evlm-tab td:first-child a, .post-content .evlm-tab td:first-child strong { font-weight: 700 !important; }
   .post-content .evlm-tab th:nth-child(1), .post-content .evlm-tab td:nth-child(1) { width: 14%; }
   .post-content .evlm-tab th:nth-child(2), .post-content .evlm-tab td:nth-child(2) { width: 11%; }
   .post-content .evlm-tab th:nth-child(3), .post-content .evlm-tab td:nth-child(3) { width: 16%; white-space: nowrap; }
   .post-content .evlm-tab th:nth-child(4), .post-content .evlm-tab td:nth-child(4) { width: 11%; }
-  .post-content .evlm-insights .card-title { font-size: 0.95rem; color: #6e85b7; font-weight: 700; }
+  .post-content .evlm-insights .card-title { font-size: 0.95rem; color: #a87676; font-weight: 700; }
   .post-content .evlm-insights .card-text { font-size: 0.83rem; line-height: 1.6; }
   .post-content .tr-callout { background-color: rgba(168,118,118,0.1); border-left: 4px solid #a87676; }
   .post-content .tr-callout p { margin-bottom: 0; }
   .post-content blockquote { font-size: 0.9rem; border-left-color: #a87676; }
+  .post-content a:not(.btn) { color: #a87676; }
 ---
 
 <div class="mb-2">
@@ -88,15 +89,15 @@ _styles: >
 | [**CrossGET**]({% post_url 2024-06-13-crossget %}) | ICML 2024 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | fine-tuning | cross-modal 가이드로 토큰을 매칭·**병합(ensemble)** + complete-graph soft matching |
 | [**FastV**]({% post_url 2024-03-11-fastv %}) | ECCV 2024 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | 깊은 층의 시각 attention 희소성 → 초기 층(layer 2) 뒤 토큰 가지치기 |
 | [**IVTP**]({% post_url 2024-09-30-ivtp %}) | ECCV 2024 | <span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d">Encoder+LLM</span> | training-free | **2단계** — 인코더 GTP(attention rollout, frozen ViT 대응) + LLM 단계 **instruction 필터**(pseudo CLS) · LLaVA-1.5 토큰 88.9%↓ |
-| [**VLTP**]({% post_url 2024-09-12-vltp %}) | WACV 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | training | **MLLM 가이드**로 task 관련 토큰만 깊은 ViT 층에 통과(다단계·재활성) — task 지향 분할(TOS) 가속 |
+| [**VLTP**]({% post_url 2024-09-12-vltp %}) | WACV 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | training-based | **MLLM 가이드**로 task 관련 토큰만 깊은 ViT 층에 통과(다단계·재활성) — task 지향 분할(TOS) 가속 |
 | [**SparseVLM**]({% post_url 2024-10-06-sparsevlm %}) | ICML 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | **text raters**로 self-attention 중요도 평가 → **rank 기반 적응 압축** + token recycling (FastV 능가) |
 | [**Recoverable Compression**]({% post_url 2024-09-02-recoverable-compression %}) | AAAI 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | CLS 1차 필터 → **질문 텍스트 유사 토큰을 복구(recover)** → 나머지 병합 · 토큰 ~10%로 |
 | [**VisionZip**]({% post_url 2024-12-04-visionzip %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | training-free | 인코더 출력에서 **dominant 토큰 선택 + contextual 병합** · **text-agnostic**(멀티턴 강점) |
 | [**DivPrune**]({% post_url 2025-03-04-divprune %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | 가지치기를 **Max-Min Diversity(MMDP)** 로 — 중요도 아닌 **다양성 최대** 부분집합 선택(LLM 입력 전 1회) |
-| [**ATP-LLaVA**]({% post_url 2024-11-30-atp-llava %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training | **ATP 모듈**로 인스턴스·층별 적응 압축률 + **SAP**(공간 보강) · 토큰 75%↓에 1.9% |
+| [**ATP-LLaVA**]({% post_url 2024-11-30-atp-llava %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-based | **ATP 모듈**로 인스턴스·층별 적응 압축률 + **SAP**(공간 보강) · 토큰 75%↓에 1.9% |
 | [**TopV**]({% post_url 2025-03-23-topv %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | 가지치기를 **비용 최적화**(특징 유사도·공간·중심거리 + Sinkhorn)로 — attention 휴리스틱 대신, **prefill 1회**라 **FlashAttention·KV cache 호환**·메모리↓ |
-| [**PyramidDrop (PDrop)**]({% post_url 2024-10-22-pyramiddrop %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | 학습·추론 | 깊을수록 중복↑ → stage별 피라미드처럼 점진 드롭(고해상도 학습도 가속) |
-| [**FastVLM**]({% post_url 2024-12-17-fastvlm %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | 사전학습 | **FastViTHD**(conv+transformer) **인코더 재설계**로 고해상도에서 토큰 4~16×↓·인코딩 지연↓ → **가지치기 불필요**, TTFT 3.2×↑ (Apple) |
+| [**PyramidDrop (PDrop)**]({% post_url 2024-10-22-pyramiddrop %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | 깊을수록 중복↑ → stage별 피라미드처럼 점진 드롭(고해상도 학습도 가속) |
+| [**FastVLM**]({% post_url 2024-12-17-fastvlm %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | pretraining | **FastViTHD**(conv+transformer) **인코더 재설계**로 고해상도에서 토큰 4~16×↓·인코딩 지연↓ → **가지치기 불필요**, TTFT 3.2×↑ (Apple) |
 | [**LLaVA-PruMerge**]({% post_url 2024-03-22-llava-prumerge %}) | ICCV 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | CLS-패치 attention 희소성 → **IQR로 적응적 선택**(입력마다 다른 개수) + **k-NN 가중 병합**(PruMerge+) · 토큰 **~5.5%**(~32개) |
 | [**CDPruner**]({% post_url 2025-06-13-cdpruner %}) | NeurIPS 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | attention·유사도를 넘어 **질문에 조건화한 다양성**을 **DPP**로 최대화 → 다양+질문관련 토큰만 · LLaVA FLOPs 95%↓에 94% |
 | [**CoViPAL**]({% post_url 2025-08-23-covipal %}) | EMNLP 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-based | 가볍고 model-agnostic한 **PPM**이 LVLM 전에 문맥 기반으로 잉여 토큰 예측·제거(얕은 층도) · training-free·based 양쪽 능가(이미지·비디오) |
@@ -107,6 +108,14 @@ _styles: >
 | **EntropyPrune** | arXiv 2026 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | — | 엔트로피 기반 시각 토큰 선택 *(정리 예정)* |
 
 </div>
+
+<p class="text-muted" style="font-size: 0.78rem; line-height: 1.7; margin-top: 0.6rem;">
+<strong>「학습」 유형</strong> — 각 방법(가지치기·병합·복구·인코더 설계)을 적용하는 데 <strong>어떤 학습이 필요한가</strong>를 나타낸다.<br>
+· <strong>training-free</strong> : 추가 학습 없이 사전학습된 모델에 그대로 끼운다(plug-and-play). 대부분의 추세.<br>
+· <strong>fine-tuning</strong> : 가지치기를 켠 채 <strong>모델(VLM) 가중치를 미세조정</strong>해 성능을 회복·적응시킨다.<br>
+· <strong>training-based</strong> : 모델 본체는 두고 <strong>가지치기용 모듈을 따로 학습</strong>한다(예: 중요도 예측기·분류기).<br>
+· <strong>pretraining</strong> : 가지치기가 아니라 <strong>인코더 자체를 새로 설계·사전학습</strong>해 토큰을 적게 내놓는다(FastVLM).
+</p>
 
 ## 발전 흐름
 
