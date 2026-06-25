@@ -176,6 +176,7 @@ freeze된 텍스트 전용 LLM을 멀티모달로 키우는 과정은 두 단계
 | --- | --- |
 | [**CLIP**]({% post_url 2021-02-26-clip %}) <span class="text-muted">(ICML 2021)</span> | 이미지-텍스트 **contrastive**(웹 4억 쌍), open-vocab **zero-shot**. 대부분 VLM이 freeze해 쓰는 **①번 부품** |
 | [**EVA-CLIP**]({% post_url 2023-03-27-eva-clip %}) <span class="text-muted">(arXiv 2023)</span> | CLIP을 **싸고 안정적으로 스케일**하는 학습 레시피(EVA 초기화·LAMB·토큰 드롭·flash attn). zero-shot 82.0%, **BLIP-2 등이 쓰는 EVA ViT** |
+| [**SigLIP**]({% post_url 2023-03-27-siglip %}) <span class="text-muted">(ICCV 2023)</span> | CLIP의 softmax를 **sigmoid loss**(쌍별 독립)로 — 글로벌 정규화 불필요·메모리 효율·배치 자유. **SigLIP-SO400M**은 LLaVA-OneVision·Qwen2-VL 등이 쓰는 인코더 |
 
 </div>
 

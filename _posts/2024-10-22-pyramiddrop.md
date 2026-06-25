@@ -89,6 +89,26 @@ LVLM은 고해상도·긴 비디오일수록 시각 토큰이 **제곱으로 늘
 
 </div>
 
+## 결과
+
+### 정량
+
+<div class="row justify-content-center"><div class="col-lg-9 col-md-11">
+{% include figure.liquid loading="lazy" path="assets/img/notes/pdrop/table2.png" class="img-fluid rounded z-depth-1" zoomable=true caption="Table 2. 같은 image-token 예산에서 효율적 추론 전략 비교. 평균 토큰을 적게 남기고도(Ratio) PyramidDrop이 ToMe·FastV·SparseVLM보다 높은 평균 성능을 유지." %}
+</div></div>
+
+- **학습·추론 양쪽 가속** — LLaVA-NeXT-7B에서 **추론 FLOPs 55%↓·학습시간 40%↓**, 성능 유지.
+- **동급 대비 우수** — 같은 토큰 예산에서 ToMe·FastV·SparseVLM보다 높은 평균(Table 2), plug-and-play 추론으로도 FastV 능가(Table 1).
+- **고해상도 이득** — 같은 비용으로 2배 해상도 학습이 가능 → DocVQA·InfoVQA 향상.
+
+### 정성
+
+<div class="row justify-content-center"><div class="col-lg-8 col-md-10">
+{% include figure.liquid loading="lazy" path="assets/img/notes/pdrop/fig1.png" class="img-fluid rounded z-depth-1" zoomable=true caption="Figure 1. 층별 시각 중복 관찰. (왼쪽) 깊은 층에서 시각 토큰을 많이 줄여도 TextVQA 성능이 유지된다. (오른쪽) 깊은 층일수록 attention이 소수 핵심 영역에 집중 — 깊을수록 더 버려도 된다는 피라미드 설계의 근거." %}
+</div></div>
+
+- **층이 깊을수록 중복↑(Fig 1).** 얕은 층은 attention이 넓게 퍼져 많은 토큰이 필요하지만, 깊은 층일수록 핵심 영역에 집중돼 대부분 토큰이 잉여가 된다 — 단계별 점진 드롭의 직접 근거.
+
 ## 한 줄 정리 & 의의
 
 - **층이 깊을수록 더 버리는 "피라미드" 토큰 축소.** 얕은 층은 보존, stage마다 점진 드롭 → **학습·추론 모두** 가속.
