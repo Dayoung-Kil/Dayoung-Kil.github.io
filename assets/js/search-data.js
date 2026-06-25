@@ -106,6 +106,28 @@ ninja.data = [{
             window.location.href = "/blog/2025/internvl3-5/";
           
         },
+      },{id: "post-covipal-layer-wise-contextualized-visual-token-pruning-for-large-vision-language-models",
+        
+          title: "[CoViPAL] Layer-wise Contextualized Visual Token Pruning for Large Vision-Language Models",
+        
+        description: "Training-free pruners struggle in shallow layers — there isn&#39;t enough context yet to tell which visual tokens are redundant. CoViPAL trains a lightweight, model-agnostic Plug-and-Play Pruning Module (PPM) that predicts and removes redundant vision tokens before the LVLM sees them, using contextual signals so pruning works even in shallow layers. Outperforms training-free pruners at equal budgets and training-based ones at comparable supervision.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/covipal/";
+          
+        },
+      },{id: "post-cdpruner-beyond-attention-or-similarity-maximizing-conditional-diversity-for-token-pruning-in-mllms",
+        
+          title: "[CDPruner] Beyond Attention or Similarity: Maximizing Conditional Diversity for Token Pruning in MLLMs...",
+        
+        description: "Attention-based pruning keeps duplicates; similarity-based pruning ignores the instruction. CDPruner does both right: it defines visual-token similarity conditioned on the instruction, then uses a Determinantal Point Process (DPP) to pick the subset that maximizes conditional diversity — diverse AND question-relevant. Training-free, model-agnostic; on LLaVA, 95% fewer FLOPs and 78% lower latency at 94% accuracy.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/cdpruner/";
+          
+        },
       },{id: "post-internvl3-exploring-advanced-training-and-test-time-recipes-for-open-source-multimodal-models",
         
           title: "[InternVL3] Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models",
@@ -117,6 +139,28 @@ ninja.data = [{
             window.location.href = "/blog/2025/internvl3/";
           
         },
+      },{id: "post-topv-compatible-token-pruning-with-inference-time-optimization-for-fast-and-low-memory-vlm",
+        
+          title: "[TopV] Compatible Token Pruning with Inference Time Optimization for Fast and Low-Memory VLM...",
+        
+        description: "Most LLM-side pruners rank visual tokens by attention score — which is a greedy heuristic AND breaks FlashAttention and the KV cache. TopV instead formulates pruning as an optimization problem with a vision-aware cost (feature similarity + spatial + central distance), solves it with Sinkhorn, and prunes once at prefilling — staying compatible with FlashAttention and KV cache. Training-free.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/topv/";
+          
+        },
+      },{id: "post-divprune-diversity-based-visual-token-pruning-for-large-multimodal-models",
+        
+          title: "[DivPrune] Diversity-based Visual Token Pruning for Large Multimodal Models",
+        
+        description: "Reframes visual token pruning as a Max-Min Diversity Problem — pick the subset of visual tokens whose mutual diversity is maximal (instead of keeping the &#39;most important&#39;, which are often redundant). Training-free, done once before the first LLM layer; SOTA across 16 image/video datasets with lower latency and memory.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/divprune/";
+          
+        },
       },{id: "post-qwen2-5-vl-technical-report",
         
           title: "[Qwen2.5-VL] Technical Report",
@@ -126,6 +170,28 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/qwen2-5-vl/";
+          
+        },
+      },{id: "post-dart-stop-looking-for-quot-important-tokens-quot-duplication-matters-more",
+        
+          title: "[DART] Stop Looking for &quot;Important Tokens&quot;: Duplication Matters More",
+        
+        description: "A contrarian take: token importance is a bad pruning criterion — importance-based methods often do worse than random pruning and break efficient attention. DART (Duplication-Aware Reduction of Tokens) instead picks a tiny set of pivot tokens and keeps the tokens least duplicated with them. Training-free, Flash-Attention-friendly; prunes 88.9% of vision tokens with comparable accuracy and 2.99× faster prefilling.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/dart/";
+          
+        },
+      },{id: "post-fastvlm-efficient-vision-encoding-for-vision-language-models",
+        
+          title: "[FastVLM] Efficient Vision Encoding for Vision Language Models",
+        
+        description: "Instead of pruning tokens after the encoder, FastVLM fixes the encoder itself. FastViTHD — a hybrid (conv + transformer) vision encoder — outputs far fewer tokens and encodes high-resolution images much faster, so the right token-count/resolution balance comes simply from scaling the input image, no token pruning needed. 3.2× faster time-to-first-token at similar accuracy.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/fastvlm/";
           
         },
       },{id: "post-deepseek-vl2-mixture-of-experts-vision-language-models-for-advanced-multimodal-understanding",
@@ -148,6 +214,28 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/internvl2-5/";
+          
+        },
+      },{id: "post-visionzip-longer-is-better-but-not-necessary-in-vision-language-models",
+        
+          title: "[VisionZip] Longer is Better but Not Necessary in Vision Language Models",
+        
+        description: "Vision encoders (CLIP/SigLIP) emit highly redundant visual tokens — VisionZip keeps only a few dominant tokens (high attention) plus merged contextual tokens, text-agnostic and training-free. 8× faster prefilling at 95% performance; shines in multi-turn dialogue where text-guided pruners fail.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/visionzip/";
+          
+        },
+      },{id: "post-atp-llava-adaptive-token-pruning-for-large-vision-language-models",
+        
+          title: "[ATP-LLaVA] Adaptive Token Pruning for Large Vision Language Models",
+        
+        description: "Fixed pruning ratios are suboptimal — the right amount to cut varies by LLM layer and by instance (image-prompt). ATP-LLaVA learns an Adaptive Token Pruning module that sets an instance- and layer-specific ratio, plus a Spatial Augmented Pruning strategy. Cuts ~75% of tokens with only 1.9% drop.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/atp-llava/";
           
         },
       },{id: "post-pyramiddrop-accelerating-large-vision-language-models-via-pyramid-visual-redundancy-reduction",
@@ -205,6 +293,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/vltp/";
           
         },
+      },{id: "post-recoverable-compression-a-multimodal-vision-token-recovery-mechanism-guided-by-text-information",
+        
+          title: "[Recoverable Compression] A Multimodal Vision Token Recovery Mechanism Guided by Text Information",
+        
+        description: "Beyond pruning: after an initial CLS-based filter, it recovers visual tokens that are similar to the question text (reclaiming wrongly-dropped but answer-relevant ones) and merges the rest — training-free, compressing visual tokens to ~10% with competitive accuracy on LLaVA-1.5.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/recoverable-compression/";
+          
+        },
       },{id: "post-llava-onevision-easy-visual-task-transfer",
         
           title: "[LLaVA-OneVision] Easy Visual Task Transfer",
@@ -225,6 +324,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2024/crossget/";
+          
+        },
+      },{id: "post-llava-prumerge-adaptive-token-reduction-for-efficient-large-multimodal-models",
+        
+          title: "[LLaVA-PruMerge] Adaptive Token Reduction for Efficient Large Multimodal Models",
+        
+        description: "The CLS-to-patch attention in the vision encoder is sparse — only a few visual tokens matter. PruMerge exploits this: it uses IQR outlier detection to adaptively keep the important tokens (more on text-rich images, fewer on simple ones), then merges the rest into them via k-NN weighted averaging. Training-free; ~5.5% of tokens (~32 of 576) keeps LLaVA-1.5 performance.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/llava-prumerge/";
           
         },
       },{id: "post-fastv-an-image-is-worth-1-2-tokens-after-layer-2",
@@ -434,6 +544,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2023/tps/";
+          
+        },
+      },{id: "post-siglip-sigmoid-loss-for-language-image-pre-training",
+        
+          title: "[SigLIP] Sigmoid Loss for Language Image Pre-Training",
+        
+        description: "Replaces CLIP&#39;s batch-wise softmax contrastive loss with a simple pairwise sigmoid loss — each image-text pair is an independent binary classification, so no global normalization (no all-gather, no full N×N matrix). Memory-efficient, batch-size-decoupled, strong at small and huge batches. SigLIP-SO400M became a default VLM vision encoder.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/siglip/";
           
         },
       },{id: "post-eva-clip-improved-training-techniques-for-clip-at-scale",
