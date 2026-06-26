@@ -55,7 +55,7 @@ ninja.data = [{
         
           title: "Efficient VLM — Overview",
         
-        description: "Cutting visual tokens to make VLMs cheaper — where it happens (encoder · bridge · LLM), text-guided selection, recover/recycle, and a map of MADTP·CrossGET·IVTP·SparseVLM·Recoverable Compression·CoViPAL.",
+        description: "Cutting visual tokens to make VLMs cheaper — mapped on two axes (where: encoder·bridge·LLM, and what criterion: importance·diversity·duplication·sensitivity·spatial), the field&#39;s evolution, and a one-glance table of 20 methods.",
         section: "Posts",
         handler: () => {
           
@@ -84,6 +84,17 @@ ninja.data = [{
             window.location.href = "/blog/2026/token-reduction-overview/";
           
         },
+      },{id: "post-vlm-pruner-buffering-for-spatial-sparsity-in-a-centrifugal-token-pruning-paradigm",
+        
+          title: "[VLM-Pruner] Buffering for Spatial Sparsity in a Centrifugal Token Pruning Paradigm",
+        
+        description: "Importance-only pruning keeps duplicate tokens; redundancy/diversity-aware pruning ignores spatial layout and scatters the retained tokens so they miss object regions. VLM-Pruner balances both with a &#39;centrifugal&#39; near-to-far selection: start from pivot tokens, expand to spatially adjacent low-redundancy tokens (Buffering for Spatial Sparsity), then recover discarded tokens via similarity-weighted aggregation. Training-free; beats baselines across 5 VLMs at 88.9% pruning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/vlm-pruner/";
+          
+        },
       },{id: "post-qwen3-vl-technical-report",
         
           title: "[Qwen3-VL] Technical Report",
@@ -93,6 +104,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/qwen3-vl/";
+          
+        },
+      },{id: "post-zoo-prune-training-free-token-pruning-via-zeroth-order-gradient-estimation-in-vlms",
+        
+          title: "[ZOO-Prune] Training-Free Token Pruning via Zeroth-Order Gradient Estimation in VLMs",
+        
+        description: "Attention scores are unstable and keep redundant tokens; diversity selection can drop the task-relevant region. ZOO-Prune scores tokens by sensitivity — how much a small perturbation changes the model output — estimated with zeroth-order gradients at the lightweight projection layer (no backprop, no labels). It then fuses sensitivity with diversity (Score = Div × Sens). Training-free; prunes up to 94.4% of tokens with no accuracy loss and up to 2.30× faster inference.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/zoo-prune/";
           
         },
       },{id: "post-internvl3-5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency",
@@ -181,6 +203,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/dart/";
+          
+        },
+      },{id: "post-g-prune-what-kind-of-visual-tokens-do-we-need-training-free-visual-token-pruning-from-the-perspective-of-graph",
+        
+          title: "[G-Prune] What Kind of Visual Tokens Do We Need? Training-free Visual Token Pruning...",
+        
+        description: "ViT pruning keeps only &#39;important&#39; foreground tokens — but for MLLMs, G-Prune shows both foreground AND background tokens matter (their 2-norm distributions overlap). It builds a graph over visual tokens (nodes = tokens, edges = semantic similarity), propagates information iteratively to score importance, and keeps the top-k — which can be foreground or background. Training-free, not bound to the LLM&#39;s computation; −63.57% FLOPs on LLaVA-NeXT with &lt;2.5% drop.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/g-prune/";
           
         },
       },{id: "post-fastvlm-efficient-vision-encoding-for-vision-language-models",
