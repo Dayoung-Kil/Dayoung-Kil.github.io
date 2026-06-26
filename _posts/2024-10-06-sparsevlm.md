@@ -10,6 +10,7 @@ shortname: SparseVLM
 venue: ICML 2025
 giscus_comments: false
 related_posts: false
+featured: true
 toc:
   sidebar: right
 _styles: >

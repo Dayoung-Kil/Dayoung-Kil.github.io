@@ -2,7 +2,7 @@
 layout: post
 title: "Efficient VLM — Overview"
 date: 2026-06-23
-description: Cutting visual tokens to make VLMs cheaper — where it happens (encoder · bridge · LLM), text-guided selection, recover/recycle, and a map of MADTP·CrossGET·IVTP·SparseVLM·Recoverable Compression·CoViPAL.
+description: "Cutting visual tokens to make VLMs cheaper — mapped on two axes (where: encoder·bridge·LLM, and what criterion: importance·diversity·duplication·sensitivity·spatial), the field's evolution, and a one-glance table of 20 methods."
 thumbnail: assets/img/notes/efficient-vlm-overview/overview.png
 categories: efficient-vlm
 tags: survey
@@ -41,44 +41,71 @@ _styles: >
 </div>
 
 <div class="tr-callout p-3 my-3 rounded">
-  <p><strong>한 줄 요약.</strong> VLM은 <strong>시각 토큰이 텍스트보다 훨씬 많아</strong>(예: LLaVA 한 장에 576개) LLM 입력이 길어지고 연산이 토큰 수의 제곱으로 폭증한다. <strong>Efficient VLM</strong>은 이 <strong>시각 토큰을 줄여(선택·압축·복구)</strong> latency·메모리·FLOPs를 낮추는 방법들이다. 핵심은 두 가지 — ① 줄이는 <strong>위치</strong>(시각 인코더 / 브리지(projector) / LLM 내부) 가 다 다르고, ② 순수 시각만 보던 <a href="{% post_url 2026-06-19-token-reduction-overview %}">ViT의 토큰 축소</a>와 달리 대부분 <strong>텍스트(질문)를 가이드로</strong> 어떤 토큰이 답에 필요한지 본다.</p>
+  <p><strong>한 줄 요약.</strong> VLM은 <strong>시각 토큰이 텍스트보다 훨씬 많아</strong>(예: LLaVA 한 장에 576개) LLM 입력이 길어지고 연산이 토큰 수의 제곱으로 폭증한다. <strong>Efficient VLM</strong>은 이 <strong>시각 토큰을 줄여(선택·압축·복구)</strong> latency·메모리·FLOPs를 낮추는 방법들이다. 이 글은 분야를 <strong>두 축</strong>으로 지도화한다 — ① <strong>어디서</strong> 줄이나(인코더 · 브리지 · LLM), ② <strong>무엇으로</strong> 고르나(중요도 · 다양성 · 중복 · 민감도 · 공간 …). 그 위에 <strong>발전 흐름</strong>과 <strong>20개 방법 한눈에 보기</strong> 표를 얹는다.</p>
 </div>
 
 ## 왜 Efficient VLM인가
 
 [VLM]({% post_url 2026-06-22-vlm-overview %})은 이미지를 수백 개의 시각 토큰으로 바꿔 LLM에 넣는다. 그런데 LLM의 self-attention은 입력 길이에 **제곱**으로 비싸지므로, 긴 시각 토큰 시퀀스가 곧 비용이다.
 
-- **LLM 단계 비용이 지배적** — ViT 토큰 축소가 비전 인코더 안의 비용을 줄였다면, VLM에선 **LLM에 들어가는 시각 토큰 수**가 전체 latency·메모리를 좌우한다.
-- **순수 시각만 보면 위험** — 대형 멀티모달 모델에서 시각 정보에만 의존해 토큰을 자르면 질문에 필요한 정보를 잃는다(oversimplification). 그래서 **질문 텍스트**가 "어떤 시각 토큰이 중요한지"를 알려주는 단서가 된다.
+- **LLM 단계 비용이 지배적** — <a href="{% post_url 2026-06-19-token-reduction-overview %}">ViT 토큰 축소</a>가 비전 인코더 안의 비용을 줄였다면, VLM에선 **LLM에 들어가는 시각 토큰 수**가 전체 latency·메모리를 좌우한다.
+- **순수 시각만 보면 위험** — 시각 정보에만 의존해 토큰을 자르면 질문에 필요한 정보를 잃는다(oversimplification). 그래서 많은 방법이 **질문 텍스트**를 "어떤 시각 토큰이 답에 필요한지"의 단서로 쓴다.
 
-> 즉 Efficient VLM = **"질문을 고려해, 답에 필요 없는 시각 토큰을 어느 단계에서 얼마나 줄일까"** 의 문제다.
+> 즉 Efficient VLM = **"질문을 고려해, 답에 필요 없는 시각 토큰을 — 어느 단계에서·어떤 기준으로 — 얼마나 줄일까"** 의 문제다. 아래 두 축이 그 "어느 단계"와 "어떤 기준"이다.
 
-## 어디서 줄이나 (위치별 분류)
+## 축 ①: 어디서 줄이나 (위치)
 
-{% include figure.liquid loading="eager" path="assets/img/notes/efficient-vlm-overview/overview.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 파이프라인(Input → Visual Encoder → Bridge/Projector → LLM → Output)에서 시각 토큰을 줄일 수 있는 지점. encoder-side · bridge-side · LLM-side(주로 text-guided)로 나뉜다. 효과는 latency·memory·FLOPs·throughput." %}
+{% include figure.liquid loading="eager" path="assets/img/notes/efficient-vlm-overview/overview.png" class="img-fluid rounded z-depth-1" zoomable=true caption="VLM 파이프라인(Input → Visual Encoder → Bridge/Projector → LLM → Output)에서 시각 토큰을 줄일 수 있는 지점. encoder-side · bridge-side · LLM-side로 나뉜다. 효과는 latency·memory·FLOPs·throughput." %}
 
 <div class="evlm-where">
   <div class="row row-cols-1 row-cols-md-3">
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#a87676"><div class="card-body">
-      <h6 class="card-title">① Encoder</h6>
-      <p class="card-text mb-0">시각 인코더 <strong>안에서</strong> 토큰을 미리 줄인다. 인코더 연산도 같이 절감.</p>
+      <h6 class="card-title">① Encoder <span class="badge rounded-pill" style="background-color:#a87676;color:#fff;font-size:0.62rem;vertical-align:1px">Encoder</span></h6>
+      <p class="card-text mb-0">시각 인코더 <strong>안에서</strong> 토큰을 미리 줄인다. 인코더 연산까지 함께 절감(ToMe·VisionZip). 인코더를 <strong>재설계</strong>해 애초에 토큰을 적게 내는 길도(FastVLM).</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#ca8787"><div class="card-body">
-      <h6 class="card-title">② Bridge / Pre-LLM</h6>
-      <p class="card-text mb-0">인코더와 LLM <strong>사이(projector 부근)</strong>에서 추려서 LLM에 넣는다. LLM 비용을 직접 줄임.</p>
+      <h6 class="card-title">② Bridge / Pre-LLM <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff;font-size:0.62rem;vertical-align:1px">Bridge</span></h6>
+      <p class="card-text mb-0">인코더와 LLM <strong>사이(projector 부근)</strong>에서 추려 LLM에 넣는다. LLM 비용을 직접 줄인다(DivPrune·CDPruner·PruMerge·G-Prune).</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#e1acac"><div class="card-body">
-      <h6 class="card-title">③ LLM</h6>
-      <p class="card-text mb-0">LLM <strong>내부 attention</strong> 계산 중에 시각 토큰을 솎아낸다. 대개 <strong>text-guided</strong>.</p>
+      <h6 class="card-title">③ LLM <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d;font-size:0.62rem;vertical-align:1px">LLM</span></h6>
+      <p class="card-text mb-0">LLM <strong>내부(주로 얕은 디코더 층)</strong>에서 시각 토큰을 솎아낸다. attention 관찰에서 출발(FastV·SparseVLM·PyramidDrop·DART).</p>
     </div></div></div>
   </div>
 </div>
 
-> 한 방법이 여러 지점에 걸치기도 한다 — 예: **IVTP**는 시각 인코더와 LLM 양쪽에서 2-stage로 자르고, **Recoverable Compression**은 pre-LLM에서 자르되 질문 텍스트로 복구한다.
+> 한 방법이 여러 단계에 걸치기도 한다 — **IVTP**는 인코더와 LLM 양쪽에서 2-stage로 자르고(<span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d;font-size:0.62rem">Encoder+LLM</span>), **Recoverable Compression**은 브리지에서 자르되 질문 텍스트로 되살린다.
+
+## 축 ②: 무엇으로 고르나 (선택 기준)
+
+위치가 "어디서"라면, 선택 기준은 **"어떤 신호로 남길 토큰을 정하나"** 다. 초기엔 사실상 attention 하나였지만, 그 한계(층·헤드마다 불안정, 중복 잔존)가 드러나며 기준이 분화했다.
+
+<div class="evlm-insights">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-3"><div class="card h-100"><div class="card-body">
+      <h6 class="card-title">① 중요도 (attention)</h6>
+      <p class="card-text mb-0">시각 토큰이 받는 <strong>attention</strong>으로 중요도를 매겨 낮은 걸 버린다 — 가장 기본(<a href="{% post_url 2024-03-11-fastv %}">FastV</a>·<a href="{% post_url 2024-10-22-pyramiddrop %}">PyramidDrop</a>·<a href="{% post_url 2024-11-30-atp-llava %}">ATP-LLaVA</a>). 단, attention은 불안정하고 <strong>비슷한 토큰을 함께</strong> 남겨 중복이 생긴다.</p>
+    </div></div></div>
+    <div class="col mb-3"><div class="card h-100"><div class="card-body">
+      <h6 class="card-title">② 다양성 · 중복 제거</h6>
+      <p class="card-text mb-0">중복을 직접 겨냥한다 — 비슷한 토큰을 <strong>병합</strong>하거나(<a href="{% post_url 2023-02-01-tome %}">ToMe</a>·<a href="{% post_url 2024-06-13-crossget %}">CrossGET</a>·<a href="{% post_url 2024-12-04-visionzip %}">VisionZip</a>·<a href="{% post_url 2024-03-22-llava-prumerge %}">PruMerge</a>), <strong>서로 다른</strong> 토큰을 고르거나(<a href="{% post_url 2025-03-04-divprune %}">DivPrune</a>·<a href="{% post_url 2025-06-13-cdpruner %}">CDPruner</a>), 아예 <strong>중복만 지운다</strong>(<a href="{% post_url 2025-02-17-dart %}">DART</a>).</p>
+    </div></div></div>
+    <div class="col mb-3"><div class="card h-100"><div class="card-body">
+      <h6 class="card-title">③ attention 너머의 새 신호</h6>
+      <p class="card-text mb-0">attention의 불안정·중복을 피해 더 직접적인 신호로 — <strong>그래프 정보 전파</strong>(<a href="{% post_url 2025-01-04-g-prune %}">G-Prune</a>), <strong>비용 최적화</strong>(<a href="{% post_url 2025-03-23-topv %}">TopV</a>), <strong>출력 민감도</strong>(<a href="{% post_url 2025-09-29-zoo-prune %}">ZOO-Prune</a>), <strong>공간 근접</strong>(<a href="{% post_url 2025-12-02-vlm-pruner %}">VLM-Pruner</a>).</p>
+    </div></div></div>
+    <div class="col mb-3"><div class="card h-100"><div class="card-body">
+      <h6 class="card-title">④ 질문(텍스트) 가이드</h6>
+      <p class="card-text mb-0">위 기준에 <strong>질문</strong>을 더한다 — 질문과 관련된 시각 토큰을 우선 남겨 순수 시각의 과압축을 막는다(<a href="{% post_url 2024-10-06-sparsevlm %}">SparseVLM</a> raters·<a href="{% post_url 2024-09-02-recoverable-compression %}">Recoverable</a>·<a href="{% post_url 2024-09-30-ivtp %}">IVTP</a>·<a href="{% post_url 2025-08-23-covipal %}">CoViPAL</a>).</p>
+    </div></div></div>
+  </div>
+</div>
+
+> 게다가 대부분 버린 토큰을 그냥 두지 않고 **복구·재활용**한다 — 클러스터링해 합치거나(SparseVLM·PruMerge·VLM-Pruner의 SWA) 질문 단서로 되살린다(Recoverable). 그리고 추가 학습이 필요 없는 **training-free**로 수렴하는 추세다.
 
 ## 관련 논문 한눈에 보기
 
-**연도순**으로 정리했다. **위치**(어디서 줄이나)는 색 태그로 표시 — <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> / <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span>(Pre-LLM) / <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> 내부로 나뉘며, **여러 단계에 걸치면 <span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d">Encoder+LLM</span>** 으로 표기한다(예: IVTP). **학습** 열은 대부분 추가 학습 없이 끼우는 **training-free** 추세를 보여준다.
+아래 표는 두 축(**위치** · 학습 유형)과 핵심을 **연도순**으로 정리한 지도다. 위치는 색 태그로 — <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> / <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> / <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> / 걸치면 <span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d">Encoder+LLM</span>.
 
 <div class="evlm-tab" markdown="1">
 
@@ -92,6 +119,7 @@ _styles: >
 | [**VLTP**]({% post_url 2024-09-12-vltp %}) | WACV 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | training-based | **MLLM 가이드**로 task 관련 토큰만 깊은 ViT 층에 통과(다단계·재활성) — task 지향 분할(TOS) 가속 |
 | [**SparseVLM**]({% post_url 2024-10-06-sparsevlm %}) | ICML 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | **text raters**로 self-attention 중요도 평가 → **rank 기반 적응 압축** + token recycling (FastV 능가) |
 | [**Recoverable Compression**]({% post_url 2024-09-02-recoverable-compression %}) | AAAI 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | CLS 1차 필터 → **질문 텍스트 유사 토큰을 복구(recover)** → 나머지 병합 · 토큰 ~10%로 |
+| [**G-Prune**]({% post_url 2025-01-04-g-prune %}) | AAAI 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | 시각 토큰을 **그래프 노드**로 — 의미 유사도 간선 + **정보 전파**로 중요도 매겨 top-k 선택(**전경·배경 모두**) · LLM attention 불필요 |
 | [**VisionZip**]({% post_url 2024-12-04-visionzip %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#a87676;color:#fff">Encoder</span> | training-free | 인코더 출력에서 **dominant 토큰 선택 + contextual 병합** · **text-agnostic**(멀티턴 강점) |
 | [**DivPrune**]({% post_url 2025-03-04-divprune %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | 가지치기를 **Max-Min Diversity(MMDP)** 로 — 중요도 아닌 **다양성 최대** 부분집합 선택(LLM 입력 전 1회) |
 | [**ATP-LLaVA**]({% post_url 2024-11-30-atp-llava %}) | CVPR 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-based | **ATP 모듈**로 인스턴스·층별 적응 압축률 + **SAP**(공간 보강) · 토큰 75%↓에 1.9% |
@@ -102,10 +130,8 @@ _styles: >
 | [**CDPruner**]({% post_url 2025-06-13-cdpruner %}) | NeurIPS 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | attention·유사도를 넘어 **질문에 조건화한 다양성**을 **DPP**로 최대화 → 다양+질문관련 토큰만 · LLaVA FLOPs 95%↓에 94% |
 | [**CoViPAL**]({% post_url 2025-08-23-covipal %}) | EMNLP 2025 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-based | 가볍고 model-agnostic한 **PPM**이 LVLM 전에 문맥 기반으로 잉여 토큰 예측·제거(얕은 층도) · training-free·based 양쪽 능가(이미지·비디오) |
 | [**DART**]({% post_url 2025-02-17-dart %}) | EMNLP 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | "중요도는 random보다 못하다" → **중복(duplication)** 기준 — **pivot 토큰**(≤2%)과 중복 낮은 토큰만 유지 · FlashAttention 호환·88.9%↓ |
-| **G-Prune** | arXiv 2025 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | 토큰을 그래프 노드로 정보 전파해 중요 토큰 선택(전경·배경) |
-| **ZOO-Prune** | CVPR 2026 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | zeroth-order gradient 추정으로 토큰 가지치기 |
-| **VLM-Pruner** | CVPR 2026 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | 공간 희소성 버퍼링(centrifugal)으로 토큰 가지치기 |
-| **EntropyPrune** | arXiv 2026 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | — | 엔트로피 기반 시각 토큰 선택 *(정리 예정)* |
+| [**ZOO-Prune**]({% post_url 2025-09-29-zoo-prune %}) | CVPR 2026 | <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff">Bridge</span> | training-free | **민감도(sensitivity)** 기준 — projection layer에서 **zeroth-order 섭동**으로 출력 영향 추정(backprop 없이) + 다양성 결합(**Score=Div×Sens**) · 토큰 94.4%↓ |
+| [**VLM-Pruner**]({% post_url 2025-12-02-vlm-pruner %}) | CVPR 2026 | <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d">LLM</span> | training-free | **중복+공간 희소성** 균형 — pivot에서 **근→원(centrifugal)** 선택(**BSS** 기준)·버린 토큰 **SWA** 회복 → 흩어짐 없이 객체 디테일 보존 · 88.9%↓ |
 
 </div>
 
@@ -119,52 +145,29 @@ _styles: >
 
 ## 발전 흐름
 
-분야가 2년 남짓으로 짧아 "세대"로 가르긴 이르지만, **무게중심이 옮겨온 흐름**은 뚜렷하다.
+분야가 2년 남짓으로 짧아 "세대"로 가르긴 이르지만, **무게중심이 옮겨온 흐름**은 뚜렷하다 — 위치(축①)와 기준(축②)이 함께 움직였다.
 
 <div class="evlm-where">
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#a87676"><div class="card-body">
       <h6 class="card-title">① 인코더에서 시작 <span class="badge rounded-pill" style="background-color:#a87676;color:#fff;font-size:0.62rem;vertical-align:1px">Encoder</span></h6>
-      <p class="card-text mb-0">ViT 토큰 축소(<a href="{% post_url 2023-02-01-tome %}">ToMe</a>)를 <strong>멀티모달 인코더</strong>로 이식 — 비전·언어 양쪽을 정렬해 자르거나 병합(<a href="{% post_url 2024-03-05-madtp %}">MADTP</a>·<a href="{% post_url 2024-06-13-crossget %}">CrossGET</a>). 단, <strong>fine-tuning</strong>이 필요했다.</p>
+      <p class="card-text mb-0">ViT 토큰 축소(<a href="{% post_url 2023-02-01-tome %}">ToMe</a>)를 <strong>멀티모달 인코더</strong>로 이식 — 비전·언어를 정렬해 자르거나 병합(<a href="{% post_url 2024-03-05-madtp %}">MADTP</a>·<a href="{% post_url 2024-06-13-crossget %}">CrossGET</a>). 단, <strong>fine-tuning</strong>이 필요했다.</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#e1acac"><div class="card-body">
       <h6 class="card-title">② LLM-side의 발견 <span class="badge rounded-pill" style="background-color:#e1acac;color:#1c1c1d;font-size:0.62rem;vertical-align:1px">LLM</span></h6>
-      <p class="card-text mb-0"><a href="{% post_url 2024-03-11-fastv %}">FastV</a>가 <strong>"깊은 LLM 층에선 시각 토큰 attention이 거의 0"</strong>임을 관찰 → 무게중심이 <strong>LLM 내부</strong>로. 한 층 뒤 잘라내고(FastV) stage별 점진 드롭(<a href="{% post_url 2024-10-22-pyramiddrop %}">PyramidDrop</a>)까지, 게다가 <strong>training-free</strong>.</p>
+      <p class="card-text mb-0"><a href="{% post_url 2024-03-11-fastv %}">FastV</a>가 <strong>"깊은 LLM 층에선 시각 토큰 attention이 거의 0"</strong>임을 관찰 → 무게중심이 <strong>LLM 내부</strong>로. 한 층 뒤 잘라내고(FastV) stage별 점진 드롭(<a href="{% post_url 2024-10-22-pyramiddrop %}">PyramidDrop</a>)까지, 게다가 <strong>training-free</strong>로.</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#ca8787"><div class="card-body">
       <h6 class="card-title">③ 질문 가이드 · 브리지 선별 <span class="badge rounded-pill" style="background-color:#ca8787;color:#fff;font-size:0.62rem;vertical-align:1px">Bridge</span></h6>
-      <p class="card-text mb-0">순수 시각만 보면 위험 → <strong>질문(텍스트)을 단서로</strong> 답에 필요한 토큰만 남기고, LLM 전(<strong>브리지</strong>)에서 선별·<strong>복구</strong>한다(SparseVLM·Recoverable Compression·CoViPAL). plug-and-play 모듈이 폭발적으로 늘어난다.</p>
+      <p class="card-text mb-0">순수 시각만 보면 위험 → <strong>질문(텍스트)을 단서로</strong> 답에 필요한 토큰만 LLM 전(<strong>브리지</strong>)에서 선별·<strong>복구</strong>한다(<a href="{% post_url 2024-10-06-sparsevlm %}">SparseVLM</a>·<a href="{% post_url 2024-09-02-recoverable-compression %}">Recoverable</a>·<a href="{% post_url 2025-08-23-covipal %}">CoViPAL</a>). plug-and-play 모듈이 폭발적으로 늘었다.</p>
     </div></div></div>
     <div class="col mb-3"><div class="card h-100" style="border-left-color:#ffd0d0"><div class="card-body">
-      <h6 class="card-title">④ 기준의 정교화 <span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d;font-size:0.62rem;vertical-align:1px">혼합</span></h6>
-      <p class="card-text mb-0">단순 attention을 넘어 — <strong>다양성</strong>(Max-Min·DPP: DivPrune·CDPruner), <strong>중복 제거</strong>(DART), <strong>비용 최적화</strong>(TopV), 나아가 인코더 설계 자체로 토큰을 적게 내는 길(FastVLM)까지 분화한다.</p>
-    </div></div></div>
-  </div>
-</div>
-
-## 공통 아이디어
-
-<div class="evlm-insights">
-  <div class="row row-cols-1 row-cols-md-2">
-    <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">텍스트(질문) 가이드</h6>
-      <p class="card-text mb-0">질문과 관련된 시각 토큰을 우선 남긴다. cross-attention으로 질문 토큰과 시각 토큰의 관련성을 재는 식(SparseVLM·Recoverable Compression).</p>
-    </div></div></div>
-    <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">적응적 축소 (중복도 기반)</h6>
-      <p class="card-text mb-0">이미지마다 정보 밀도가 달라, attention의 rank 등으로 중복을 추정해 <strong>이미지별로 다른 비율</strong>로 자른다(SparseVLM).</p>
-    </div></div></div>
-    <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">복구·재활용 (recover / recycle)</h6>
-      <p class="card-text mb-0">버린 토큰을 그냥 두지 않고 <strong>클러스터링해 합치거나</strong> 텍스트 단서로 <strong>되살린다</strong> — 정보 손실 최소화(Recoverable Compression·SparseVLM).</p>
-    </div></div></div>
-    <div class="col mb-3"><div class="card h-100"><div class="card-body">
-      <h6 class="card-title">training-free plug-and-play</h6>
-      <p class="card-text mb-0">추가 학습·파라미터 없이 추론 시 바로 끼우는 모듈이 늘어나는 추세(IVTP·SparseVLM·Recoverable Compression). 배포가 쉽다.</p>
+      <h6 class="card-title">④ 선택 기준의 정교화 <span class="badge rounded-pill" style="background-color:#ffd0d0;color:#1c1c1d;font-size:0.62rem;vertical-align:1px">기준</span></h6>
+      <p class="card-text mb-0">최근엔 <strong>"무엇으로 고르나"(축②)가 분화</strong>한다 — 다양성·중복(<a href="{% post_url 2025-03-04-divprune %}">DivPrune</a>·<a href="{% post_url 2025-02-17-dart %}">DART</a>)을 넘어 그래프(<a href="{% post_url 2025-01-04-g-prune %}">G-Prune</a>)·비용 최적화(<a href="{% post_url 2025-03-23-topv %}">TopV</a>)·민감도(<a href="{% post_url 2025-09-29-zoo-prune %}">ZOO-Prune</a>)·공간(<a href="{% post_url 2025-12-02-vlm-pruner %}">VLM-Pruner</a>), 나아가 인코더 설계로 토큰을 적게 내는 길(<a href="{% post_url 2024-12-17-fastvlm %}">FastVLM</a>)까지.</p>
     </div></div></div>
   </div>
 </div>
 
 ## 벤치마크
 
-평가는 대부분 **image/video understanding** 벤치마크로 한다 — MME·POPE·GQA·TextVQA·MMBench·SEED·ScienceQA 등. 각 벤치마크가 무엇을 보는지는 [VLM Overview의 주요 벤치마크]({% post_url 2026-06-22-vlm-overview %})에 정리해 두었다. 핵심 비교 지표는 **압축률(유지 토큰 수) 대비 정확도 유지 + latency**.
+평가는 대부분 **image/video understanding** 벤치마크로 한다 — MME · POPE · GQA · TextVQA · MMBench · SEED · ScienceQA · OCRBench 등. 각 벤치마크가 무엇을 보는지는 [VLM Overview의 주요 벤치마크]({% post_url 2026-06-22-vlm-overview %})에 정리해 두었다. 핵심 비교 지표는 **압축률(유지 토큰 수) 대비 정확도 유지 + latency**이며, 특히 **고압축(토큰 ~90%↓)·OCR/문서처럼 디테일이 중요한 task**에서 방법 간 차이가 크게 갈린다.
