@@ -3,7 +3,7 @@ metadata:
   source: manual (Google Scholar)
 papers:
   2osOgNQ5qMEC:
-    title: One-cycle Structured Pruning with Stability Driven Structure Search
+    title: One-Cycle Structured Pruning via Stability-Driven Subnetwork Search
     year: 2026
     citations: 4
   9yKSN-GCB0IC:

@@ -42,7 +42,7 @@ cv:
         end_date: 2022-02
 
     Publications:
-      - title: One-cycle Structured Pruning with Stability Driven Structure Search
+      - title: One-Cycle Structured Pruning via Stability-Driven Subnetwork Search
         authors:
           - Deepak Ghimire
           - Dayoung Kil
