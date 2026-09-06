@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-The paper *One-cycle Structured Pruning with Stability Driven Structure Search* has been accepted to **WACV 2026**.
+The paper *One-Cycle Structured Pruning via Stability-Driven Subnetwork Search* has been accepted to **WACV 2026**.
