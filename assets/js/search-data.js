@@ -16,13 +16,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "Selected projects and competition work, with code.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
-          },
         },{id: "nav-awards",
           title: "awards",
           description: "Honors, prizes, and competition recognitions.",
@@ -749,17 +742,17 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-received-the-부총리-겸-과학기술정보통신부-장관상-at-the-2025-자율주행-인공지능-챌린지-semantic-segmentation-track",
-          title: 'Received the 부총리 겸 과학기술정보통신부 장관상 at the 2025 자율주행 인공지능 챌린지 (Semantic...',
-          description: "",
-          section: "News",},{id: "news-the-paper-one-cycle-structured-pruning-via-stability-driven-subnetwork-search-has-been-accepted-to-wacv-2026",
+            },},{id: "news-the-paper-one-cycle-structured-pruning-via-stability-driven-subnetwork-search-has-been-accepted-to-wacv-2026",
           title: 'The paper One-Cycle Structured Pruning via Stability-Driven Subnetwork Search has been accepted to...',
           description: "",
-          section: "News",},{id: "news-team-ssuper-power-finished-2nd-place-in-track-3-ai-generated-images-detection-of-the-2026-ieee-low-power-computer-vision-challenge-held-at-the-ecv-workshop-at-cvpr-2026-denver-co-sponsored-by-qualcomm-results",
+          section: "News",},{id: "news-team-ssuper-power-finished-2nd-place-in-track-3-ai-generated-images-detection-of-the-2026-ieee-low-power-computer-vision-challenge-held-at-the-ecv-workshop-at-cvpr-2026-denver-co-sponsored-by-qualcomm",
           title: 'Team SSUPER_POWER finished 2nd place in Track 3 (AI Generated Images Detection) of...',
           description: "",
           section: "News",},{id: "news-filed-two-korean-patent-applications-추론-인식-프루닝-및-질의-유도-복원을-이용한-시각-언어-모델-추론-시스템-및-방법-application-no-10-2026-0101880-and-원-사이클-기반의-신경망-모델의-가지치기-방법-및-이를-수행하기-위한-컴퓨팅-장치-application-no-10-2026-0081765",
           title: 'Filed two Korean patent applications: 추론 인식 프루닝 및 질의 유도 복원을 이용한...',
+          description: "",
+          section: "News",},{id: "news-achieved-1st-place-in-the-mumu-mobile-unified-multimodal-understanding-track-of-the-8th-lsvos-challenge-at-eccv-2026-with-eumu-a-single-239m-parameter-model-that-jointly-performs-multi-concept-tagging-open-vocabulary-detection-and-captioning",
+          title: 'Achieved 1st place in the MUMU (Mobile Unified Multimodal Understanding) Track of the...',
           description: "",
           section: "News",},{id: "projects-face-out",
           title: 'Face Out',
