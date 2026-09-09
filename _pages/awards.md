@@ -13,11 +13,30 @@ nav_order: 4
     <div class="timeline-year">2026</div>
 
     <div class="timeline-item">
+      <div class="timeline-title"><strong>MUMU Track, 1st Place</strong> &mdash; Mobile Unified Multimodal Understanding</div>
+      <div class="timeline-subtitle">8th Large-scale Video Object Segmentation (LSVOS) Challenge &middot; <em>EUMU</em></div>
+      <div class="timeline-meta">ECCV 2026 &middot; Organized by Fudan University, SUFE, and Transsion</div>
+      <div class="timeline-date">2026.09.03</div>
+      <div class="mt-2">
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://lsvos.github.io/mumu" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-trophy me-1"></i> Challenge</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://www.codabench.org/competitions/17842/#/results-tab" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-ranking-star me-1"></i> Leaderboard</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://github.com/Dayoung-Kil/EUMU" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> Code</a>
+        <a class="btn btn-sm btn-outline-primary" href="https://huggingface.co/Dayoung-space/EUMU" target="_blank" rel="noopener noreferrer">&#129303; Weights</a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
       <div class="timeline-title"><strong>Track 3, 2nd Place</strong> &mdash; AI Generated Images Detection</div>
       <div class="timeline-subtitle">2026 IEEE Low-Power Computer Vision Challenge &middot; Team <em>SSUPER_POWER</em></div>
       <div class="timeline-meta">ECV Workshop at CVPR 2026, Denver, CO &middot; Sponsored by Qualcomm</div>
       <div class="timeline-date">2026.06.04</div>
-      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/lpcv-2026-aigid/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
+      <div class="mt-2">
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://lpcv.ai/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-trophy me-1"></i> Challenge</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://lpcv.ai/2026LPCVC/winners/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-ranking-star me-1"></i> Results</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://github.com/LPCV-SSUPER-POWER/Track3-AI-Generated-Images-Detection" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> Code</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://huggingface.co/Dayoung-space/SSUPER-AIGID" target="_blank" rel="noopener noreferrer">&#129303; Weights</a>
+        <a class="btn btn-sm btn-outline-primary" href="{{ '/projects/lpcv-2026-aigid/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View blog</a>
+      </div>
     </div>
   </div>
 
@@ -64,7 +83,7 @@ nav_order: 4
       <div class="timeline-subtitle">AI융합 경진대회</div>
       <div class="timeline-meta">주관: 숭실대학교 AI융합학부</div>
       <div class="timeline-date">2021.11.12</div>
-      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
+      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View blog</a></div>
     </div>
 
     <div class="timeline-item">
@@ -72,7 +91,7 @@ nav_order: 4
       <div class="timeline-subtitle">제11회 숭실 캡스톤디자인 경진대회</div>
       <div class="timeline-meta">주관: 숭실대학교</div>
       <div class="timeline-date">2021.09.28</div>
-      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View project</a></div>
+      <div class="mt-2"><a class="btn btn-sm btn-outline-primary" href="{{ '/projects/face-out/' | relative_url }}"><i class="fa-solid fa-diagram-project me-1"></i> View blog</a></div>
     </div>
 
     <div class="timeline-item">

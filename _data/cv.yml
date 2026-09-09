@@ -93,6 +93,11 @@ cv:
         summary: KCI journal version of the lightweight room layout estimation work; validated on Stanford2D3D, PanoContext, and real-world panorama images.
 
     Awards:
+      - title: MUMU Track, 1st Place &mdash; Mobile Unified Multimodal Understanding
+        date: 2026-09-03
+        awarder: 8th Large-scale Video Object Segmentation (LSVOS) Challenge, ECCV 2026 (organized by Fudan University / SUFE / Transsion)
+        summary: EUMU (Efficient Unified Multimodal Understanding) &mdash; a single unified model jointly performing multi-concept tagging, open-vocabulary detection, and image captioning under constrained computational resources.
+
       - title: Track 3, 2nd Place &mdash; AI Generated Images Detection
         date: 2026-06-04
         awarder: 2026 IEEE Low-Power Computer Vision Challenge (ECV Workshop at CVPR 2026, Denver, CO; sponsored by Qualcomm)
