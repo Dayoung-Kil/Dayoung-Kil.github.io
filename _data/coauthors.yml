@@ -1,17 +1,19 @@
 # Coauthor metadata used by jekyll-scholar to render names with links.
-# Keys are lowercase last names; entries match firstname variants seen in papers.bib.
+# Links intentionally disabled: coauthors render as plain gray text.
+# To re-enable, uncomment an entry (keys are lowercase last names).
 
-"ghimire":
-  - firstname: ["Deepak", "D."]
-    url: https://scholar.google.com/citations?user=8X1bqJsAAAAJ
-
-"kim":
-  - firstname: ["Seong-heum", "S.", "S.-h.", "Seongheum"]
-    url: https://scholar.google.com/citations?user=mPtBNAcAAAAJ
-
-"park":
-  - firstname: ["Jaesik", "J."]
-    url: https://scholar.google.com/citations?user=_3q6KBIAAAAJ
-
-"jeong":
-  - firstname: ["Seonghwan", "S."]
+# "ghimire":
+#   - firstname: ["Deepak", "D."]
+#     url: https://scholar.google.com/citations?user=8X1bqJsAAAAJ
+#
+# "kim":
+#   - firstname: ["Seong-heum", "S.", "S.-h.", "Seongheum"]
+#     url: https://scholar.google.com/citations?user=mPtBNAcAAAAJ
+#
+# "park":
+#   - firstname: ["Jaesik", "J."]
+#     url: https://scholar.google.com/citations?user=_3q6KBIAAAAJ
+#
+# "jeong":
+#   - firstname: ["Seonghwan", "S."]
+{}

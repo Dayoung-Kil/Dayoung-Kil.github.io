@@ -20,6 +20,7 @@ nav_order: 4
       <div class="mt-2">
         <a class="btn btn-sm btn-outline-primary me-1" href="https://lsvos.github.io/mumu" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-trophy me-1"></i> Challenge</a>
         <a class="btn btn-sm btn-outline-primary me-1" href="https://www.codabench.org/competitions/17842/#/results-tab" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-ranking-star me-1"></i> Leaderboard</a>
+        <a class="btn btn-sm btn-outline-primary me-1" href="https://arxiv.org/abs/2609.19451" target="_blank" rel="noopener noreferrer"><i class="ai ai-arxiv me-1"></i> Paper</a>
         <a class="btn btn-sm btn-outline-primary me-1" href="https://github.com/Dayoung-Kil/EUMU" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github me-1"></i> Code</a>
         <a class="btn btn-sm btn-outline-primary" href="https://huggingface.co/Dayoung-space/EUMU" target="_blank" rel="noopener noreferrer">&#129303; Weights</a>
       </div>

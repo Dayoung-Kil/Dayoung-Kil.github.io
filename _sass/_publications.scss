@@ -102,6 +102,14 @@
             color: var(--global-text-color);
             border-bottom: 1px dashed var(--global-text-color);
           }
+
+          // once expanded, names read as plain gray text, not a link
+          &.expanded,
+          &.expanded:hover {
+            color: var(--global-text-color-light);
+            border-bottom: none;
+            cursor: auto;
+          }
         }
       }
 
